@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CreditCard.h"
 
 @interface Payment : NSObject
+
+@property NSString *moipOrderId;
+@property int installmentCount;
+@property CreditCard *creditCard;
 
 @end

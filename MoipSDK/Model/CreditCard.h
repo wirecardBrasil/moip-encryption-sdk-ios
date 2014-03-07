@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CardHolder.h"
 
 @interface CreditCard : NSObject
+
+@property CardHolder *cardholder;
 
 @end

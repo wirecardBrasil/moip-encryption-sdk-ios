@@ -10,4 +10,6 @@
 
 @interface PaymentTransaction : NSObject
 
+@property int status;
+
 @end

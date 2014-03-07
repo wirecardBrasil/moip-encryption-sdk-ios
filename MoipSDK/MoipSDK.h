@@ -7,7 +7,35 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Payment.h"
+#import "PaymentTransaction.h"
+
+typedef NS_ENUM(NSUInteger, PaymentStatus)
+{
+    Initiated,
+    Authorized,
+    Concluded,
+    Cancelled,
+    Refunded,
+    Reversed,
+    Printed,
+    InAnalysis
+};
+
+@protocol MoipPaymentDelegate <NSObject>
+
+- (void) paymentCreated:(PaymentTransaction *)paymentTransaction;
+- (void) paymentFailed:(NSError *)error;
+
+@end
 
 @interface MoipSDK : NSObject
+
+@property id<MoipPaymentDelegate> delegate;
+
+- (void) submitPayment:(Payment *)payment delegate:(id)delegate;
+- (void) checkPaymentStatus:(PaymentTransaction *)transaction;
+
+
 
 @end

@@ -16,6 +16,14 @@
 		67BF00C018C77B7100080D43 /* MoipSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BF00A318C77B7100080D43 /* MoipSDK.framework */; };
 		67BF00C618C77B7100080D43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67BF00C418C77B7100080D43 /* InfoPlist.strings */; };
 		67BF00C818C77B7100080D43 /* MoipSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF00C718C77B7100080D43 /* MoipSDKTests.m */; };
+		67FE837718C8DE2900F7F2DD /* CreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837518C8DE2900F7F2DD /* CreditCard.h */; };
+		67FE837818C8DE2900F7F2DD /* CreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FE837618C8DE2900F7F2DD /* CreditCard.m */; };
+		67FE837B18C8DE3600F7F2DD /* CardHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837918C8DE3600F7F2DD /* CardHolder.h */; };
+		67FE837C18C8DE3600F7F2DD /* CardHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FE837A18C8DE3600F7F2DD /* CardHolder.m */; };
+		67FE838118C8E63800F7F2DD /* Payment.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837F18C8E63800F7F2DD /* Payment.h */; };
+		67FE838218C8E63800F7F2DD /* Payment.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FE838018C8E63800F7F2DD /* Payment.m */; };
+		67FE838518C8ECE100F7F2DD /* PaymentTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE838318C8ECE100F7F2DD /* PaymentTransaction.h */; };
+		67FE838618C8ECE100F7F2DD /* PaymentTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FE838418C8ECE100F7F2DD /* PaymentTransaction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,14 @@
 		67BF00C318C77B7100080D43 /* MoipSDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDKTests-Info.plist"; sourceTree = "<group>"; };
 		67BF00C518C77B7100080D43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67BF00C718C77B7100080D43 /* MoipSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDKTests.m; sourceTree = "<group>"; };
+		67FE837518C8DE2900F7F2DD /* CreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreditCard.h; path = Model/CreditCard.h; sourceTree = "<group>"; };
+		67FE837618C8DE2900F7F2DD /* CreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreditCard.m; path = Model/CreditCard.m; sourceTree = "<group>"; };
+		67FE837918C8DE3600F7F2DD /* CardHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardHolder.h; path = Model/CardHolder.h; sourceTree = "<group>"; };
+		67FE837A18C8DE3600F7F2DD /* CardHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardHolder.m; path = Model/CardHolder.m; sourceTree = "<group>"; };
+		67FE837F18C8E63800F7F2DD /* Payment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Payment.h; path = Model/Payment.h; sourceTree = "<group>"; };
+		67FE838018C8E63800F7F2DD /* Payment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Payment.m; path = Model/Payment.m; sourceTree = "<group>"; };
+		67FE838318C8ECE100F7F2DD /* PaymentTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentTransaction.h; path = Model/PaymentTransaction.h; sourceTree = "<group>"; };
+		67FE838418C8ECE100F7F2DD /* PaymentTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentTransaction.m; path = Model/PaymentTransaction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +122,8 @@
 		67BF00A818C77B7100080D43 /* MoipSDK */ = {
 			isa = PBXGroup;
 			children = (
+				67FE838718C8F34C00F7F2DD /* Helpers */,
+				67FE837418C8DC6100F7F2DD /* Model */,
 				67BF00AF18C77B7100080D43 /* MoipSDK.h */,
 				67BF00B018C77B7100080D43 /* MoipSDK.m */,
 				67BF00A918C77B7100080D43 /* Supporting Files */,
@@ -141,6 +159,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		67FE837418C8DC6100F7F2DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67FE837518C8DE2900F7F2DD /* CreditCard.h */,
+				67FE837618C8DE2900F7F2DD /* CreditCard.m */,
+				67FE837918C8DE3600F7F2DD /* CardHolder.h */,
+				67FE837A18C8DE3600F7F2DD /* CardHolder.m */,
+				67FE837F18C8E63800F7F2DD /* Payment.h */,
+				67FE838018C8E63800F7F2DD /* Payment.m */,
+				67FE838318C8ECE100F7F2DD /* PaymentTransaction.h */,
+				67FE838418C8ECE100F7F2DD /* PaymentTransaction.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		67FE838718C8F34C00F7F2DD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -148,6 +188,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67FE838118C8E63800F7F2DD /* Payment.h in Headers */,
+				67FE837B18C8DE3600F7F2DD /* CardHolder.h in Headers */,
+				67FE838518C8ECE100F7F2DD /* PaymentTransaction.h in Headers */,
+				67FE837718C8DE2900F7F2DD /* CreditCard.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +308,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67FE837C18C8DE3600F7F2DD /* CardHolder.m in Sources */,
+				67FE837818C8DE2900F7F2DD /* CreditCard.m in Sources */,
+				67FE838218C8E63800F7F2DD /* Payment.m in Sources */,
+				67FE838618C8ECE100F7F2DD /* PaymentTransaction.m in Sources */,
 				67BF00B118C77B7100080D43 /* MoipSDK.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +528,7 @@
 				67BF00CD18C77B7100080D43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		67BF00CE18C77B7100080D43 /* Build configuration list for PBXNativeTarget "MoipSDKTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +537,7 @@
 				67BF00D018C77B7100080D43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

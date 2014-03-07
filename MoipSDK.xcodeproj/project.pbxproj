@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		671D3E2818CA1CAA005C73B1 /* CreditCard.m in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837618C8DE2900F7F2DD /* CreditCard.m */; };
+		671D3E2918CA1CAA005C73B1 /* CardHolder.m in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837A18C8DE3600F7F2DD /* CardHolder.m */; };
+		671D3E2A18CA1CAA005C73B1 /* Payment.m in Headers */ = {isa = PBXBuildFile; fileRef = 67FE838018C8E63800F7F2DD /* Payment.m */; };
+		671D3E2B18CA1CAA005C73B1 /* PaymentTransaction.m in Headers */ = {isa = PBXBuildFile; fileRef = 67FE838418C8ECE100F7F2DD /* PaymentTransaction.m */; };
+		671D3E2C18CA1CAA005C73B1 /* MoipSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BF00AF18C77B7100080D43 /* MoipSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		671D3E2D18CA1CAA005C73B1 /* MoipSDK.m in Headers */ = {isa = PBXBuildFile; fileRef = 67BF00B018C77B7100080D43 /* MoipSDK.m */; };
 		67BF00A718C77B7100080D43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BF00A618C77B7100080D43 /* Foundation.framework */; };
 		67BF00AD18C77B7100080D43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67BF00AB18C77B7100080D43 /* InfoPlist.strings */; };
 		67BF00B118C77B7100080D43 /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF00B018C77B7100080D43 /* MoipSDK.m */; };
@@ -16,13 +22,13 @@
 		67BF00C018C77B7100080D43 /* MoipSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BF00A318C77B7100080D43 /* MoipSDK.framework */; };
 		67BF00C618C77B7100080D43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67BF00C418C77B7100080D43 /* InfoPlist.strings */; };
 		67BF00C818C77B7100080D43 /* MoipSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF00C718C77B7100080D43 /* MoipSDKTests.m */; };
-		67FE837718C8DE2900F7F2DD /* CreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837518C8DE2900F7F2DD /* CreditCard.h */; };
+		67FE837718C8DE2900F7F2DD /* CreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837518C8DE2900F7F2DD /* CreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67FE837818C8DE2900F7F2DD /* CreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FE837618C8DE2900F7F2DD /* CreditCard.m */; };
-		67FE837B18C8DE3600F7F2DD /* CardHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837918C8DE3600F7F2DD /* CardHolder.h */; };
+		67FE837B18C8DE3600F7F2DD /* CardHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837918C8DE3600F7F2DD /* CardHolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67FE837C18C8DE3600F7F2DD /* CardHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FE837A18C8DE3600F7F2DD /* CardHolder.m */; };
-		67FE838118C8E63800F7F2DD /* Payment.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837F18C8E63800F7F2DD /* Payment.h */; };
+		67FE838118C8E63800F7F2DD /* Payment.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837F18C8E63800F7F2DD /* Payment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67FE838218C8E63800F7F2DD /* Payment.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FE838018C8E63800F7F2DD /* Payment.m */; };
-		67FE838518C8ECE100F7F2DD /* PaymentTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE838318C8ECE100F7F2DD /* PaymentTransaction.h */; };
+		67FE838518C8ECE100F7F2DD /* PaymentTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE838318C8ECE100F7F2DD /* PaymentTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67FE838618C8ECE100F7F2DD /* PaymentTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FE838418C8ECE100F7F2DD /* PaymentTransaction.m */; };
 /* End PBXBuildFile section */
 
@@ -188,10 +194,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				671D3E2C18CA1CAA005C73B1 /* MoipSDK.h in Headers */,
 				67FE838118C8E63800F7F2DD /* Payment.h in Headers */,
-				67FE837B18C8DE3600F7F2DD /* CardHolder.h in Headers */,
 				67FE838518C8ECE100F7F2DD /* PaymentTransaction.h in Headers */,
 				67FE837718C8DE2900F7F2DD /* CreditCard.h in Headers */,
+				67FE837B18C8DE3600F7F2DD /* CardHolder.h in Headers */,
+				671D3E2818CA1CAA005C73B1 /* CreditCard.m in Headers */,
+				671D3E2918CA1CAA005C73B1 /* CardHolder.m in Headers */,
+				671D3E2A18CA1CAA005C73B1 /* Payment.m in Headers */,
+				671D3E2B18CA1CAA005C73B1 /* PaymentTransaction.m in Headers */,
+				671D3E2D18CA1CAA005C73B1 /* MoipSDK.m in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

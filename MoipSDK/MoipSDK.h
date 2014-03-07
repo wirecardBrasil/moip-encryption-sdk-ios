@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, PaymentStatus)
 };
 
 @protocol MoipPaymentDelegate <NSObject>
-
+@required
 - (void) paymentCreated:(PaymentTransaction *)paymentTransaction;
 - (void) paymentFailed:(NSError *)error;
 

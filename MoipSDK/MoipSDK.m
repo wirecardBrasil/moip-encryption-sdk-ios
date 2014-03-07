@@ -10,8 +10,14 @@
 
 @implementation MoipSDK
 
-- (void) executePayment:(NSString *)moipOrderId creditCard:(CreditCard *)card delegate:(id)delegate
+- (void) submitPayment:(Payment *)payment delegate:(id)delegate
 {
+    
+}
+
+- (void) checkPaymentStatus:(PaymentTransaction *)transaction
+{
+    
 }
 
 @end

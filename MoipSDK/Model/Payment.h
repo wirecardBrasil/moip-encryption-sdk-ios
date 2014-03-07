@@ -9,10 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "CreditCard.h"
 
+typedef NS_ENUM(int, PaymentMethod)
+{
+    CREDIT_CARD
+};
+
 @interface Payment : NSObject
 
 @property NSString *moipOrderId;
 @property int installmentCount;
+@property PaymentMethod method;
 @property CreditCard *creditCard;
 
 @end

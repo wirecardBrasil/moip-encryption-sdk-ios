@@ -8,6 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(int, CardHolderDocumentType)
+{
+    CNPJ,
+    CPF,
+    RG
+};
+
 @interface CardHolder : NSObject
+
+@property NSString *fullname;
+@property NSString *birthdate;
+@property CardHolderDocumentType *documentType;
+@property NSString *documentNumber;
+@property NSUInteger phoneCountryCode;
+@property NSUInteger phoneAreaCode;
+@property NSUInteger phoneNumber;
 
 @end

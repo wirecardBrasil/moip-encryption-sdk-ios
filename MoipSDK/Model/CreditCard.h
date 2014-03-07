@@ -11,6 +11,10 @@
 
 @interface CreditCard : NSObject
 
+@property NSUInteger expirationMonth;
+@property NSUInteger expirationYear;
+@property NSString *number;
+@property NSString *cvc;
 @property CardHolder *cardholder;
 
 @end

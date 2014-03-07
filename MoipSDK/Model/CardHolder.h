@@ -19,7 +19,7 @@ typedef NS_ENUM(int, CardHolderDocumentType)
 
 @property NSString *fullname;
 @property NSString *birthdate;
-@property CardHolderDocumentType *documentType;
+@property CardHolderDocumentType documentType;
 @property NSString *documentNumber;
 @property NSUInteger phoneCountryCode;
 @property NSUInteger phoneAreaCode;

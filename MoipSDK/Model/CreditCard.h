@@ -14,7 +14,7 @@
 @property NSUInteger expirationMonth;
 @property NSUInteger expirationYear;
 @property NSString *number;
-@property NSString *cvc;
+@property NSString *cvv;
 @property CardHolder *cardholder;
 
 @end

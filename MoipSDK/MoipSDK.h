@@ -12,20 +12,20 @@
 
 typedef NS_ENUM(NSUInteger, PaymentStatus)
 {
-    Initiated,
-    Authorized,
-    Concluded,
-    Cancelled,
-    Refunded,
-    Reversed,
-    Printed,
-    InAnalysis
+    PaymentStatusInitiated,
+    PaymentStatusAuthorized,
+    PaymentStatusConcluded,
+    PaymentStatusCancelled,
+    PaymentStatusRefunded,
+    PaymentStatusReversed,
+    PaymentStatusPrinted,
+    PaymentStatusInAnalysis
 };
 
 @protocol MoipPaymentDelegate <NSObject>
 @required
 - (void) paymentCreated:(PaymentTransaction *)paymentTransaction;
-- (void) paymentFailed:(NSError *)error;
+- (void) paymentFailed:(PaymentTransaction *)paymentTransaction error:(NSError *)error;
 
 @end
 
@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, PaymentStatus)
 
 @property id<MoipPaymentDelegate> delegate;
 
-- (void) submitPayment:(Payment *)payment delegate:(id)delegate;
+- (void) submitPayment:(Payment *)payment;
 - (void) checkPaymentStatus:(PaymentTransaction *)transaction;
 
 

@@ -10,14 +10,25 @@
 
 @implementation MoipSDK
 
-- (void) submitPayment:(Payment *)payment delegate:(id)delegate
+- (void) submitPayment:(Payment *)payment
 {
-    
+    PaymentTransaction *transac = [PaymentTransaction new];
+    transac.status = PaymentStatusCancelled;
+    if ([self.delegate respondsToSelector:@selector(paymentCreated:)])
+    {
+        [self.delegate performSelector:@selector(paymentCreated:) withObject:transac];
+    }
 }
 
 - (void) checkPaymentStatus:(PaymentTransaction *)transaction
 {
-    
+    PaymentTransaction *transac = [PaymentTransaction new];
+    transac.status = PaymentStatusCancelled;
+    if ([self.delegate respondsToSelector:@selector(paymentFailed:error:)])
+    {
+        NSError *er = [NSError errorWithDomain:@"MoipSDK" code:999 userInfo:nil];
+        [self.delegate performSelector:@selector(paymentFailed:error:) withObject:transac withObject:er];
+    }
 }
 
 @end

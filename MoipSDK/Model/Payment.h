@@ -11,7 +11,7 @@
 
 typedef NS_ENUM(int, PaymentMethod)
 {
-    CREDIT_CARD
+    PaymentMethodCreditCard
 };
 
 @interface Payment : NSObject

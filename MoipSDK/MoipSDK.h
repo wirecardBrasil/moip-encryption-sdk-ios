@@ -10,18 +10,6 @@
 #import "Payment.h"
 #import "PaymentTransaction.h"
 
-typedef NS_ENUM(NSUInteger, PaymentStatus)
-{
-    PaymentStatusInitiated,
-    PaymentStatusAuthorized,
-    PaymentStatusConcluded,
-    PaymentStatusCancelled,
-    PaymentStatusRefunded,
-    PaymentStatusReversed,
-    PaymentStatusPrinted,
-    PaymentStatusInAnalysis
-};
-
 @protocol MoipPaymentDelegate <NSObject>
 @required
 - (void) paymentCreated:(PaymentTransaction *)paymentTransaction;

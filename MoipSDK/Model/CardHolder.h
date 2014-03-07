@@ -10,9 +10,9 @@
 
 typedef NS_ENUM(int, CardHolderDocumentType)
 {
-    CNPJ,
-    CPF,
-    RG
+    CardHolderDocumentTypeCNPJ,
+    CardHolderDocumentTypeCPF,
+    CardHolderDocumentTypeRG
 };
 
 @interface CardHolder : NSObject
@@ -21,8 +21,8 @@ typedef NS_ENUM(int, CardHolderDocumentType)
 @property NSString *birthdate;
 @property CardHolderDocumentType documentType;
 @property NSString *documentNumber;
-@property NSUInteger phoneCountryCode;
-@property NSUInteger phoneAreaCode;
-@property NSUInteger phoneNumber;
+@property NSString *phoneCountryCode;
+@property NSString *phoneAreaCode;
+@property NSString *phoneNumber;
 
 @end

@@ -34,11 +34,11 @@
     CardHolder *holder = [CardHolder new];
     holder.fullname = @"Fernando Nazario Sousa";
     holder.birthdate = @"1988-04-27";
-    holder.documentType = CPF;
+    holder.documentType = CardHolderDocumentTypeCPF;
     holder.documentNumber = @"99999999999";
-    holder.phoneCountryCode = 55;
-    holder.phoneAreaCode = 11;
-    holder.phoneNumber = 975902554;
+    holder.phoneCountryCode = @"55";
+    holder.phoneAreaCode = @"11";
+    holder.phoneNumber = @"975902554";
     
     CreditCard *card = [CreditCard new];
     card.expirationMonth = 06;
@@ -50,13 +50,13 @@
     Payment *payment = [Payment new];
     payment.moipOrderId = @"ORD_123";
     payment.installmentCount = 2;
-    payment.method = CREDIT_CARD;
+    payment.method = PaymentMethodCreditCard;
     payment.creditCard = card;
     
     MoipSDK *moip = [MoipSDK new];
     moip.delegate = self;
     [moip submitPayment:payment];
-    
+
     while (self.executingAsyncTest);
 }
 

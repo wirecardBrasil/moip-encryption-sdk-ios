@@ -7,3 +7,6 @@
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
 #endif
+
+
+#define APIURL(X)[NSString stringWithFormat:@"https://private-f4653-moip.apiary.io/v2%@", X]

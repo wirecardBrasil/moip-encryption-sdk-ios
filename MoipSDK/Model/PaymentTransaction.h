@@ -8,8 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, PaymentStatus)
+{
+    PaymentStatusInitiated,
+    PaymentStatusAuthorized,
+    PaymentStatusConcluded,
+    PaymentStatusCancelled,
+    PaymentStatusRefunded,
+    PaymentStatusReversed,
+    PaymentStatusPrinted,
+    PaymentStatusInAnalysis
+};
+
 @interface PaymentTransaction : NSObject
 
-@property int status;
+@property NSString *moipOrderId;
+@property PaymentStatus status;
 
 @end

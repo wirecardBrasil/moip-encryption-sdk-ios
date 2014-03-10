@@ -8,13 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(int, CardHolderDocumentType)
-{
-    CardHolderDocumentTypeCNPJ,
-    CardHolderDocumentTypeCPF,
-    CardHolderDocumentTypeRG
-};
-
 @interface CardHolder : NSObject
 
 @property NSString *fullname;

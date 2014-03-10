@@ -20,6 +20,7 @@
 		675074D118CDE96E00FBF2CB /* MoipHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074CC18CDE96E00FBF2CB /* MoipHttpResponse.m */; };
 		675074D518CDEA3F00FBF2CB /* Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074D318CDEA3F00FBF2CB /* Utilities.h */; };
 		675074D618CDEA3F00FBF2CB /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074D418CDEA3F00FBF2CB /* Utilities.m */; };
+		67701B0818CE293800D66A5B /* Enums.h in Headers */ = {isa = PBXBuildFile; fileRef = 67701B0618CE293800D66A5B /* Enums.h */; };
 		67BF00A718C77B7100080D43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BF00A618C77B7100080D43 /* Foundation.framework */; };
 		67BF00AD18C77B7100080D43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67BF00AB18C77B7100080D43 /* InfoPlist.strings */; };
 		67BF00B118C77B7100080D43 /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF00B018C77B7100080D43 /* MoipSDK.m */; };
@@ -29,6 +30,14 @@
 		67BF00C018C77B7100080D43 /* MoipSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BF00A318C77B7100080D43 /* MoipSDK.framework */; };
 		67BF00C618C77B7100080D43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67BF00C418C77B7100080D43 /* InfoPlist.strings */; };
 		67BF00C818C77B7100080D43 /* MoipSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF00C718C77B7100080D43 /* MoipSDKTests.m */; };
+		67F8539918CE59FB00C94B5C /* Event.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F8539718CE59FB00C94B5C /* Event.h */; };
+		67F8539A18CE59FB00C94B5C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F8539818CE59FB00C94B5C /* Event.m */; };
+		67F8539D18CE5A0700C94B5C /* Fee.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F8539B18CE5A0700C94B5C /* Fee.h */; };
+		67F8539E18CE5A0700C94B5C /* Fee.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F8539C18CE5A0700C94B5C /* Fee.m */; };
+		67F853A118CE616000C94B5C /* Amount.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F8539F18CE616000C94B5C /* Amount.h */; };
+		67F853A218CE616000C94B5C /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F853A018CE616000C94B5C /* Amount.m */; };
+		67F853A518CE61A600C94B5C /* FundingInstrument.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F853A318CE61A600C94B5C /* FundingInstrument.h */; };
+		67F853A618CE61A600C94B5C /* FundingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F853A418CE61A600C94B5C /* FundingInstrument.m */; };
 		67FE837718C8DE2900F7F2DD /* CreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837518C8DE2900F7F2DD /* CreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67FE837818C8DE2900F7F2DD /* CreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FE837618C8DE2900F7F2DD /* CreditCard.m */; };
 		67FE837B18C8DE3600F7F2DD /* CardHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FE837918C8DE3600F7F2DD /* CardHolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,6 +73,7 @@
 		675074CC18CDE96E00FBF2CB /* MoipHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpResponse.m; sourceTree = "<group>"; };
 		675074D318CDEA3F00FBF2CB /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		675074D418CDEA3F00FBF2CB /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		67701B0618CE293800D66A5B /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enums.h; path = Model/Enums.h; sourceTree = "<group>"; };
 		67BF00A318C77B7100080D43 /* MoipSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = MoipSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67BF00A618C77B7100080D43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		67BF00AA18C77B7100080D43 /* MoipSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDK-Info.plist"; sourceTree = "<group>"; };
@@ -77,6 +87,14 @@
 		67BF00C318C77B7100080D43 /* MoipSDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDKTests-Info.plist"; sourceTree = "<group>"; };
 		67BF00C518C77B7100080D43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67BF00C718C77B7100080D43 /* MoipSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDKTests.m; sourceTree = "<group>"; };
+		67F8539718CE59FB00C94B5C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = Model/Event.h; sourceTree = "<group>"; };
+		67F8539818CE59FB00C94B5C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = Model/Event.m; sourceTree = "<group>"; };
+		67F8539B18CE5A0700C94B5C /* Fee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fee.h; path = Model/Fee.h; sourceTree = "<group>"; };
+		67F8539C18CE5A0700C94B5C /* Fee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Fee.m; path = Model/Fee.m; sourceTree = "<group>"; };
+		67F8539F18CE616000C94B5C /* Amount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Amount.h; path = Model/Amount.h; sourceTree = "<group>"; };
+		67F853A018CE616000C94B5C /* Amount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Amount.m; path = Model/Amount.m; sourceTree = "<group>"; };
+		67F853A318CE61A600C94B5C /* FundingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FundingInstrument.h; path = Model/FundingInstrument.h; sourceTree = "<group>"; };
+		67F853A418CE61A600C94B5C /* FundingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FundingInstrument.m; path = Model/FundingInstrument.m; sourceTree = "<group>"; };
 		67FE837518C8DE2900F7F2DD /* CreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreditCard.h; path = Model/CreditCard.h; sourceTree = "<group>"; };
 		67FE837618C8DE2900F7F2DD /* CreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreditCard.m; path = Model/CreditCard.m; sourceTree = "<group>"; };
 		67FE837918C8DE3600F7F2DD /* CardHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardHolder.h; path = Model/CardHolder.h; sourceTree = "<group>"; };
@@ -204,6 +222,15 @@
 		67FE837418C8DC6100F7F2DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				67701B0618CE293800D66A5B /* Enums.h */,
+				67F8539718CE59FB00C94B5C /* Event.h */,
+				67F8539818CE59FB00C94B5C /* Event.m */,
+				67F8539B18CE5A0700C94B5C /* Fee.h */,
+				67F8539C18CE5A0700C94B5C /* Fee.m */,
+				67F8539F18CE616000C94B5C /* Amount.h */,
+				67F853A018CE616000C94B5C /* Amount.m */,
+				67F853A318CE61A600C94B5C /* FundingInstrument.h */,
+				67F853A418CE61A600C94B5C /* FundingInstrument.m */,
 				67FE837518C8DE2900F7F2DD /* CreditCard.h */,
 				67FE837618C8DE2900F7F2DD /* CreditCard.m */,
 				67FE837918C8DE3600F7F2DD /* CardHolder.h */,
@@ -223,6 +250,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67F853A518CE61A600C94B5C /* FundingInstrument.h in Headers */,
 				671D3E2C18CA1CAA005C73B1 /* MoipSDK.h in Headers */,
 				675074CE18CDE96E00FBF2CB /* MoipHttpRequester.h in Headers */,
 				67FE838118C8E63800F7F2DD /* Payment.h in Headers */,
@@ -231,12 +259,16 @@
 				675074D018CDE96E00FBF2CB /* MoipHttpResponse.h in Headers */,
 				67FE837B18C8DE3600F7F2DD /* CardHolder.h in Headers */,
 				671D3E2818CA1CAA005C73B1 /* CreditCard.m in Headers */,
+				67F8539D18CE5A0700C94B5C /* Fee.h in Headers */,
 				675074D518CDEA3F00FBF2CB /* Utilities.h in Headers */,
+				67701B0818CE293800D66A5B /* Enums.h in Headers */,
 				671D3E2918CA1CAA005C73B1 /* CardHolder.m in Headers */,
 				671D3E2A18CA1CAA005C73B1 /* Payment.m in Headers */,
 				675074CD18CDE96E00FBF2CB /* HTTPStatusCodes.h in Headers */,
 				671D3E2B18CA1CAA005C73B1 /* PaymentTransaction.m in Headers */,
 				671D3E2D18CA1CAA005C73B1 /* MoipSDK.m in Headers */,
+				67F853A118CE616000C94B5C /* Amount.h in Headers */,
+				67F8539918CE59FB00C94B5C /* Event.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,9 +385,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67F853A218CE616000C94B5C /* Amount.m in Sources */,
 				675074D118CDE96E00FBF2CB /* MoipHttpResponse.m in Sources */,
+				67F853A618CE61A600C94B5C /* FundingInstrument.m in Sources */,
 				67FE837C18C8DE3600F7F2DD /* CardHolder.m in Sources */,
 				675074D618CDEA3F00FBF2CB /* Utilities.m in Sources */,
+				67F8539A18CE59FB00C94B5C /* Event.m in Sources */,
+				67F8539E18CE5A0700C94B5C /* Fee.m in Sources */,
 				67FE837818C8DE2900F7F2DD /* CreditCard.m in Sources */,
 				67FE838218C8E63800F7F2DD /* Payment.m in Sources */,
 				675074CF18CDE96E00FBF2CB /* MoipHttpRequester.m in Sources */,

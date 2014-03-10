@@ -8,20 +8,28 @@
 
 #import <Foundation/Foundation.h>
 #import "CreditCard.h"
-
-typedef NS_ENUM(int, PaymentMethod)
-{
-    PaymentMethodCreditCard
-};
+#import "Amount.h"
 
 @interface Payment : NSObject
 
 @property NSString *moipOrderId;
+@property NSString *paymenteId;
+@property PaymentStatus status;
+@property Amount *amount;
 @property int installmentCount;
 @property PaymentMethod method;
 @property CreditCard *creditCard;
+@property NSDate *createdAt;
+@property NSDate *updatedAt;
 
 - (NSString *) getPaymentMethod;
+- (PaymentMethod) getPaymentMethodFromString:(NSString *)method;
+
+- (NSString *) getPaymentStatus;
+- (PaymentStatus) getPaymentStatusFromString:(NSString *)method;
+
+- (NSString *) getCurrency;
+- (Currency) getCurrencyFromString:(NSString *)currency;
 
 
 @end

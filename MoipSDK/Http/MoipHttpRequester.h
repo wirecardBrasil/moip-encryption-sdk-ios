@@ -23,22 +23,7 @@
 }
 
 /*!
- * MoipHttpRequester constructor.
- * \param token - Used to make the request.
- * \returns id.
- */
-- (id) MoipHttpRequester:(NSString *)token;
-
-/*!
- * MoipHttpRequester.
- * \param token - Used to make the request.
- * \param customHeaders - Aditional headers.
- * \returns id.
- */
-- (id) MoipHttpRequester:(NSString *)token header:(NSDictionary *)customHeaders;
-
-/*!
- * Set the default headers. (Accept, User-Agent, X-API-Version, Content-Type);
+ * Set the default headers. (Accept, User-Agent, Content-Type);
  */
 - (void) setDefaultHeaders;
 

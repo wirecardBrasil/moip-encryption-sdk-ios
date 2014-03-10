@@ -9,13 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "MoipSDK.h"
 
-@interface MoipSDKTests : XCTestCase <MoipPaymentDelegate>
-{
-    BOOL createdPayment;
-    BOOL returnErrorTokenInvalid;
-}
-
-@property BOOL executingAsyncTest;
+@interface MoipSDKTests : XCTestCase
 
 @end
 
@@ -33,8 +27,6 @@
 
 - (void)testShouldCreateAPaymentInMoip
 {
-    self.executingAsyncTest = YES;
-    createdPayment = NO;
     
     CardHolder *holder = [CardHolder new];
     holder.fullname = @"Fernando Nazario Sousa";
@@ -47,89 +39,23 @@
     
     CreditCard *card = [CreditCard new];
     card.expirationMonth = 06;
-    card.expirationYear = 2018;
-    card.number = @"9999999999999999";
-    card.cvv = @"999";
+    card.expirationYear = 18;
+    card.number = @"4903762433566341";
+    card.cvv = @"751";
     card.cardholder = holder;
     
     Payment *payment = [Payment new];
-    payment.moipOrderId = @"ORD-OV5JHSJC0ZY0";
+    payment.moipOrderId = @"ORD-S8MIMS4WVKPH";
     payment.installmentCount = 2;
     payment.method = PaymentMethodCreditCard;
     payment.creditCard = card;
     
-    MoipSDK *moip = [MoipSDK new];
-    moip.delegate = self;
-    [moip submitPayment:payment];
-
-    while (self.executingAsyncTest);
-    
-    XCTAssertTrue(createdPayment, @"");
+    [[MoipSDK new] submitPayment:payment success:^(PaymentTransaction *transaction) {
+        XCTAssertEqual(transaction.payment.status, PaymentStatusInAnalysis, @"Status equals to InAnalysis");
+    } failure:^(PaymentTransaction *transaction, NSError *error) {
+        XCTAssertEqual(transaction.payment.status, PaymentStatusInAnalysis, @"Error");
+    }];
 }
 
-- (void) testShouldReturnErrorTokenAreInvalid
-{
-    self.executingAsyncTest = YES;
-    returnErrorTokenInvalid = NO;
-    
-    CardHolder *holder = [CardHolder new];
-    holder.fullname = @"Fernando Nazario Sousa";
-    holder.birthdate = @"1988-04-27";
-    holder.documentType = CardHolderDocumentTypeCPF;
-    holder.documentNumber = @"99999999999";
-    holder.phoneCountryCode = @"55";
-    holder.phoneAreaCode = @"11";
-    holder.phoneNumber = @"975902554";
-    
-    CreditCard *card = [CreditCard new];
-    card.expirationMonth = 06;
-    card.expirationYear = 2018;
-    card.number = @"9999999999999999";
-    card.cvv = @"999";
-    card.cardholder = holder;
-    
-    Payment *payment = [Payment new];
-    payment.moipOrderId = @"ORD-OV5JHSJC0ZY0";
-    payment.installmentCount = 2;
-    payment.method = PaymentMethodCreditCard;
-    payment.creditCard = card;
-    
-    MoipSDK *moip = [MoipSDK new];
-    moip.delegate = self;
-    [moip submitPayment:payment];
-    
-    while (self.executingAsyncTest);
-    
-    XCTAssertTrue(returnErrorTokenInvalid, @"");
-}
-
-#pragma mark - MoipSDK
-- (void) paymentCreated:(PaymentTransaction *)paymentTransaction
-{
-    self.executingAsyncTest = NO;
-    if (paymentTransaction.status == PaymentStatusInAnalysis)
-    {
-        createdPayment = YES;
-    }
-    else
-    {
-        createdPayment = NO;
-    }
-}
-
-- (void) paymentFailed:(PaymentTransaction *)paymentTransaction error:(NSError *)error
-{
-    self.executingAsyncTest = NO;
-    createdPayment = NO;
-    
-    if (error.code == 401)
-    {
-        returnErrorTokenInvalid = YES;
-    }
-    else
-    {
-        returnErrorTokenInvalid = NO;
-    }
-}
 
 @end

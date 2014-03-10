@@ -18,7 +18,7 @@ NSMutableDictionary *headers;
 - (id)init;
 {
     headers = [NSMutableDictionary new];
-    [self MoipHttpRequester:nil];
+    [self setDefaultHeaders];
     return self;
 }
 
@@ -26,29 +26,6 @@ NSMutableDictionary *headers;
 {
     [headers setValue:@"Moip-SDK-iOS/1.0" forKey:@"User-Agent"];
     [headers setValue:@"application/json" forKey:@"Content-Type"];
-}
-
-- (id) MoipHttpRequester:(NSString *)token
-{
-    [self MoipHttpRequester:token header:nil];
-    return self;
-}
-
-- (id) MoipHttpRequester:(NSString *)token header:(NSDictionary *)customHeaders
-{
-    if(customHeaders != nil)
-    {
-        [self addHeaders:customHeaders];
-    }
-    else
-    {
-        [self setDefaultHeaders];
-    }
-    if (token != nil)
-    {
-        [headers setValue:token forKey:@"X-Token"];
-    }
-	return self;
 }
 
 - (void) addHeaders:(NSDictionary *)additionalHeaders
@@ -125,8 +102,8 @@ NSMutableDictionary *headers;
         newResponse.httpStatusCode = response.statusCode;
         newResponse.content = result;
         
-        //            NSLog(@"response.statusCode %li", (long)response.statusCode);
-        //            NSLog(@"response.content %@", [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]);
+        NSLog(@"response.statusCode %li", (long)response.statusCode);
+        NSLog(@"response.content %@", [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]);
         
         return newResponse;
     }

@@ -7,22 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef NS_ENUM(NSUInteger, PaymentStatus)
-{
-    PaymentStatusInitiated,
-    PaymentStatusAuthorized,
-    PaymentStatusConcluded,
-    PaymentStatusCancelled,
-    PaymentStatusRefunded,
-    PaymentStatusReversed,
-    PaymentStatusPrinted,
-    PaymentStatusInAnalysis
-};
+#import "Payment.h"
+#import "Fee.h"
+#import "Event.h"
+#import "FundingInstrument.h"
 
 @interface PaymentTransaction : NSObject
 
-@property NSString *moipOrderId;
-@property PaymentStatus status;
+@property Payment *payment;
+@property NSUInteger installmentCount;
+@property FundingInstrument *fundingInstrument;
+@property NSArray *fees;
+@property NSArray *events;
+
+
+- (PaymentTransaction *) parseResponse:(NSData *)jsonData;
 
 @end

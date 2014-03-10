@@ -6,7 +6,9 @@
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
+    #import "Enums.h"
 #endif
 
 #define BASE_URL @"http://54.208.23.162/v2"
+//#define BASE_URL @"https://private-f4653-moip.apiary.io/v2"
 #define APIURL(X)[NSString stringWithFormat:@"%@%@", BASE_URL, X]

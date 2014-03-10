@@ -24,4 +24,74 @@
     }
 }
 
+- (PaymentMethod) getPaymentMethodFromString:(NSString *)method
+{
+    if ([method isEqualToString:@"CREDIT_CARD"])
+    {
+        return PaymentMethodCreditCard;
+    }
+    return PaymentMethodCreditCard;
+}
+
+- (NSString *) getPaymentStatus
+{
+    switch (self.status)
+    {
+        case PaymentStatusAuthorized:
+            return @"AUTHORIZED";
+            break;
+            
+        default:
+            return @"UNKNOWN";
+            break;
+    }
+}
+
+- (PaymentStatus) getPaymentStatusFromString:(NSString *)method
+{
+    if ([method isEqualToString:@"AUTHORIZED"])
+    {
+        return PaymentStatusAuthorized;
+    }
+    else if ([method isEqualToString:@"IN_ANALYSIS"])
+    {
+        return PaymentStatusInAnalysis;
+    }
+    else if ([method isEqualToString:@"CONCLUED"])
+    {
+        return PaymentStatusConcluded;
+    }
+    else if ([method isEqualToString:@"CANCELLED"])
+    {
+        return PaymentStatusCancelled;
+    }
+    else if ([method isEqualToString:@"REFUNDED"])
+    {
+        return PaymentStatusRefunded;
+    }
+    else if ([method isEqualToString:@"REVERSED"])
+    {
+        return PaymentStatusReversed;
+    }
+    else if ([method isEqualToString:@"INITIATED"])
+    {
+        return PaymentStatusInitiated;
+    }
+    else if ([method isEqualToString:@"PRINTED"])
+    {
+        return PaymentStatusPrinted;
+    }
+    return PaymentStatusInAnalysis;
+}
+
+- (NSString *) getCurrency
+{
+    return @"";
+}
+
+- (Currency) getCurrencyFromString:(NSString *)currency
+{
+    return BRL;
+}
+
 @end

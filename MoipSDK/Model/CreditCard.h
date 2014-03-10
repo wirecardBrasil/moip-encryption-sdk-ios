@@ -11,10 +11,18 @@
 
 @interface CreditCard : NSObject
 
+@property NSString *creditCardId;
 @property NSUInteger expirationMonth;
 @property NSUInteger expirationYear;
 @property NSString *number;
 @property NSString *cvv;
 @property CardHolder *cardholder;
+@property NSString *customerOwnId;
+@property Brand brand;
+@property NSString *first6;
+@property NSString *last4;
+
+- (NSString *) getBrand;
+- (Brand) getBrandFromString:(NSString *)method;
 
 @end

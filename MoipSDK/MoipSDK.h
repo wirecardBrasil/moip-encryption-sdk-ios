@@ -10,20 +10,10 @@
 #import "Payment.h"
 #import "PaymentTransaction.h"
 
-@protocol MoipPaymentDelegate <NSObject>
-@required
-- (void) paymentCreated:(PaymentTransaction *)paymentTransaction;
-- (void) paymentFailed:(PaymentTransaction *)paymentTransaction error:(NSError *)error;
-
-@end
-
 @interface MoipSDK : NSObject
 
-@property id<MoipPaymentDelegate> delegate;
-
-- (void) submitPayment:(Payment *)payment;
+- (void) submitPayment:(Payment *)payment success:(void (^)(PaymentTransaction *transaction))success failure:(void (^)(PaymentTransaction *transaction, NSError *error))failure;
 - (void) checkPaymentStatus:(PaymentTransaction *)transaction;
-
 
 
 @end

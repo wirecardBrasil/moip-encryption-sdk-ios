@@ -17,71 +17,67 @@
 #pragma mark -
 #pragma mark --> Public Methods
 #pragma mark Submit Payment
-- (void) submitPayment:(Payment *)payment
+- (void)submitPayment:(Payment *)payment success:(void (^)(PaymentTransaction *))success failure:(void (^)(PaymentTransaction *, NSError *))failure
 {
     NSString *paymentJSON = [self generatePaymentJSON:payment];
 
     NSString *endpoint = [NSString stringWithFormat:@"/orders/%@/payments", payment.moipOrderId];
     NSString *url = APIURL(endpoint);
-    
-    MoipHttpResponse *response = [[MoipHttpRequester new] post:url payload:paymentJSON params:nil delegate:nil];
-    if (response.httpStatusCode == kHTTPStatusCodeOK)
+
+    MoipHttpRequester *requester = [MoipHttpRequester new];
+    [requester addHeaders:@{@"Authorization": @"Basic N1hKTzFXVUE3Qk1JVlpUT1ZCOTBZTkpISk5QQ05YSEQ6N0dXSjJBNVNYSDI4UkNXRDVZQ0ozQlVIUldYRzRIT1BPWlBRMEJNSA=="}];
+    MoipHttpResponse *response = [requester post:url payload:paymentJSON params:nil delegate:nil];
+    if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
     {
-        [self checkResponseSuccess:response];
+        [self checkResponseSuccess:response successBlock:success];
     }
     else
     {
-        [self checkResponseFailure:response];
+        [self checkResponseFailure:response failureBlock:failure];
     }
 }
 
 #pragma mark Check Payment Status
 - (void) checkPaymentStatus:(PaymentTransaction *)transaction
 {
-    PaymentTransaction *transac = [PaymentTransaction new];
-    transac.status = PaymentStatusCancelled;
-    if ([self.delegate respondsToSelector:@selector(paymentFailed:error:)])
-    {
-        NSError *er = [NSError errorWithDomain:@"MoipSDK" code:999 userInfo:nil];
-        [self.delegate performSelector:@selector(paymentFailed:error:) withObject:transac withObject:er];
-    }
+//    PaymentTransaction *transac = [PaymentTransaction new];
+//    transac.status = PaymentStatusCancelled;
+//    if ([self.delegate respondsToSelector:@selector(paymentFailed:error:)])
+//    {
+//        NSError *er = [NSError errorWithDomain:@"MoipSDK" code:999 userInfo:nil];
+//        [self.delegate performSelector:@selector(paymentFailed:error:) withObject:transac withObject:er];
+//    }
 }
 
 #pragma mark -
 #pragma mark --> Private Methods
 
 #pragma mark Check response after submit payment
-- (void) checkResponseSuccess:(MoipHttpResponse *)response
+- (void) checkResponseSuccess:(MoipHttpResponse *)response successBlock:(void (^)(PaymentTransaction *))successBlock
 {
-    NSLog(@"%@", [[NSString alloc] initWithData:response.content encoding:NSUTF8StringEncoding]);    
+    PaymentTransaction *transac = [[PaymentTransaction new] parseResponse:response.content];
+    successBlock(transac);
 }
 
-- (void) checkResponseFailure:(MoipHttpResponse *)response
+- (void) checkResponseFailure:(MoipHttpResponse *)response failureBlock:(void (^)(PaymentTransaction *, NSError *))failureBlock
 {
+    id json = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
     if (response.httpStatusCode == 0)
     {
-        id json = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
-        if ([self.delegate respondsToSelector:@selector(paymentFailed:error:)])
-        {
-            NSDictionary *userInfo = @{NSLocalizedDescriptionKey: json[@"ERROR"],
-                                       NSLocalizedFailureReasonErrorKey: json[@"ERROR"]};
-            NSError *error = [NSError errorWithDomain:@"MoipSDK" code:401 userInfo:userInfo];
-            [self.delegate performSelector:@selector(paymentFailed:error:) withObject:nil withObject:error];
-        }
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: json[@"ERROR"], NSLocalizedFailureReasonErrorKey: json[@"ERROR"]};
+        NSError *error = [NSError errorWithDomain:@"MoipSDK" code:response.httpStatusCode userInfo:userInfo];
+        
+        failureBlock(nil, error);
     }
     else
     {
         PaymentTransaction *transac = [PaymentTransaction new];
-        transac.status = PaymentStatusCancelled;
         
-        if ([self.delegate respondsToSelector:@selector(paymentFailed:error:)])
-        {
-            NSError *er = [NSError errorWithDomain:@"MoipSDK" code:999 userInfo:nil];
-            [self.delegate performSelector:@selector(paymentFailed:error:) withObject:transac withObject:er];
-        }
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: json[@"ERROR"], NSLocalizedFailureReasonErrorKey: json[@"ERROR"]};
+        NSError *error = [NSError errorWithDomain:@"MoipSDK" code:response.httpStatusCode userInfo:userInfo];
+        
+        failureBlock(transac, error);
     }
-
-
 }
 
 #pragma mark Parse JSON request

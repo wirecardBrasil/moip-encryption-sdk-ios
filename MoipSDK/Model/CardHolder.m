@@ -10,5 +10,23 @@
 
 @implementation CardHolder
 
+- (NSString *) getDocumentType
+{
+    switch (self.documentType)
+    {
+        case CardHolderDocumentTypeCNPJ:
+            return @"CNPJ";
+            break;
+        case CardHolderDocumentTypeCPF:
+            return @"CPF";
+            break;
+        case CardHolderDocumentTypeRG:
+            return @"RG";
+            break;
+        default:
+            return @"UNKNOW";
+            break;
+    }
+}
 
 @end

@@ -25,4 +25,6 @@ typedef NS_ENUM(int, CardHolderDocumentType)
 @property NSString *phoneAreaCode;
 @property NSString *phoneNumber;
 
+- (NSString *) getDocumentType;
+
 @end

@@ -7,35 +7,35 @@
 //
 
 #import "MoipSDK.h"
+#import "MoipHttpRequester.h"
+#import "MoipHttpResponse.h"
+#import "HTTPStatusCodes.h"
 #import "Utilities.h"
 
 @implementation MoipSDK
 
+#pragma mark -
+#pragma mark --> Public Methods
+#pragma mark Submit Payment
 - (void) submitPayment:(Payment *)payment
 {
     NSString *paymentJSON = [self generatePaymentJSON:payment];
 
     NSString *endpoint = [NSString stringWithFormat:@"/orders/%@/payments", payment.moipOrderId];
     NSString *url = APIURL(endpoint);
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:[paymentJSON dataUsingEncoding:NSUTF8StringEncoding]];
     
-    NSHTTPURLResponse *response = nil;
-    NSError *error = nil;
-    NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-
-    NSLog(@"statusCode: %i", response.statusCode);
-    NSLog(@"%@", [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]);
-    
-    PaymentTransaction *transac = [PaymentTransaction new];
-    transac.status = PaymentStatusCancelled;
-    if ([self.delegate respondsToSelector:@selector(paymentCreated:)])
+    MoipHttpResponse *response = [[MoipHttpRequester new] post:url payload:paymentJSON params:nil delegate:nil];
+    if (response.httpStatusCode == kHTTPStatusCodeOK)
     {
-        [self.delegate performSelector:@selector(paymentCreated:) withObject:transac];
+        [self checkResponseSuccess:response];
+    }
+    else
+    {
+        [self checkResponseFailure:response];
     }
 }
 
+#pragma mark Check Payment Status
 - (void) checkPaymentStatus:(PaymentTransaction *)transaction
 {
     PaymentTransaction *transac = [PaymentTransaction new];
@@ -47,13 +47,51 @@
     }
 }
 
+#pragma mark -
+#pragma mark --> Private Methods
+
+#pragma mark Check response after submit payment
+- (void) checkResponseSuccess:(MoipHttpResponse *)response
+{
+    NSLog(@"%@", [[NSString alloc] initWithData:response.content encoding:NSUTF8StringEncoding]);    
+}
+
+- (void) checkResponseFailure:(MoipHttpResponse *)response
+{
+    if (response.httpStatusCode == 0)
+    {
+        id json = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
+        if ([self.delegate respondsToSelector:@selector(paymentFailed:error:)])
+        {
+            NSDictionary *userInfo = @{NSLocalizedDescriptionKey: json[@"ERROR"],
+                                       NSLocalizedFailureReasonErrorKey: json[@"ERROR"]};
+            NSError *error = [NSError errorWithDomain:@"MoipSDK" code:401 userInfo:userInfo];
+            [self.delegate performSelector:@selector(paymentFailed:error:) withObject:nil withObject:error];
+        }
+    }
+    else
+    {
+        PaymentTransaction *transac = [PaymentTransaction new];
+        transac.status = PaymentStatusCancelled;
+        
+        if ([self.delegate respondsToSelector:@selector(paymentFailed:error:)])
+        {
+            NSError *er = [NSError errorWithDomain:@"MoipSDK" code:999 userInfo:nil];
+            [self.delegate performSelector:@selector(paymentFailed:error:) withObject:transac withObject:er];
+        }
+    }
+
+
+}
+
+#pragma mark Parse JSON request
 - (NSString *) generatePaymentJSON:(Payment *)payment
 {
     NSMutableString *jsonPayment = [NSMutableString new];
     [jsonPayment appendFormat:@"{"];
     [jsonPayment appendFormat:@"        \"installmentCount\": %i,", payment.installmentCount];
     [jsonPayment appendFormat:@"        \"fundingInstrument\": {"];
-    [jsonPayment appendFormat:@"            \"method\": \"%@\",", [Utilities getMethodPayment:payment.method]];
+    [jsonPayment appendFormat:@"            \"method\": \"%@\",", [payment getPaymentMethod]];
     [jsonPayment appendFormat:@"            \"creditCard\": {"];
     [jsonPayment appendFormat:@"                \"expirationMonth\": %i,", payment.creditCard.expirationMonth];
     [jsonPayment appendFormat:@"                \"expirationYear\": %i,", payment.creditCard.expirationYear];
@@ -63,7 +101,7 @@
     [jsonPayment appendFormat:@"                    \"fullname\": \"%@\",", payment.creditCard.cardholder.fullname];
     [jsonPayment appendFormat:@"                    \"birthdate\": \"%@\",", payment.creditCard.cardholder.birthdate];
     [jsonPayment appendFormat:@"                    \"taxDocument\": {"];
-    [jsonPayment appendFormat:@"                        \"type\": \"%@\",", [Utilities getTypeDocument:payment.creditCard.cardholder.documentType]];
+    [jsonPayment appendFormat:@"                        \"type\": \"%@\",", [payment.creditCard.cardholder getDocumentType]];
     [jsonPayment appendFormat:@"                        \"number\": \"%@\"", payment.creditCard.cardholder.documentNumber];
     [jsonPayment appendFormat:@"                    },"];
     [jsonPayment appendFormat:@"                    \"phone\": {"];

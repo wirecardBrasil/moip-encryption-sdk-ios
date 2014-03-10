@@ -8,5 +8,5 @@
     #import <Foundation/Foundation.h>
 #endif
 
-
-#define APIURL(X)[NSString stringWithFormat:@"https://private-f4653-moip.apiary.io/v2%@", X]
+#define BASE_URL @"http://54.208.23.162/v2"
+#define APIURL(X)[NSString stringWithFormat:@"%@%@", BASE_URL, X]

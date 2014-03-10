@@ -21,4 +21,7 @@ typedef NS_ENUM(int, PaymentMethod)
 @property PaymentMethod method;
 @property CreditCard *creditCard;
 
+- (NSString *) getPaymentMethod;
+
+
 @end

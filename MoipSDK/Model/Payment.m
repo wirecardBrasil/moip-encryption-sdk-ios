@@ -10,4 +10,18 @@
 
 @implementation Payment
 
+- (NSString *) getPaymentMethod
+{
+    switch (self.method)
+    {
+        case PaymentMethodCreditCard:
+            return @"CREDIT_CARD";
+            break;
+            
+        default:
+            return @"CREDIT_CARD";
+            break;
+    }
+}
+
 @end

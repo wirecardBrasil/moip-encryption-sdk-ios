@@ -11,10 +11,9 @@
 
 @implementation PaymentTransaction
 
-- (PaymentTransaction *) parseResponse:(NSData *)jsonData
+- (PaymentTransaction *) transactionWithJSON:(NSData *)jsonData;
 {
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
-    
     if (json != nil)
     {
         Amount *amount = [Amount new];
@@ -22,7 +21,7 @@
         amount.fees = [json[@"amount"][@"fees"] intValue];
         amount.refunds = [json[@"amount"][@"refunds"] intValue];
         amount.liquid = [json[@"amount"][@"liquid"] intValue];
-        amount.currency = [self.payment getCurrencyFromString:json[@"amount"][@"currency"] ];
+        amount.currency = [self getCurrencyFromString:json[@"amount"][@"currency"]];
         
         CreditCard *creditCard = [CreditCard new];
         creditCard.creditCardId = json[@"fundingInstrument"][@"creditCard"][@"id"];
@@ -32,18 +31,12 @@
         creditCard.last4 = json[@"fundingInstrument"][@"creditCard"][@"last4"];
         
         Payment *payment = [Payment new];
-        payment.paymenteId = json[@"id"];
-        payment.status = [payment getPaymentStatusFromString:json[@"status"]];
-        payment.amount = amount;
         payment.creditCard = creditCard;
+        payment.installmentCount = [json[@"installmentCount"] intValue];
 
         FundingInstrument *instrument = [FundingInstrument new];
         instrument.institution = payment.creditCard.brand;
         instrument.paymentMethod = [payment getPaymentMethodFromString:json[@"fundingInstrument"][@"method"]];
-        
-        self.installmentCount = [json[@"installmentCount"] intValue];
-        self.payment = payment;
-        self.fundingInstrument = instrument;
         
         NSMutableArray *feesList = [NSMutableArray new];
         for (NSDictionary *feeInfo in json[@"fees"])
@@ -54,8 +47,6 @@
             
             [feesList addObject:fee];
         }
-        
-        self.fees = feesList;
         
         NSMutableArray *eventList = [NSMutableArray new];
         for (NSDictionary *evInfo in json[@"events"])
@@ -74,6 +65,12 @@
             [feesList addObject:ev];
         }
         
+        self.payment = payment;
+        self.paymenteId = json[@"id"];
+        self.status = [self getPaymentStatusFromString:json[@"status"]];
+        self.amount = amount;
+        self.fundingInstrument = instrument;
+        self.fees = feesList;
         self.events = eventList;
     }
     return self;
@@ -140,6 +137,48 @@
         return EventTypeOrderWaiting;
     }
     return EventTypeUnknown;
+}
+
+- (PaymentStatus) getPaymentStatusFromString:(NSString *)method
+{
+    if ([method isEqualToString:@"AUTHORIZED"])
+    {
+        return PaymentStatusAuthorized;
+    }
+    else if ([method isEqualToString:@"IN_ANALYSIS"])
+    {
+        return PaymentStatusInAnalysis;
+    }
+    else if ([method isEqualToString:@"CONCLUED"])
+    {
+        return PaymentStatusConcluded;
+    }
+    else if ([method isEqualToString:@"CANCELLED"])
+    {
+        return PaymentStatusCancelled;
+    }
+    else if ([method isEqualToString:@"REFUNDED"])
+    {
+        return PaymentStatusRefunded;
+    }
+    else if ([method isEqualToString:@"REVERSED"])
+    {
+        return PaymentStatusReversed;
+    }
+    else if ([method isEqualToString:@"INITIATED"])
+    {
+        return PaymentStatusInitiated;
+    }
+    else if ([method isEqualToString:@"PRINTED"])
+    {
+        return PaymentStatusPrinted;
+    }
+    return PaymentStatusInAnalysis;
+}
+
+- (Currency) getCurrencyFromString:(NSString *)currency
+{
+    return BRL;
 }
 
 

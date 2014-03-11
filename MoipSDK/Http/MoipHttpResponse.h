@@ -16,7 +16,12 @@
 /**
  Http status code
  */
-@property int httpStatusCode;
+@property NSInteger httpStatusCode;
+
+/**
+ NSURLError code
+ */
+@property NSInteger urlErrorCode;
 
 /**
  Response content.

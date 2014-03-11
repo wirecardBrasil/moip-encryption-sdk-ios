@@ -11,21 +11,46 @@
 #import "HTTPStatusCodes.h"
 #import "Utilities.h"
 
+@interface MoipHttpRequester ()
+
+@property NSString *basicAuth;
+
+@end
+
 @implementation MoipHttpRequester
 
 NSMutableDictionary *headers;
 
-- (id)init;
+- (id)init
 {
     headers = [NSMutableDictionary new];
+    self.basicAuth = nil;
     [self setDefaultHeaders];
     return self;
+}
+
+- (id)initWithAuth:(NSString *)auth;
+{
+    headers = [NSMutableDictionary new];
+    self.basicAuth = auth;
+    [self setDefaultHeaders];
+    return self;
+}
+
++ (MoipHttpRequester *) requesterWithBasicAuthorization:(NSString *)authorization
+{
+    MoipHttpRequester *requester = [[MoipHttpRequester alloc] initWithAuth:authorization];
+    return requester;
 }
 
 - (void) setDefaultHeaders
 {
     [headers setValue:@"Moip-SDK-iOS/1.0" forKey:@"User-Agent"];
     [headers setValue:@"application/json" forKey:@"Content-Type"];
+    if (self.basicAuth != nil)
+    {
+        [headers setValue:self.basicAuth forKey:@"Authorization"];
+    }
 }
 
 - (void) addHeaders:(NSDictionary *)additionalHeaders
@@ -85,7 +110,7 @@ NSMutableDictionary *headers;
         [request setTimeoutInterval:0];
     }
     
-    NSHTTPURLResponse *response = nil;
+    NSURLResponse *response = nil;
     NSError *error = [NSError new];
     
     if(postDelegate != nil)
@@ -97,14 +122,18 @@ NSMutableDictionary *headers;
     else
     {
         NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        
         MoipHttpResponse *newResponse = [MoipHttpResponse new];
-        newResponse.httpStatusCode = response.statusCode;
         newResponse.content = result;
         
-        NSLog(@"response.statusCode %li", (long)response.statusCode);
-        NSLog(@"response.content %@", [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]);
-        
+        if ([response isKindOfClass:[NSHTTPURLResponse class]])
+        {
+            newResponse.httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
+        }
+        else
+        {
+            newResponse.urlErrorCode = error.code;
+        }
+
         return newResponse;
     }
 }

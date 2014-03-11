@@ -10,7 +10,6 @@
 #define MoipHttpRequester_h
 
 #import <Foundation/Foundation.h>
-//#import "ApiStatusCodes.h"
 
 @class MoipHttpResponse;
 
@@ -21,6 +20,8 @@
      */
     id delegate;
 }
+
++ (MoipHttpRequester *) requesterWithBasicAuthorization:(NSString *)authorization;
 
 /*!
  * Set the default headers. (Accept, User-Agent, Content-Type);

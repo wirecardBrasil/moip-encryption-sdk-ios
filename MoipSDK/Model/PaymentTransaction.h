@@ -14,13 +14,16 @@
 
 @interface PaymentTransaction : NSObject
 
+@property NSString *paymenteId;
+@property PaymentStatus status;
+@property Amount *amount;
 @property Payment *payment;
-@property NSUInteger installmentCount;
 @property FundingInstrument *fundingInstrument;
 @property NSArray *fees;
 @property NSArray *events;
+@property NSDate *createdAt;
+@property NSDate *updatedAt;
 
-
-- (PaymentTransaction *) parseResponse:(NSData *)jsonData;
+- (PaymentTransaction *) transactionWithJSON:(NSData *)jsonData;
 
 @end

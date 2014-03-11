@@ -12,8 +12,10 @@
 
 @interface MoipSDK : NSObject
 
-- (void) submitPayment:(Payment *)payment success:(void (^)(PaymentTransaction *transaction))success failure:(void (^)(PaymentTransaction *transaction, NSError *error))failure;
-- (void) checkPaymentStatus:(PaymentTransaction *)transaction;
++ (MoipSDK *) startWithAuthorization:(NSString *)auth;
 
+- (void) submitPayment:(Payment *)payment success:(void (^)(PaymentTransaction *transaction))success failure:(void (^)(PaymentTransaction *transaction, NSError *error))failure;
+
+- (NSString *) getMoipOrderId;
 
 @end

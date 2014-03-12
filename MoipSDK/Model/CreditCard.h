@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Enums.h"
 #import "CardHolder.h"
 
 @interface CreditCard : NSObject

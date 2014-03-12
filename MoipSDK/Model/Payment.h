@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Enums.h"
 #import "CreditCard.h"
 #import "Amount.h"
 

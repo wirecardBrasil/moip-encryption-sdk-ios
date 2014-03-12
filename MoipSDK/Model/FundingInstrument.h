@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Enums.h"
 
 @interface FundingInstrument : NSObject
 

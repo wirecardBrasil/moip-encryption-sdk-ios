@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Enums.h"
 #import "Payment.h"
 #import "Fee.h"
 #import "Event.h"

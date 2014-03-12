@@ -10,9 +10,10 @@
 
 @interface Utilities : NSObject
 
++ (NSString *) encryptRSA:(NSString *)plainTextString key:(SecKeyRef)publicKey;
 + (NSString *) returnMD5Hash:(NSString*)concat;
-+ (NSString*) computeSHA256DigestForString:(NSString*)input;
-+ (NSString*) computeSHA256DigestForData:(NSData *)input;
++ (NSString *) computeSHA256DigestForString:(NSString*)input;
++ (NSString *) computeSHA256DigestForData:(NSData *)input;
 + (NSString *) encodeToPercentEscapeString:(NSString *)text;
 + (NSString *) addQueryStringToUrlString:(NSString *)urlString withDictionary:(NSDictionary *)dictionary;
 

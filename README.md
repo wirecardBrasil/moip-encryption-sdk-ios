@@ -60,7 +60,7 @@ Now, just use this field to get credit card number, already encrypted.
     card.cardholder = holder;
     
     MPKPayment *payment = [MPKPayment new];
-    payment.moipOrderId = [sdk getMoipOrderId];
+    payment.moipOrderId = @"your order id in Moip";
     payment.installmentCount = 2;
     payment.method = MPKPaymentMethodCreditCard;
     payment.creditCard = card;

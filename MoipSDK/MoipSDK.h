@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Payment.h"
 #import "PaymentTransaction.h"
+#import "MPKCreditCardTextField.h"
 
 @interface MoipSDK : NSObject
 

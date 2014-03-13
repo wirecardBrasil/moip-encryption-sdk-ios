@@ -17,20 +17,26 @@
         case BrandVisa:
             return @"VISA";
             break;
-        case BrandMaster:
+        case BrandMasterCard:
             return @"MASTER";
             break;
         case BrandAmex:
             return @"AMEX";
             break;
-        case BrandDiners:
+        case BrandDinersClub:
             return @"DINERS";
             break;
         case BrandHipercard:
             return @"HIPERCARD";
             break;
+        case BrandDiscover:
+            return @"DISCOVER";
+            break;
+        case BrandUnknown:
+            return @"UNKNOWN";
+            break;
         default:
-            return @"UNKNOW";
+            return @"UNKNOWN";
             break;
     }
 }

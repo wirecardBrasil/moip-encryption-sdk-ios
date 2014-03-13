@@ -39,10 +39,11 @@ typedef NS_ENUM (int, Brand)
 {
     BrandUnknown,
     BrandVisa,
-    BrandMaster,
+    BrandMasterCard,
     BrandAmex,
+    BrandDiscover,
     BrandHipercard,
-    BrandDiners
+    BrandDinersClub
 };
 
 typedef NS_ENUM (int, FeeType)

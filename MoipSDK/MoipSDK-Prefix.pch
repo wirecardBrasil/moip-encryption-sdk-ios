@@ -6,7 +6,7 @@
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
-    #import "Enums.h"
+    #import "MPKEnums.h"
 #endif
 
 #define BASE_URL @"http://54.208.23.162/v2"

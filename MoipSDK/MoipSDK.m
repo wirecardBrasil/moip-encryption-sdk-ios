@@ -31,7 +31,7 @@
 }
 
 #pragma mark Submit Payment
-- (void)submitPayment:(Payment *)payment success:(void (^)(PaymentTransaction *))success failure:(void (^)(PaymentTransaction *, NSError *))failure
+- (void)submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *))success failure:(void (^)(MPKPaymentTransaction *, NSError *))failure
 {
     NSString *paymentJSON = [self generatePaymentJSON:payment];
 
@@ -71,7 +71,7 @@
 }
 
 #pragma mark Check Payment Status
-- (void) checkPaymentStatus:(PaymentTransaction *)transaction
+- (void) checkMPKPaymentStatus:(MPKPaymentTransaction *)transaction
 {
 
 }
@@ -80,41 +80,38 @@
 #pragma mark --> Private Methods
 
 #pragma mark Check response after submit payment
-- (void) checkResponseSuccess:(MoipHttpResponse *)response successBlock:(void (^)(PaymentTransaction *))successBlock
+- (void) checkResponseSuccess:(MoipHttpResponse *)response successBlock:(void (^)(MPKPaymentTransaction *))successBlock
 {
-    PaymentTransaction *transac = [[PaymentTransaction new] transactionWithJSON:response.content];
+    MPKPaymentTransaction *transac = [[MPKPaymentTransaction new] transactionWithJSON:response.content];
     successBlock(transac);
 }
 
-- (void) checkResponseFailure:(MoipHttpResponse *)response failureBlock:(void (^)(PaymentTransaction *, NSError *))failureBlock
+- (void) checkResponseFailure:(MoipHttpResponse *)response failureBlock:(void (^)(MPKPaymentTransaction *, NSError *))failureBlock
 {
     id json = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
     if (response.httpStatusCode != 0)
     {
-        PaymentTransaction *transac = [PaymentTransaction new];
-        
+        MPKPaymentTransaction *transac = [MPKPaymentTransaction new];
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey: json[@"ERROR"], NSLocalizedFailureReasonErrorKey: json[@"ERROR"]};
         NSError *error = [NSError errorWithDomain:@"MoipSDK" code:response.httpStatusCode userInfo:userInfo];
-        
         failureBlock(transac, error);
     }
     else
     {
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey: json[@"ERROR"], NSLocalizedFailureReasonErrorKey: json[@"ERROR"]};
         NSError *error = [NSError errorWithDomain:@"MoipSDK" code:response.urlErrorCode userInfo:userInfo];
-        
         failureBlock(nil, error);
     }
 }
 
 #pragma mark Parse JSON request
-- (NSString *) generatePaymentJSON:(Payment *)payment
+- (NSString *) generatePaymentJSON:(MPKPayment *)payment
 {
     NSMutableString *jsonPayment = [NSMutableString new];
     [jsonPayment appendFormat:@"{"];
     [jsonPayment appendFormat:@"        \"installmentCount\": %li,", (long)payment.installmentCount];
     [jsonPayment appendFormat:@"        \"fundingInstrument\": {"];
-    [jsonPayment appendFormat:@"            \"method\": \"%@\",", [payment getPaymentMethod]];
+    [jsonPayment appendFormat:@"            \"method\": \"%@\",", [payment getMPKPaymentMethod]];
     [jsonPayment appendFormat:@"            \"creditCard\": {"];
     [jsonPayment appendFormat:@"                \"expirationMonth\": %lu,", (unsigned long)payment.creditCard.expirationMonth];
     [jsonPayment appendFormat:@"                \"expirationYear\": %lu,", (unsigned long)payment.creditCard.expirationYear];
@@ -146,7 +143,7 @@
     [jsonOrder appendFormat:@"{"];
     [jsonOrder appendFormat:@"  \"ownId\": \"id_proprio\","];
     [jsonOrder appendFormat:@"  \"amount\": {"];
-    [jsonOrder appendFormat:@"    \"currency\": \"BRL\""];
+    [jsonOrder appendFormat:@"    \"MPKCurrency\": \"BRL\""];
     [jsonOrder appendFormat:@"  },"];
     [jsonOrder appendFormat:@"  \"items\": ["];
     [jsonOrder appendFormat:@"    {"];

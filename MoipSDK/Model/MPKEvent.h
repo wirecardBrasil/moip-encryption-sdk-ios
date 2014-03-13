@@ -1,5 +1,5 @@
 //
-//  Fee.h
+//  Event.h
 //  MoipSDK
 //
 //  Created by Fernando Nazario Sousa on 10/03/14.
@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Enums.h"
+#import "MPKEnums.h"
 
-@interface Fee : NSObject
+@interface MPKEvent : NSObject
 
-@property FeeType type;
-@property NSUInteger amount;
+@property MPKEventType type;
+@property NSDate *createdAt;
+@property NSString *description;
 
 @end

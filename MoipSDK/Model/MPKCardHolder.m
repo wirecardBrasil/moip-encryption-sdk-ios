@@ -6,21 +6,21 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-#import "CardHolder.h"
+#import "MPKCardHolder.h"
 
-@implementation CardHolder
+@implementation MPKCardHolder
 
 - (NSString *) getDocumentType
 {
     switch (self.documentType)
     {
-        case CardHolderDocumentTypeCNPJ:
+        case MPKCardHolderDocumentTypeCNPJ:
             return @"CNPJ";
             break;
-        case CardHolderDocumentTypeCPF:
+        case MPKCardHolderDocumentTypeCPF:
             return @"CPF";
             break;
-        case CardHolderDocumentTypeRG:
+        case MPKCardHolderDocumentTypeRG:
             return @"RG";
             break;
         default:

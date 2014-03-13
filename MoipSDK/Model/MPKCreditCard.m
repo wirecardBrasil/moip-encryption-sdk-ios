@@ -6,33 +6,33 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-#import "CreditCard.h"
+#import "MPKCreditCard.h"
 
-@implementation CreditCard
+@implementation MPKCreditCard
 
-- (NSString *) getBrand
+- (NSString *) getMPKBrand
 {
     switch (self.brand)
     {
-        case BrandVisa:
+        case MPKBrandVisa:
             return @"VISA";
             break;
-        case BrandMasterCard:
+        case MPKBrandMasterCard:
             return @"MASTER";
             break;
-        case BrandAmex:
+        case MPKBrandAmex:
             return @"AMEX";
             break;
-        case BrandDinersClub:
+        case MPKBrandDinersClub:
             return @"DINERS";
             break;
-        case BrandHipercard:
+        case MPKBrandHipercard:
             return @"HIPERCARD";
             break;
-        case BrandDiscover:
+        case MPKBrandDiscover:
             return @"DISCOVER";
             break;
-        case BrandUnknown:
+        case MPKBrandUnknown:
             return @"UNKNOWN";
             break;
         default:
@@ -41,14 +41,14 @@
     }
 }
 
-- (Brand) getBrandFromString:(NSString *)method
+- (MPKBrand) getMPKBrandFromString:(NSString *)method
 {
     if ([method isEqualToString:@"VISA"])
     {
-        return BrandVisa;
+        return MPKBrandVisa;
     }
     
-    return BrandUnknown;
+    return MPKBrandUnknown;
 }
 
 @end

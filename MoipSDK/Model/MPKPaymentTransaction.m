@@ -6,42 +6,42 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-#import "PaymentTransaction.h"
-#import "Payment.h"
+#import "MPKPaymentTransaction.h"
+#import "MPKPayment.h"
 
-@implementation PaymentTransaction
+@implementation MPKPaymentTransaction
 
-- (PaymentTransaction *) transactionWithJSON:(NSData *)jsonData;
+- (MPKPaymentTransaction *) transactionWithJSON:(NSData *)jsonData;
 {
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
     if (json != nil)
     {
-        Amount *amount = [Amount new];
+        MPKAmount *amount = [MPKAmount new];
         amount.total = [json[@"amount"][@"total"] intValue];
         amount.fees = [json[@"amount"][@"fees"] intValue];
         amount.refunds = [json[@"amount"][@"refunds"] intValue];
         amount.liquid = [json[@"amount"][@"liquid"] intValue];
-        amount.currency = [self getCurrencyFromString:json[@"amount"][@"currency"]];
+        amount.MPKCurrency = [self getMPKCurrencyFromString:json[@"amount"][@"MPKCurrency"]];
         
-        CreditCard *creditCard = [CreditCard new];
+        MPKCreditCard *creditCard = [MPKCreditCard new];
         creditCard.creditCardId = json[@"fundingInstrument"][@"creditCard"][@"id"];
         creditCard.customerOwnId = json[@"fundingInstrument"][@"creditCard"][@"customerOwnId"];
-        creditCard.brand = [creditCard getBrandFromString:json[@"fundingInstrument"][@"creditCard"][@"brand"]];
+        creditCard.brand = [creditCard getMPKBrandFromString:json[@"fundingInstrument"][@"creditCard"][@"brand"]];
         creditCard.first6 = json[@"fundingInstrument"][@"creditCard"][@"first6"];
         creditCard.last4 = json[@"fundingInstrument"][@"creditCard"][@"last4"];
         
-        Payment *payment = [Payment new];
+        MPKPayment *payment = [MPKPayment new];
         payment.creditCard = creditCard;
         payment.installmentCount = [json[@"installmentCount"] intValue];
 
-        FundingInstrument *instrument = [FundingInstrument new];
+        MPKFundingInstrument *instrument = [MPKFundingInstrument new];
         instrument.institution = payment.creditCard.brand;
-        instrument.paymentMethod = [payment getPaymentMethodFromString:json[@"fundingInstrument"][@"method"]];
+        instrument.MPKPaymentMethod = [payment getMPKPaymentMethodFromString:json[@"fundingInstrument"][@"method"]];
         
         NSMutableArray *feesList = [NSMutableArray new];
         for (NSDictionary *feeInfo in json[@"fees"])
         {
-            Fee *fee = [Fee new];
+            MPKFee *fee = [MPKFee new];
             fee.type = [self getFeeFromString:feeInfo[@"type"]];
             fee.amount = [feeInfo[@"amount"] intValue];
             
@@ -51,7 +51,7 @@
         NSMutableArray *eventList = [NSMutableArray new];
         for (NSDictionary *evInfo in json[@"events"])
         {
-            Event *ev = [Event new];
+            MPKEvent *ev = [MPKEvent new];
             ev.type = [self getEventFromString:evInfo[@"type"]];
             
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -67,7 +67,7 @@
         
         self.payment = payment;
         self.paymenteId = json[@"id"];
-        self.status = [self getPaymentStatusFromString:json[@"status"]];
+        self.status = [self getMPKPaymentStatusFromString:json[@"status"]];
         self.amount = amount;
         self.fundingInstrument = instrument;
         self.fees = feesList;
@@ -77,106 +77,106 @@
 }
 
 
-- (FeeType) getFeeFromString:(NSString *)fType
+- (MPKFeeType) getFeeFromString:(NSString *)fType
 {
     if ([fType isEqualToString:@"PRE_PAYMENT"])
     {
-        return FeeTypePrePayment;
+        return MPKFeeTypePrePayment;
     }
     else if ([fType isEqualToString:@"TRANSACTION"])
     {
-        return FeeTypeTransaction;
+        return MPKFeeTypeTransaction;
     }
-    return FeeTypeTransaction;
+    return MPKFeeTypeTransaction;
 }
 
-- (EventType) getEventFromString:(NSString *)ev
+- (MPKEventType) getEventFromString:(NSString *)ev
 {
     if ([ev isEqualToString:@"PAYMENT.IN_ANALYSIS"])
     {
-        return EventTypePaymentInAnalysis;
+        return MPKEventTypePaymentInAnalysis;
     }
     else if ([ev isEqualToString:@"PAYMENT.AUTHORIZED"])
     {
-        return EventTypePaymentAuthorized;
+        return MPKEventTypePaymentAuthorized;
     }
     else if ([ev isEqualToString:@"PAYMENT.CANCELLED"])
     {
-        return EventTypePaymentCancelled;
+        return MPKEventTypePaymentCancelled;
     }
     else if ([ev isEqualToString:@"PAYMENT.CREATED"])
     {
-        return EventTypePaymentCreated;
+        return MPKEventTypePaymentCreated;
     }
     else if ([ev isEqualToString:@"PAYMENT.REVERTED"])
     {
-        return EventTypePaymentReverted;
+        return MPKEventTypePaymentReverted;
     }
     else if ([ev isEqualToString:@"PAYMENT.REFUNDED"])
     {
-        return EventTypePaymentRefunded;
+        return MPKEventTypePaymentRefunded;
     }
     else if ([ev isEqualToString:@"PAYMENT.SETTELED"])
     {
-        return EventTypePaymentSettled;
+        return MPKEventTypePaymentSettled;
     }
     else if ([ev isEqualToString:@"ORDER.NOT_PAID"])
     {
-        return EventTypeOrderNotPaid;
+        return MPKEventTypeOrderNotPaid;
     }
     else if ([ev isEqualToString:@"ORDER.PAID"])
     {
-        return EventTypeOrderPaid;
+        return MPKEventTypeOrderPaid;
     }
     else if ([ev isEqualToString:@"ORDER.REVERTED"])
     {
-        return EventTypeOrderReverted;
+        return MPKEventTypeOrderReverted;
     }
     else if ([ev isEqualToString:@"ORDER.WAITING"])
     {
-        return EventTypeOrderWaiting;
+        return MPKEventTypeOrderWaiting;
     }
-    return EventTypeUnknown;
+    return MPKEventTypeUnknown;
 }
 
-- (PaymentStatus) getPaymentStatusFromString:(NSString *)method
+- (MPKPaymentStatus) getMPKPaymentStatusFromString:(NSString *)method
 {
     if ([method isEqualToString:@"AUTHORIZED"])
     {
-        return PaymentStatusAuthorized;
+        return MPKPaymentStatusAuthorized;
     }
     else if ([method isEqualToString:@"IN_ANALYSIS"])
     {
-        return PaymentStatusInAnalysis;
+        return MPKPaymentStatusInAnalysis;
     }
     else if ([method isEqualToString:@"CONCLUED"])
     {
-        return PaymentStatusConcluded;
+        return MPKPaymentStatusConcluded;
     }
     else if ([method isEqualToString:@"CANCELLED"])
     {
-        return PaymentStatusCancelled;
+        return MPKPaymentStatusCancelled;
     }
     else if ([method isEqualToString:@"REFUNDED"])
     {
-        return PaymentStatusRefunded;
+        return MPKPaymentStatusRefunded;
     }
     else if ([method isEqualToString:@"REVERSED"])
     {
-        return PaymentStatusReversed;
+        return MPKPaymentStatusReversed;
     }
     else if ([method isEqualToString:@"INITIATED"])
     {
-        return PaymentStatusInitiated;
+        return MPKPaymentStatusInitiated;
     }
     else if ([method isEqualToString:@"PRINTED"])
     {
-        return PaymentStatusPrinted;
+        return MPKPaymentStatusPrinted;
     }
-    return PaymentStatusInAnalysis;
+    return MPKPaymentStatusInAnalysis;
 }
 
-- (Currency) getCurrencyFromString:(NSString *)currency
+- (MPKCurrency) getMPKCurrencyFromString:(NSString *)MPKCurrency
 {
     return BRL;
 }

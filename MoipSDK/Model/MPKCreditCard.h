@@ -7,23 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Enums.h"
-#import "CardHolder.h"
+#import "MPKEnums.h"
+#import "MPKCardHolder.h"
 
-@interface CreditCard : NSObject
+@interface MPKCreditCard : NSObject
 
 @property NSString *creditCardId;
 @property NSUInteger expirationMonth;
 @property NSUInteger expirationYear;
 @property NSString *number;
 @property NSString *cvv;
-@property CardHolder *cardholder;
+@property MPKCardHolder *cardholder;
 @property NSString *customerOwnId;
-@property Brand brand;
+@property MPKBrand brand;
 @property NSString *first6;
 @property NSString *last4;
 
-- (NSString *) getBrand;
-- (Brand) getBrandFromString:(NSString *)method;
+- (NSString *) getMPKBrand;
+- (MPKBrand) getMPKBrandFromString:(NSString *)method;
 
 @end

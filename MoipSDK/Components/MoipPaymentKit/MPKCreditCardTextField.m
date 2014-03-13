@@ -8,7 +8,7 @@
 
 #import "MPKCreditCardTextField.h"
 #import "MPKInterceptor.h"
-#import "Enums.h"
+#import "MPKEnums.h"
 
 @implementation MPKCreditCardTextField
 #pragma mark -
@@ -151,7 +151,7 @@
 - (NSString *)formattedString
 {
     NSRegularExpression *regex;
-    if (self.cardType == BrandAmex)
+    if (self.cardType == MPKBrandAmex)
     {
         regex = [NSRegularExpression regularExpressionWithPattern:@"(\\d{1,4})(\\d{1,6})?(\\d{1,5})?" options:0 error:NULL];
     } else {
@@ -186,7 +186,7 @@
             return string;
         }
         
-        if (self.cardType == BrandAmex) {
+        if (self.cardType == MPKBrandAmex) {
             regex = [NSRegularExpression regularExpressionWithPattern:@"^(\\d{4}|\\d{4}\\s\\d{6})$" options:0 error:NULL];
         } else {
             regex = [NSRegularExpression regularExpressionWithPattern:@"(?:^|\\s)(\\d{4})$" options:0 error:NULL];
@@ -236,11 +236,11 @@
 
 - (NSInteger)lengthForCardType
 {
-    Brand type = self.cardType;
+    MPKBrand type = self.cardType;
     NSInteger length;
-    if (type == BrandAmex) {
+    if (type == MPKBrandAmex) {
         length = 15;
-    } else if (type == BrandDinersClub) {
+    } else if (type == MPKBrandDinersClub) {
         length = 14;
     } else {
         length = 16;
@@ -248,27 +248,27 @@
     return length;
 }
 
-- (Brand) cardType
+- (MPKBrand) cardType
 {
     if (self.text.length < 2) {
-        return BrandUnknown;
+        return MPKBrandUnknown;
     }
     
     NSString *firstChars = [self.text substringWithRange:NSMakeRange(0, 2)];
     NSInteger range = [firstChars integerValue];
     
     if (range >= 40 && range <= 49) {
-        return BrandVisa;
+        return MPKBrandVisa;
     } else if (range >= 50 && range <= 59) {
-        return BrandMasterCard;
+        return MPKBrandMasterCard;
     } else if (range == 34 || range == 37) {
-        return BrandAmex;
+        return MPKBrandAmex;
     } else if (range == 60 || range == 62 || range == 64 || range == 65) {
-        return BrandDiscover;
+        return MPKBrandDiscover;
     } else if (range == 30 || range == 36 || range == 38 || range == 39) {
-        return BrandDinersClub;
+        return MPKBrandDinersClub;
     } else {
-        return BrandUnknown;
+        return MPKBrandUnknown;
     }
 }
 
@@ -277,19 +277,19 @@
     NSString *cardTypeName = @"placeholder";
     switch (self.cardType)
     {
-        case BrandAmex:
+        case MPKBrandAmex:
             cardTypeName = @"amex";
             break;
-        case BrandDinersClub:
+        case MPKBrandDinersClub:
             cardTypeName = @"diners";
             break;
-        case BrandDiscover:
+        case MPKBrandDiscover:
             cardTypeName = @"discover";
             break;
-        case BrandMasterCard:
+        case MPKBrandMasterCard:
             cardTypeName = @"mastercard";
             break;
-        case BrandVisa:
+        case MPKBrandVisa:
             cardTypeName = @"visa";
             break;
         default:

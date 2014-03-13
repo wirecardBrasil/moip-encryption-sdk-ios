@@ -17,7 +17,7 @@
     NSString *_number;
 }
 
-@property (assign, nonatomic) Brand cardType;
+@property (assign, nonatomic) MPKBrand cardType;
 @property (strong, nonatomic) UIImage *cardLogo;
 
 @end

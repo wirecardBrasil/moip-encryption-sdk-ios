@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Enums.h"
+#import "MPKEnums.h"
 
-@interface Amount : NSObject
+@interface MPKAmount : NSObject
 
 @property NSUInteger total;
 @property NSUInteger fees;
 @property NSUInteger refunds;
 @property NSUInteger liquid;
-@property Currency currency;
+@property MPKCurrency MPKCurrency;
 
 @end

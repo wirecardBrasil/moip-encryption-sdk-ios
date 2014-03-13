@@ -1,5 +1,5 @@
 //
-//  Event.h
+//  FundingInstrument.h
 //  MoipSDK
 //
 //  Created by Fernando Nazario Sousa on 10/03/14.
@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Enums.h"
+#import "MPKEnums.h"
 
-@interface Event : NSObject
+@interface MPKFundingInstrument : NSObject
 
-@property EventType type;
-@property NSDate *createdAt;
-@property NSString *description;
+@property MPKPaymentMethod MPKPaymentMethod;
+@property MPKBrand institution;
 
 @end

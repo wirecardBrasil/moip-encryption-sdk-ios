@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-#import "Payment.h"
+#import "MPKPayment.h"
 
-@implementation Payment
+@implementation MPKPayment
 
-- (NSString *) getPaymentMethod
+- (NSString *) getMPKPaymentMethod
 {
     switch (self.method)
     {
-        case PaymentMethodCreditCard:
+        case MPKPaymentMethodCreditCard:
             return @"CREDIT_CARD";
             break;
             
@@ -24,13 +24,13 @@
     }
 }
 
-- (PaymentMethod) getPaymentMethodFromString:(NSString *)method
+- (MPKPaymentMethod) getMPKPaymentMethodFromString:(NSString *)method
 {
     if ([method isEqualToString:@"CREDIT_CARD"])
     {
-        return PaymentMethodCreditCard;
+        return MPKPaymentMethodCreditCard;
     }
-    return PaymentMethodCreditCard;
+    return MPKPaymentMethodCreditCard;
 }
 
 @end

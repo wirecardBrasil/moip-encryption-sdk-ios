@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Enums.h"
+#import "MPKEnums.h"
 
-@interface CardHolder : NSObject
+@interface MPKCardHolder : NSObject
 
 @property NSString *fullname;
 @property NSString *birthdate;
-@property CardHolderDocumentType documentType;
+@property MPKCardHolderDocumentType documentType;
 @property NSString *documentNumber;
 @property NSString *phoneCountryCode;
 @property NSString *phoneAreaCode;

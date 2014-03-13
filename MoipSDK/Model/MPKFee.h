@@ -1,5 +1,5 @@
 //
-//  FundingInstrument.h
+//  Fee.h
 //  MoipSDK
 //
 //  Created by Fernando Nazario Sousa on 10/03/14.
@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Enums.h"
+#import "MPKEnums.h"
 
-@interface FundingInstrument : NSObject
+@interface MPKFee : NSObject
 
-@property PaymentMethod paymentMethod;
-@property Brand institution;
+@property MPKFeeType type;
+@property NSUInteger amount;
 
 @end

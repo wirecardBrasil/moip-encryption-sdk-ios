@@ -2,6 +2,39 @@
 
 With the Moip SDK, you can process payments using Moip from your application with security and easy integration.
 
+### Using custom UITextField to Credit Card
+
+```objective-c
+
+MyViewController.h
+@interface MyCheckoutViewController : UIViewController
+
+@property (strong, nonatomic) MPKCreditCardTextField *txtCreditCard;
+
+@end
+
+MyViewController.m
+@implementation MyCheckoutViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.txtCreditCard = [[MPKCreditCardTextField alloc] initWithFrame:CGRectMake(20, 180, 280, 30)];
+    self.txtCreditCard.delegate = self;
+    [self.txtCreditCard setBorderStyle:UITextBorderStyleRoundedRect];
+    
+    [self.view addSubview:self.txtCreditCard];
+}
+
+//... My code
+
+@end
+```
+
+Now, just use this field to get credit card number, already encrypted.
+
+
 ```objective-c
 
     MoipSDK *sdk = [MoipSDK startWithAuthorization:@"your authorization"];
@@ -18,7 +51,7 @@ With the Moip SDK, you can process payments using Moip from your application wit
     MPKCreditCard *card = [MPKCreditCard new];
     card.expirationMonth = 06;
     card.expirationYear = 18;
-    card.number = @"credit card encrypted with you public key";
+    card.number = self.txtCreditCard.text; //credit card encrypted with you public key
     card.cvv = @"cvv encrypted with you public key";
     card.cardholder = holder;
     
@@ -34,5 +67,3 @@ With the Moip SDK, you can process payments using Moip from your application wit
         NSString *descError = error.description;
         XCTAssertEqual(transaction.status, MPKPaymentStatusInAnalysis, @"%@", descError);
     }];
-
-```

@@ -116,9 +116,6 @@
 		675C76CC18D1FADE0005C641 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		675C76CD18D1FADE0005C641 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		675C76CE18D1FADE0005C641 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		675C76D118D1FADE0005C641 /* embedded-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "embedded-Info.plist"; sourceTree = "<group>"; };
-		675C76D318D1FADE0005C641 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		675C76D518D1FADE0005C641 /* embedded-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "embedded-Prefix.pch"; sourceTree = "<group>"; };
 		67701B0618CE293800D66A5B /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enums.h; path = Model/Enums.h; sourceTree = "<group>"; };
 		67BF00A318C77B7100080D43 /* MoipSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = MoipSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67BF00A618C77B7100080D43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -250,30 +247,11 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		675C76CF18D1FADE0005C641 /* embedded */ = {
-			isa = PBXGroup;
-			children = (
-				675C76D018D1FADE0005C641 /* Supporting Files */,
-			);
-			path = embedded;
-			sourceTree = "<group>";
-		};
-		675C76D018D1FADE0005C641 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				675C76D118D1FADE0005C641 /* embedded-Info.plist */,
-				675C76D218D1FADE0005C641 /* InfoPlist.strings */,
-				675C76D518D1FADE0005C641 /* embedded-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		67BF009818C77B7100080D43 = {
 			isa = PBXGroup;
 			children = (
 				67BF00A818C77B7100080D43 /* MoipSDK */,
 				67BF00C118C77B7100080D43 /* MoipSDKTests */,
-				675C76CF18D1FADE0005C641 /* embedded */,
 				67BF00A518C77B7100080D43 /* Frameworks */,
 				67BF00A418C77B7100080D43 /* Products */,
 			);
@@ -565,14 +543,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		675C76D218D1FADE0005C641 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				675C76D318D1FADE0005C641 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		67BF00AB18C77B7100080D43 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

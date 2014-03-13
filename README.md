@@ -2,6 +2,10 @@
 
 With the Moip SDK, you can process payments using Moip from your application with security and easy integration.
 
+To receive payment in your app without concern with encrypt data and with traffic credit card data, you can use the MoipPaymentKit (MPK).
+
+See below how can integrate in your app.
+
 ### Using custom UITextField to Credit Card
 
 ```objective-c

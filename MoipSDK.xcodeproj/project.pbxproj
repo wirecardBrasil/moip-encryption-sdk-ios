@@ -13,8 +13,8 @@
 		675074CF18CDE96E00FBF2CB /* MoipHttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074CA18CDE96E00FBF2CB /* MoipHttpRequester.m */; };
 		675074D018CDE96E00FBF2CB /* MoipHttpResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074CB18CDE96E00FBF2CB /* MoipHttpResponse.h */; };
 		675074D118CDE96E00FBF2CB /* MoipHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074CC18CDE96E00FBF2CB /* MoipHttpResponse.m */; };
-		675074D518CDEA3F00FBF2CB /* Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074D318CDEA3F00FBF2CB /* Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		675074D618CDEA3F00FBF2CB /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074D418CDEA3F00FBF2CB /* Utilities.m */; };
+		675074D518CDEA3F00FBF2CB /* MPKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074D318CDEA3F00FBF2CB /* MPKUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		675074D618CDEA3F00FBF2CB /* MPKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074D418CDEA3F00FBF2CB /* MPKUtilities.m */; };
 		675C76AB18D1EF0E0005C641 /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 675C769418D1EF0E0005C641 /* amex.png */; };
 		675C76AC18D1EF0E0005C641 /* amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 675C769518D1EF0E0005C641 /* amex@2x.png */; };
 		675C76AD18D1EF0E0005C641 /* cvc-amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 675C769618D1EF0E0005C641 /* cvc-amex.png */; };
@@ -47,6 +47,8 @@
 		67BF00C018C77B7100080D43 /* MoipSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BF00A318C77B7100080D43 /* MoipSDK.framework */; };
 		67BF00C618C77B7100080D43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67BF00C418C77B7100080D43 /* InfoPlist.strings */; };
 		67BF00C818C77B7100080D43 /* MoipSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF00C718C77B7100080D43 /* MoipSDKTests.m */; };
+		67C0505518D88B2D0031D2CB /* SecUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 67C0504F18D88B2D0031D2CB /* SecUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67C0505618D88B2D0031D2CB /* SecUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C0505018D88B2D0031D2CB /* SecUtils.m */; };
 		67F8539918CE59FB00C94B5C /* MPKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F8539718CE59FB00C94B5C /* MPKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67F8539A18CE59FB00C94B5C /* MPKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F8539818CE59FB00C94B5C /* MPKEvent.m */; };
 		67F8539D18CE5A0700C94B5C /* MPKFee.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F8539B18CE5A0700C94B5C /* MPKFee.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -88,8 +90,8 @@
 		675074CA18CDE96E00FBF2CB /* MoipHttpRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpRequester.m; sourceTree = "<group>"; };
 		675074CB18CDE96E00FBF2CB /* MoipHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoipHttpResponse.h; sourceTree = "<group>"; };
 		675074CC18CDE96E00FBF2CB /* MoipHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpResponse.m; sourceTree = "<group>"; };
-		675074D318CDEA3F00FBF2CB /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
-		675074D418CDEA3F00FBF2CB /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		675074D318CDEA3F00FBF2CB /* MPKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUtilities.h; sourceTree = "<group>"; };
+		675074D418CDEA3F00FBF2CB /* MPKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUtilities.m; sourceTree = "<group>"; };
 		675C769418D1EF0E0005C641 /* amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex.png; sourceTree = "<group>"; };
 		675C769518D1EF0E0005C641 /* amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "amex@2x.png"; sourceTree = "<group>"; };
 		675C769618D1EF0E0005C641 /* cvc-amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc-amex.png"; sourceTree = "<group>"; };
@@ -130,6 +132,8 @@
 		67BF00C318C77B7100080D43 /* MoipSDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDKTests-Info.plist"; sourceTree = "<group>"; };
 		67BF00C518C77B7100080D43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67BF00C718C77B7100080D43 /* MoipSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDKTests.m; sourceTree = "<group>"; };
+		67C0504F18D88B2D0031D2CB /* SecUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecUtils.h; sourceTree = "<group>"; };
+		67C0505018D88B2D0031D2CB /* SecUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecUtils.m; sourceTree = "<group>"; };
 		67F8539718CE59FB00C94B5C /* MPKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKEvent.h; path = Model/MPKEvent.h; sourceTree = "<group>"; };
 		67F8539818CE59FB00C94B5C /* MPKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKEvent.m; path = Model/MPKEvent.m; sourceTree = "<group>"; };
 		67F8539B18CE5A0700C94B5C /* MPKFee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKFee.h; path = Model/MPKFee.h; sourceTree = "<group>"; };
@@ -186,8 +190,8 @@
 		675074D218CDEA3F00FBF2CB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				675074D318CDEA3F00FBF2CB /* Utilities.h */,
-				675074D418CDEA3F00FBF2CB /* Utilities.m */,
+				675074D318CDEA3F00FBF2CB /* MPKUtilities.h */,
+				675074D418CDEA3F00FBF2CB /* MPKUtilities.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -281,6 +285,7 @@
 		67BF00A818C77B7100080D43 /* MoipSDK */ = {
 			isa = PBXGroup;
 			children = (
+				67C0504A18D88B2D0031D2CB /* SecurityUtil */,
 				675074D218CDEA3F00FBF2CB /* Utils */,
 				675074C718CDE96E00FBF2CB /* Http */,
 				67FE837418C8DC6100F7F2DD /* Model */,
@@ -321,6 +326,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		67C0504A18D88B2D0031D2CB /* SecurityUtil */ = {
+			isa = PBXGroup;
+			children = (
+				67C0504F18D88B2D0031D2CB /* SecUtils.h */,
+				67C0505018D88B2D0031D2CB /* SecUtils.m */,
+			);
+			path = SecurityUtil;
+			sourceTree = "<group>";
+		};
 		67FE837418C8DC6100F7F2DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,13 +366,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67C0505518D88B2D0031D2CB /* SecUtils.h in Headers */,
 				671D3E2C18CA1CAA005C73B1 /* MoipSDK.h in Headers */,
 				675074CE18CDE96E00FBF2CB /* MoipHttpRequester.h in Headers */,
 				67FE838118C8E63800F7F2DD /* MPKPayment.h in Headers */,
 				67FE838518C8ECE100F7F2DD /* MPKPaymentTransaction.h in Headers */,
 				67F853A518CE61A600C94B5C /* MPKFundingInstrument.h in Headers */,
 				67F8539D18CE5A0700C94B5C /* MPKFee.h in Headers */,
-				675074D518CDEA3F00FBF2CB /* Utilities.h in Headers */,
+				675074D518CDEA3F00FBF2CB /* MPKUtilities.h in Headers */,
 				67701B0818CE293800D66A5B /* MPKEnums.h in Headers */,
 				67F853A118CE616000C94B5C /* MPKAmount.h in Headers */,
 				67F8539918CE59FB00C94B5C /* MPKEvent.h in Headers */,
@@ -506,7 +521,8 @@
 				675074D118CDE96E00FBF2CB /* MoipHttpResponse.m in Sources */,
 				67F853A618CE61A600C94B5C /* MPKFundingInstrument.m in Sources */,
 				67FE837C18C8DE3600F7F2DD /* MPKCardHolder.m in Sources */,
-				675074D618CDEA3F00FBF2CB /* Utilities.m in Sources */,
+				675074D618CDEA3F00FBF2CB /* MPKUtilities.m in Sources */,
+				67C0505618D88B2D0031D2CB /* SecUtils.m in Sources */,
 				67F8539A18CE59FB00C94B5C /* MPKEvent.m in Sources */,
 				675C76C118D1EF0E0005C641 /* MPKInterceptor.m in Sources */,
 				67F8539E18CE5A0700C94B5C /* MPKFee.m in Sources */,
@@ -641,6 +657,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "MoipSDK/MoipSDK-Info.plist";
 				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -658,6 +675,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "MoipSDK/MoipSDK-Info.plist";
 				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
@@ -680,6 +698,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MoipSDKTests/MoipSDKTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -698,6 +721,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
 				INFOPLIST_FILE = "MoipSDKTests/MoipSDKTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

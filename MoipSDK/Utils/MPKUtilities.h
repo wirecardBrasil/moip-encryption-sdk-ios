@@ -8,9 +8,12 @@
 
 #import <CommonCrypto/CommonDigest.h>
 
-@interface Utilities : NSObject
+@interface MPKUtilities : NSObject
 
-+ (NSString *) encryptRSA:(NSString *)plainTextString key:(SecKeyRef)publicKey;
++ (void) importPrivateKey:(NSString *)privateKeyText;
++ (void) importPublicKey:(NSString *)publicKeyText;
++ (NSString *) encryptData:(NSString *)plainText;
++ (NSString *) decryptData:(NSString *)plainText;
 + (NSString *) returnMD5Hash:(NSString*)concat;
 + (NSString *) computeSHA256DigestForString:(NSString*)input;
 + (NSString *) computeSHA256DigestForData:(NSData *)input;

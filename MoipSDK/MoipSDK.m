@@ -10,7 +10,7 @@
 #import "MoipHttpRequester.h"
 #import "MoipHttpResponse.h"
 #import "HTTPStatusCodes.h"
-#import "Utilities.h"
+#import "MPKUtilities.h"
 
 @interface MoipSDK ()
 
@@ -23,12 +23,17 @@
 #pragma mark -
 #pragma mark --> Public Methods
 #pragma Start SDK
-+ (MoipSDK *) startWithAuthorization:(NSString *)auth;
++ (MoipSDK *) startWithAuthorization:(NSString *)auth
 {
     MoipSDK *sdkInstance = [MoipSDK new];
     sdkInstance.auth = auth;
     return sdkInstance;
 }
+
+//- (SecKeyRef) publicKey
+//{
+//    return self.publicKeyRef;
+//}
 
 #pragma mark Submit Payment
 - (void)submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *))success failure:(void (^)(MPKPaymentTransaction *, NSError *))failure

@@ -6,21 +6,30 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-#import "Utilities.h"
 #import <UIKit/UIDevice.h>
+#import "MPKUtilities.h"
+#import "SecUtils.h"
 
-@implementation Utilities
+@implementation MPKUtilities
 
-+ (NSString *)encryptRSA:(NSString *)plainTextString key:(SecKeyRef)publicKey
++ (void) importPublicKey:(NSString *)publicKeyText
 {
-	size_t cipherBufferSize = SecKeyGetBlockSize(publicKey);
-	uint8_t *cipherBuffer = malloc(cipherBufferSize);
-	uint8_t *nonce = (uint8_t *)[plainTextString UTF8String];
-	
-    SecKeyEncrypt(publicKey, kSecPaddingOAEP, nonce, strlen( (char*)nonce ), &cipherBuffer[0], &cipherBufferSize);
-    
-	NSData *encryptedData = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
-	return [encryptedData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    [SecUtils setPublicKey:publicKeyText tag:kPublicKeyName];
+}
+
++ (void) importPrivateKey:(NSString *)privateKeyText
+{
+    [SecUtils setPrivateKey:privateKeyText tag:kPrivateKeyName];
+}
+
++ (NSString *) encryptData:(NSString *)plainText
+{
+    return [SecUtils encryptRSA:plainText keyTag:kPublicKeyName];
+}
+
++ (NSString *) decryptData:(NSString *)plainText
+{
+    return [SecUtils decryptRSA:plainText keyTag:kPrivateKeyName];
 }
 
 + (NSString *) returnMD5Hash:(NSString*)concat

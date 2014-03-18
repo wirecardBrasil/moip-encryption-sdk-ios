@@ -9,24 +9,23 @@
 #import "MPKCreditCardTextField.h"
 #import "MPKInterceptor.h"
 #import "MPKEnums.h"
+#import "MPKUtilities.h"
+
+@interface MPKCreditCardTextField ()
+
+@property SecKeyRef publicKeyRef;
+
+@end
 
 @implementation MPKCreditCardTextField
 #pragma mark -
 #pragma mark Init
-- (id)init
+- (id)initWithPublicKey:(NSString *)publicKeyText;
 {
     self = [super init];
     if (self)
     {
-        [self startComponent];
-    }
-    return self;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
+        [MPKUtilities importPublicKey:publicKeyText];
         [self startComponent];
     }
     return self;
@@ -34,7 +33,6 @@
 
 - (void) startComponent
 {
-    _encryptedNumber = @"[EncryptedNumber]";
     self.placeholder = @"9889 0000 0000 0000";
     
     _delegateInterceptor = [[MPKInterceptor alloc] init];
@@ -58,12 +56,7 @@
         }
     }
 
-    return _encryptedNumber;
-}
-
-- (NSString *) decryptedNumber
-{
-    return _number;
+    return [MPKUtilities encryptData:[super text]];
 }
 
 #pragma mark -

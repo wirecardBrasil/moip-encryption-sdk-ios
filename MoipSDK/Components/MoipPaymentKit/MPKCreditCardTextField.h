@@ -3,7 +3,7 @@
 //  SkateStore
 //
 //  Created by Fernando Nazario Sousa on 12/03/14.
-//  Copyright (c) 2014 ThinkMob. All rights reserved.
+//  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,11 +13,11 @@
 @interface MPKCreditCardTextField : UITextField<UITextFieldDelegate>
 {
     MPKInterceptor *_delegateInterceptor;
-    NSString *_encryptedNumber;
-    NSString *_number;
 }
 
 @property (assign, nonatomic) MPKBrand cardType;
 @property (strong, nonatomic) UIImage *cardLogo;
+
+- (id)initWithPublicKey:(NSString *)publicKeyText;
 
 @end

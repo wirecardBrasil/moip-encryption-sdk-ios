@@ -9,7 +9,7 @@
 #import "MoipHttpRequester.h"
 #import "MoipHttpResponse.h"
 #import "HTTPStatusCodes.h"
-#import "Utilities.h"
+#import "MPKUtilities.h"
 
 @interface MoipHttpRequester ()
 
@@ -63,7 +63,7 @@ NSMutableDictionary *headers;
 
 - (MoipHttpResponse *) get:(NSString *)url params:(NSDictionary *)params
 {
-    url = [Utilities addQueryStringToUrlString:url withDictionary:params];
+    url = [MPKUtilities addQueryStringToUrlString:url withDictionary:params];
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     request.HTTPMethod = @"GET";

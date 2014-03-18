@@ -20,13 +20,13 @@
 @implementation MPKCreditCardTextField
 #pragma mark -
 #pragma mark Init
-- (id)initWithPublicKey:(NSString *)publicKeyText;
+- (id)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self)
     {
-        [MPKUtilities importPublicKey:publicKeyText];
         [self startComponent];
+        self.borderStyle = UITextBorderStyleRoundedRect;
     }
     return self;
 }
@@ -44,18 +44,6 @@
 #pragma mark Get text
 - (NSString *) text
 {
-    NSCharacterSet *separatorSet = [NSCharacterSet characterSetWithCharactersInString:@" -[]+?.,"];
-    NSMutableArray *fullStack = [NSMutableArray arrayWithArray:[[NSThread callStackSymbols][1] componentsSeparatedByCharactersInSet:separatorSet]];
-    if (fullStack.count > 0)
-    {
-        [fullStack removeObject:@""];
-
-        if ([fullStack[3] isEqualToString:NSStringFromClass([self class])])
-        {
-            return [super text];
-        }
-    }
-
     return [MPKUtilities encryptData:[super text]];
 }
 
@@ -109,9 +97,30 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    NSCharacterSet *nonNumberSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    if ([string rangeOfCharacterFromSet:nonNumberSet].location != NSNotFound)
+    {
+        textField.text = @"";
+        return NO;
+    }
+    
+    if ([self lengthForCardType] == ([super text].length-3) && ![string isEqualToString:@""])
+    {
+        return NO;
+    }
+    
+    NSCharacterSet *myCharSet = [NSCharacterSet characterSetWithCharactersInString:@"¥œ∑®†øπ£€¡™¢∞§¶•ªº!?,.-:–≠^ˆ}{][+=_|˜~@$%/#&><()\\'\"*"];
+    for (int i = 0; i < [string length]; i++)
+    {
+        unichar c = [string characterAtIndex:i];
+        if ([myCharSet characterIsMember:c])
+            return NO;
+    }
+
+    
     if (![string isEqualToString:@""])
     {
-        self.text = [self formattedStringWithTrail];
+        [super setText:[self formattedStringWithTrail]];
     }
     
     if ([self.delegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)]) {
@@ -150,8 +159,8 @@
     } else {
         regex = [NSRegularExpression regularExpressionWithPattern:@"(\\d{1,4})" options:0 error:NULL];
     }
-    
-    NSArray *matches = [regex matchesInString:self.text options:0 range:NSMakeRange(0, self.text.length)];
+
+    NSArray *matches = [regex matchesInString:[super text] options:0 range:NSMakeRange(0, [super text].length)];
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:matches.count];
     
     for (NSTextCheckingResult *match in matches) {
@@ -159,7 +168,7 @@
             NSRange range = [match rangeAtIndex:i];
             
             if (range.length > 0) {
-                NSString *matchText = [self.text substringWithRange:range];
+                NSString *matchText = [[super text] substringWithRange:range];
                 [result addObject:matchText];
             }
         }
@@ -204,17 +213,17 @@
 
 - (BOOL)isValidLength
 {
-    return self.text.length == [self lengthForCardType];
+    return [super text].length == [self lengthForCardType];
 }
 
 - (BOOL)isValidLuhn
 {
     BOOL odd = true;
     int sum = 0;
-    NSMutableArray *digits = [NSMutableArray arrayWithCapacity:self.text.length];
+    NSMutableArray *digits = [NSMutableArray arrayWithCapacity:[super text].length];
     
-    for (int i = 0; i < self.text.length; i++) {
-        [digits addObject:[self.text substringWithRange:NSMakeRange(i, 1)]];
+    for (int i = 0; i < [super text].length; i++) {
+        [digits addObject:[[super text] substringWithRange:NSMakeRange(i, 1)]];
     }
     
     for (NSString *digitStr in [digits reverseObjectEnumerator]) {
@@ -243,11 +252,11 @@
 
 - (MPKBrand) cardType
 {
-    if (self.text.length < 2) {
+    if ([super text].length < 2) {
         return MPKBrandUnknown;
     }
     
-    NSString *firstChars = [self.text substringWithRange:NSMakeRange(0, 2)];
+    NSString *firstChars = [[super text] substringWithRange:NSMakeRange(0, 2)];
     NSInteger range = [firstChars integerValue];
     
     if (range >= 40 && range <= 49) {

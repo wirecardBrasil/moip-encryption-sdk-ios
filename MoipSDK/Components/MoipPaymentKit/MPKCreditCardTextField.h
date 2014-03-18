@@ -18,6 +18,4 @@
 @property (assign, nonatomic) MPKBrand cardType;
 @property (strong, nonatomic) UIImage *cardLogo;
 
-- (id)initWithPublicKey:(NSString *)publicKeyText;
-
 @end

@@ -13,7 +13,7 @@
 		675074CF18CDE96E00FBF2CB /* MoipHttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074CA18CDE96E00FBF2CB /* MoipHttpRequester.m */; };
 		675074D018CDE96E00FBF2CB /* MoipHttpResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074CB18CDE96E00FBF2CB /* MoipHttpResponse.h */; };
 		675074D118CDE96E00FBF2CB /* MoipHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074CC18CDE96E00FBF2CB /* MoipHttpResponse.m */; };
-		675074D518CDEA3F00FBF2CB /* MPKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074D318CDEA3F00FBF2CB /* MPKUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		675074D518CDEA3F00FBF2CB /* MPKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074D318CDEA3F00FBF2CB /* MPKUtilities.h */; };
 		675074D618CDEA3F00FBF2CB /* MPKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074D418CDEA3F00FBF2CB /* MPKUtilities.m */; };
 		675C76AB18D1EF0E0005C641 /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 675C769418D1EF0E0005C641 /* amex.png */; };
 		675C76AC18D1EF0E0005C641 /* amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 675C769518D1EF0E0005C641 /* amex@2x.png */; };
@@ -37,6 +37,8 @@
 		675C76BF18D1EF0E0005C641 /* MPKCreditCardTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 675C76A818D1EF0E0005C641 /* MPKCreditCardTextField.m */; };
 		675C76C018D1EF0E0005C641 /* MPKInterceptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 675C76A918D1EF0E0005C641 /* MPKInterceptor.h */; };
 		675C76C118D1EF0E0005C641 /* MPKInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 675C76AA18D1EF0E0005C641 /* MPKInterceptor.m */; };
+		6760680C18D9D00B00FCA007 /* MPKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 6760680A18D9D00B00FCA007 /* MPKError.h */; };
+		6760680D18D9D00B00FCA007 /* MPKError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6760680B18D9D00B00FCA007 /* MPKError.m */; };
 		67701B0818CE293800D66A5B /* MPKEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 67701B0618CE293800D66A5B /* MPKEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67BF00A718C77B7100080D43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BF00A618C77B7100080D43 /* Foundation.framework */; };
 		67BF00AD18C77B7100080D43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67BF00AB18C77B7100080D43 /* InfoPlist.strings */; };
@@ -118,6 +120,8 @@
 		675C76CC18D1FADE0005C641 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		675C76CD18D1FADE0005C641 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		675C76CE18D1FADE0005C641 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		6760680A18D9D00B00FCA007 /* MPKError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKError.h; path = Error/MPKError.h; sourceTree = "<group>"; };
+		6760680B18D9D00B00FCA007 /* MPKError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKError.m; path = Error/MPKError.m; sourceTree = "<group>"; };
 		67701B0618CE293800D66A5B /* MPKEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKEnums.h; path = Model/MPKEnums.h; sourceTree = "<group>"; };
 		67BF00A318C77B7100080D43 /* MoipSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = MoipSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67BF00A618C77B7100080D43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -251,6 +255,15 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
+		6760680918D9CFF100FCA007 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				6760680A18D9D00B00FCA007 /* MPKError.h */,
+				6760680B18D9D00B00FCA007 /* MPKError.m */,
+			);
+			name = Error;
+			sourceTree = "<group>";
+		};
 		67BF009818C77B7100080D43 = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +298,7 @@
 		67BF00A818C77B7100080D43 /* MoipSDK */ = {
 			isa = PBXGroup;
 			children = (
+				6760680918D9CFF100FCA007 /* Error */,
 				67C0504A18D88B2D0031D2CB /* SecurityUtil */,
 				675074D218CDEA3F00FBF2CB /* Utils */,
 				675074C718CDE96E00FBF2CB /* Http */,
@@ -372,13 +386,14 @@
 				67FE838118C8E63800F7F2DD /* MPKPayment.h in Headers */,
 				67FE838518C8ECE100F7F2DD /* MPKPaymentTransaction.h in Headers */,
 				67F853A518CE61A600C94B5C /* MPKFundingInstrument.h in Headers */,
+				6760680C18D9D00B00FCA007 /* MPKError.h in Headers */,
 				67F8539D18CE5A0700C94B5C /* MPKFee.h in Headers */,
-				675074D518CDEA3F00FBF2CB /* MPKUtilities.h in Headers */,
 				67701B0818CE293800D66A5B /* MPKEnums.h in Headers */,
 				67F853A118CE616000C94B5C /* MPKAmount.h in Headers */,
 				67F8539918CE59FB00C94B5C /* MPKEvent.h in Headers */,
 				675C76BE18D1EF0E0005C641 /* MPKCreditCardTextField.h in Headers */,
 				67FE837718C8DE2900F7F2DD /* MPKCreditCard.h in Headers */,
+				675074D518CDEA3F00FBF2CB /* MPKUtilities.h in Headers */,
 				675074D018CDE96E00FBF2CB /* MoipHttpResponse.h in Headers */,
 				67FE837B18C8DE3600F7F2DD /* MPKCardHolder.h in Headers */,
 				675074CD18CDE96E00FBF2CB /* HTTPStatusCodes.h in Headers */,
@@ -524,6 +539,7 @@
 				675074D618CDEA3F00FBF2CB /* MPKUtilities.m in Sources */,
 				67C0505618D88B2D0031D2CB /* SecUtils.m in Sources */,
 				67F8539A18CE59FB00C94B5C /* MPKEvent.m in Sources */,
+				6760680D18D9D00B00FCA007 /* MPKError.m in Sources */,
 				675C76C118D1EF0E0005C641 /* MPKInterceptor.m in Sources */,
 				67F8539E18CE5A0700C94B5C /* MPKFee.m in Sources */,
 				67FE837818C8DE2900F7F2DD /* MPKCreditCard.m in Sources */,

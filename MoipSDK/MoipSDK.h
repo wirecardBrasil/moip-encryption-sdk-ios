@@ -10,12 +10,11 @@
 #import "MPKPayment.h"
 #import "MPKPaymentTransaction.h"
 #import "MPKCreditCardTextField.h"
+#import "MPKError.h"
 
 @interface MoipSDK : NSObject
 
-+ (MoipSDK *) startWithAuthorization:(NSString *)auth;
-- (void) submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *transaction))success failure:(void (^)(MPKPaymentTransaction *transaction, NSError *error))failure;
-//- (SecKeyRef) publicKey;
-- (NSString *) getMoipOrderId;
+- (id) initWithAuthorization:(NSString *)auth publicKey:(NSString *)publicKeyPlainText;
+- (void) submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *transaction))success failure:(void (^)(NSArray *errorList))failure;
 
 @end

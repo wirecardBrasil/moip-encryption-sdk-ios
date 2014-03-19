@@ -11,6 +11,7 @@
 #import "MoipHttpResponse.h"
 #import "HTTPStatusCodes.h"
 #import "MPKUtilities.h"
+#import "MPKError.h"
 
 @interface MoipSDK ()
 
@@ -23,20 +24,26 @@
 #pragma mark -
 #pragma mark --> Public Methods
 #pragma Start SDK
-+ (MoipSDK *) startWithAuthorization:(NSString *)auth
+- (id) initWithAuthorization:(NSString *)auth publicKey:(NSString *)publicKeyPlainText
 {
-    MoipSDK *sdkInstance = [MoipSDK new];
-    sdkInstance.auth = auth;
-    return sdkInstance;
+    if (self = [super init])
+    {
+        self.auth = auth;
+        if (publicKeyPlainText != nil && ![publicKeyPlainText isEqualToString:@""])
+        {
+            [self importPublicKey:publicKeyPlainText];
+        }
+    }
+    return self;
 }
 
-//- (SecKeyRef) publicKey
-//{
-//    return self.publicKeyRef;
-//}
+- (void) importPublicKey:(NSString *)publicKeyText
+{
+    [MPKUtilities importPublicKey:publicKeyText];
+}
 
 #pragma mark Submit Payment
-- (void)submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *))success failure:(void (^)(MPKPaymentTransaction *, NSError *))failure
+- (void)submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *))success failure:(void (^)(NSArray *))failure
 {
     NSString *paymentJSON = [self generatePaymentJSON:payment];
 
@@ -55,25 +62,7 @@
     }
 }
 
-- (NSString *) getMoipOrderId
-{
-    NSString *orderJSON = [self generateOrderJSON];
-    NSString *url = APIURL(@"/orders");
-    
-    MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.auth];
-    MoipHttpResponse *response = [requester post:url payload:orderJSON params:nil delegate:nil];
-    if (response.httpStatusCode == kHTTPStatusCodeCreated)
-    {
-        id order = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
-        return order[@"id"];
-    }
-    else
-    {
-        id error = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
-        NSLog(@"%@", error);
-    }
-    return nil;
-}
+
 
 #pragma mark Check Payment Status
 - (void) checkMPKPaymentStatus:(MPKPaymentTransaction *)transaction
@@ -91,21 +80,28 @@
     successBlock(transac);
 }
 
-- (void) checkResponseFailure:(MoipHttpResponse *)response failureBlock:(void (^)(MPKPaymentTransaction *, NSError *))failureBlock
+- (void) checkResponseFailure:(MoipHttpResponse *)response failureBlock:(void (^)(NSArray *))failureBlock
 {
-    id json = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
-    if (response.httpStatusCode != 0)
+    NSDictionary *errorDict = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
+    NSArray *errorList = errorDict[@"errors"];
+    if (errorList.count > 0)
     {
-        MPKPaymentTransaction *transac = [MPKPaymentTransaction new];
-        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: json[@"ERROR"], NSLocalizedFailureReasonErrorKey: json[@"ERROR"]};
-        NSError *error = [NSError errorWithDomain:@"MoipSDK" code:response.httpStatusCode userInfo:userInfo];
-        failureBlock(transac, error);
-    }
-    else
-    {
-        NSDictionary *userInfo = @{NSLocalizedDescriptionKey: json[@"ERROR"], NSLocalizedFailureReasonErrorKey: json[@"ERROR"]};
-        NSError *error = [NSError errorWithDomain:@"MoipSDK" code:response.urlErrorCode userInfo:userInfo];
-        failureBlock(nil, error);
+        NSMutableArray *errors = [NSMutableArray new];
+        for (NSDictionary *error in errorList)
+        {
+            NSDictionary *userInfo = @{NSLocalizedDescriptionKey: error[@"path"],
+                                       NSLocalizedFailureReasonErrorKey: error[@"description"]};
+            
+            MPKError *err = [[MPKError alloc] initWithDomain:@"MPKPaymentError" code:[error[@"code"] intValue] userInfo:userInfo];
+            err.httpStatusCode = response.httpStatusCode;
+            err.apiErrorCode = error[@"code"];
+            err.errorPath = error[@"path"];
+            err.errorDescription = error[@"description"];
+            
+            [errors addObject:err];
+        }
+        
+        failureBlock(errors);
     }
 }
 
@@ -140,55 +136,6 @@
     [jsonPayment appendFormat:@"    }"];
     
     return jsonPayment;
-}
-
-- (NSString *)generateOrderJSON
-{
-    NSMutableString *jsonOrder = [NSMutableString new];
-    [jsonOrder appendFormat:@"{"];
-    [jsonOrder appendFormat:@"  \"ownId\": \"id_proprio\","];
-    [jsonOrder appendFormat:@"  \"amount\": {"];
-    [jsonOrder appendFormat:@"    \"MPKCurrency\": \"BRL\""];
-    [jsonOrder appendFormat:@"  },"];
-    [jsonOrder appendFormat:@"  \"items\": ["];
-    [jsonOrder appendFormat:@"    {"];
-    [jsonOrder appendFormat:@"      \"product\": \"Bicicleta Specialized Tarmac 26 Shimano Alivio\","];
-    [jsonOrder appendFormat:@"      \"quantity\": 1,"];
-    [jsonOrder appendFormat:@"      \"detail\": \"uma linda bicicleta\","];
-    [jsonOrder appendFormat:@"      \"price\": 10000"];
-    [jsonOrder appendFormat:@"    }"];
-    [jsonOrder appendFormat:@"  ],"];
-    [jsonOrder appendFormat:@"  \"customer\": {"];
-    [jsonOrder appendFormat:@"    \"ownId\": \"meu_id_de_cliente\","];
-    [jsonOrder appendFormat:@"    \"fullname\": \"Jose Silva\","];
-    [jsonOrder appendFormat:@"    \"email\": \"josedasilva@email.com\","];
-    [jsonOrder appendFormat:@"    \"birthDate\": \"1988-12-30\","];
-    [jsonOrder appendFormat:@"    \"taxDocument\": {"];
-    [jsonOrder appendFormat:@"      \"type\": \"CPF\","];
-    [jsonOrder appendFormat:@"      \"number\": \"22222222222\""];
-    [jsonOrder appendFormat:@"    },"];
-    [jsonOrder appendFormat:@"    \"phone\": {"];
-    [jsonOrder appendFormat:@"      \"countryCode\": \"55\","];
-    [jsonOrder appendFormat:@"      \"areaCode\": \"11\","];
-    [jsonOrder appendFormat:@"      \"number\": \"66778899\""];
-    [jsonOrder appendFormat:@"    },"];
-    [jsonOrder appendFormat:@"    \"addresses\": ["];
-    [jsonOrder appendFormat:@"      {"];
-    [jsonOrder appendFormat:@"        \"type\": \"BILLING\","];
-    [jsonOrder appendFormat:@"        \"street\": \"Avenida Faria Lima\","];
-    [jsonOrder appendFormat:@"        \"streetNumber\": 2927,"];
-    [jsonOrder appendFormat:@"        \"complement\": 8,"];
-    [jsonOrder appendFormat:@"        \"district\": \"Itaim\","];
-    [jsonOrder appendFormat:@"        \"city\": \"Sao Paulo\","];
-    [jsonOrder appendFormat:@"        \"state\": \"SP\","];
-    [jsonOrder appendFormat:@"        \"country\": \"BRA\","];
-    [jsonOrder appendFormat:@"        \"zipCode\": \"01234000\""];
-    [jsonOrder appendFormat:@"      }"];
-    [jsonOrder appendFormat:@"    ]"];
-    [jsonOrder appendFormat:@"  }"];
-    [jsonOrder appendFormat:@"}"];
-    
-    return jsonOrder;
 }
 
 @end

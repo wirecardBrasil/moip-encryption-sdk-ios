@@ -746,7 +746,7 @@ static NSString* pemPrivateFooter =  @"-----END RSA PRIVATE KEY-----";
     
     unsigned char builder[15];
     NSMutableData *encKey= [[NSMutableData alloc] init ];
-    int bitsStringEncLength;
+    NSUInteger bitsStringEncLength;
     if([(__bridge NSData *)(publicKeyBitsInTypeRef) length] + 1 < 128)
     {
         bitsStringEncLength = 1;

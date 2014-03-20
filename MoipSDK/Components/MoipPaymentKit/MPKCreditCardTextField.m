@@ -13,8 +13,6 @@
 
 @interface MPKCreditCardTextField ()
 
-@property SecKeyRef publicKeyRef;
-
 @end
 
 @implementation MPKCreditCardTextField

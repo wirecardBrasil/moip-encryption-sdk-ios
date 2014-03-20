@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-typedef NS_ENUM(int, MPKPaymentMethod)
+typedef NS_ENUM(NSUInteger, MPKPaymentMethod)
 {
     MPKPaymentMethodCreditCard
 };
@@ -28,14 +28,14 @@ typedef NS_ENUM(NSUInteger, MPKCurrency)
     BRL
 };
 
-typedef NS_ENUM(int, MPKCardHolderDocumentType)
+typedef NS_ENUM(NSUInteger, MPKCardHolderDocumentType)
 {
     MPKCardHolderDocumentTypeCNPJ,
     MPKCardHolderDocumentTypeCPF,
     MPKCardHolderDocumentTypeRG
 };
 
-typedef NS_ENUM (int, MPKBrand)
+typedef NS_ENUM (NSUInteger, MPKBrand)
 {
     MPKBrandUnknown,
     MPKBrandVisa,
@@ -46,13 +46,13 @@ typedef NS_ENUM (int, MPKBrand)
     MPKBrandDinersClub
 };
 
-typedef NS_ENUM (int, MPKFeeType)
+typedef NS_ENUM (NSUInteger, MPKFeeType)
 {
     MPKFeeTypePrePayment,
     MPKFeeTypeTransaction
 };
 
-typedef NS_ENUM (int, MPKEventType)
+typedef NS_ENUM (NSUInteger, MPKEventType)
 {
     MPKEventTypePaymentCreated,
     MPKEventTypePaymentPrinted,

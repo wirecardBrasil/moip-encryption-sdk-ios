@@ -15,8 +15,8 @@
 @property NSString *publicKey;
 @property NSString *authorization;
 
-- (instancetype) initWithConfiguration:(MPKConfiguration *)configuration
-                         authorization:(NSString *)auth
-                             publicKey:(NSString *)pKey;
+- (instancetype) initWithOrderId:(NSString *)moipOrderId
+                installmentCount:(NSInteger)installmentCount
+                   configuration:(MPKConfiguration *)configuration;
 
 @end

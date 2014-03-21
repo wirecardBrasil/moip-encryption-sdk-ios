@@ -16,5 +16,7 @@
 @property UIColor *textFieldColor;
 @property UIColor *textFieldBackgroundColor;
 @property UIColor *viewBackgroundColor;
+@property NSString *authorization;
+@property NSString *publicKey;
 
 @end

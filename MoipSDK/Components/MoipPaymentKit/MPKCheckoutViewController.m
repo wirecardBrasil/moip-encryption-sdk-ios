@@ -34,7 +34,6 @@
 @property (strong, nonatomic) UIToolbar *toolbarPicker;
 @property (strong, nonatomic) UIToolbar *toolbarDatePicker;
 @property (strong, nonatomic) UITableView *tableViewForm;
-@property (strong, nonatomic) UIActivityIndicatorView *actIndicator;
 @property (strong, nonatomic) UIView *loadingView;
 
 @end
@@ -182,20 +181,21 @@
     
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake((self.view.frame.size.width/2) - (80/2),
                                                                 (self.view.frame.size.height/2) - (80/2), 80, 80)];
-    self.loadingView.backgroundColor = [UIColor blackColor];
-    self.loadingView.alpha = 0.7f;
-    self.loadingView.layer.cornerRadius = 5.0f;
+    self.loadingView.backgroundColor = [UIColor clearColor];
+    self.loadingView.alpha = 0;
     
-    self.actIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    self.actIndicator.frame = CGRectMake(self.loadingView.frame.size.width/2 - 37/2,
-                                         self.loadingView.frame.size.height/2 - 37/2, 37, 37);
-    self.actIndicator.color = [UIColor whiteColor];
-    [self.actIndicator startAnimating];
+    UIActivityIndicatorView *actIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    actIndicator.frame = CGRectMake(self.loadingView.frame.size.width/2 - 37/2, self.loadingView.frame.size.height/2 - 37/2, 37, 37);
+    actIndicator.color = [UIColor whiteColor];
+    [actIndicator startAnimating];
     
-    [self.loadingView addSubview:self.actIndicator];
-    [self.view addSubview:self.loadingView];
+    UIView *loadingSubView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    loadingSubView.backgroundColor = [UIColor blackColor];
+    loadingSubView.alpha = 0.7f;
+    loadingSubView.layer.cornerRadius = 5.0f;
+    [loadingSubView addSubview:actIndicator];
     
-    criar metodos para mostrar e esconder loadingView e tirar interatividade da tableView
+    [self.loadingView addSubview:loadingSubView];
 }
 
 #pragma mark -
@@ -370,33 +370,54 @@
 #pragma mark Actions
 - (void) btnPayTouched:(id)sender
 {
+    [self showLoadingView];
+    
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:@"[,\\.\\-\\(\\)\\ `\"]"
+                                                                                options:0
+                                                                                  error:nil];
+
+    NSString *nrDoc = [expression stringByReplacingMatchesInString:self.txtDocument.text
+                                                           options:0
+                                                             range:NSMakeRange(0, self.txtDocument.text.length)
+                                                      withTemplate:@""];
+    NSString *nrPhone = [expression stringByReplacingMatchesInString:self.txtPhone.text
+                                                           options:0
+                                                             range:NSMakeRange(0, self.txtPhone.text.length)
+                                                      withTemplate:@""];
+    
+NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth |   NSCalendarUnitYear fromDate:self.datePickerBirthDate.date];
+    
+    NSString *birthdate = [NSString stringWithFormat:@"%i-%i-%i", components.year, components.month, components.day];
+    
     MPKCardHolder *holder = [MPKCardHolder new];
     holder.fullname = self.txtFullname.text;
-    holder.birthdate = @"1988-04-27";
+    holder.birthdate = birthdate;
     holder.documentType = MPKCardHolderDocumentTypeCPF;
-    holder.documentNumber = self.txtDocument.text;
+    holder.documentNumber = nrDoc;
     holder.phoneCountryCode = @"55";
-    holder.phoneAreaCode = @"11";
-    holder.phoneNumber = @"975902554";
+    holder.phoneAreaCode = [nrPhone substringToIndex:2];
+    holder.phoneNumber = [nrPhone substringFromIndex:2];
     
     MPKCreditCard *card = [MPKCreditCard new];
-    card.expirationMonth = 06;
-    card.expirationYear = 18;
+    card.expirationMonth = [[self.txtDate.text componentsSeparatedByString:@"/"][0] integerValue];
+    card.expirationYear = [[self.txtDate.text componentsSeparatedByString:@"/"][1] integerValue];
     card.number = @"4903762433566341";
-    card.cvv = @"751";
+    card.cvv = self.txtCVC.text;
     card.cardholder = holder;
     
     MPKPayment *payment = [MPKPayment new];
-    payment.moipOrderId = [self getMoipOrderId];
-    payment.installmentCount = 2;
+    payment.moipOrderId = self.moipOrderId;
+    payment.installmentCount = self.installmentCount;
     payment.method = MPKPaymentMethodCreditCard;
     payment.creditCard = card;
     
     MoipSDK *sdk = [[MoipSDK alloc] initWithAuthorization:self.authorization publicKey:self.publicKey];
     [sdk submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
-
+        NSLog(@"%i", transaction.status);
+        [self hideLoadingView];
     } failure:^(NSArray *errorList) {
-
+        [self hideLoadingView];
+        NSLog(@"error: %@", errorList);
     }];
 }
 
@@ -505,6 +526,23 @@
 
 #pragma mark -
 #pragma mark View Animations
+- (void) showLoadingView
+{
+    [self.view addSubview:self.loadingView];
+    [UIView animateWithDuration:0.2f animations:^{
+        self.loadingView.alpha = 1;
+    }];
+}
+
+- (void) hideLoadingView
+{
+    [UIView animateWithDuration:0.3f animations:^{
+        self.loadingView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.loadingView removeFromSuperview];
+    }];
+}
+
 - (void) showPickerView
 {
     CGRect framePicker = self.viewPicker.frame;

@@ -30,6 +30,8 @@ typedef NS_ENUM(NSInteger, MPKTextFieldTag)
 
 @property NSString *publicKey;
 @property NSString *authorization;
+@property NSString *moipOrderId;
+@property NSInteger installmentCount;
 
 - (instancetype) initWithConfiguration:(MPKConfiguration *)configuration;
 

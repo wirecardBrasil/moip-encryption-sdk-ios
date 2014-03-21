@@ -20,6 +20,7 @@
 @property (strong, nonatomic) UITextField *txtCardHolder;
 @property (strong, nonatomic) MPKCreditCardTextField *txtCreditCard;
 @property (strong, nonatomic) UIImageView *imgViewCardLogo;
+@property (strong, nonatomic) UIImageView *imgViewCVC;
 @property (strong, nonatomic) MPKCVCTextField *txtCVC;
 @property (strong, nonatomic) UITextField *txtDate;
 @property (strong, nonatomic) UITextField *txtFullname;
@@ -99,6 +100,9 @@
     self.txtCVC.placeholder = @"Cód.";
     self.txtCVC.font = self.configs.textFieldFont;
     self.txtCVC.tag = MPKTextFieldTagCVC;
+    
+    self.imgViewCVC = [[UIImageView alloc] initWithFrame:CGRectMake(94, 18, 32, 19)];
+    self.imgViewCVC.image = [UIImage imageNamed:@"cvc.png"];
     
     self.txtDate = [[UITextField alloc] initWithFrame:CGRectMake(202, 10, 100, 35)];
     self.txtDate.borderStyle = UITextBorderStyleNone;
@@ -243,6 +247,7 @@
                 break;
             case 2:
                 [cell addSubview:self.txtCVC];
+                [cell addSubview:self.imgViewCVC];
                 [cell addSubview:self.txtDate];
                 break;
                 

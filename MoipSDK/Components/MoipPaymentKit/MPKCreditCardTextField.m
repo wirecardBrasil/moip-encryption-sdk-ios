@@ -274,23 +274,23 @@
 
 - (UIImage *) cardLogo
 {
-    NSString *cardTypeName = @"placeholder";
+    NSString *cardTypeName = @"placeholder.png";
     switch (self.cardType)
     {
         case MPKBrandAmex:
-            cardTypeName = @"amex";
+            cardTypeName = @"amex.png";
             break;
         case MPKBrandDinersClub:
-            cardTypeName = @"diners";
+            cardTypeName = @"diners.png";
             break;
         case MPKBrandDiscover:
-            cardTypeName = @"discover";
+            cardTypeName = @"discover.png";
             break;
         case MPKBrandMasterCard:
-            cardTypeName = @"mastercard";
+            cardTypeName = @"mastercard.png";
             break;
         case MPKBrandVisa:
-            cardTypeName = @"visa";
+            cardTypeName = @"visa.png";
             break;
         default:
             break;

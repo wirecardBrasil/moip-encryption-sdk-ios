@@ -15,7 +15,6 @@
 @property UIFont *textFieldFont;
 @property UIColor *textFieldColor;
 @property UIColor *textFieldBackgroundColor;
-@property UITextBorderStyle textFieldborderStyle;
 @property UIColor *viewBackgroundColor;
 
 @end

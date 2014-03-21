@@ -12,6 +12,11 @@
 
 @interface MPKCheckoutNavigationController : UINavigationController
 
-- (instancetype) initWithConfiguration:(MPKConfiguration *)configuration;
+@property NSString *publicKey;
+@property NSString *authorization;
+
+- (instancetype) initWithConfiguration:(MPKConfiguration *)configuration
+                         authorization:(NSString *)auth
+                             publicKey:(NSString *)pKey;
 
 @end

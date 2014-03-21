@@ -17,11 +17,16 @@
 @implementation MPKCheckoutNavigationController
 
 - (instancetype) initWithConfiguration:(MPKConfiguration *)configuration
+                         authorization:(NSString *)auth
+                             publicKey:(NSString *)pKey
 {
     self = [super init];
     if (self)
     {
-        self.viewControllers = @[[[MPKCheckoutViewController alloc] initWithConfiguration:configuration]];
+        MPKCheckoutViewController *viewController = [[MPKCheckoutViewController alloc] initWithConfiguration:configuration];
+        viewController.authorization = auth;
+        viewController.publicKey = pKey;
+        self.viewControllers = @[viewController];
     }
     return self;
 }

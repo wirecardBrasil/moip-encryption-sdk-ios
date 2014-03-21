@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MoipSDK.h"
+#import "MoipHttpRequester.h"
+#import "MoipHttpResponse.h"
+#import "HTTPStatusCodes.h"
 
 typedef NS_ENUM(NSInteger, MPKTextFieldTag)
 {
@@ -23,6 +27,9 @@ typedef NS_ENUM(NSInteger, MPKTextFieldTag)
 @class MPKConfiguration;
 
 @interface MPKCheckoutViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property NSString *publicKey;
+@property NSString *authorization;
 
 - (instancetype) initWithConfiguration:(MPKConfiguration *)configuration;
 

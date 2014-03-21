@@ -55,6 +55,7 @@
 		67F4E21918DC7F4200B9BD4C /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F4E1D518DC7A6700B9BD4C /* placeholder@2x.png */; };
 		67F4E21A18DC7F4200B9BD4C /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F4E1D618DC7A6700B9BD4C /* visa.png */; };
 		67F4E21B18DC7F4200B9BD4C /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F4E1D718DC7A6700B9BD4C /* visa@2x.png */; };
+		67F4E21D18DC8A6300B9BD4C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F4E21C18DC8A6300B9BD4C /* QuartzCore.framework */; };
 		67F8539918CE59FB00C94B5C /* MPKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F8539718CE59FB00C94B5C /* MPKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67F8539A18CE59FB00C94B5C /* MPKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F8539818CE59FB00C94B5C /* MPKEvent.m */; };
 		67F8539D18CE5A0700C94B5C /* MPKFee.h in Headers */ = {isa = PBXBuildFile; fileRef = 67F8539B18CE5A0700C94B5C /* MPKFee.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -146,6 +147,7 @@
 		67F4E1D518DC7A6700B9BD4C /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		67F4E1D618DC7A6700B9BD4C /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
 		67F4E1D718DC7A6700B9BD4C /* visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa@2x.png"; sourceTree = "<group>"; };
+		67F4E21C18DC8A6300B9BD4C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		67F8539718CE59FB00C94B5C /* MPKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKEvent.h; path = Model/MPKEvent.h; sourceTree = "<group>"; };
 		67F8539818CE59FB00C94B5C /* MPKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKEvent.m; path = Model/MPKEvent.m; sourceTree = "<group>"; };
 		67F8539B18CE5A0700C94B5C /* MPKFee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKFee.h; path = Model/MPKFee.h; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67F4E21D18DC8A6300B9BD4C /* QuartzCore.framework in Frameworks */,
 				67BF00A718C77B7100080D43 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +271,7 @@
 		67BF00A518C77B7100080D43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				67F4E21C18DC8A6300B9BD4C /* QuartzCore.framework */,
 				67BF00A618C77B7100080D43 /* Foundation.framework */,
 				67BF00B718C77B7100080D43 /* XCTest.framework */,
 				67BF00BA18C77B7100080D43 /* UIKit.framework */,

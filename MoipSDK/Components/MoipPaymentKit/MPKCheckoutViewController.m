@@ -10,12 +10,14 @@
 #import "MPKConfiguration.h"
 #import "MPKCreditCardTextField.h"
 #import "MPKCVCTextField.h"
+#import "MPKUtilities.h"
 
 @interface MPKCheckoutViewController ()
 
 @property MPKConfiguration *configs;
 @property NSString* phoneMask;
 @property NSString* cpfMask;
+@property NSRegularExpression *regex;
 
 @property (strong, nonatomic) UITextField *txtCardHolder;
 @property (strong, nonatomic) MPKCreditCardTextField *txtCreditCard;
@@ -45,7 +47,10 @@
     self = [super init];
     if (self)
     {
+        [MPKUtilities importPublicKey:configuration.publicKey];
+        
         self.configs = configuration;
+        self.regex = [NSRegularExpression regularExpressionWithPattern:@"[,\\.\\-\\(\\)\\ `\"]" options:0 error:nil];
     }
     return self;
 }
@@ -73,7 +78,7 @@
     [self.tableViewForm setContentInset:UIEdgeInsetsMake(0, 0, 300, 0)];
     
     // Form
-    self.txtCardHolder = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 282, 35)];
+    self.txtCardHolder = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 282, 55)];
     self.txtCardHolder.borderStyle = UITextBorderStyleNone;
     self.txtCardHolder.autocapitalizationType = UITextAutocapitalizationTypeWords;
     self.txtCardHolder.tag = MPKTextFieldTagHolder;
@@ -81,7 +86,7 @@
     self.txtCardHolder.font = self.configs.textFieldFont;
     self.txtCardHolder.delegate = self;
     
-    self.txtCreditCard = [[MPKCreditCardTextField alloc] initWithFrame:CGRectMake(20, 10, 240, 35)];
+    self.txtCreditCard = [[MPKCreditCardTextField alloc] initWithFrame:CGRectMake(20, 0, 240, 55)];
     self.txtCreditCard.borderStyle = UITextBorderStyleNone;
     self.txtCreditCard.keyboardType = UIKeyboardTypeNumberPad;
     self.txtCreditCard.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -93,7 +98,7 @@
     self.imgViewCardLogo = [[UIImageView alloc] initWithFrame:CGRectMake(270, 18, 32, 19)];
     self.imgViewCardLogo.image = self.txtCreditCard.cardLogo;
     
-    self.txtCVC = [[MPKCVCTextField alloc] initWithFrame:CGRectMake(20, 10, 70, 35)];
+    self.txtCVC = [[MPKCVCTextField alloc] initWithFrame:CGRectMake(20, 0, 70, 55)];
     self.txtCVC.delegate = self;
     self.txtCVC.borderStyle = UITextBorderStyleNone;
     self.txtCVC.keyboardType = UIKeyboardTypeNumberPad;
@@ -105,7 +110,7 @@
     self.imgViewCVC = [[UIImageView alloc] initWithFrame:CGRectMake(94, 18, 32, 19)];
     self.imgViewCVC.image = [UIImage imageNamed:@"cvc.png"];
     
-    self.txtDate = [[UITextField alloc] initWithFrame:CGRectMake(202, 10, 100, 35)];
+    self.txtDate = [[UITextField alloc] initWithFrame:CGRectMake(202, 0, 100, 55)];
     self.txtDate.borderStyle = UITextBorderStyleNone;
     self.txtDate.autocorrectionType = UITextAutocorrectionTypeNo;
     self.txtDate.delegate = self;
@@ -113,7 +118,7 @@
     self.txtDate.placeholder = @"MM/AA";
     self.txtDate.font = self.configs.textFieldFont;
 
-    self.txtFullname = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 282, 35)];
+    self.txtFullname = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 282, 55)];
     self.txtFullname.borderStyle = UITextBorderStyleNone;
     self.txtFullname.autocapitalizationType = UITextAutocapitalizationTypeWords;
     self.txtFullname.placeholder = @"Nome completo";
@@ -121,7 +126,7 @@
     self.txtFullname.delegate = self;
     self.txtFullname.tag = MPKTextFieldTagFullname;
     
-    self.txtPhone = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 282, 35)];
+    self.txtPhone = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 282, 55)];
     self.txtPhone.borderStyle = UITextBorderStyleNone;
     self.txtPhone.keyboardType = UIKeyboardTypeNumberPad;
     self.txtPhone.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -130,7 +135,7 @@
     self.txtPhone.delegate = self;
     self.txtPhone.tag = MPKTextFieldTagPhoneNumber;
     
-    self.txtDocument = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 160, 35)];
+    self.txtDocument = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 160, 55)];
     self.txtDocument.borderStyle = UITextBorderStyleNone;
     self.txtDocument.keyboardType = UIKeyboardTypeNumberPad;
     self.txtDocument.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -139,7 +144,7 @@
     self.txtDocument.delegate = self;
     self.txtDocument.tag = MPKTextFieldTagCPF;
     
-    self.txtBirthDate = [[UITextField alloc] initWithFrame:CGRectMake(185, 10, 120, 35)];
+    self.txtBirthDate = [[UITextField alloc] initWithFrame:CGRectMake(185, 0, 120, 55)];
     self.txtBirthDate.borderStyle = UITextBorderStyleNone;
     self.txtBirthDate.placeholder = @"Nascimento";
     self.txtBirthDate.font = self.configs.textFieldFont;
@@ -295,7 +300,7 @@
     }
     else if (indexPath.section == 2)
     {
-        UIButton *btnPay = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+        UIButton *btnPay = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, 55)];
         [btnPay setTitle:@"Pagar" forState:UIControlStateNormal];
         [btnPay addTarget:self action:@selector(btnPayTouched:) forControlEvents:UIControlEventTouchUpInside];
         [btnPay setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -370,55 +375,48 @@
 #pragma mark Actions
 - (void) btnPayTouched:(id)sender
 {
-    [self showLoadingView];
-    
-    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:@"[,\\.\\-\\(\\)\\ `\"]"
-                                                                                options:0
-                                                                                  error:nil];
+    if ([self allFieldsAreValid])
+    {
+        [self showLoadingView];
+        
+        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth |   NSCalendarUnitYear fromDate:self.datePickerBirthDate.date];
+        
+        NSString *docNumber = [self document];
+        NSString *phoneNumber = [self phoneNumber];
+        NSString *birthdate = [NSString stringWithFormat:@"%i-%i-%i", components.year, components.month, components.day];
+        
+        MPKCardHolder *holder = [MPKCardHolder new];
+        holder.fullname = self.txtFullname.text;
+        holder.birthdate = birthdate;
+        holder.documentType = MPKCardHolderDocumentTypeCPF;
+        holder.documentNumber = docNumber;
+        holder.phoneCountryCode = @"55";
+        holder.phoneAreaCode = [phoneNumber substringToIndex:2];
+        holder.phoneNumber = [phoneNumber substringFromIndex:2];
 
-    NSString *nrDoc = [expression stringByReplacingMatchesInString:self.txtDocument.text
-                                                           options:0
-                                                             range:NSMakeRange(0, self.txtDocument.text.length)
-                                                      withTemplate:@""];
-    NSString *nrPhone = [expression stringByReplacingMatchesInString:self.txtPhone.text
-                                                           options:0
-                                                             range:NSMakeRange(0, self.txtPhone.text.length)
-                                                      withTemplate:@""];
-    
-NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth |   NSCalendarUnitYear fromDate:self.datePickerBirthDate.date];
-    
-    NSString *birthdate = [NSString stringWithFormat:@"%i-%i-%i", components.year, components.month, components.day];
-    
-    MPKCardHolder *holder = [MPKCardHolder new];
-    holder.fullname = self.txtFullname.text;
-    holder.birthdate = birthdate;
-    holder.documentType = MPKCardHolderDocumentTypeCPF;
-    holder.documentNumber = nrDoc;
-    holder.phoneCountryCode = @"55";
-    holder.phoneAreaCode = [nrPhone substringToIndex:2];
-    holder.phoneNumber = [nrPhone substringFromIndex:2];
-    
-    MPKCreditCard *card = [MPKCreditCard new];
-    card.expirationMonth = [[self.txtDate.text componentsSeparatedByString:@"/"][0] integerValue];
-    card.expirationYear = [[self.txtDate.text componentsSeparatedByString:@"/"][1] integerValue];
-    card.number = @"4903762433566341";
-    card.cvv = self.txtCVC.text;
-    card.cardholder = holder;
-    
-    MPKPayment *payment = [MPKPayment new];
-    payment.moipOrderId = self.moipOrderId;
-    payment.installmentCount = self.installmentCount;
-    payment.method = MPKPaymentMethodCreditCard;
-    payment.creditCard = card;
-    
-    MoipSDK *sdk = [[MoipSDK alloc] initWithAuthorization:self.authorization publicKey:self.publicKey];
-    [sdk submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
-        NSLog(@"%i", transaction.status);
-        [self hideLoadingView];
-    } failure:^(NSArray *errorList) {
-        [self hideLoadingView];
-        NSLog(@"error: %@", errorList);
-    }];
+
+        MPKCreditCard *card = [MPKCreditCard new];
+        card.expirationMonth = [[self.txtDate.text componentsSeparatedByString:@"/"][0] integerValue];
+        card.expirationYear = [[self.txtDate.text componentsSeparatedByString:@"/"][1] integerValue];
+        card.number = @"4903762433566341";
+        card.cvv = self.txtCVC.text;
+        card.cardholder = holder;
+        
+        MPKPayment *payment = [MPKPayment new];
+        payment.moipOrderId = self.moipOrderId;
+        payment.installmentCount = self.installmentCount;
+        payment.method = MPKPaymentMethodCreditCard;
+        payment.creditCard = card;
+        
+        MoipSDK *sdk = [[MoipSDK alloc] initWithAuthorization:self.authorization publicKey:self.publicKey];
+        [sdk submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
+            NSLog(@"%i", transaction.status);
+            [self hideLoadingView];
+        } failure:^(NSArray *errorList) {
+            [self hideLoadingView];
+            NSLog(@"error: %@", errorList);
+        }];
+    }
 }
 
 - (void) btnCancelTouched:(id)sender
@@ -453,7 +451,142 @@ NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalend
     [self hidePickerView];
 }
 
-#pragma mark - 
+#pragma mark -
+#pragma mark Fields Validations
+- (BOOL) allFieldsAreValid
+{
+    BOOL allValid = YES;
+    
+    if (self.txtCardHolder.text.length <= 5)
+    {
+        allValid = NO;
+        [self invalidAlerTextField:self.txtCardHolder on:YES];
+    }
+    else
+    {
+        [self invalidAlerTextField:self.txtCardHolder on:NO];
+    }
+    
+    if (![((MPKCreditCardTextField *)self.txtCreditCard) isValidLuhn])
+    {
+        allValid = NO;
+        [self invalidAlerTextField:self.txtCreditCard on:!allValid];
+    }
+    else
+    {
+        [self invalidAlerTextField:self.txtCreditCard on:NO];
+    }
+    
+    if (![((MPKCVCTextField *)self.txtCVC) isValidLength])
+    {
+        allValid = NO;
+        [self invalidAlerTextField:self.txtCVC on:!allValid];
+    }
+    else
+    {
+        [self invalidAlerTextField:self.txtCVC on:NO];
+    }
+    
+    if (self.txtDate.text.length < 5)
+    {
+        allValid = NO;
+        [self invalidAlerTextField:self.txtDate on:!allValid];
+    }
+    else
+    {
+        [self invalidAlerTextField:self.txtDate on:NO];
+    }
+    
+    if (self.txtDate.text.length < 5)
+    {
+        allValid = NO;
+        [self invalidAlerTextField:self.txtDate on:!allValid];
+    }
+    else
+    {
+        [self invalidAlerTextField:self.txtDate on:NO];
+    }
+    
+    if (self.txtFullname.text.length < 5)
+    {
+        allValid = NO;
+        [self invalidAlerTextField:self.txtFullname on:!allValid];
+    }
+    else
+    {
+        [self invalidAlerTextField:self.txtFullname on:NO];
+    }
+    
+    if (self.txtDocument.text.length != self.cpfMask.length)
+    {
+        allValid = NO;
+        [self invalidAlerTextField:self.txtDocument on:!allValid];
+    }
+    else
+    {
+        [self invalidAlerTextField:self.txtDocument on:NO];
+    }
+    
+    if (self.txtBirthDate.text.length < 10)
+    {
+        allValid = NO;
+        [self invalidAlerTextField:self.txtBirthDate on:YES];
+    }
+    else
+    {
+        [self invalidAlerTextField:self.txtBirthDate on:NO];
+    }
+
+    if (self.txtPhone.text.length != self.phoneMask.length || self.txtPhone.text.length != (self.phoneMask.length - 1))
+    {
+        allValid = NO;
+        [self invalidAlerTextField:self.txtPhone on:!allValid];
+    }
+    else
+    {
+        [self invalidAlerTextField:self.txtPhone on:NO];
+    }
+    
+    return allValid;
+}
+
+- (void) invalidAlerTextField:(UITextField *)txtField on:(BOOL)on
+{
+    UITableViewCell *cell = (UITableViewCell *)[[txtField superview] superview];
+    if (on)
+    {
+        cell.layer.shadowOffset = CGSizeMake(1, 1);
+        cell.layer.shadowColor = [RGB(255.0f, 91.0f, 91.0f, 1.0f) CGColor];
+        cell.layer.shadowOpacity = 0.8f;
+        cell.layer.shadowRadius = 3.0f;
+    }
+    else
+    {
+        cell.layer.shadowOffset = CGSizeMake(0, 0);
+        cell.layer.shadowColor = [[UIColor whiteColor] CGColor];
+        cell.layer.shadowOpacity = 0.0f;
+        cell.layer.shadowRadius = 0.0f;
+    }
+}
+
+- (NSString *) phoneNumber
+{
+    return [self.regex stringByReplacingMatchesInString:self.txtPhone.text
+                                                options:0
+                                                  range:NSMakeRange(0, self.txtPhone.text.length)
+                                           withTemplate:@""];
+    
+}
+
+- (NSString *) document
+{
+    return [self.regex stringByReplacingMatchesInString:self.txtDocument.text
+                                                options:0
+                                                  range:NSMakeRange(0, self.txtDocument.text.length)
+                                           withTemplate:@""];
+}
+
+#pragma mark -
 #pragma mark Methods Helper
 - (NSString *) getMoipOrderId
 {
@@ -655,6 +788,8 @@ NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalend
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    [self invalidAlerTextField:textField on:NO];
+    
     if (textField.tag == MPKTextFieldTagExpireDate)
     {
         [self.txtCVC resignFirstResponder];
@@ -673,6 +808,7 @@ NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalend
     if (textField.tag == MPKTextFieldTagHolder)
     {
         self.txtFullname.text = textField.text;
+        [self invalidAlerTextField:self.txtFullname on:NO];
     }
 }
 

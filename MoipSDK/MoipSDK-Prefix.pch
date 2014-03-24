@@ -9,6 +9,8 @@
     #import "MPKEnums.h"
 #endif
 
+#define RGB(R,G,B,A) [UIColor colorWithRed:R/255.0f green:B/255.0f blue:B/255.0f alpha:A]
+
 #define BASE_URL @"http://54.208.23.162/v2"
 //#define BASE_URL @"https://order-sand.conn.intranet/v2"
 

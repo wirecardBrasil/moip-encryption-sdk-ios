@@ -15,4 +15,7 @@
     MPKInterceptor *_delegateInterceptor;
 }
 
+
+- (BOOL) isValidLength;
+
 @end

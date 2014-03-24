@@ -18,4 +18,6 @@
 @property (assign, nonatomic) MPKBrand cardType;
 @property (strong, nonatomic) UIImage *cardLogo;
 
+- (BOOL)isValidLuhn;
+
 @end

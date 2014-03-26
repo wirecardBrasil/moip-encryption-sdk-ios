@@ -216,6 +216,9 @@
 
 - (BOOL)isValidLuhn
 {
+    if ([super text].length <= 0)
+        return NO;
+    
     BOOL odd = true;
     int sum = 0;
     NSMutableArray *digits = [NSMutableArray arrayWithCapacity:[super text].length];

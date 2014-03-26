@@ -252,10 +252,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PaymentFormCellID"];
+    NSString *cellID = [NSString stringWithFormat:@"PaymentFormCellID_%i_%i", indexPath.section, indexPath.row];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PaymentFormCellID"];
+        NSLog(@"Criou nova cell %@", cellID);
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    else
+    {
+        NSLog(@"Reutilizou cell %@", cellID);
     }
     
     if (indexPath.section == 0)
@@ -263,16 +270,16 @@
         switch (indexPath.row)
         {
             case 0:
-                [cell addSubview:self.txtCardHolder];
+                [cell.contentView addSubview:self.txtCardHolder];
                 break;
             case 1:
-                [cell addSubview:self.txtCreditCard];
-                [cell addSubview:self.imgViewCardLogo];
+                [cell.contentView addSubview:self.txtCreditCard];
+                [cell.contentView addSubview:self.imgViewCardLogo];
                 break;
             case 2:
-                [cell addSubview:self.txtCVC];
-                [cell addSubview:self.imgViewCVC];
-                [cell addSubview:self.txtDate];
+                [cell.contentView addSubview:self.txtCVC];
+                [cell.contentView addSubview:self.imgViewCVC];
+                [cell.contentView addSubview:self.txtDate];
                 break;
                 
             default:
@@ -284,14 +291,14 @@
         switch (indexPath.row)
         {
             case 0:
-                [cell addSubview:self.txtFullname];
+                [cell.contentView addSubview:self.txtFullname];
                 break;
             case 1:
-                [cell addSubview:self.txtDocument];
-                [cell addSubview:self.txtBirthDate];
+                [cell.contentView addSubview:self.txtDocument];
+                [cell.contentView addSubview:self.txtBirthDate];
                 break;
             case 2:
-                [cell addSubview:self.txtPhone];
+                [cell.contentView addSubview:self.txtPhone];
                 break;
                 
             default:
@@ -460,113 +467,67 @@
     if (self.txtCardHolder.text.length <= 5)
     {
         allValid = NO;
-        [self invalidAlerTextField:self.txtCardHolder on:YES];
-    }
-    else
-    {
-        [self invalidAlerTextField:self.txtCardHolder on:NO];
+        [self invalidAlerTextField:self.txtCardHolder];
     }
     
     if (![((MPKCreditCardTextField *)self.txtCreditCard) isValidLuhn])
     {
         allValid = NO;
-        [self invalidAlerTextField:self.txtCreditCard on:!allValid];
-    }
-    else
-    {
-        [self invalidAlerTextField:self.txtCreditCard on:NO];
+        [self invalidAlerTextField:self.txtCreditCard];
     }
     
     if (![((MPKCVCTextField *)self.txtCVC) isValidLength])
     {
         allValid = NO;
-        [self invalidAlerTextField:self.txtCVC on:!allValid];
-    }
-    else
-    {
-        [self invalidAlerTextField:self.txtCVC on:NO];
+        [self invalidAlerTextField:self.txtCVC];
     }
     
     if (self.txtDate.text.length < 5)
     {
         allValid = NO;
-        [self invalidAlerTextField:self.txtDate on:!allValid];
-    }
-    else
-    {
-        [self invalidAlerTextField:self.txtDate on:NO];
+        [self invalidAlerTextField:self.txtDate];
     }
     
     if (self.txtDate.text.length < 5)
     {
         allValid = NO;
-        [self invalidAlerTextField:self.txtDate on:!allValid];
-    }
-    else
-    {
-        [self invalidAlerTextField:self.txtDate on:NO];
+        [self invalidAlerTextField:self.txtDate];
     }
     
     if (self.txtFullname.text.length < 5)
     {
         allValid = NO;
-        [self invalidAlerTextField:self.txtFullname on:!allValid];
-    }
-    else
-    {
-        [self invalidAlerTextField:self.txtFullname on:NO];
+        [self invalidAlerTextField:self.txtFullname];
     }
     
     if (self.txtDocument.text.length != self.cpfMask.length)
     {
         allValid = NO;
-        [self invalidAlerTextField:self.txtDocument on:!allValid];
-    }
-    else
-    {
-        [self invalidAlerTextField:self.txtDocument on:NO];
+        [self invalidAlerTextField:self.txtDocument];
     }
     
     if (self.txtBirthDate.text.length < 10)
     {
         allValid = NO;
-        [self invalidAlerTextField:self.txtBirthDate on:YES];
-    }
-    else
-    {
-        [self invalidAlerTextField:self.txtBirthDate on:NO];
+        [self invalidAlerTextField:self.txtBirthDate];
     }
 
-    if (self.txtPhone.text.length != self.phoneMask.length || self.txtPhone.text.length != (self.phoneMask.length - 1))
+    if (self.txtPhone.text.length < (self.phoneMask.length - 1))
     {
         allValid = NO;
-        [self invalidAlerTextField:self.txtPhone on:!allValid];
+        [self invalidAlerTextField:self.txtPhone];
     }
-    else
-    {
-        [self invalidAlerTextField:self.txtPhone on:NO];
-    }
+
     
     return allValid;
 }
 
-- (void) invalidAlerTextField:(UITextField *)txtField on:(BOOL)on
+- (void) invalidAlerTextField:(UITextField *)txtField
 {
-    UITableViewCell *cell = (UITableViewCell *)[[txtField superview] superview];
-    if (on)
-    {
-        cell.layer.shadowOffset = CGSizeMake(1, 1);
-        cell.layer.shadowColor = [RGB(255.0f, 91.0f, 91.0f, 1.0f) CGColor];
-        cell.layer.shadowOpacity = 0.8f;
-        cell.layer.shadowRadius = 3.0f;
-    }
-    else
-    {
-        cell.layer.shadowOffset = CGSizeMake(0, 0);
-        cell.layer.shadowColor = [[UIColor whiteColor] CGColor];
-        cell.layer.shadowOpacity = 0.0f;
-        cell.layer.shadowRadius = 0.0f;
-    }
+    NSDictionary *attrs = @{NSForegroundColorAttributeName: RGB(255.0f, 91.0f, 91.0f, 0.9f)};
+    
+    txtField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:txtField.placeholder
+                                                                     attributes:attrs];
 }
 
 - (NSString *) phoneNumber
@@ -788,8 +749,6 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [self invalidAlerTextField:textField on:NO];
-    
     if (textField.tag == MPKTextFieldTagExpireDate)
     {
         [self.txtCVC resignFirstResponder];
@@ -808,7 +767,6 @@
     if (textField.tag == MPKTextFieldTagHolder)
     {
         self.txtFullname.text = textField.text;
-        [self invalidAlerTextField:self.txtFullname on:NO];
     }
 }
 

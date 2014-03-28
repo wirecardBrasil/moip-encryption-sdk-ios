@@ -219,12 +219,13 @@
     if ([super text].length <= 0)
         return NO;
     
+    NSString *number = [[super text] stringByReplacingOccurrencesOfString:@" " withString:@""];
     BOOL odd = true;
     int sum = 0;
-    NSMutableArray *digits = [NSMutableArray arrayWithCapacity:[super text].length];
+    NSMutableArray *digits = [NSMutableArray arrayWithCapacity:number.length];
     
-    for (int i = 0; i < [super text].length; i++) {
-        [digits addObject:[[super text] substringWithRange:NSMakeRange(i, 1)]];
+    for (int i = 0; i < number.length; i++) {
+        [digits addObject:[number substringWithRange:NSMakeRange(i, 1)]];
     }
     
     for (NSString *digitStr in [digits reverseObjectEnumerator]) {

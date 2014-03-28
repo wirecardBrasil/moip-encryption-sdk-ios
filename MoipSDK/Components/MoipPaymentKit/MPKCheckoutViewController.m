@@ -50,6 +50,7 @@
         [MPKUtilities importPublicKey:configuration.publicKey];
         
         self.configs = configuration;
+        self.authorization = configuration.authorization;
         self.regex = [NSRegularExpression regularExpressionWithPattern:@"[,\\.\\-\\(\\)\\ `\"]" options:0 error:nil];
     }
     return self;
@@ -59,14 +60,24 @@
 {
     [super viewDidLoad];
     
-    self.title = self.configs.titleView;
+    UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(btnCancelTouched:)];
+    
+    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:self.configs.titleView];
+    navItem.rightBarButtonItem = btnCancel;
+    
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    navBar.barStyle = UIBarStyleDefault;
+    navBar.items = @[navItem];
+    
+    [self.view addSubview:navBar];
+    
     self.view.backgroundColor = self.configs.viewBackgroundColor;
     self.phoneMask = @"(99) 999999999";
     self.cpfMask = @"999.999.999-99";
     self.expirationDateMask = @"99/99";
     self.birthdateMask = @"99/99/9999";
     
-    self.tableViewForm = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
+    self.tableViewForm = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     self.tableViewForm.allowsSelection = NO;
     self.tableViewForm.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.tableViewForm.delegate = self;
@@ -296,11 +307,11 @@
 
         NSString *docNumber = [self removeInvalidCharacters:self.txtDocument];
         NSString *phoneNumber = [self removeInvalidCharacters:self.txtPhone];
-        NSString *birthdate = [self removeInvalidCharacters:self.txtBirthDate];
+        NSArray *birthdate = [self.txtBirthDate.text componentsSeparatedByString:@"/"];
         
         MPKCardHolder *holder = [MPKCardHolder new];
         holder.fullname = self.txtFullname.text;
-        holder.birthdate = birthdate;
+        holder.birthdate = [NSString stringWithFormat:@"%@-%@-%@", birthdate[2], birthdate[1], birthdate[0]];
         holder.documentType = MPKCardHolderDocumentTypeCPF;
         holder.documentNumber = docNumber;
         holder.phoneCountryCode = @"55";
@@ -316,7 +327,7 @@
         
         MPKPayment *payment = [MPKPayment new];
         payment.moipOrderId = self.moipOrderId;
-        payment.installmentCount = self.installmentCount;
+        payment.installmentCount = 2;//self.installmentCount;
         payment.method = MPKPaymentMethodCreditCard;
         payment.creditCard = card;
         
@@ -328,7 +339,6 @@
             {
                 [self.delegate performSelector:@selector(paymentTransactionSuccess:) withObject:transaction];
             }
-            
             [self dismissViewControllerAnimated:YES completion:nil];
         } failure:^(NSArray *errorList) {
             [self hideLoadingView];
@@ -337,7 +347,6 @@
             {
                 [self.delegate performSelector:@selector(paymentTransactionFailure:) withObject:errorList];
             }
-            
             [self dismissViewControllerAnimated:YES completion:nil];
         }];
     }

@@ -23,9 +23,7 @@
 		6760680D18D9D00B00FCA007 /* MPKError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6760680B18D9D00B00FCA007 /* MPKError.m */; };
 		6760681018DA11AB00FCA007 /* MPKCVCTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 6760680E18DA11AB00FCA007 /* MPKCVCTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6760681118DA11AB00FCA007 /* MPKCVCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6760680F18DA11AB00FCA007 /* MPKCVCTextField.m */; };
-		6761C3B218DB8C3800551E5D /* MPKCheckoutNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6761C3AC18DB8C3800551E5D /* MPKCheckoutNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6761C3B318DB8C3800551E5D /* MPKCheckoutNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761C3AD18DB8C3800551E5D /* MPKCheckoutNavigationController.m */; };
-		6761C3B418DB8C3800551E5D /* MPKCheckoutViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6761C3AE18DB8C3800551E5D /* MPKCheckoutViewController.h */; };
+		6761C3B418DB8C3800551E5D /* MPKCheckoutViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6761C3AE18DB8C3800551E5D /* MPKCheckoutViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6761C3B518DB8C3800551E5D /* MPKCheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761C3AF18DB8C3800551E5D /* MPKCheckoutViewController.m */; };
 		6761C3B618DB8C3800551E5D /* MPKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6761C3B018DB8C3800551E5D /* MPKConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6761C3B718DB8C3800551E5D /* MPKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761C3B118DB8C3800551E5D /* MPKConfiguration.m */; };
@@ -111,8 +109,6 @@
 		6760680B18D9D00B00FCA007 /* MPKError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKError.m; path = Error/MPKError.m; sourceTree = "<group>"; };
 		6760680E18DA11AB00FCA007 /* MPKCVCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKCVCTextField.h; path = MoipPaymentKit/MPKCVCTextField.h; sourceTree = "<group>"; };
 		6760680F18DA11AB00FCA007 /* MPKCVCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKCVCTextField.m; path = MoipPaymentKit/MPKCVCTextField.m; sourceTree = "<group>"; };
-		6761C3AC18DB8C3800551E5D /* MPKCheckoutNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKCheckoutNavigationController.h; path = MoipPaymentKit/MPKCheckoutNavigationController.h; sourceTree = "<group>"; };
-		6761C3AD18DB8C3800551E5D /* MPKCheckoutNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKCheckoutNavigationController.m; path = MoipPaymentKit/MPKCheckoutNavigationController.m; sourceTree = "<group>"; };
 		6761C3AE18DB8C3800551E5D /* MPKCheckoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKCheckoutViewController.h; path = MoipPaymentKit/MPKCheckoutViewController.h; sourceTree = "<group>"; };
 		6761C3AF18DB8C3800551E5D /* MPKCheckoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKCheckoutViewController.m; path = MoipPaymentKit/MPKCheckoutViewController.m; sourceTree = "<group>"; };
 		6761C3B018DB8C3800551E5D /* MPKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKConfiguration.h; path = MoipPaymentKit/MPKConfiguration.h; sourceTree = "<group>"; };
@@ -218,8 +214,6 @@
 				675C76A818D1EF0E0005C641 /* MPKCreditCardTextField.m */,
 				6760680E18DA11AB00FCA007 /* MPKCVCTextField.h */,
 				6760680F18DA11AB00FCA007 /* MPKCVCTextField.m */,
-				6761C3AC18DB8C3800551E5D /* MPKCheckoutNavigationController.h */,
-				6761C3AD18DB8C3800551E5D /* MPKCheckoutNavigationController.m */,
 				6761C3AE18DB8C3800551E5D /* MPKCheckoutViewController.h */,
 				6761C3AF18DB8C3800551E5D /* MPKCheckoutViewController.m */,
 				6761C3B018DB8C3800551E5D /* MPKConfiguration.h */,
@@ -400,7 +394,6 @@
 				6760680C18D9D00B00FCA007 /* MPKError.h in Headers */,
 				6761C3B418DB8C3800551E5D /* MPKCheckoutViewController.h in Headers */,
 				67F8539918CE59FB00C94B5C /* MPKEvent.h in Headers */,
-				6761C3B218DB8C3800551E5D /* MPKCheckoutNavigationController.h in Headers */,
 				6760681018DA11AB00FCA007 /* MPKCVCTextField.h in Headers */,
 				675C76BE18D1EF0E0005C641 /* MPKCreditCardTextField.h in Headers */,
 				67FE837718C8DE2900F7F2DD /* MPKCreditCard.h in Headers */,
@@ -553,7 +546,6 @@
 				67FE837818C8DE2900F7F2DD /* MPKCreditCard.m in Sources */,
 				67FE838218C8E63800F7F2DD /* MPKPayment.m in Sources */,
 				6761C3B718DB8C3800551E5D /* MPKConfiguration.m in Sources */,
-				6761C3B318DB8C3800551E5D /* MPKCheckoutNavigationController.m in Sources */,
 				675074CF18CDE96E00FBF2CB /* MoipHttpRequester.m in Sources */,
 				675C76BF18D1EF0E0005C641 /* MPKCreditCardTextField.m in Sources */,
 				67FE838618C8ECE100F7F2DD /* MPKPaymentTransaction.m in Sources */,

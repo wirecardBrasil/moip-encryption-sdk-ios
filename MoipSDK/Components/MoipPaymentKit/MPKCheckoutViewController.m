@@ -7,16 +7,22 @@
 //
 
 #import "MPKCheckoutViewController.h"
+#import "MoipSDK.h"
 #import "MPKConfiguration.h"
 #import "MPKCreditCardTextField.h"
 #import "MPKCVCTextField.h"
 #import "MPKUtilities.h"
+#import "MoipHttpRequester.h"
+#import "MoipHttpResponse.h"
+#import "HTTPStatusCodes.h"
 
 @interface MPKCheckoutViewController ()
 
 @property MPKConfiguration *configs;
-@property NSString* phoneMask;
-@property NSString* cpfMask;
+@property NSString *phoneMask;
+@property NSString *cpfMask;
+@property NSString *expirationDateMask;
+@property NSString *birthdateMask;
 @property NSRegularExpression *regex;
 
 @property (strong, nonatomic) UITextField *txtCardHolder;
@@ -24,17 +30,11 @@
 @property (strong, nonatomic) UIImageView *imgViewCardLogo;
 @property (strong, nonatomic) UIImageView *imgViewCVC;
 @property (strong, nonatomic) MPKCVCTextField *txtCVC;
-@property (strong, nonatomic) UITextField *txtDate;
+@property (strong, nonatomic) UITextField *txtExpirationDate;
 @property (strong, nonatomic) UITextField *txtFullname;
 @property (strong, nonatomic) UITextField *txtDocument;
 @property (strong, nonatomic) UITextField *txtPhone;
 @property (strong, nonatomic) UITextField *txtBirthDate;
-@property (strong, nonatomic) UIView *viewDatePicker;
-@property (strong, nonatomic) UIDatePicker *datePickerBirthDate;
-@property (strong, nonatomic) UIView *viewPicker;
-@property (strong, nonatomic) UIPickerView *pkrValidation;
-@property (strong, nonatomic) UIToolbar *toolbarPicker;
-@property (strong, nonatomic) UIToolbar *toolbarDatePicker;
 @property (strong, nonatomic) UITableView *tableViewForm;
 @property (strong, nonatomic) UIView *loadingView;
 
@@ -63,11 +63,8 @@
     self.view.backgroundColor = self.configs.viewBackgroundColor;
     self.phoneMask = @"(99) 999999999";
     self.cpfMask = @"999.999.999-99";
-    
-    UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                               target:self
-                                                                               action:@selector(btnCancelTouched:)];
-    self.navigationItem.rightBarButtonItem = btnCancel;
+    self.expirationDateMask = @"99/99";
+    self.birthdateMask = @"99/99/9999";
     
     self.tableViewForm = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     self.tableViewForm.allowsSelection = NO;
@@ -110,13 +107,13 @@
     self.imgViewCVC = [[UIImageView alloc] initWithFrame:CGRectMake(94, 18, 32, 19)];
     self.imgViewCVC.image = [UIImage imageNamed:@"cvc.png"];
     
-    self.txtDate = [[UITextField alloc] initWithFrame:CGRectMake(202, 0, 100, 55)];
-    self.txtDate.borderStyle = UITextBorderStyleNone;
-    self.txtDate.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.txtDate.delegate = self;
-    self.txtDate.tag = MPKTextFieldTagExpireDate;
-    self.txtDate.placeholder = @"MM/AA";
-    self.txtDate.font = self.configs.textFieldFont;
+    self.txtExpirationDate = [[UITextField alloc] initWithFrame:CGRectMake(202, 0, 100, 55)];
+    self.txtExpirationDate.borderStyle = UITextBorderStyleNone;
+    self.txtExpirationDate.keyboardType = UIKeyboardTypeNumberPad;
+    self.txtExpirationDate.delegate = self;
+    self.txtExpirationDate.tag = MPKTextFieldTagExpirationDate;
+    self.txtExpirationDate.placeholder = @"MM/AA";
+    self.txtExpirationDate.font = self.configs.textFieldFont;
 
     self.txtFullname = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 282, 55)];
     self.txtFullname.borderStyle = UITextBorderStyleNone;
@@ -146,44 +143,13 @@
     
     self.txtBirthDate = [[UITextField alloc] initWithFrame:CGRectMake(185, 0, 120, 55)];
     self.txtBirthDate.borderStyle = UITextBorderStyleNone;
+    self.txtBirthDate.keyboardType = UIKeyboardTypeNumberPad;
     self.txtBirthDate.placeholder = @"Nascimento";
     self.txtBirthDate.font = self.configs.textFieldFont;
     self.txtBirthDate.delegate = self;
     self.txtBirthDate.tag = MPKTextFieldTagBirthdate;
 
-    self.pkrValidation = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 44, 0, 162)];
-    self.pkrValidation.dataSource = self;
-    self.pkrValidation.delegate = self;
-    self.pkrValidation.showsSelectionIndicator = YES;
-    
-    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *btnDonePicker = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(btnDonePickerTouched:)];
-    
-    self.toolbarPicker = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    self.toolbarPicker.items = @[flexibleItem, btnDonePicker];
 
-    self.viewPicker = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height + 10, self.view.frame.size.width, 162 + 44)];
-    self.viewPicker.backgroundColor = [UIColor whiteColor];
-    [self.viewPicker addSubview:self.toolbarPicker];
-    [self.viewPicker addSubview:self.pkrValidation];
-    
-    [self.view addSubview:self.viewPicker];
-    
-    self.datePickerBirthDate = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 44, 0, 162)];
-    self.datePickerBirthDate.datePickerMode = UIDatePickerModeDate;
-    
-    UIBarButtonItem *btnDoneDatePicker = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(btnDoneDatePickerTouched:)];
-    
-    self.toolbarDatePicker = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    self.toolbarDatePicker.items = @[flexibleItem, btnDoneDatePicker];
-    
-    self.viewDatePicker = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height + 10, self.view.frame.size.width, 162 + 44)];
-    self.viewDatePicker.backgroundColor = [UIColor whiteColor];
-    [self.viewDatePicker addSubview:self.toolbarDatePicker];
-    [self.viewDatePicker addSubview:self.datePickerBirthDate];
-    
-    [self.view addSubview:self.viewDatePicker];
-    
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake((self.view.frame.size.width/2) - (80/2),
                                                                 (self.view.frame.size.height/2) - (80/2), 80, 80)];
     self.loadingView.backgroundColor = [UIColor clearColor];
@@ -252,17 +218,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellID = [NSString stringWithFormat:@"PaymentFormCellID_%i_%i", indexPath.section, indexPath.row];
+    NSString *cellID = [NSString stringWithFormat:@"PaymentFormCellID_%li_%li", (long)indexPath.section, (long)indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil)
     {
-        NSLog(@"Criou nova cell %@", cellID);
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-    }
-    else
-    {
-        NSLog(@"Reutilizou cell %@", cellID);
     }
     
     if (indexPath.section == 0)
@@ -279,7 +240,7 @@
             case 2:
                 [cell.contentView addSubview:self.txtCVC];
                 [cell.contentView addSubview:self.imgViewCVC];
-                [cell.contentView addSubview:self.txtDate];
+                [cell.contentView addSubview:self.txtExpirationDate];
                 break;
                 
             default:
@@ -326,71 +287,16 @@
 }
 
 #pragma mark -
-#pragma mark Picker view
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 2;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    if (component == 0)
-    {
-        return 12;
-    }
-    else
-    {
-        return 10;
-    }
-}
-
-- (NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    if (component == 0)
-    {
-        row = row + 1;
-        if (row < 10)
-        {
-            return [NSString stringWithFormat:@"0%li", (long)row];
-        }
-        else
-        {
-            return [NSString stringWithFormat:@"%li", (long)row];
-        }
-    }
-    else
-    {
-        return [NSString stringWithFormat:@"20%li", ((long)(row + 14))];
-    }
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    NSUInteger mm = ([self.pkrValidation selectedRowInComponent:0] + 1);
-    NSUInteger yy = ([self.pkrValidation selectedRowInComponent:1] + 14);
-    
-    NSString *m = [NSString stringWithFormat:@"%lu", (unsigned long)mm];
-    if (mm < 10)
-    {
-        m = [NSString stringWithFormat:@"0%lu", (unsigned long)mm];
-    }
-    
-    self.txtDate.text = [NSString stringWithFormat:@"%@/%lu", m, (unsigned long)yy];
-}
-
-#pragma mark -
 #pragma mark Actions
 - (void) btnPayTouched:(id)sender
 {
     if ([self allFieldsAreValid])
     {
         [self showLoadingView];
-        
-        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth |   NSCalendarUnitYear fromDate:self.datePickerBirthDate.date];
-        
-        NSString *docNumber = [self document];
-        NSString *phoneNumber = [self phoneNumber];
-        NSString *birthdate = [NSString stringWithFormat:@"%i-%i-%i", components.year, components.month, components.day];
+
+        NSString *docNumber = [self removeInvalidCharacters:self.txtDocument];
+        NSString *phoneNumber = [self removeInvalidCharacters:self.txtPhone];
+        NSString *birthdate = [self removeInvalidCharacters:self.txtBirthDate];
         
         MPKCardHolder *holder = [MPKCardHolder new];
         holder.fullname = self.txtFullname.text;
@@ -401,10 +307,9 @@
         holder.phoneAreaCode = [phoneNumber substringToIndex:2];
         holder.phoneNumber = [phoneNumber substringFromIndex:2];
 
-
         MPKCreditCard *card = [MPKCreditCard new];
-        card.expirationMonth = [[self.txtDate.text componentsSeparatedByString:@"/"][0] integerValue];
-        card.expirationYear = [[self.txtDate.text componentsSeparatedByString:@"/"][1] integerValue];
+        card.expirationMonth = [[self.txtExpirationDate.text componentsSeparatedByString:@"/"][0] integerValue];
+        card.expirationYear = [[self.txtExpirationDate.text componentsSeparatedByString:@"/"][1] integerValue];
         card.number = @"4903762433566341";
         card.cvv = self.txtCVC.text;
         card.cardholder = holder;
@@ -417,11 +322,23 @@
         
         MoipSDK *sdk = [[MoipSDK alloc] initWithAuthorization:self.authorization publicKey:self.publicKey];
         [sdk submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
-            NSLog(@"%i", transaction.status);
             [self hideLoadingView];
+            
+            if ([self.delegate respondsToSelector:@selector(paymentTransactionSuccess:)])
+            {
+                [self.delegate performSelector:@selector(paymentTransactionSuccess:) withObject:transaction];
+            }
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
         } failure:^(NSArray *errorList) {
             [self hideLoadingView];
-            NSLog(@"error: %@", errorList);
+
+            if ([self.delegate respondsToSelector:@selector(paymentTransactionFailure:)])
+            {
+                [self.delegate performSelector:@selector(paymentTransactionFailure:) withObject:errorList];
+            }
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
         }];
     }
 }
@@ -429,33 +346,6 @@
 - (void) btnCancelTouched:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void) btnDoneDatePickerTouched:(id) sender
-{
-    NSDate *selectedDate = self.datePickerBirthDate.date;
-    
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"dd/MM/yyyy"];
-    
-    self.txtBirthDate.text = [format stringFromDate:selectedDate];
-    [self hideDatePickerView];
-}
-
-- (void) btnDonePickerTouched:(id)sender
-{
-    NSUInteger mm = ([self.pkrValidation selectedRowInComponent:0] + 1);
-    NSUInteger yy = ([self.pkrValidation selectedRowInComponent:1] + 14);
-    
-    NSString *m = [NSString stringWithFormat:@"%lu", (unsigned long)mm];
-    if (mm < 10)
-    {
-        m = [NSString stringWithFormat:@"0%lu", (unsigned long)mm];
-    }
-    
-    self.txtDate.text = [NSString stringWithFormat:@"%@/%lu", m, (unsigned long)yy];
-    
-    [self hidePickerView];
 }
 
 #pragma mark -
@@ -482,16 +372,16 @@
         [self invalidAlerTextField:self.txtCVC];
     }
     
-    if (self.txtDate.text.length < 5)
+    if (self.txtExpirationDate.text.length < 5)
     {
         allValid = NO;
-        [self invalidAlerTextField:self.txtDate];
+        [self invalidAlerTextField:self.txtExpirationDate];
     }
     
-    if (self.txtDate.text.length < 5)
+    if (self.txtExpirationDate.text.length < 5)
     {
         allValid = NO;
-        [self invalidAlerTextField:self.txtDate];
+        [self invalidAlerTextField:self.txtExpirationDate];
     }
     
     if (self.txtFullname.text.length < 5)
@@ -530,21 +420,13 @@
                                                                      attributes:attrs];
 }
 
-- (NSString *) phoneNumber
+- (NSString *) removeInvalidCharacters:(UITextField *)textField
 {
-    return [self.regex stringByReplacingMatchesInString:self.txtPhone.text
+    return [self.regex stringByReplacingMatchesInString:textField.text
                                                 options:0
-                                                  range:NSMakeRange(0, self.txtPhone.text.length)
+                                                  range:NSMakeRange(0, textField.text.length)
                                            withTemplate:@""];
     
-}
-
-- (NSString *) document
-{
-    return [self.regex stringByReplacingMatchesInString:self.txtDocument.text
-                                                options:0
-                                                  range:NSMakeRange(0, self.txtDocument.text.length)
-                                           withTemplate:@""];
 }
 
 #pragma mark -
@@ -637,46 +519,6 @@
     }];
 }
 
-- (void) showPickerView
-{
-    CGRect framePicker = self.viewPicker.frame;
-    framePicker.origin.y = self.view.frame.size.height-framePicker.size.height;
-    
-    [UIView animateWithDuration:0.3f animations:^{
-        self.viewPicker.frame = framePicker;
-    }];
-}
-
-- (void) hidePickerView
-{
-    CGRect framePicker = self.viewPicker.frame;
-    framePicker.origin.y = self.view.frame.size.height+10;
-    
-    [UIView animateWithDuration:0.3f animations:^{
-        self.viewPicker.frame = framePicker;
-    }];
-}
-
-- (void) showDatePickerView
-{
-    CGRect framePicker = self.viewDatePicker.frame;
-    framePicker.origin.y = self.view.frame.size.height-framePicker.size.height;
-    
-    [UIView animateWithDuration:0.3f animations:^{
-        self.viewDatePicker.frame = framePicker;
-    }];
-}
-
-- (void) hideDatePickerView
-{
-    CGRect framePicker = self.viewDatePicker.frame;
-    framePicker.origin.y = self.view.frame.size.height+10;
-    
-    [UIView animateWithDuration:0.3f animations:^{
-        self.viewDatePicker.frame = framePicker;
-    }];
-}
-
 #pragma mark -
 #pragma mark Text Field
 - (void)formatInput:(UITextField*)aTextField string:(NSString*)aString range:(NSRange)aRange
@@ -690,6 +532,10 @@
         textMask = self.cpfMask;
     else if (aTextField.tag == MPKTextFieldTagPhoneNumber)
         textMask = self.phoneMask;
+    else if (aTextField.tag == MPKTextFieldTagExpirationDate)
+        textMask = self.expirationDateMask;
+    else if (aTextField.tag == MPKTextFieldTagBirthdate)
+        textMask = self.birthdateMask;
     
     NSString *_mask = [textMask substringWithRange:aRange];
     if (_mask != nil)
@@ -731,35 +577,22 @@
             return [string isEqualToString:@""];
         }
     }
+    else if (tag == MPKTextFieldTagBirthdate)
+    {
+        if (self.txtBirthDate.text.length == self.birthdateMask.length)
+        {
+            return [string isEqualToString:@""];
+        }
+    }
+    else if (tag == MPKTextFieldTagExpirationDate)
+    {
+        if (self.txtExpirationDate.text.length == self.expirationDateMask.length)
+        {
+            return [string isEqualToString:@""];
+        }
+    }
     
     return YES;
-}
-
-- (void) hideKeyboardAndShowPicker:(id) sender
-{
-    [self.txtDate resignFirstResponder];
-    [self showPickerView];
-}
-
-- (void) hideKeyboardAndShowDatePicker:(id) sender
-{
-    [self.txtBirthDate resignFirstResponder];
-    [self showDatePickerView];
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    if (textField.tag == MPKTextFieldTagExpireDate)
-    {
-        [self.txtCVC resignFirstResponder];
-        [self performSelector:@selector(hideKeyboardAndShowPicker:) withObject:nil afterDelay:0.0001f];
-    }
-    
-    if (textField.tag == MPKTextFieldTagBirthdate)
-    {
-        [self.txtDocument resignFirstResponder];
-        [self performSelector:@selector(hideKeyboardAndShowDatePicker:) withObject:nil afterDelay:0.0001f];
-    }
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField
@@ -783,7 +616,10 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (textField.tag == MPKTextFieldTagCPF || textField.tag == MPKTextFieldTagPhoneNumber)
+    if (textField.tag == MPKTextFieldTagCPF ||
+        textField.tag == MPKTextFieldTagPhoneNumber ||
+        textField.tag == MPKTextFieldTagExpirationDate ||
+        textField.tag == MPKTextFieldTagBirthdate)
     {
         if (![self canEditTextField:textField.tag inputString:string])
         {

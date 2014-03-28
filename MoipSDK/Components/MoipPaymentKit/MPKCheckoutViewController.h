@@ -19,20 +19,31 @@ typedef NS_ENUM(NSInteger, MPKTextFieldTag)
     MPKTextFieldTagHolder,
     MPKTextFieldTagCreditCard,
     MPKTextFieldTagCVC,
-    MPKTextFieldTagExpireDate,
+    MPKTextFieldTagExpirationDate,
     MPKTextFieldTagFullname,
     MPKTextFieldTagBirthdate
 };
 
 @class MPKConfiguration;
 
-@interface MPKCheckoutViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@protocol  MPKCheckoutDelegate;
+
+@interface MPKCheckoutViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property NSString *publicKey;
 @property NSString *authorization;
 @property NSString *moipOrderId;
 @property NSInteger installmentCount;
+@property id<MPKCheckoutDelegate> delegate;
 
 - (instancetype) initWithConfiguration:(MPKConfiguration *)configuration;
+
+@end
+
+
+@protocol MPKCheckoutDelegate <NSObject>
+
+- (void) paymentTransactionSuccess:(MPKPaymentTransaction *)transaction;
+- (void) paymentTransactionFailure:(NSArray *)errorList;
 
 @end

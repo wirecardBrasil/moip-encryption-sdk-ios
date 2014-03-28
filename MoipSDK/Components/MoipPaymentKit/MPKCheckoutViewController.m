@@ -3,7 +3,7 @@
 //  SkateStore
 //
 //  Created by Fernando Nazario Sousa on 19/03/14.
-//  Copyright (c) 2014 ThinkMob. All rights reserved.
+//  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
 #import "MPKCheckoutViewController.h"
@@ -161,8 +161,7 @@
     self.txtBirthDate.tag = MPKTextFieldTagBirthdate;
 
 
-    self.loadingView = [[UIView alloc] initWithFrame:CGRectMake((self.view.frame.size.width/2) - (80/2),
-                                                                (self.view.frame.size.height/2) - (80/2), 80, 80)];
+    self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.loadingView.backgroundColor = [UIColor clearColor];
     self.loadingView.alpha = 0;
     
@@ -171,13 +170,21 @@
     actIndicator.color = [UIColor whiteColor];
     [actIndicator startAnimating];
     
-    UIView *loadingSubView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    UIView *loadingSubView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     loadingSubView.backgroundColor = [UIColor blackColor];
     loadingSubView.alpha = 0.7f;
     loadingSubView.layer.cornerRadius = 5.0f;
     [loadingSubView addSubview:actIndicator];
     
     [self.loadingView addSubview:loadingSubView];
+}
+
+- (void) preloadUserData:(NSDictionary *)userData
+{
+    self.txtFullname.text = userData[MPKTextFullname];
+    self.txtDocument.text = userData[MPKTextCPF];
+    self.txtBirthDate.text = userData[MPKTextBirthdate];
+    self.txtPhone.text = userData[MPKTextPhone];
 }
 
 #pragma mark -
@@ -439,82 +446,11 @@
 }
 
 #pragma mark -
-#pragma mark Methods Helper
-- (NSString *) getMoipOrderId
-{
-    NSString *orderJSON = [self generateOrderJSON];
-    NSString *url = APIURL(@"/orders");
-    
-    MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.authorization];
-    MoipHttpResponse *response = [requester post:url payload:orderJSON params:nil delegate:nil];
-    if (response.httpStatusCode == kHTTPStatusCodeCreated)
-    {
-        id order = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
-        return order[@"id"];
-    }
-    else
-    {
-        id error = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
-        NSLog(@"%@", error);
-    }
-    return nil;
-}
-
-- (NSString *)generateOrderJSON
-{
-    NSMutableString *jsonOrder = [NSMutableString new];
-    [jsonOrder appendFormat:@"{"];
-    [jsonOrder appendFormat:@"  \"ownId\": \"id_proprio\","];
-    [jsonOrder appendFormat:@"  \"amount\": {"];
-    [jsonOrder appendFormat:@"    \"MPKCurrency\": \"BRL\""];
-    [jsonOrder appendFormat:@"  },"];
-    [jsonOrder appendFormat:@"  \"items\": ["];
-    [jsonOrder appendFormat:@"    {"];
-    [jsonOrder appendFormat:@"      \"product\": \"Bicicleta Specialized Tarmac 26 Shimano Alivio\","];
-    [jsonOrder appendFormat:@"      \"quantity\": 1,"];
-    [jsonOrder appendFormat:@"      \"detail\": \"uma linda bicicleta\","];
-    [jsonOrder appendFormat:@"      \"price\": 10000"];
-    [jsonOrder appendFormat:@"    }"];
-    [jsonOrder appendFormat:@"  ],"];
-    [jsonOrder appendFormat:@"  \"customer\": {"];
-    [jsonOrder appendFormat:@"    \"ownId\": \"meu_id_de_cliente\","];
-    [jsonOrder appendFormat:@"    \"fullname\": \"Jose Silva\","];
-    [jsonOrder appendFormat:@"    \"email\": \"josedasilva@email.com\","];
-    [jsonOrder appendFormat:@"    \"birthDate\": \"1988-12-30\","];
-    [jsonOrder appendFormat:@"    \"taxDocument\": {"];
-    [jsonOrder appendFormat:@"      \"type\": \"CPF\","];
-    [jsonOrder appendFormat:@"      \"number\": \"22222222222\""];
-    [jsonOrder appendFormat:@"    },"];
-    [jsonOrder appendFormat:@"    \"phone\": {"];
-    [jsonOrder appendFormat:@"      \"countryCode\": \"55\","];
-    [jsonOrder appendFormat:@"      \"areaCode\": \"11\","];
-    [jsonOrder appendFormat:@"      \"number\": \"66778899\""];
-    [jsonOrder appendFormat:@"    },"];
-    [jsonOrder appendFormat:@"    \"addresses\": ["];
-    [jsonOrder appendFormat:@"      {"];
-    [jsonOrder appendFormat:@"        \"type\": \"BILLING\","];
-    [jsonOrder appendFormat:@"        \"street\": \"Avenida Faria Lima\","];
-    [jsonOrder appendFormat:@"        \"streetNumber\": 2927,"];
-    [jsonOrder appendFormat:@"        \"complement\": 8,"];
-    [jsonOrder appendFormat:@"        \"district\": \"Itaim\","];
-    [jsonOrder appendFormat:@"        \"city\": \"Sao Paulo\","];
-    [jsonOrder appendFormat:@"        \"state\": \"SP\","];
-    [jsonOrder appendFormat:@"        \"country\": \"BRA\","];
-    [jsonOrder appendFormat:@"        \"zipCode\": \"01234000\""];
-    [jsonOrder appendFormat:@"      }"];
-    [jsonOrder appendFormat:@"    ]"];
-    [jsonOrder appendFormat:@"  }"];
-    [jsonOrder appendFormat:@"}"];
-    
-    return jsonOrder;
-}
-
-#pragma mark -
 #pragma mark View Animations
 - (void) showLoadingView
 {
     [self.view addSubview:self.loadingView];
-    [UIView animateWithDuration:0.2f animations:^{
+    [UIView animateWithDuration:0.35f animations:^{
         self.loadingView.alpha = 1;
     }];
 }

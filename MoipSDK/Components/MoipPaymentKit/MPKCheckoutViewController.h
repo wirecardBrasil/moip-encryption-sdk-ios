@@ -3,14 +3,17 @@
 //  SkateStore
 //
 //  Created by Fernando Nazario Sousa on 19/03/14.
-//  Copyright (c) 2014 ThinkMob. All rights reserved.
+//  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "MoipSDK.h"
-#import "MoipHttpRequester.h"
-#import "MoipHttpResponse.h"
+#import "MPKPaymentTransaction.h"
 #import "HTTPStatusCodes.h"
+
+static NSString *MPKTextFullname = @"MPKTextFullname";
+static NSString *MPKTextCPF = @"MPKTextCPF";
+static NSString *MPKTextBirthdate = @"MPKTextBirthdate";
+static NSString *MPKTextPhone = @"MPKTextPhone";
 
 typedef NS_ENUM(NSInteger, MPKTextFieldTag)
 {
@@ -36,7 +39,9 @@ typedef NS_ENUM(NSInteger, MPKTextFieldTag)
 @property NSInteger installmentCount;
 @property id<MPKCheckoutDelegate> delegate;
 
+
 - (instancetype) initWithConfiguration:(MPKConfiguration *)configuration;
+- (void) preloadUserData:(NSDictionary *)userData;
 
 @end
 

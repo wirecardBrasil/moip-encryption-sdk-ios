@@ -47,6 +47,7 @@
 - (void)submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *))success failure:(void (^)(NSArray *))failure
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
         NSString *paymentJSON = [self generatePaymentJSON:payment];
         
         NSString *endpoint = [NSString stringWithFormat:@"/orders/%@/payments", payment.moipOrderId];

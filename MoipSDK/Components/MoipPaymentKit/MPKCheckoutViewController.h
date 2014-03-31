@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MPKPaymentTransaction.h"
-#import "HTTPStatusCodes.h"
 
 static NSString *MPKTextFullname = @"MPKTextFullname";
 static NSString *MPKTextCPF = @"MPKTextCPF";
@@ -30,8 +29,9 @@ typedef NS_ENUM(NSInteger, MPKTextFieldTag)
 @class MPKConfiguration;
 
 @protocol  MPKCheckoutDelegate;
+@protocol  PKViewDelegate;
 
-@interface MPKCheckoutViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface MPKCheckoutViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, PKViewDelegate>
 
 @property NSString *publicKey;
 @property NSString *authorization;

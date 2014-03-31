@@ -15,8 +15,13 @@
 #import "MoipHttpRequester.h"
 #import "MoipHttpResponse.h"
 #import "HTTPStatusCodes.h"
+#import "PKView.h"
 
 @interface MPKCheckoutViewController ()
+{
+    @private
+    BOOL isValidCreditCard;
+}
 
 @property MPKConfiguration *configs;
 @property NSString *phoneMask;
@@ -26,17 +31,14 @@
 @property NSRegularExpression *regex;
 
 @property (strong, nonatomic) UITextField *txtCardHolder;
-@property (strong, nonatomic) MPKCreditCardTextField *txtCreditCard;
-@property (strong, nonatomic) UIImageView *imgViewCardLogo;
-@property (strong, nonatomic) UIImageView *imgViewCVC;
-@property (strong, nonatomic) MPKCVCTextField *txtCVC;
-@property (strong, nonatomic) UITextField *txtExpirationDate;
 @property (strong, nonatomic) UITextField *txtFullname;
 @property (strong, nonatomic) UITextField *txtDocument;
 @property (strong, nonatomic) UITextField *txtPhone;
 @property (strong, nonatomic) UITextField *txtBirthDate;
 @property (strong, nonatomic) UITableView *tableViewForm;
 @property (strong, nonatomic) UIView *loadingView;
+@property (strong, nonatomic) PKView *paymentView;
+@property (strong, nonatomic) MPKCreditCard *card;
 
 @end
 
@@ -60,6 +62,8 @@
 {
     [super viewDidLoad];
     
+    isValidCreditCard = NO;
+    
     UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(btnCancelTouched:)];
     
     UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:self.configs.titleView];
@@ -70,6 +74,11 @@
     navBar.items = @[navItem];
     
     [self.view addSubview:navBar];
+    
+    self.paymentView = [[PKView alloc] initWithFrame:CGRectMake(5, 0, 282, 55)];
+    self.paymentView.delegate = self;
+    self.paymentView.defaultTextFieldFont = self.configs.textFieldFont;
+    self.paymentView.defaultTextFieldTextColor = self.configs.textFieldColor;
     
     self.view.backgroundColor = self.configs.viewBackgroundColor;
     self.phoneMask = @"(99) 999999999";
@@ -93,38 +102,6 @@
     self.txtCardHolder.placeholder = @"Nome (como no cartão)";
     self.txtCardHolder.font = self.configs.textFieldFont;
     self.txtCardHolder.delegate = self;
-    
-    self.txtCreditCard = [[MPKCreditCardTextField alloc] initWithFrame:CGRectMake(20, 0, 240, 55)];
-    self.txtCreditCard.borderStyle = UITextBorderStyleNone;
-    self.txtCreditCard.keyboardType = UIKeyboardTypeNumberPad;
-    self.txtCreditCard.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.txtCreditCard.delegate = self;
-    self.txtCreditCard.tag = MPKTextFieldTagCreditCard;
-    self.txtCreditCard.placeholder = @"Número do Cartão";
-    self.txtCardHolder.font = self.configs.textFieldFont;
-    
-    self.imgViewCardLogo = [[UIImageView alloc] initWithFrame:CGRectMake(270, 18, 32, 19)];
-    self.imgViewCardLogo.image = self.txtCreditCard.cardLogo;
-    
-    self.txtCVC = [[MPKCVCTextField alloc] initWithFrame:CGRectMake(20, 0, 70, 55)];
-    self.txtCVC.delegate = self;
-    self.txtCVC.borderStyle = UITextBorderStyleNone;
-    self.txtCVC.keyboardType = UIKeyboardTypeNumberPad;
-    self.txtCVC.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.txtCVC.placeholder = @"Cód.";
-    self.txtCVC.font = self.configs.textFieldFont;
-    self.txtCVC.tag = MPKTextFieldTagCVC;
-    
-    self.imgViewCVC = [[UIImageView alloc] initWithFrame:CGRectMake(94, 18, 32, 19)];
-    self.imgViewCVC.image = [UIImage imageNamed:@"cvc.png"];
-    
-    self.txtExpirationDate = [[UITextField alloc] initWithFrame:CGRectMake(202, 0, 100, 55)];
-    self.txtExpirationDate.borderStyle = UITextBorderStyleNone;
-    self.txtExpirationDate.keyboardType = UIKeyboardTypeNumberPad;
-    self.txtExpirationDate.delegate = self;
-    self.txtExpirationDate.tag = MPKTextFieldTagExpirationDate;
-    self.txtExpirationDate.placeholder = @"MM/AA";
-    self.txtExpirationDate.font = self.configs.textFieldFont;
 
     self.txtFullname = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 282, 55)];
     self.txtFullname.borderStyle = UITextBorderStyleNone;
@@ -177,6 +154,8 @@
     [loadingSubView addSubview:actIndicator];
     
     [self.loadingView addSubview:loadingSubView];
+    
+    [self.txtCardHolder becomeFirstResponder];
 }
 
 - (void) preloadUserData:(NSDictionary *)userData
@@ -217,7 +196,7 @@
 {
     switch (section) {
         case 0:
-            return 3;
+            return 2;
             break;
             
         case 1:
@@ -252,15 +231,8 @@
                 [cell.contentView addSubview:self.txtCardHolder];
                 break;
             case 1:
-                [cell.contentView addSubview:self.txtCreditCard];
-                [cell.contentView addSubview:self.imgViewCardLogo];
+                [cell.contentView addSubview:self.paymentView];
                 break;
-            case 2:
-                [cell.contentView addSubview:self.txtCVC];
-                [cell.contentView addSubview:self.imgViewCVC];
-                [cell.contentView addSubview:self.txtExpirationDate];
-                break;
-                
             default:
                 break;
         }
@@ -324,19 +296,13 @@
         holder.phoneCountryCode = @"55";
         holder.phoneAreaCode = [phoneNumber substringToIndex:2];
         holder.phoneNumber = [phoneNumber substringFromIndex:2];
-
-        MPKCreditCard *card = [MPKCreditCard new];
-        card.expirationMonth = [[self.txtExpirationDate.text componentsSeparatedByString:@"/"][0] integerValue];
-        card.expirationYear = [[self.txtExpirationDate.text componentsSeparatedByString:@"/"][1] integerValue];
-        card.number = @"4903762433566341";
-        card.cvv = self.txtCVC.text;
-        card.cardholder = holder;
         
         MPKPayment *payment = [MPKPayment new];
         payment.moipOrderId = self.moipOrderId;
         payment.installmentCount = 2;//self.installmentCount;
         payment.method = MPKPaymentMethodCreditCard;
-        payment.creditCard = card;
+        _card.cardholder = holder;
+        payment.creditCard = _card;
         
         MoipSDK *sdk = [[MoipSDK alloc] initWithAuthorization:self.authorization publicKey:self.publicKey];
         [sdk submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
@@ -365,6 +331,16 @@
 }
 
 #pragma mark -
+#pragma mark PKViewDelegate
+- (void)paymentViewWithCard:(MPKCreditCard *)card isValid:(BOOL)valid
+{
+    isValidCreditCard = valid;
+    _card = card;
+    
+    NSLog(@"%@: %@", _card.number, valid ? @"YES" : @"NO");
+}
+
+#pragma mark -
 #pragma mark Fields Validations
 - (BOOL) allFieldsAreValid
 {
@@ -374,30 +350,6 @@
     {
         allValid = NO;
         [self invalidAlerTextField:self.txtCardHolder];
-    }
-    
-    if (![((MPKCreditCardTextField *)self.txtCreditCard) isValidLuhn])
-    {
-        allValid = NO;
-        [self invalidAlerTextField:self.txtCreditCard];
-    }
-    
-    if (![((MPKCVCTextField *)self.txtCVC) isValidLength])
-    {
-        allValid = NO;
-        [self invalidAlerTextField:self.txtCVC];
-    }
-    
-    if (self.txtExpirationDate.text.length < 5)
-    {
-        allValid = NO;
-        [self invalidAlerTextField:self.txtExpirationDate];
-    }
-    
-    if (self.txtExpirationDate.text.length < 5)
-    {
-        allValid = NO;
-        [self invalidAlerTextField:self.txtExpirationDate];
     }
     
     if (self.txtFullname.text.length < 5)
@@ -424,6 +376,10 @@
         [self invalidAlerTextField:self.txtPhone];
     }
 
+    if (!isValidCreditCard)
+    {
+        allValid = NO;
+    }
     
     return allValid;
 }
@@ -529,14 +485,6 @@
             return [string isEqualToString:@""];
         }
     }
-    else if (tag == MPKTextFieldTagExpirationDate)
-    {
-        if (self.txtExpirationDate.text.length == self.expirationDateMask.length)
-        {
-            return [string isEqualToString:@""];
-        }
-    }
-    
     return YES;
 }
 
@@ -585,11 +533,6 @@
         }
     }
     
-    if ([textField isKindOfClass:[MPKCreditCardTextField class]])
-    {
-        self.imgViewCardLogo.image = ((MPKCreditCardTextField *)textField).cardLogo;
-    }
-
     return YES;
 }
 

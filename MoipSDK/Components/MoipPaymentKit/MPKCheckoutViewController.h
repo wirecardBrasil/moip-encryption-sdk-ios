@@ -27,9 +27,8 @@ typedef NS_ENUM(NSInteger, MPKTextFieldTag)
 };
 
 @class MPKConfiguration;
-
-@protocol  MPKCheckoutDelegate;
-@protocol  PKViewDelegate;
+@protocol MPKCheckoutDelegate;
+@protocol PKViewDelegate;
 
 @interface MPKCheckoutViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, PKViewDelegate>
 

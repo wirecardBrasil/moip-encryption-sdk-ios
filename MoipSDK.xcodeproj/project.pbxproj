@@ -8,27 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		671D3E2C18CA1CAA005C73B1 /* MoipSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BF00AF18C77B7100080D43 /* MoipSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6721118E18E9A4E300F76B53 /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117918E9A4E300F76B53 /* amex.png */; };
-		6721118F18E9A4E300F76B53 /* amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117A18E9A4E300F76B53 /* amex@2x.png */; };
-		6721119018E9A4E300F76B53 /* cvc-amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117B18E9A4E300F76B53 /* cvc-amex.png */; };
-		6721119118E9A4E300F76B53 /* cvc-amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117C18E9A4E300F76B53 /* cvc-amex@2x.png */; };
-		6721119218E9A4E400F76B53 /* cvc.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117D18E9A4E300F76B53 /* cvc.png */; };
-		6721119318E9A4E400F76B53 /* cvc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117E18E9A4E300F76B53 /* cvc@2x.png */; };
-		6721119418E9A4E400F76B53 /* diners.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117F18E9A4E300F76B53 /* diners.png */; };
-		6721119518E9A4E400F76B53 /* diners@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118018E9A4E300F76B53 /* diners@2x.png */; };
-		6721119618E9A4E400F76B53 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118118E9A4E300F76B53 /* discover.png */; };
-		6721119718E9A4E400F76B53 /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118218E9A4E300F76B53 /* discover@2x.png */; };
-		6721119818E9A4E400F76B53 /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118318E9A4E300F76B53 /* gradient@2x.png */; };
-		6721119918E9A4E400F76B53 /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118418E9A4E300F76B53 /* jcb.png */; };
-		6721119A18E9A4E400F76B53 /* jcb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118518E9A4E300F76B53 /* jcb@2x.png */; };
-		6721119B18E9A4E400F76B53 /* mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118618E9A4E300F76B53 /* mastercard.png */; };
-		6721119C18E9A4E400F76B53 /* mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118718E9A4E300F76B53 /* mastercard@2x.png */; };
-		6721119D18E9A4E400F76B53 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118818E9A4E300F76B53 /* placeholder.png */; };
-		6721119E18E9A4E400F76B53 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118918E9A4E300F76B53 /* placeholder@2x.png */; };
-		6721119F18E9A4E400F76B53 /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118A18E9A4E300F76B53 /* textfield.png */; };
-		672111A018E9A4E400F76B53 /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118B18E9A4E300F76B53 /* textfield@2x.png */; };
-		672111A118E9A4E400F76B53 /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118C18E9A4E300F76B53 /* visa.png */; };
-		672111A218E9A4E400F76B53 /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118D18E9A4E300F76B53 /* visa@2x.png */; };
 		675074CD18CDE96E00FBF2CB /* HTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074C818CDE96E00FBF2CB /* HTTPStatusCodes.h */; };
 		675074CE18CDE96E00FBF2CB /* MoipHttpRequester.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074C918CDE96E00FBF2CB /* MoipHttpRequester.h */; };
 		675074CF18CDE96E00FBF2CB /* MoipHttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074CA18CDE96E00FBF2CB /* MoipHttpRequester.m */; };
@@ -67,7 +46,53 @@
 		6761C3B518DB8C3800551E5D /* MPKCheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761C3AF18DB8C3800551E5D /* MPKCheckoutViewController.m */; };
 		6761C3B618DB8C3800551E5D /* MPKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6761C3B018DB8C3800551E5D /* MPKConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6761C3B718DB8C3800551E5D /* MPKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761C3B118DB8C3800551E5D /* MPKConfiguration.m */; };
+		67698EDF18E9FC6300F17CCC /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117918E9A4E300F76B53 /* amex.png */; };
+		67698EE018E9FC6300F17CCC /* amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117A18E9A4E300F76B53 /* amex@2x.png */; };
+		67698EE118E9FC6300F17CCC /* cvc-amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117B18E9A4E300F76B53 /* cvc-amex.png */; };
+		67698EE218E9FC6300F17CCC /* cvc-amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117C18E9A4E300F76B53 /* cvc-amex@2x.png */; };
+		67698EE318E9FC6300F17CCC /* cvc.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117D18E9A4E300F76B53 /* cvc.png */; };
+		67698EE418E9FC6300F17CCC /* cvc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117E18E9A4E300F76B53 /* cvc@2x.png */; };
+		67698EE518E9FC6300F17CCC /* diners.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721117F18E9A4E300F76B53 /* diners.png */; };
+		67698EE618E9FC6300F17CCC /* diners@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118018E9A4E300F76B53 /* diners@2x.png */; };
+		67698EE718E9FC6300F17CCC /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118118E9A4E300F76B53 /* discover.png */; };
+		67698EE818E9FC6300F17CCC /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118218E9A4E300F76B53 /* discover@2x.png */; };
+		67698EE918E9FC6300F17CCC /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118318E9A4E300F76B53 /* gradient@2x.png */; };
+		67698EEA18E9FC6300F17CCC /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118418E9A4E300F76B53 /* jcb.png */; };
+		67698EEB18E9FC6300F17CCC /* jcb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118518E9A4E300F76B53 /* jcb@2x.png */; };
+		67698EEC18E9FC6300F17CCC /* mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118618E9A4E300F76B53 /* mastercard.png */; };
+		67698EED18E9FC6300F17CCC /* mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118718E9A4E300F76B53 /* mastercard@2x.png */; };
+		67698EEE18E9FC6300F17CCC /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118818E9A4E300F76B53 /* placeholder.png */; };
+		67698EEF18E9FC6300F17CCC /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118918E9A4E300F76B53 /* placeholder@2x.png */; };
+		67698EF018E9FC6300F17CCC /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118A18E9A4E300F76B53 /* textfield.png */; };
+		67698EF118E9FC6300F17CCC /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118B18E9A4E300F76B53 /* textfield@2x.png */; };
+		67698EF218E9FC6300F17CCC /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118C18E9A4E300F76B53 /* visa.png */; };
+		67698EF318E9FC6300F17CCC /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6721118D18E9A4E300F76B53 /* visa@2x.png */; };
 		67701B0818CE293800D66A5B /* MPKEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 67701B0618CE293800D66A5B /* MPKEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67A2A52718E9DA20002ABE83 /* HexColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A50918E9DA20002ABE83 /* HexColor.h */; };
+		67A2A52818E9DA20002ABE83 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A50A18E9DA20002ABE83 /* HexColor.m */; };
+		67A2A52918E9DA20002ABE83 /* TSMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A50D18E9DA20002ABE83 /* TSMessage.h */; };
+		67A2A52A18E9DA20002ABE83 /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A50E18E9DA20002ABE83 /* TSMessage.m */; };
+		67A2A52B18E9DA20002ABE83 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51118E9DA20002ABE83 /* NotificationBackgroundError.png */; };
+		67A2A52C18E9DA20002ABE83 /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51218E9DA20002ABE83 /* NotificationBackgroundError@2x.png */; };
+		67A2A52D18E9DA20002ABE83 /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51318E9DA20002ABE83 /* NotificationBackgroundErrorIcon.png */; };
+		67A2A52E18E9DA20002ABE83 /* NotificationBackgroundErrorIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51418E9DA20002ABE83 /* NotificationBackgroundErrorIcon@2x.png */; };
+		67A2A52F18E9DA20002ABE83 /* NotificationBackgroundMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51518E9DA20002ABE83 /* NotificationBackgroundMessage.png */; };
+		67A2A53018E9DA20002ABE83 /* NotificationBackgroundMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51618E9DA20002ABE83 /* NotificationBackgroundMessage@2x.png */; };
+		67A2A53118E9DA20002ABE83 /* NotificationBackgroundSuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51718E9DA20002ABE83 /* NotificationBackgroundSuccess.png */; };
+		67A2A53218E9DA20002ABE83 /* NotificationBackgroundSuccess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51818E9DA20002ABE83 /* NotificationBackgroundSuccess@2x.png */; };
+		67A2A53318E9DA20002ABE83 /* NotificationBackgroundSuccessIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51918E9DA20002ABE83 /* NotificationBackgroundSuccessIcon.png */; };
+		67A2A53418E9DA20002ABE83 /* NotificationBackgroundSuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51A18E9DA20002ABE83 /* NotificationBackgroundSuccessIcon@2x.png */; };
+		67A2A53518E9DA20002ABE83 /* NotificationBackgroundWarning.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51B18E9DA20002ABE83 /* NotificationBackgroundWarning.png */; };
+		67A2A53618E9DA20002ABE83 /* NotificationBackgroundWarning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51C18E9DA20002ABE83 /* NotificationBackgroundWarning@2x.png */; };
+		67A2A53718E9DA20002ABE83 /* NotificationBackgroundWarningIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51D18E9DA20002ABE83 /* NotificationBackgroundWarningIcon.png */; };
+		67A2A53818E9DA20002ABE83 /* NotificationBackgroundWarningIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51E18E9DA20002ABE83 /* NotificationBackgroundWarningIcon@2x.png */; };
+		67A2A53918E9DA20002ABE83 /* NotificationButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51F18E9DA20002ABE83 /* NotificationButtonBackground.png */; };
+		67A2A53A18E9DA20002ABE83 /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A52018E9DA20002ABE83 /* NotificationButtonBackground@2x.png */; };
+		67A2A53B18E9DA20002ABE83 /* TSMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A52118E9DA20002ABE83 /* TSMessagesDefaultDesign.json */; };
+		67A2A53C18E9DA20002ABE83 /* TSBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A52318E9DA20002ABE83 /* TSBlurView.h */; };
+		67A2A53D18E9DA20002ABE83 /* TSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A52418E9DA20002ABE83 /* TSBlurView.m */; };
+		67A2A53E18E9DA20002ABE83 /* TSMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A52518E9DA20002ABE83 /* TSMessageView.h */; };
+		67A2A53F18E9DA20002ABE83 /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A52618E9DA20002ABE83 /* TSMessageView.m */; };
 		67BF00A718C77B7100080D43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BF00A618C77B7100080D43 /* Foundation.framework */; };
 		67BF00AD18C77B7100080D43 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67BF00AB18C77B7100080D43 /* InfoPlist.strings */; };
 		67BF00B118C77B7100080D43 /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF00B018C77B7100080D43 /* MoipSDK.m */; };
@@ -180,6 +205,31 @@
 		6761C3B018DB8C3800551E5D /* MPKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKConfiguration.h; path = MoipPaymentKit/MPKConfiguration.h; sourceTree = "<group>"; };
 		6761C3B118DB8C3800551E5D /* MPKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKConfiguration.m; path = MoipPaymentKit/MPKConfiguration.m; sourceTree = "<group>"; };
 		67701B0618CE293800D66A5B /* MPKEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKEnums.h; path = Model/MPKEnums.h; sourceTree = "<group>"; };
+		67A2A50918E9DA20002ABE83 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
+		67A2A50A18E9DA20002ABE83 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
+		67A2A50D18E9DA20002ABE83 /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
+		67A2A50E18E9DA20002ABE83 /* TSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
+		67A2A51118E9DA20002ABE83 /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
+		67A2A51218E9DA20002ABE83 /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
+		67A2A51318E9DA20002ABE83 /* NotificationBackgroundErrorIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundErrorIcon.png; sourceTree = "<group>"; };
+		67A2A51418E9DA20002ABE83 /* NotificationBackgroundErrorIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundErrorIcon@2x.png"; sourceTree = "<group>"; };
+		67A2A51518E9DA20002ABE83 /* NotificationBackgroundMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundMessage.png; sourceTree = "<group>"; };
+		67A2A51618E9DA20002ABE83 /* NotificationBackgroundMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundMessage@2x.png"; sourceTree = "<group>"; };
+		67A2A51718E9DA20002ABE83 /* NotificationBackgroundSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccess.png; sourceTree = "<group>"; };
+		67A2A51818E9DA20002ABE83 /* NotificationBackgroundSuccess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccess@2x.png"; sourceTree = "<group>"; };
+		67A2A51918E9DA20002ABE83 /* NotificationBackgroundSuccessIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccessIcon.png; sourceTree = "<group>"; };
+		67A2A51A18E9DA20002ABE83 /* NotificationBackgroundSuccessIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccessIcon@2x.png"; sourceTree = "<group>"; };
+		67A2A51B18E9DA20002ABE83 /* NotificationBackgroundWarning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarning.png; sourceTree = "<group>"; };
+		67A2A51C18E9DA20002ABE83 /* NotificationBackgroundWarning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarning@2x.png"; sourceTree = "<group>"; };
+		67A2A51D18E9DA20002ABE83 /* NotificationBackgroundWarningIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarningIcon.png; sourceTree = "<group>"; };
+		67A2A51E18E9DA20002ABE83 /* NotificationBackgroundWarningIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarningIcon@2x.png"; sourceTree = "<group>"; };
+		67A2A51F18E9DA20002ABE83 /* NotificationButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationButtonBackground.png; sourceTree = "<group>"; };
+		67A2A52018E9DA20002ABE83 /* NotificationButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationButtonBackground@2x.png"; sourceTree = "<group>"; };
+		67A2A52118E9DA20002ABE83 /* TSMessagesDefaultDesign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TSMessagesDefaultDesign.json; sourceTree = "<group>"; };
+		67A2A52318E9DA20002ABE83 /* TSBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSBlurView.h; sourceTree = "<group>"; };
+		67A2A52418E9DA20002ABE83 /* TSBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSBlurView.m; sourceTree = "<group>"; };
+		67A2A52518E9DA20002ABE83 /* TSMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessageView.h; sourceTree = "<group>"; };
+		67A2A52618E9DA20002ABE83 /* TSMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessageView.m; sourceTree = "<group>"; };
 		67BF00A318C77B7100080D43 /* MoipSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = MoipSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67BF00A618C77B7100080D43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		67BF00AA18C77B7100080D43 /* MoipSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDK-Info.plist"; sourceTree = "<group>"; };
@@ -350,6 +400,102 @@
 			name = Error;
 			sourceTree = "<group>";
 		};
+		67A2A50518E9DA20002ABE83 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				67A2A50618E9DA20002ABE83 /* Submodules */,
+				67A2A50B18E9DA20002ABE83 /* TSMessages */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		67A2A50618E9DA20002ABE83 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				67A2A50718E9DA20002ABE83 /* HexColors */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		67A2A50718E9DA20002ABE83 /* HexColors */ = {
+			isa = PBXGroup;
+			children = (
+				67A2A50818E9DA20002ABE83 /* Classes */,
+			);
+			path = HexColors;
+			sourceTree = "<group>";
+		};
+		67A2A50818E9DA20002ABE83 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				67A2A50918E9DA20002ABE83 /* HexColor.h */,
+				67A2A50A18E9DA20002ABE83 /* HexColor.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		67A2A50B18E9DA20002ABE83 /* TSMessages */ = {
+			isa = PBXGroup;
+			children = (
+				67A2A50C18E9DA20002ABE83 /* Classes */,
+				67A2A50F18E9DA20002ABE83 /* Resources */,
+				67A2A52218E9DA20002ABE83 /* Views */,
+			);
+			path = TSMessages;
+			sourceTree = "<group>";
+		};
+		67A2A50C18E9DA20002ABE83 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				67A2A50D18E9DA20002ABE83 /* TSMessage.h */,
+				67A2A50E18E9DA20002ABE83 /* TSMessage.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		67A2A50F18E9DA20002ABE83 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				67A2A51018E9DA20002ABE83 /* Images */,
+				67A2A52118E9DA20002ABE83 /* TSMessagesDefaultDesign.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		67A2A51018E9DA20002ABE83 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				67A2A51118E9DA20002ABE83 /* NotificationBackgroundError.png */,
+				67A2A51218E9DA20002ABE83 /* NotificationBackgroundError@2x.png */,
+				67A2A51318E9DA20002ABE83 /* NotificationBackgroundErrorIcon.png */,
+				67A2A51418E9DA20002ABE83 /* NotificationBackgroundErrorIcon@2x.png */,
+				67A2A51518E9DA20002ABE83 /* NotificationBackgroundMessage.png */,
+				67A2A51618E9DA20002ABE83 /* NotificationBackgroundMessage@2x.png */,
+				67A2A51718E9DA20002ABE83 /* NotificationBackgroundSuccess.png */,
+				67A2A51818E9DA20002ABE83 /* NotificationBackgroundSuccess@2x.png */,
+				67A2A51918E9DA20002ABE83 /* NotificationBackgroundSuccessIcon.png */,
+				67A2A51A18E9DA20002ABE83 /* NotificationBackgroundSuccessIcon@2x.png */,
+				67A2A51B18E9DA20002ABE83 /* NotificationBackgroundWarning.png */,
+				67A2A51C18E9DA20002ABE83 /* NotificationBackgroundWarning@2x.png */,
+				67A2A51D18E9DA20002ABE83 /* NotificationBackgroundWarningIcon.png */,
+				67A2A51E18E9DA20002ABE83 /* NotificationBackgroundWarningIcon@2x.png */,
+				67A2A51F18E9DA20002ABE83 /* NotificationButtonBackground.png */,
+				67A2A52018E9DA20002ABE83 /* NotificationButtonBackground@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		67A2A52218E9DA20002ABE83 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				67A2A52318E9DA20002ABE83 /* TSBlurView.h */,
+				67A2A52418E9DA20002ABE83 /* TSBlurView.m */,
+				67A2A52518E9DA20002ABE83 /* TSMessageView.h */,
+				67A2A52618E9DA20002ABE83 /* TSMessageView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		67BF009818C77B7100080D43 = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +531,7 @@
 		67BF00A818C77B7100080D43 /* MoipSDK */ = {
 			isa = PBXGroup;
 			children = (
+				67A2A50518E9DA20002ABE83 /* Libs */,
 				6760680918D9CFF100FCA007 /* Error */,
 				67C0504A18D88B2D0031D2CB /* SecurityUtil */,
 				675074D218CDEA3F00FBF2CB /* Utils */,
@@ -471,6 +618,7 @@
 				67C0505518D88B2D0031D2CB /* SecUtils.h in Headers */,
 				671D3E2C18CA1CAA005C73B1 /* MoipSDK.h in Headers */,
 				67598C9018E99CDC000C6811 /* PKCardCVC.h in Headers */,
+				67A2A52718E9DA20002ABE83 /* HexColor.h in Headers */,
 				6761C3B618DB8C3800551E5D /* MPKConfiguration.h in Headers */,
 				675074CE18CDE96E00FBF2CB /* MoipHttpRequester.h in Headers */,
 				67598C8E18E99CDC000C6811 /* PKCard.h in Headers */,
@@ -478,8 +626,10 @@
 				67FE838518C8ECE100F7F2DD /* MPKPaymentTransaction.h in Headers */,
 				67598C9D18E99CDC000C6811 /* PKView.h in Headers */,
 				67F853A518CE61A600C94B5C /* MPKFundingInstrument.h in Headers */,
+				67A2A52918E9DA20002ABE83 /* TSMessage.h in Headers */,
 				67598C9618E99CDC000C6811 /* PKCardType.h in Headers */,
 				67F8539D18CE5A0700C94B5C /* MPKFee.h in Headers */,
+				67A2A53C18E9DA20002ABE83 /* TSBlurView.h in Headers */,
 				67701B0818CE293800D66A5B /* MPKEnums.h in Headers */,
 				67F853A118CE616000C94B5C /* MPKAmount.h in Headers */,
 				6760680C18D9D00B00FCA007 /* MPKError.h in Headers */,
@@ -488,6 +638,7 @@
 				67F8539918CE59FB00C94B5C /* MPKEvent.h in Headers */,
 				67598C9718E99CDC000C6811 /* PKComponent.h in Headers */,
 				67598C9918E99CDC000C6811 /* PKTextField.h in Headers */,
+				67A2A53E18E9DA20002ABE83 /* TSMessageView.h in Headers */,
 				6760681018DA11AB00FCA007 /* MPKCVCTextField.h in Headers */,
 				675C76BE18D1EF0E0005C641 /* MPKCreditCardTextField.h in Headers */,
 				67FE837718C8DE2900F7F2DD /* MPKCreditCard.h in Headers */,
@@ -579,28 +730,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6721119918E9A4E400F76B53 /* jcb.png in Resources */,
-				6721119518E9A4E400F76B53 /* diners@2x.png in Resources */,
-				6721119D18E9A4E400F76B53 /* placeholder.png in Resources */,
-				6721119218E9A4E400F76B53 /* cvc.png in Resources */,
-				6721119818E9A4E400F76B53 /* gradient@2x.png in Resources */,
-				6721119C18E9A4E400F76B53 /* mastercard@2x.png in Resources */,
-				6721118E18E9A4E300F76B53 /* amex.png in Resources */,
-				6721119418E9A4E400F76B53 /* diners.png in Resources */,
-				6721119E18E9A4E400F76B53 /* placeholder@2x.png in Resources */,
-				672111A218E9A4E400F76B53 /* visa@2x.png in Resources */,
-				6721119A18E9A4E400F76B53 /* jcb@2x.png in Resources */,
-				6721119718E9A4E400F76B53 /* discover@2x.png in Resources */,
-				6721118F18E9A4E300F76B53 /* amex@2x.png in Resources */,
+				67698EE218E9FC6300F17CCC /* cvc-amex@2x.png in Resources */,
+				67A2A53618E9DA20002ABE83 /* NotificationBackgroundWarning@2x.png in Resources */,
+				67A2A53818E9DA20002ABE83 /* NotificationBackgroundWarningIcon@2x.png in Resources */,
+				67698EE618E9FC6300F17CCC /* diners@2x.png in Resources */,
+				67698EE418E9FC6300F17CCC /* cvc@2x.png in Resources */,
+				67A2A53B18E9DA20002ABE83 /* TSMessagesDefaultDesign.json in Resources */,
+				67698EE918E9FC6300F17CCC /* gradient@2x.png in Resources */,
+				67698EEC18E9FC6300F17CCC /* mastercard.png in Resources */,
+				67A2A52D18E9DA20002ABE83 /* NotificationBackgroundErrorIcon.png in Resources */,
+				67A2A52F18E9DA20002ABE83 /* NotificationBackgroundMessage.png in Resources */,
+				67698EE318E9FC6300F17CCC /* cvc.png in Resources */,
+				67A2A53718E9DA20002ABE83 /* NotificationBackgroundWarningIcon.png in Resources */,
+				67698EF218E9FC6300F17CCC /* visa.png in Resources */,
+				67698EEB18E9FC6300F17CCC /* jcb@2x.png in Resources */,
+				67698EF318E9FC6300F17CCC /* visa@2x.png in Resources */,
+				67A2A53018E9DA20002ABE83 /* NotificationBackgroundMessage@2x.png in Resources */,
+				67698EE118E9FC6300F17CCC /* cvc-amex.png in Resources */,
+				67698EEF18E9FC6300F17CCC /* placeholder@2x.png in Resources */,
+				67698EE718E9FC6300F17CCC /* discover.png in Resources */,
+				67A2A53418E9DA20002ABE83 /* NotificationBackgroundSuccessIcon@2x.png in Resources */,
+				67A2A52B18E9DA20002ABE83 /* NotificationBackgroundError.png in Resources */,
+				67A2A53118E9DA20002ABE83 /* NotificationBackgroundSuccess.png in Resources */,
+				67698EEE18E9FC6300F17CCC /* placeholder.png in Resources */,
 				67BF00AD18C77B7100080D43 /* InfoPlist.strings in Resources */,
-				6721119018E9A4E300F76B53 /* cvc-amex.png in Resources */,
-				672111A018E9A4E400F76B53 /* textfield@2x.png in Resources */,
-				6721119F18E9A4E400F76B53 /* textfield.png in Resources */,
-				6721119118E9A4E300F76B53 /* cvc-amex@2x.png in Resources */,
-				672111A118E9A4E400F76B53 /* visa.png in Resources */,
-				6721119B18E9A4E400F76B53 /* mastercard.png in Resources */,
-				6721119618E9A4E400F76B53 /* discover.png in Resources */,
-				6721119318E9A4E400F76B53 /* cvc@2x.png in Resources */,
+				67A2A53A18E9DA20002ABE83 /* NotificationButtonBackground@2x.png in Resources */,
+				67698EDF18E9FC6300F17CCC /* amex.png in Resources */,
+				67698EE818E9FC6300F17CCC /* discover@2x.png in Resources */,
+				67698EF018E9FC6300F17CCC /* textfield.png in Resources */,
+				67698EEA18E9FC6300F17CCC /* jcb.png in Resources */,
+				67A2A53918E9DA20002ABE83 /* NotificationButtonBackground.png in Resources */,
+				67A2A52E18E9DA20002ABE83 /* NotificationBackgroundErrorIcon@2x.png in Resources */,
+				67698EE018E9FC6300F17CCC /* amex@2x.png in Resources */,
+				67A2A53218E9DA20002ABE83 /* NotificationBackgroundSuccess@2x.png in Resources */,
+				67A2A53518E9DA20002ABE83 /* NotificationBackgroundWarning.png in Resources */,
+				67698EE518E9FC6300F17CCC /* diners.png in Resources */,
+				67698EED18E9FC6300F17CCC /* mastercard@2x.png in Resources */,
+				67A2A52C18E9DA20002ABE83 /* NotificationBackgroundError@2x.png in Resources */,
+				67A2A53318E9DA20002ABE83 /* NotificationBackgroundSuccessIcon.png in Resources */,
+				67698EF118E9FC6300F17CCC /* textfield@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +803,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67A2A52A18E9DA20002ABE83 /* TSMessage.m in Sources */,
 				67F853A218CE616000C94B5C /* MPKAmount.m in Sources */,
 				675074D118CDE96E00FBF2CB /* MoipHttpResponse.m in Sources */,
 				67F853A618CE61A600C94B5C /* MPKFundingInstrument.m in Sources */,
@@ -651,6 +820,9 @@
 				67FE837818C8DE2900F7F2DD /* MPKCreditCard.m in Sources */,
 				67598C9A18E99CDC000C6811 /* PKTextField.m in Sources */,
 				67FE838218C8E63800F7F2DD /* MPKPayment.m in Sources */,
+				67A2A53F18E9DA20002ABE83 /* TSMessageView.m in Sources */,
+				67A2A52818E9DA20002ABE83 /* HexColor.m in Sources */,
+				67A2A53D18E9DA20002ABE83 /* TSBlurView.m in Sources */,
 				67598C8D18E99CDC000C6811 /* PKAddressZip.m in Sources */,
 				67598C9118E99CDC000C6811 /* PKCardCVC.m in Sources */,
 				6761C3B718DB8C3800551E5D /* MPKConfiguration.m in Sources */,

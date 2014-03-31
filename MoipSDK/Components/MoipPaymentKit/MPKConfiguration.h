@@ -12,11 +12,14 @@
 @interface MPKConfiguration : NSObject
 
 @property NSString *titleView;
+@property id apperance;
 @property UIFont *textFieldFont;
 @property UIColor *textFieldColor;
 @property UIColor *textFieldBackgroundColor;
 @property UIColor *viewBackgroundColor;
 @property NSString *authorization;
 @property NSString *publicKey;
+@property BOOL showSuccessFeedback;
+@property BOOL showErrorFeedback;
 
 @end

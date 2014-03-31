@@ -7,6 +7,7 @@
 //
 
 #import "MPKCheckoutViewController.h"
+#import "PKView.h"
 #import "MoipSDK.h"
 #import "MPKConfiguration.h"
 #import "MPKCreditCardTextField.h"
@@ -15,7 +16,9 @@
 #import "MoipHttpRequester.h"
 #import "MoipHttpResponse.h"
 #import "HTTPStatusCodes.h"
-#import "PKView.h"
+
+#import "TSMessage.h"
+#import "TSMessageView.h"
 
 @interface MPKCheckoutViewController ()
 {
@@ -63,6 +66,7 @@
     [super viewDidLoad];
     
     isValidCreditCard = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
     
     UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(btnCancelTouched:)];
     
@@ -70,9 +74,7 @@
     navItem.rightBarButtonItem = btnCancel;
     
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
-    navBar.barStyle = UIBarStyleDefault;
     navBar.items = @[navItem];
-    
     [self.view addSubview:navBar];
     
     self.paymentView = [[PKView alloc] initWithFrame:CGRectMake(5, 0, 282, 55)];
@@ -93,7 +95,25 @@
     self.tableViewForm.dataSource = self;
     [self.view addSubview:self.tableViewForm];
     [self.tableViewForm setContentInset:UIEdgeInsetsMake(0, 0, 300, 0)];
-    
+
+
+    [TSMessage setDefaultViewController:self];
+
+    [self setupPaymentForm];
+    [self setupLoadingView];
+    [self.txtCardHolder becomeFirstResponder];
+}
+
+- (void) preloadUserData:(NSDictionary *)userData
+{
+    self.txtFullname.text = userData[MPKTextFullname];
+    self.txtDocument.text = userData[MPKTextCPF];
+    self.txtBirthDate.text = userData[MPKTextBirthdate];
+    self.txtPhone.text = userData[MPKTextPhone];
+}
+
+- (void) setupPaymentForm
+{
     // Form
     self.txtCardHolder = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 282, 55)];
     self.txtCardHolder.borderStyle = UITextBorderStyleNone;
@@ -102,7 +122,7 @@
     self.txtCardHolder.placeholder = @"Nome (como no cartão)";
     self.txtCardHolder.font = self.configs.textFieldFont;
     self.txtCardHolder.delegate = self;
-
+    
     self.txtFullname = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 282, 55)];
     self.txtFullname.borderStyle = UITextBorderStyleNone;
     self.txtFullname.autocapitalizationType = UITextAutocapitalizationTypeWords;
@@ -136,8 +156,10 @@
     self.txtBirthDate.font = self.configs.textFieldFont;
     self.txtBirthDate.delegate = self;
     self.txtBirthDate.tag = MPKTextFieldTagBirthdate;
+}
 
-
+- (void) setupLoadingView
+{
     self.loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.loadingView.backgroundColor = [UIColor clearColor];
     self.loadingView.alpha = 0;
@@ -154,16 +176,6 @@
     [loadingSubView addSubview:actIndicator];
     
     [self.loadingView addSubview:loadingSubView];
-    
-    [self.txtCardHolder becomeFirstResponder];
-}
-
-- (void) preloadUserData:(NSDictionary *)userData
-{
-    self.txtFullname.text = userData[MPKTextFullname];
-    self.txtDocument.text = userData[MPKTextCPF];
-    self.txtBirthDate.text = userData[MPKTextBirthdate];
-    self.txtPhone.text = userData[MPKTextPhone];
 }
 
 #pragma mark -
@@ -312,22 +324,75 @@
             {
                 [self.delegate performSelector:@selector(paymentTransactionSuccess:) withObject:transaction];
             }
-            [self dismissViewControllerAnimated:YES completion:nil];
+            
+            if (self.configs.showSuccessFeedback)
+            {
+                [self showSuccessFeedback:transaction];
+            }
+            else
+            {
+                [self dismissAction];
+            }
+            
         } failure:^(NSArray *errorList) {
             [self hideLoadingView];
-
+            
             if ([self.delegate respondsToSelector:@selector(paymentTransactionFailure:)])
             {
                 [self.delegate performSelector:@selector(paymentTransactionFailure:) withObject:errorList];
             }
-            [self dismissViewControllerAnimated:YES completion:nil];
+            
+            if (self.configs.showErrorFeedback)
+            {
+                [self showErrorFeedback:errorList];
+            }
+            else
+            {
+                [self dismissAction];
+            }
         }];
     }
 }
 
 - (void) btnCancelTouched:(id)sender
 {
+    [self dismissAction];
+}
+
+- (void) dismissAction
+{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) showSuccessFeedback:(MPKPaymentTransaction *)transaction
+{
+    NSString *message = @"Seu pagamento %@ com sucesso!";
+    if (transaction.status == MPKPaymentStatusAuthorized)
+    {
+        message = [NSString stringWithFormat:message, @"foi autorizado"];
+    }
+    else if (transaction.status == MPKPaymentStatusConcluded)
+    {
+        message = [NSString stringWithFormat:message, @"foi concluido"];
+    }
+    
+    [TSMessage showNotificationWithTitle:@"Pagamento criado!"
+                                subtitle:@"O pagamento foi efetuado com sucesso!"
+                                    type:TSMessageNotificationTypeSuccess];
+}
+
+- (void) showErrorFeedback:(NSArray *)errors
+{
+    NSMutableString *errorMessage = [NSMutableString string];
+    for (NSError *er in errors)
+    {
+        [errorMessage appendFormat:@"%@\n", er.localizedFailureReason];
+    }
+    
+    [TSMessage showNotificationInViewController:self title:@"Oops! Ocorreu um imprevisto..."
+                                       subtitle:errorMessage
+                                           type:TSMessageNotificationTypeWarning
+                                       duration:5.0f];
 }
 
 #pragma mark -
@@ -405,6 +470,7 @@
 #pragma mark View Animations
 - (void) showLoadingView
 {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self.view addSubview:self.loadingView];
     [UIView animateWithDuration:0.35f animations:^{
         self.loadingView.alpha = 1;
@@ -413,6 +479,7 @@
 
 - (void) hideLoadingView
 {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [UIView animateWithDuration:0.3f animations:^{
         self.loadingView.alpha = 0;
     } completion:^(BOOL finished) {

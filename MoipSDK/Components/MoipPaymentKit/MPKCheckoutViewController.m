@@ -20,7 +20,7 @@
 #import "TSMessage.h"
 #import "TSMessageView.h"
 
-@interface MPKCheckoutViewController ()
+@interface MPKCheckoutViewController () <PKViewDelegate>
 {
     @private
     BOOL isValidCreditCard;
@@ -57,6 +57,11 @@
         self.configs = configuration;
         self.authorization = configuration.authorization;
         self.regex = [NSRegularExpression regularExpressionWithPattern:@"[,\\.\\-\\(\\)\\ `\"]" options:0 error:nil];
+        
+        self.paymentView = [[PKView alloc] initWithFrame:CGRectMake(5, 0, 282, 55)];
+        self.paymentView.delegate = self;
+        self.paymentView.defaultTextFieldFont = self.configs.textFieldFont;
+        self.paymentView.defaultTextFieldTextColor = self.configs.textFieldColor;
     }
     return self;
 }
@@ -76,11 +81,6 @@
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
     navBar.items = @[navItem];
     [self.view addSubview:navBar];
-    
-    self.paymentView = [[PKView alloc] initWithFrame:CGRectMake(5, 0, 282, 55)];
-    self.paymentView.delegate = self;
-    self.paymentView.defaultTextFieldFont = self.configs.textFieldFont;
-    self.paymentView.defaultTextFieldTextColor = self.configs.textFieldColor;
     
     self.view.backgroundColor = self.configs.viewBackgroundColor;
     self.phoneMask = @"(99) 999999999";
@@ -270,14 +270,25 @@
     }
     else if (indexPath.section == 2)
     {
-        UIButton *btnPay = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, 55)];
+        UIButton *btnPay = [[UIButton alloc] initWithFrame:CGRectMake(170, 0, 140, 55)];
         [btnPay setTitle:@"Pagar" forState:UIControlStateNormal];
         [btnPay addTarget:self action:@selector(btnPayTouched:) forControlEvents:UIControlEventTouchUpInside];
         [btnPay setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         btnPay.titleLabel.font = self.configs.textFieldFont;
         btnPay.backgroundColor = [UIColor blueColor];
         
-        [cell addSubview:btnPay];
+        UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, 140, 55)];
+        [btnCancel setTitle:@"Cancelar" forState:UIControlStateNormal];
+        [btnCancel addTarget:self action:@selector(btnPayTouched:) forControlEvents:UIControlEventTouchUpInside];
+        [btnCancel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        btnCancel.titleLabel.font = self.configs.textFieldFont;
+        btnCancel.backgroundColor = [UIColor lightGrayColor];
+        
+        [cell.contentView addSubview:btnCancel];
+        [cell.contentView addSubview:btnPay];
+
+        cell.indentationWidth = 2000;
+        cell.backgroundColor = [UIColor clearColor];
     }
     
     return cell;

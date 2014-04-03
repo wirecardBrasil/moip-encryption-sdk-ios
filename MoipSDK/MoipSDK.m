@@ -29,6 +29,8 @@
 {
     if (self = [super init])
     {
+        [NewRelic startWithApplicationToken:NEW_RELIC_KEY];
+        
         self.auth = auth;
         if (publicKeyPlainText != nil && ![publicKeyPlainText isEqualToString:@""])
         {

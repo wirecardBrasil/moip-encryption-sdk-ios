@@ -12,10 +12,18 @@
 #import "MPKCreditCardTextField.h"
 #import "MPKCVCTextField.h"
 #import "MPKError.h"
+#import "MPKEnvironment.h"
 
 @interface MoipSDK : NSObject
 
-- (id) initWithAuthorization:(NSString *)auth publicKey:(NSString *)publicKeyPlainText;
+#pragma mark - Init
++ (MoipSDK *) session;
++ (MoipSDK *) startSessionWithToken:(NSString *)token
+                                key:(NSString *)key
+                          publicKey:(NSString *)publicKey
+                        environment:(MPKEnvironment)env;
+
+#pragma mark - Methods
 - (void) submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *transaction))success failure:(void (^)(NSArray *errorList))failure;
 
 @end

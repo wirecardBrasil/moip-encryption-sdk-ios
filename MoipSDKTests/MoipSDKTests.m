@@ -15,8 +15,6 @@
 
 @interface MoipSDKTests : XCTestCase
 
-@property NSString *authorization;
-@property MoipSDK *sdk;
 
 @end
 
@@ -25,8 +23,7 @@
 - (void)setUp
 {
     [super setUp];
-    self.authorization = @"Basic N1hKTzFXVUE3Qk1JVlpUT1ZCOTBZTkpISk5QQ05YSEQ6N0dXSjJBNVNYSDI4UkNXRDVZQ0ozQlVIUldYRzRIT1BPWlBRMEJNSA==";
-    
+
     NSMutableString *pk = [NSMutableString new];
     [pk appendFormat:@"-----BEGIN PUBLIC KEY-----\n"];
     [pk appendFormat:@"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDce1lVh/ZelksxZaypzs0l+U1g\n"];
@@ -35,26 +32,10 @@
     [pk appendFormat:@"+hF+iW+8wgSrjVO+9wIDAQAB\n"];
     [pk appendFormat:@"-----END PUBLIC KEY-----"];
     
-    NSMutableString *privatekey = [NSMutableString new];
-    [privatekey appendFormat:@"-----BEGIN RSA PRIVATE KEY-----"];
-    [privatekey appendFormat:@"MIICXAIBAAKBgQDce1lVh/ZelksxZaypzs0l+U1glruZD3qnh9PrQQpT2DKh/JeR"];
-    [privatekey appendFormat:@"gOmMfU4fz7ayHnSRRvNWRyIDLBkWJr5KIq7jWgDSaGmb+QpAU8xm8iKx5mjepp1w"];
-    [privatekey appendFormat:@"l9guXXlDjQlCRoQfRCZtTSN0IVIlDcAfAhaK/ot8+hF+iW+8wgSrjVO+9wIDAQAB"];
-    [privatekey appendFormat:@"AoGAdkzI1hepnX7OwaZoSoRnlqR5XAYEik+/4/wBPQ0c2Xf7UucQ/EVLCtKBBJiS"];
-    [privatekey appendFormat:@"0md87CZBkl2AZmtW2ofXOjf51Yvmu3dvwP3E/hOmFNP55KKeqWxzJzQbuQXPMp3T"];
-    [privatekey appendFormat:@"ICBqwFUCamDrbUUlE3MSFCnYHVYJNL2CG+gaPVNp+0dR36ECQQD2zUHUjtnrH5/+"];
-    [privatekey appendFormat:@"3wdEVmA1BSP8f2G0PyrTHx8kevzJaOL4gsRLooButgvmHpfIr3412CSVw6rKKbSq"];
-    [privatekey appendFormat:@"6bP9K/1NAkEA5LL47inYweWl1LUq1se+Inhnj381Elgf7AV0xiqE1FwyxlV5v3Hh"];
-    [privatekey appendFormat:@"b1Lp5A9RnRSk8/wKGHtrep7W3T9gnv+bUwJAdyDoj8NMaPPg9NOO3GudELqkfjK2"];
-    [privatekey appendFormat:@"ZJzA/RtemutKraWVOUNVoPSVbdstryxBM7uR/keQkUHbZK3w6TbZjHD5WQJAe/uO"];
-    [privatekey appendFormat:@"ukbTbOKb0UHaFJA6wqM1uXSECArgW2rl0JyyYBIPsLgcBa6uQVTY2bt4Skkr192W"];
-    [privatekey appendFormat:@"d4lJTjOYVl+KeQgnYwJBALSKPBXdvYWaVqihHn6l/SbawoOUsEC6M0bMupqeUpgU"];
-    [privatekey appendFormat:@"7XhyPUraO8WkcHz/WHXiBrtUyqGP0nz9Izc7H7yU5F4="];
-    [privatekey appendFormat:@"-----END RSA PRIVATE KEY-----"];
-    
-    self.sdk = [[MoipSDK alloc] initWithAuthorization:self.authorization publicKey:pk];
-
-    [MPKUtilities importPrivateKey:privatekey];
+    [MoipSDK startSessionWithToken:@"MGWBTQT5FPWLADJKDGFTRJOPUFJ4EBRJ"
+                               key:@"KDF9BL8CC6RRF9KYJCU0SPLI0FSVH6NTAWLCJAEC"
+                         publicKey:pk
+                       environment:MPKEnvironmentSANDBOX];
 }
 
 - (void)tearDown
@@ -86,7 +67,7 @@
     payment.method = MPKPaymentMethodCreditCard;
     payment.creditCard = card;
     
-    [self.sdk submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
+    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
         XCTAssertEqual(transaction.status, MPKPaymentStatusInAnalysis, @"Status equals to InAnalysis");
     } failure:^(NSArray *errorList) {
         XCTAssertTrue(errorList.count > 0, @"Errors: %@", errorList);
@@ -95,6 +76,24 @@
 
 - (void) testShouldEncryptAndDecryptACreditCardNumber
 {
+    NSMutableString *privatekey = [NSMutableString new];
+    [privatekey appendFormat:@"-----BEGIN RSA PRIVATE KEY-----"];
+    [privatekey appendFormat:@"MIICXAIBAAKBgQDce1lVh/ZelksxZaypzs0l+U1glruZD3qnh9PrQQpT2DKh/JeR"];
+    [privatekey appendFormat:@"gOmMfU4fz7ayHnSRRvNWRyIDLBkWJr5KIq7jWgDSaGmb+QpAU8xm8iKx5mjepp1w"];
+    [privatekey appendFormat:@"l9guXXlDjQlCRoQfRCZtTSN0IVIlDcAfAhaK/ot8+hF+iW+8wgSrjVO+9wIDAQAB"];
+    [privatekey appendFormat:@"AoGAdkzI1hepnX7OwaZoSoRnlqR5XAYEik+/4/wBPQ0c2Xf7UucQ/EVLCtKBBJiS"];
+    [privatekey appendFormat:@"0md87CZBkl2AZmtW2ofXOjf51Yvmu3dvwP3E/hOmFNP55KKeqWxzJzQbuQXPMp3T"];
+    [privatekey appendFormat:@"ICBqwFUCamDrbUUlE3MSFCnYHVYJNL2CG+gaPVNp+0dR36ECQQD2zUHUjtnrH5/+"];
+    [privatekey appendFormat:@"3wdEVmA1BSP8f2G0PyrTHx8kevzJaOL4gsRLooButgvmHpfIr3412CSVw6rKKbSq"];
+    [privatekey appendFormat:@"6bP9K/1NAkEA5LL47inYweWl1LUq1se+Inhnj381Elgf7AV0xiqE1FwyxlV5v3Hh"];
+    [privatekey appendFormat:@"b1Lp5A9RnRSk8/wKGHtrep7W3T9gnv+bUwJAdyDoj8NMaPPg9NOO3GudELqkfjK2"];
+    [privatekey appendFormat:@"ZJzA/RtemutKraWVOUNVoPSVbdstryxBM7uR/keQkUHbZK3w6TbZjHD5WQJAe/uO"];
+    [privatekey appendFormat:@"ukbTbOKb0UHaFJA6wqM1uXSECArgW2rl0JyyYBIPsLgcBa6uQVTY2bt4Skkr192W"];
+    [privatekey appendFormat:@"d4lJTjOYVl+KeQgnYwJBALSKPBXdvYWaVqihHn6l/SbawoOUsEC6M0bMupqeUpgU"];
+    [privatekey appendFormat:@"7XhyPUraO8WkcHz/WHXiBrtUyqGP0nz9Izc7H7yU5F4="];
+    [privatekey appendFormat:@"-----END RSA PRIVATE KEY-----"];
+    [MPKUtilities importPrivateKey:privatekey];
+    
     NSString *creditCardNumber = @"4903762433566341";
     NSString *encryptedCreditCard = [MPKUtilities encryptData:creditCardNumber];
     NSString *decryptedCreditCard = [MPKUtilities decryptData:encryptedCreditCard];
@@ -104,7 +103,7 @@
 
 - (void) testShouldReturnErrorTokenIsInvalid
 {
-    MoipSDK *sdkWithoutAuth = [[MoipSDK alloc] initWithAuthorization:nil publicKey:nil];
+    [MoipSDK startSessionWithToken:@"" key:@"" publicKey:@"" environment:MPKEnvironmentSANDBOX];
     
     MPKCardHolder *holder = [MPKCardHolder new];
     holder.fullname = @"Fernando Nazario Sousa";
@@ -128,7 +127,7 @@
     payment.method = MPKPaymentMethodCreditCard;
     payment.creditCard = card;
     
-    [sdkWithoutAuth submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
+    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
         XCTAssertEqual(transaction.status, MPKPaymentStatusInAnalysis, @"Status equals to InAnalysis");
     } failure:^(NSArray *errorList) {
         
@@ -164,7 +163,7 @@
     payment.method = MPKPaymentMethodCreditCard;
     payment.creditCard = card;
     
-    [self.sdk submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
+    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
         XCTAssertEqual(transaction.status, MPKPaymentStatusInAnalysis, @"Status equals to InAnalysis");
     } failure:^(NSArray *errorList) {
         XCTAssertTrue(errorList.count > 0, @"Errors: %@", errorList);
@@ -195,7 +194,7 @@
     payment.method = MPKPaymentMethodCreditCard;
     payment.creditCard = card;
     
-    [self.sdk submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
+    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
         XCTAssertEqual(transaction.status, MPKPaymentStatusInAnalysis, @"Status equals to InAnalysis");
     } failure:^(NSArray *errorList) {
         XCTAssertTrue(errorList.count > 0, @"Errors: %@", errorList);
@@ -206,9 +205,9 @@
 - (NSString *) getMoipOrderId
 {
     NSString *orderJSON = [self generateOrderJSON];
-    NSString *url = APIURL(@"/orders");
+    NSString *url = [MPKUtilities urlWithEnv:MPKEnvironmentSANDBOX endpoint:@"/orders"];
     
-    MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.authorization];
+    MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:@"Basic TUdXQlRRVDVGUFdMQURKS0RHRlRSSk9QVUZKNEVCUko6S0RGOUJMOENDNlJSRjlLWUpDVTBTUExJMEZTVkg2TlRBV0xDSkFFQw=="];
     MoipHttpResponse *response = [requester post:url payload:orderJSON params:nil delegate:nil];
     if (response.httpStatusCode == kHTTPStatusCodeCreated)
     {

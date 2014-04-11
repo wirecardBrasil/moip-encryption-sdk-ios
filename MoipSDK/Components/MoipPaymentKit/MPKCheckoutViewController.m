@@ -16,7 +16,6 @@
 #import "MoipHttpRequester.h"
 #import "MoipHttpResponse.h"
 #import "HTTPStatusCodes.h"
-
 #import "TSMessage.h"
 #import "TSMessageView.h"
 
@@ -52,10 +51,7 @@
     self = [super init];
     if (self)
     {
-        [MPKUtilities importPublicKey:configuration.publicKey];
-        
         self.configs = configuration;
-        self.authorization = configuration.authorization;
         self.regex = [NSRegularExpression regularExpressionWithPattern:@"[,\\.\\-\\(\\)\\ `\"]" options:0 error:nil];
         
         self.paymentView = [[PKView alloc] initWithFrame:CGRectMake(5, 0, 282, 55)];
@@ -69,7 +65,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     isValidCreditCard = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -96,12 +92,12 @@
     [self.view addSubview:self.tableViewForm];
     [self.tableViewForm setContentInset:UIEdgeInsetsMake(0, 0, 300, 0)];
 
-
     [TSMessage setDefaultViewController:self];
 
     [self setupPaymentForm];
     [self setupLoadingView];
     [self.txtCardHolder becomeFirstResponder];
+    
 }
 
 - (void) preloadUserData:(NSDictionary *)userData
@@ -279,7 +275,7 @@
         
         UIButton *btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, 140, 55)];
         [btnCancel setTitle:@"Cancelar" forState:UIControlStateNormal];
-        [btnCancel addTarget:self action:@selector(btnPayTouched:) forControlEvents:UIControlEventTouchUpInside];
+        [btnCancel addTarget:self action:@selector(btnCancelTouched:) forControlEvents:UIControlEventTouchUpInside];
         [btnCancel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         btnCancel.titleLabel.font = self.configs.textFieldFont;
         btnCancel.backgroundColor = [UIColor lightGrayColor];
@@ -327,8 +323,8 @@
         _card.cardholder = holder;
         payment.creditCard = _card;
         
-        MoipSDK *sdk = [[MoipSDK alloc] initWithAuthorization:self.authorization publicKey:self.publicKey];
-        [sdk submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
+        MoipSDK *instance = [MoipSDK session];
+        [instance submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
             [self hideLoadingView];
             
             if ([self.delegate respondsToSelector:@selector(paymentTransactionSuccess:)])
@@ -395,7 +391,7 @@
 - (void) showErrorFeedback:(NSArray *)errors
 {
     NSMutableString *errorMessage = [NSMutableString string];
-    for (NSError *er in errors)
+    for (MPKError *er in errors)
     {
         [errorMessage appendFormat:@"%@\n", er.localizedFailureReason];
     }

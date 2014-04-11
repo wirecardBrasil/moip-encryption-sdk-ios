@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		671D3E2C18CA1CAA005C73B1 /* MoipSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BF00AF18C77B7100080D43 /* MoipSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67214BC218EF368C007C5553 /* MPKEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 67214BC118EF3624007C5553 /* MPKEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6736AA7B18E9FD22002F8432 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51118E9DA20002ABE83 /* NotificationBackgroundError.png */; };
 		6736AA7C18E9FD22002F8432 /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51218E9DA20002ABE83 /* NotificationBackgroundError@2x.png */; };
 		6736AA7D18E9FD22002F8432 /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51318E9DA20002ABE83 /* NotificationBackgroundErrorIcon.png */; };
@@ -25,7 +26,6 @@
 		6736AA8918E9FD22002F8432 /* NotificationButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51F18E9DA20002ABE83 /* NotificationButtonBackground.png */; };
 		6736AA8A18E9FD22002F8432 /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A52018E9DA20002ABE83 /* NotificationButtonBackground@2x.png */; };
 		6736AA8B18E9FD22002F8432 /* TSMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A52118E9DA20002ABE83 /* TSMessagesDefaultDesign.json */; };
-		674C696418EC8335000B7F17 /* NewRelicAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674C696318EC8335000B7F17 /* NewRelicAgent.framework */; };
 		675074CD18CDE96E00FBF2CB /* HTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074C818CDE96E00FBF2CB /* HTTPStatusCodes.h */; };
 		675074CE18CDE96E00FBF2CB /* MoipHttpRequester.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074C918CDE96E00FBF2CB /* MoipHttpRequester.h */; };
 		675074CF18CDE96E00FBF2CB /* MoipHttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074CA18CDE96E00FBF2CB /* MoipHttpRequester.m */; };
@@ -33,8 +33,8 @@
 		675074D118CDE96E00FBF2CB /* MoipHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074CC18CDE96E00FBF2CB /* MoipHttpResponse.m */; };
 		675074D518CDEA3F00FBF2CB /* MPKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074D318CDEA3F00FBF2CB /* MPKUtilities.h */; };
 		675074D618CDEA3F00FBF2CB /* MPKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074D418CDEA3F00FBF2CB /* MPKUtilities.m */; };
-		67598C8C18E99CDC000C6811 /* PKAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67598C6218E99CDC000C6811 /* PKAddressZip.h */; };
-		67598C8D18E99CDC000C6811 /* PKAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67598C6318E99CDC000C6811 /* PKAddressZip.m */; };
+		67598C8C18E99CDC000C6811 /* MPKAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67598C6218E99CDC000C6811 /* MPKAddressZip.h */; };
+		67598C8D18E99CDC000C6811 /* MPKAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67598C6318E99CDC000C6811 /* MPKAddressZip.m */; };
 		67598C8E18E99CDC000C6811 /* PKCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67598C6418E99CDC000C6811 /* PKCard.h */; };
 		67598C8F18E99CDC000C6811 /* PKCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67598C6518E99CDC000C6811 /* PKCard.m */; };
 		67598C9018E99CDC000C6811 /* PKCardCVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 67598C6618E99CDC000C6811 /* PKCardCVC.h */; };
@@ -44,8 +44,8 @@
 		67598C9418E99CDC000C6811 /* PKCardNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 67598C6A18E99CDC000C6811 /* PKCardNumber.h */; };
 		67598C9518E99CDC000C6811 /* PKCardNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 67598C6B18E99CDC000C6811 /* PKCardNumber.m */; };
 		67598C9618E99CDC000C6811 /* PKCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = 67598C6C18E99CDC000C6811 /* PKCardType.h */; };
-		67598C9718E99CDC000C6811 /* PKComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67598C6D18E99CDC000C6811 /* PKComponent.h */; };
-		67598C9818E99CDC000C6811 /* PKComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67598C6E18E99CDC000C6811 /* PKComponent.m */; };
+		67598C9718E99CDC000C6811 /* MPKComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67598C6D18E99CDC000C6811 /* MPKComponent.h */; };
+		67598C9818E99CDC000C6811 /* MPKComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67598C6E18E99CDC000C6811 /* MPKComponent.m */; };
 		67598C9918E99CDC000C6811 /* PKTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 67598C6F18E99CDC000C6811 /* PKTextField.h */; };
 		67598C9A18E99CDC000C6811 /* PKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67598C7018E99CDC000C6811 /* PKTextField.m */; };
 		67598C9B18E99CDC000C6811 /* PKUSAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67598C7118E99CDC000C6811 /* PKUSAddressZip.h */; };
@@ -140,6 +140,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		67214BC118EF3624007C5553 /* MPKEnvironment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MPKEnvironment.h; path = Configuration/MPKEnvironment.h; sourceTree = "<group>"; };
 		674C696318EC8335000B7F17 /* NewRelicAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NewRelicAgent.framework; sourceTree = "<group>"; };
 		675074C818CDE96E00FBF2CB /* HTTPStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPStatusCodes.h; sourceTree = "<group>"; };
 		675074C918CDE96E00FBF2CB /* MoipHttpRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoipHttpRequester.h; sourceTree = "<group>"; };
@@ -148,8 +149,8 @@
 		675074CC18CDE96E00FBF2CB /* MoipHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpResponse.m; sourceTree = "<group>"; };
 		675074D318CDEA3F00FBF2CB /* MPKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUtilities.h; sourceTree = "<group>"; };
 		675074D418CDEA3F00FBF2CB /* MPKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUtilities.m; sourceTree = "<group>"; };
-		67598C6218E99CDC000C6811 /* PKAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKAddressZip.h; sourceTree = "<group>"; };
-		67598C6318E99CDC000C6811 /* PKAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKAddressZip.m; sourceTree = "<group>"; };
+		67598C6218E99CDC000C6811 /* MPKAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAddressZip.h; sourceTree = "<group>"; };
+		67598C6318E99CDC000C6811 /* MPKAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAddressZip.m; sourceTree = "<group>"; };
 		67598C6418E99CDC000C6811 /* PKCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCard.h; sourceTree = "<group>"; };
 		67598C6518E99CDC000C6811 /* PKCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCard.m; sourceTree = "<group>"; };
 		67598C6618E99CDC000C6811 /* PKCardCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCardCVC.h; sourceTree = "<group>"; };
@@ -159,8 +160,8 @@
 		67598C6A18E99CDC000C6811 /* PKCardNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCardNumber.h; sourceTree = "<group>"; };
 		67598C6B18E99CDC000C6811 /* PKCardNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCardNumber.m; sourceTree = "<group>"; };
 		67598C6C18E99CDC000C6811 /* PKCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCardType.h; sourceTree = "<group>"; };
-		67598C6D18E99CDC000C6811 /* PKComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKComponent.h; sourceTree = "<group>"; };
-		67598C6E18E99CDC000C6811 /* PKComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKComponent.m; sourceTree = "<group>"; };
+		67598C6D18E99CDC000C6811 /* MPKComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKComponent.h; sourceTree = "<group>"; };
+		67598C6E18E99CDC000C6811 /* MPKComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKComponent.m; sourceTree = "<group>"; };
 		67598C6F18E99CDC000C6811 /* PKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKTextField.h; sourceTree = "<group>"; };
 		67598C7018E99CDC000C6811 /* PKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKTextField.m; sourceTree = "<group>"; };
 		67598C7118E99CDC000C6811 /* PKUSAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKUSAddressZip.h; sourceTree = "<group>"; };
@@ -177,8 +178,8 @@
 		6760680F18DA11AB00FCA007 /* MPKCVCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKCVCTextField.m; path = MoipPaymentKit/MPKCVCTextField.m; sourceTree = "<group>"; };
 		6761C3AE18DB8C3800551E5D /* MPKCheckoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKCheckoutViewController.h; path = MoipPaymentKit/MPKCheckoutViewController.h; sourceTree = "<group>"; };
 		6761C3AF18DB8C3800551E5D /* MPKCheckoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKCheckoutViewController.m; path = MoipPaymentKit/MPKCheckoutViewController.m; sourceTree = "<group>"; };
-		6761C3B018DB8C3800551E5D /* MPKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKConfiguration.h; path = MoipPaymentKit/MPKConfiguration.h; sourceTree = "<group>"; };
-		6761C3B118DB8C3800551E5D /* MPKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKConfiguration.m; path = MoipPaymentKit/MPKConfiguration.m; sourceTree = "<group>"; };
+		6761C3B018DB8C3800551E5D /* MPKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKConfiguration.h; path = Components/MoipPaymentKit/MPKConfiguration.h; sourceTree = "<group>"; };
+		6761C3B118DB8C3800551E5D /* MPKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKConfiguration.m; path = Components/MoipPaymentKit/MPKConfiguration.m; sourceTree = "<group>"; };
 		67701B0618CE293800D66A5B /* MPKEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKEnums.h; path = Model/MPKEnums.h; sourceTree = "<group>"; };
 		67A2A50918E9DA20002ABE83 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		67A2A50A18E9DA20002ABE83 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
@@ -265,7 +266,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				67F4E21D18DC8A6300B9BD4C /* QuartzCore.framework in Frameworks */,
-				674C696418EC8335000B7F17 /* NewRelicAgent.framework in Frameworks */,
 				67BF00A718C77B7100080D43 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +283,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67214BC018EF35E5007C5553 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				6761C3B018DB8C3800551E5D /* MPKConfiguration.h */,
+				6761C3B118DB8C3800551E5D /* MPKConfiguration.m */,
+				67214BC118EF3624007C5553 /* MPKEnvironment.h */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 		675074C718CDE96E00FBF2CB /* Http */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,8 +317,8 @@
 		67598C6118E99CDC000C6811 /* PaymentKit */ = {
 			isa = PBXGroup;
 			children = (
-				67598C6218E99CDC000C6811 /* PKAddressZip.h */,
-				67598C6318E99CDC000C6811 /* PKAddressZip.m */,
+				67598C6218E99CDC000C6811 /* MPKAddressZip.h */,
+				67598C6318E99CDC000C6811 /* MPKAddressZip.m */,
 				67598C6418E99CDC000C6811 /* PKCard.h */,
 				67598C6518E99CDC000C6811 /* PKCard.m */,
 				67598C6618E99CDC000C6811 /* PKCardCVC.h */,
@@ -318,8 +328,8 @@
 				67598C6A18E99CDC000C6811 /* PKCardNumber.h */,
 				67598C6B18E99CDC000C6811 /* PKCardNumber.m */,
 				67598C6C18E99CDC000C6811 /* PKCardType.h */,
-				67598C6D18E99CDC000C6811 /* PKComponent.h */,
-				67598C6E18E99CDC000C6811 /* PKComponent.m */,
+				67598C6D18E99CDC000C6811 /* MPKComponent.h */,
+				67598C6E18E99CDC000C6811 /* MPKComponent.m */,
 				67598C6F18E99CDC000C6811 /* PKTextField.h */,
 				67598C7018E99CDC000C6811 /* PKTextField.m */,
 				67598C7118E99CDC000C6811 /* PKUSAddressZip.h */,
@@ -340,8 +350,6 @@
 				6760680F18DA11AB00FCA007 /* MPKCVCTextField.m */,
 				6761C3AE18DB8C3800551E5D /* MPKCheckoutViewController.h */,
 				6761C3AF18DB8C3800551E5D /* MPKCheckoutViewController.m */,
-				6761C3B018DB8C3800551E5D /* MPKConfiguration.h */,
-				6761C3B118DB8C3800551E5D /* MPKConfiguration.m */,
 				675C76A918D1EF0E0005C641 /* MPKInterceptor.h */,
 				675C76AA18D1EF0E0005C641 /* MPKInterceptor.m */,
 			);
@@ -486,6 +494,7 @@
 		67BF00A818C77B7100080D43 /* MoipSDK */ = {
 			isa = PBXGroup;
 			children = (
+				67214BC018EF35E5007C5553 /* Configuration */,
 				67A2A50518E9DA20002ABE83 /* Libs */,
 				6760680918D9CFF100FCA007 /* Error */,
 				67C0504A18D88B2D0031D2CB /* SecurityUtil */,
@@ -612,6 +621,7 @@
 				67A2A52918E9DA20002ABE83 /* TSMessage.h in Headers */,
 				67598C9618E99CDC000C6811 /* PKCardType.h in Headers */,
 				67F8539D18CE5A0700C94B5C /* MPKFee.h in Headers */,
+				67214BC218EF368C007C5553 /* MPKEnvironment.h in Headers */,
 				67A2A53C18E9DA20002ABE83 /* TSBlurView.h in Headers */,
 				67701B0818CE293800D66A5B /* MPKEnums.h in Headers */,
 				67F853A118CE616000C94B5C /* MPKAmount.h in Headers */,
@@ -619,7 +629,7 @@
 				6761C3B418DB8C3800551E5D /* MPKCheckoutViewController.h in Headers */,
 				67598C9B18E99CDC000C6811 /* PKUSAddressZip.h in Headers */,
 				67F8539918CE59FB00C94B5C /* MPKEvent.h in Headers */,
-				67598C9718E99CDC000C6811 /* PKComponent.h in Headers */,
+				67598C9718E99CDC000C6811 /* MPKComponent.h in Headers */,
 				67598C9918E99CDC000C6811 /* PKTextField.h in Headers */,
 				67A2A53E18E9DA20002ABE83 /* TSMessageView.h in Headers */,
 				6760681018DA11AB00FCA007 /* MPKCVCTextField.h in Headers */,
@@ -630,7 +640,7 @@
 				675074D018CDE96E00FBF2CB /* MoipHttpResponse.h in Headers */,
 				67FE837B18C8DE3600F7F2DD /* MPKCardHolder.h in Headers */,
 				675074CD18CDE96E00FBF2CB /* HTTPStatusCodes.h in Headers */,
-				67598C8C18E99CDC000C6811 /* PKAddressZip.h in Headers */,
+				67598C8C18E99CDC000C6811 /* MPKAddressZip.h in Headers */,
 				675C76C018D1EF0E0005C641 /* MPKInterceptor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -789,7 +799,7 @@
 				67F853A218CE616000C94B5C /* MPKAmount.m in Sources */,
 				675074D118CDE96E00FBF2CB /* MoipHttpResponse.m in Sources */,
 				67F853A618CE61A600C94B5C /* MPKFundingInstrument.m in Sources */,
-				67598C9818E99CDC000C6811 /* PKComponent.m in Sources */,
+				67598C9818E99CDC000C6811 /* MPKComponent.m in Sources */,
 				6761C3B518DB8C3800551E5D /* MPKCheckoutViewController.m in Sources */,
 				67598C8F18E99CDC000C6811 /* PKCard.m in Sources */,
 				67FE837C18C8DE3600F7F2DD /* MPKCardHolder.m in Sources */,
@@ -805,7 +815,7 @@
 				67A2A53F18E9DA20002ABE83 /* TSMessageView.m in Sources */,
 				67A2A52818E9DA20002ABE83 /* HexColor.m in Sources */,
 				67A2A53D18E9DA20002ABE83 /* TSBlurView.m in Sources */,
-				67598C8D18E99CDC000C6811 /* PKAddressZip.m in Sources */,
+				67598C8D18E99CDC000C6811 /* MPKAddressZip.m in Sources */,
 				67598C9118E99CDC000C6811 /* PKCardCVC.m in Sources */,
 				6761C3B718DB8C3800551E5D /* MPKConfiguration.m in Sources */,
 				675074CF18CDE96E00FBF2CB /* MoipHttpRequester.m in Sources */,

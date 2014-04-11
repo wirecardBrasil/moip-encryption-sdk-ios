@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Stripe. All rights reserved.
 //
 
-#import "PKAddressZip.h"
+#import "MPKAddressZip.h"
 
-@implementation PKAddressZip
+@implementation MPKAddressZip
 
 + (instancetype)addressZipWithString:(NSString *)string
 {

@@ -6,9 +6,9 @@
 //
 //
 
-#import "PKComponent.h"
+#import "MPKComponent.h"
 
-@implementation PKComponent
+@implementation MPKComponent
 
 - (id)initWithString:(NSString *)string
 {

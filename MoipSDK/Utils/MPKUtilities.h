@@ -7,6 +7,7 @@
 //
 
 #import <CommonCrypto/CommonDigest.h>
+#import "MPKEnvironment.h"
 
 @interface MPKUtilities : NSObject
 
@@ -20,4 +21,5 @@
 + (NSString *) encodeToPercentEscapeString:(NSString *)text;
 + (NSString *) addQueryStringToUrlString:(NSString *)urlString withDictionary:(NSDictionary *)dictionary;
 
++ (NSString *) urlWithEnv:(MPKEnvironment)env endpoint:(NSString *)endpoint;
 @end

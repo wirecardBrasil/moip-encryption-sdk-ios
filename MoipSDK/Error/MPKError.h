@@ -12,7 +12,6 @@
 
 @property NSUInteger httpStatusCode;
 @property NSString *apiErrorCode;
-@property NSString *errorPath;
 @property NSString *errorDescription;
 
 @end

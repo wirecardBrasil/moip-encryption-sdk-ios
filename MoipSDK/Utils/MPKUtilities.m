@@ -124,4 +124,14 @@
     return urlWithQuerystring;
 }
 
++ (NSString *) urlWithEnv:(MPKEnvironment)env endpoint:(NSString *)endpoint
+{
+    if (env == MPKEnvironmentPRODUCTION)
+        return [NSString stringWithFormat:@"%@%@", BASE_URL_PRODUCTION, endpoint];
+    else if (env == MPKEnvironmentSANDBOX)
+        return [NSString stringWithFormat:@"%@%@", BASE_URL_SANDBOX, endpoint];
+    
+    return [NSString stringWithFormat:@"%@%@", BASE_URL_SANDBOX, endpoint];
+}
+
 @end

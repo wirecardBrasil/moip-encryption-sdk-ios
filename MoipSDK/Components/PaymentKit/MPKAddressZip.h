@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PKComponent.h"
+#import "MPKComponent.h"
 
-@interface PKAddressZip : PKComponent {
+@interface MPKAddressZip : MPKComponent {
 @protected
     NSString *_zip;
 }

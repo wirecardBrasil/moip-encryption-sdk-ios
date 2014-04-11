@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "MPKEnvironment.h"
 
 @interface MPKConfiguration : NSObject
 
@@ -17,8 +18,6 @@
 @property UIColor *textFieldColor;
 @property UIColor *textFieldBackgroundColor;
 @property UIColor *viewBackgroundColor;
-@property NSString *authorization;
-@property NSString *publicKey;
 @property BOOL showSuccessFeedback;
 @property BOOL showErrorFeedback;
 

@@ -17,32 +17,47 @@
 @interface MoipSDK ()
 
 @property NSString *auth;
+@property MPKEnvironment environment;
 
 @end
 
 @implementation MoipSDK
 
+static MoipSDK *sharedSingleton;
+
 #pragma mark -
 #pragma mark --> Public Methods
 #pragma Start SDK
-- (id) initWithAuthorization:(NSString *)auth publicKey:(NSString *)publicKeyPlainText
++ (MoipSDK *) startSessionWithToken:(NSString *)token
+                                key:(NSString *)key
+                          publicKey:(NSString *)publicKey
+                        environment:(MPKEnvironment)env
 {
-    if (self = [super init])
+    @synchronized(self)
     {
-        [NewRelic startWithApplicationToken:NEW_RELIC_KEY];
-        
-        self.auth = auth;
-        if (publicKeyPlainText != nil && ![publicKeyPlainText isEqualToString:@""])
+        if (!sharedSingleton)
         {
-            [self importPublicKey:publicKeyPlainText];
+            NSData *encodedLoginData = [[NSString stringWithFormat:@"%@:%@", token, key] dataUsingEncoding:NSUTF8StringEncoding];
+            sharedSingleton = [[MoipSDK alloc] init];
+            sharedSingleton.auth = [NSString stringWithFormat:@"Basic %@",  [encodedLoginData base64EncodedStringWithOptions:NSUTF8StringEncoding]];
+            sharedSingleton.environment = env;
+            [sharedSingleton importPublicKey:publicKey];
         }
+        return sharedSingleton;
     }
-    return self;
 }
 
-- (void) importPublicKey:(NSString *)publicKeyText
++ (MoipSDK *) session
 {
-    [MPKUtilities importPublicKey:publicKeyText];
+    return sharedSingleton;
+}
+
+- (void) importPublicKey:(NSString *)publicKeyPlainText
+{
+    if (publicKeyPlainText != nil && ![publicKeyPlainText isEqualToString:@""])
+    {
+        [MPKUtilities importPublicKey:publicKeyPlainText];
+    }
 }
 
 #pragma mark Submit Payment
@@ -53,7 +68,7 @@
         NSString *paymentJSON = [self generatePaymentJSON:payment];
         
         NSString *endpoint = [NSString stringWithFormat:@"/orders/%@/payments", payment.moipOrderId];
-        NSString *url = APIURL(endpoint);
+        NSString *url = [MPKUtilities urlWithEnv:self.environment endpoint:endpoint];
         
         MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.auth];
         MoipHttpResponse *response = [requester post:url payload:paymentJSON params:nil delegate:nil];
@@ -98,13 +113,11 @@
         NSMutableArray *errors = [NSMutableArray new];
         for (NSDictionary *error in errorList)
         {
-            NSDictionary *userInfo = @{NSLocalizedDescriptionKey: error[@"path"],
-                                       NSLocalizedFailureReasonErrorKey: error[@"description"]};
+            NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: error[@"description"]};
             
             MPKError *err = [[MPKError alloc] initWithDomain:@"MPKPaymentError" code:[error[@"code"] intValue] userInfo:userInfo];
             err.httpStatusCode = response.httpStatusCode;
             err.apiErrorCode = error[@"code"];
-            err.errorPath = error[@"path"];
             err.errorDescription = error[@"description"];
             
             [errors addObject:err];

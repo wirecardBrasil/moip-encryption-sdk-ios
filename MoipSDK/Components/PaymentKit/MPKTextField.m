@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Stripe. All rights reserved.
 //
 
-#import "PKTextField.h"
+#import "MPKTextField.h"
 
 #define kPKTextFieldSpaceChar @"\u200B"
 
-@implementation PKTextField
+@implementation MPKTextField
 
 + (NSString *)textByRemovingUselessSpacesFromString:(NSString *)string
 {

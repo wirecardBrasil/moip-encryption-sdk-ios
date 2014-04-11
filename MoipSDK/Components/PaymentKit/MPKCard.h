@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PKCard : NSObject
+@interface MPKCard : NSObject
 
 @property (nonatomic, copy) NSString *number;
 @property (nonatomic, copy) NSString *cvc;

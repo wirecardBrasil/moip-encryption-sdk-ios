@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PKCardType.h"
-#import "PKComponent.h"
+#import "MPKCardType.h"
+#import "MPKComponent.h"
 
-@interface PKCardCVC : PKComponent
+@interface MPKCardCVC : MPKComponent
 
 @property (nonatomic, readonly) NSString *string;
 
 + (instancetype)cardCVCWithString:(NSString *)string;
-- (BOOL)isValidWithType:(PKCardType)type;
-- (BOOL)isPartiallyValidWithType:(PKCardType)type;
+- (BOOL)isValidWithType:(MPKCardType)type;
+- (BOOL)isPartiallyValidWithType:(MPKCardType)type;
 
 @end

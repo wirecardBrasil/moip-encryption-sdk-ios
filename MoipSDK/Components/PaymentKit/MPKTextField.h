@@ -8,21 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@class PKTextField;
+@class MPKTextField;
 
-@protocol PKTextFieldDelegate <UITextFieldDelegate>
+@protocol MPKTextFieldDelegate <UITextFieldDelegate>
 
 @optional
 
-- (void)pkTextFieldDidBackSpaceWhileTextIsEmpty:(PKTextField *)textField;
+- (void)pkTextFieldDidBackSpaceWhileTextIsEmpty:(MPKTextField *)textField;
 
 @end
 
-@interface PKTextField : UITextField
+@interface MPKTextField : UITextField
 
 + (NSString*)textByRemovingUselessSpacesFromString:(NSString*)string;
 
-@property (nonatomic, weak) id<PKTextFieldDelegate> delegate;
+@property (nonatomic, weak) id<MPKTextFieldDelegate> delegate;
 
 @end
 

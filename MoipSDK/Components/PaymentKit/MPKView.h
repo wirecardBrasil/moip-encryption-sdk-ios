@@ -9,25 +9,25 @@
 #import <UIKit/UIKit.h>
 #import "MPKCreditCard.h"
 
-@class PKView, PKTextField;
+@class MPKView, PKTextField;
 
-@protocol PKViewDelegate <NSObject>
+@protocol MPKViewDelegate <NSObject>
 @optional
 - (void)paymentViewWithCard:(MPKCreditCard *)card isValid:(BOOL)valid;
 @end
 
-@interface PKView : UIView
+@interface MPKView : UIView
 
 @property UIFont *defaultTextFieldFont;
 @property UIColor *defaultTextFieldTextColor;
 
-@property (nonatomic, weak) id <PKViewDelegate> delegate;
 @property (nonatomic, strong) UIView *innerView;
 @property (nonatomic, strong) UIView *clipView;
 @property (nonatomic, strong) UIImageView *placeholderView;
 @property (nonatomic, strong) UIView *opaqueOverGradientView;
 @property (readonly) MPKCreditCard *card;
 
+- (id)initWithFrame:(CGRect)frame delegate:(id)_del;
 - (BOOL)isValid;
 
 @end

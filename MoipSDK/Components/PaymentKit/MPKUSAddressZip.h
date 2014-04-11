@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PKAddressZip.h"
+#import "MPKAddressZip.h"
 
-@interface PKUSAddressZip : PKAddressZip
+@interface MPKUSAddressZip : MPKAddressZip
 @end

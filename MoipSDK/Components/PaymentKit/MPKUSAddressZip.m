@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Stripe. All rights reserved.
 //
 
-#import "PKUSAddressZip.h"
+#import "MPKUSAddressZip.h"
 
-@implementation PKUSAddressZip
+@implementation MPKUSAddressZip
 
 - (id)initWithString:(NSString *)string
 {

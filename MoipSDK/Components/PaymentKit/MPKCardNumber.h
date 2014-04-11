@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PKCardType.h"
-#import "PKComponent.h"
+#import "MPKCardType.h"
+#import "MPKComponent.h"
 
-@interface PKCardNumber : PKComponent
+@interface MPKCardNumber : MPKComponent
 
-@property (nonatomic, readonly) PKCardType cardType;
+@property (nonatomic, readonly) MPKCardType cardType;
 @property (nonatomic, readonly) NSString *last4;
 @property (nonatomic, readonly) NSString *lastGroup;
 @property (nonatomic, readonly) NSString *string;

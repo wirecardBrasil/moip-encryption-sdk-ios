@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PKComponent.h"
+#import "MPKComponent.h"
 
-@interface PKCardExpiry : PKComponent
+@interface MPKCardExpiry : MPKComponent
 
 @property (nonatomic, readonly) NSUInteger month;
 @property (nonatomic, readonly) NSUInteger year;

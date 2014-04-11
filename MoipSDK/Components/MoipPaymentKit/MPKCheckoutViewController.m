@@ -7,11 +7,9 @@
 //
 
 #import "MPKCheckoutViewController.h"
-#import "PKView.h"
+#import "MPKView.h"
 #import "MoipSDK.h"
 #import "MPKConfiguration.h"
-#import "MPKCreditCardTextField.h"
-#import "MPKCVCTextField.h"
 #import "MPKUtilities.h"
 #import "MoipHttpRequester.h"
 #import "MoipHttpResponse.h"
@@ -19,7 +17,7 @@
 #import "TSMessage.h"
 #import "TSMessageView.h"
 
-@interface MPKCheckoutViewController () <PKViewDelegate>
+@interface MPKCheckoutViewController () <MPKViewDelegate>
 {
     @private
     BOOL isValidCreditCard;
@@ -39,7 +37,7 @@
 @property (strong, nonatomic) UITextField *txtBirthDate;
 @property (strong, nonatomic) UITableView *tableViewForm;
 @property (strong, nonatomic) UIView *loadingView;
-@property (strong, nonatomic) PKView *paymentView;
+@property (strong, nonatomic) MPKView *paymentView;
 @property (strong, nonatomic) MPKCreditCard *card;
 
 @end
@@ -54,8 +52,7 @@
         self.configs = configuration;
         self.regex = [NSRegularExpression regularExpressionWithPattern:@"[,\\.\\-\\(\\)\\ `\"]" options:0 error:nil];
         
-        self.paymentView = [[PKView alloc] initWithFrame:CGRectMake(5, 0, 282, 55)];
-        self.paymentView.delegate = self;
+        self.paymentView = [[MPKView alloc] initWithFrame:CGRectMake(5, 0, 282, 55) delegate:self];
         self.paymentView.defaultTextFieldFont = self.configs.textFieldFont;
         self.paymentView.defaultTextFieldTextColor = self.configs.textFieldColor;
     }
@@ -408,8 +405,6 @@
 {
     isValidCreditCard = valid;
     _card = card;
-    
-    NSLog(@"%@: %@", _card.number, valid ? @"YES" : @"NO");
 }
 
 #pragma mark -

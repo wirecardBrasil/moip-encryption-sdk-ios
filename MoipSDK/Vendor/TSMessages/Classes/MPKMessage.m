@@ -1,13 +1,13 @@
 //
-//  TSMessage.m
+//  MPKMessage.m
 //  Felix Krause
 //
 //  Created by Felix Krause on 24.08.12.
 //  Copyright (c) 2012 Felix Krause. All rights reserved.
 //
 
-#import "TSMessage.h"
-#import "TSMessageView.h"
+#import "MPKMessage.h"
+#import "MPKMessageView.h"
 
 #define kTSMessageDisplayTime 1.5
 #define kTSMessageExtraDisplayTimePerPixel 0.04
@@ -15,19 +15,19 @@
 
 
 
-@interface TSMessage ()
+@interface MPKMessage ()
 
-/** The queued messages (TSMessageView objects) */
+/** The queued messages (MPKMessageView objects) */
 @property (nonatomic, strong) NSMutableArray *messages;
 
 - (void)fadeInCurrentNotification;
-- (void)fadeOutNotification:(TSMessageView *)currentView;
+- (void)fadeOutNotification:(MPKMessageView *)currentView;
 
 @end
 
-@implementation TSMessage
+@implementation MPKMessage
 
-static TSMessage *sharedMessage;
+static MPKMessage *sharedMessage;
 static BOOL notificationActive;
 
 static BOOL _useiOS7Style;
@@ -35,7 +35,7 @@ static BOOL _useiOS7Style;
 
 __weak static UIViewController *_defaultViewController;
 
-+ (TSMessage *)sharedMessage
++ (MPKMessage *)sharedMessage
 {
     if (!sharedMessage)
     {
@@ -48,7 +48,7 @@ __weak static UIViewController *_defaultViewController;
 #pragma mark Public methods for setting up the notification
 
 + (void)showNotificationWithTitle:(NSString *)title
-                             type:(TSMessageNotificationType)type
+                             type:(MPKMessageNotificationType)type
 {
     [self showNotificationWithTitle:title
                            subtitle:nil
@@ -57,7 +57,7 @@ __weak static UIViewController *_defaultViewController;
 
 + (void)showNotificationWithTitle:(NSString *)title
                          subtitle:(NSString *)subtitle
-                             type:(TSMessageNotificationType)type
+                             type:(MPKMessageNotificationType)type
 {
     [self showNotificationInViewController:[self defaultViewController]
                                      title:title
@@ -68,7 +68,7 @@ __weak static UIViewController *_defaultViewController;
 + (void)showNotificationInViewController:(UIViewController *)viewController
                                    title:(NSString *)title
                                 subtitle:(NSString *)subtitle
-                                    type:(TSMessageNotificationType)type
+                                    type:(MPKMessageNotificationType)type
                                 duration:(NSTimeInterval)duration
 {
     [self showNotificationInViewController:viewController
@@ -80,14 +80,14 @@ __weak static UIViewController *_defaultViewController;
                                   callback:nil
                                buttonTitle:nil
                             buttonCallback:nil
-                                atPosition:TSMessageNotificationPositionTop
+                                atPosition:MPKMessageNotificationPositionTop
                        canBeDismissedByUser:YES];
 }
 
 + (void)showNotificationInViewController:(UIViewController *)viewController
                                    title:(NSString *)title
                                 subtitle:(NSString *)subtitle
-                                    type:(TSMessageNotificationType)type
+                                    type:(MPKMessageNotificationType)type
                                 duration:(NSTimeInterval)duration
                      canBeDismissedByUser:(BOOL)dismissingEnabled
 {
@@ -100,25 +100,25 @@ __weak static UIViewController *_defaultViewController;
                                   callback:nil
                                buttonTitle:nil
                             buttonCallback:nil
-                                atPosition:TSMessageNotificationPositionTop
+                                atPosition:MPKMessageNotificationPositionTop
                        canBeDismissedByUser:dismissingEnabled];
 }
 
 + (void)showNotificationInViewController:(UIViewController *)viewController
                                    title:(NSString *)title
                                 subtitle:(NSString *)subtitle
-                                    type:(TSMessageNotificationType)type
+                                    type:(MPKMessageNotificationType)type
 {
     [self showNotificationInViewController:viewController
                                      title:title
                                   subtitle:subtitle
                                      image:nil
                                       type:type
-                                  duration:TSMessageNotificationDurationAutomatic
+                                  duration:MPKMessageNotificationDurationAutomatic
                                   callback:nil
                                buttonTitle:nil
                             buttonCallback:nil
-                                atPosition:TSMessageNotificationPositionTop
+                                atPosition:MPKMessageNotificationPositionTop
                       canBeDismissedByUser:YES];
 }
 
@@ -127,16 +127,16 @@ __weak static UIViewController *_defaultViewController;
                                    title:(NSString *)title
                                 subtitle:(NSString *)subtitle
                                    image:(UIImage *)image
-                                    type:(TSMessageNotificationType)type
+                                    type:(MPKMessageNotificationType)type
                                 duration:(NSTimeInterval)duration
                                 callback:(void (^)())callback
                              buttonTitle:(NSString *)buttonTitle
                           buttonCallback:(void (^)())buttonCallback
-                              atPosition:(TSMessageNotificationPosition)messagePosition
+                              atPosition:(MPKMessageNotificationPosition)messagePosition
                     canBeDismissedByUser:(BOOL)dismissingEnabled
 {
-    // Create the TSMessageView
-    TSMessageView *v = [[TSMessageView alloc] initWithTitle:title
+    // Create the MPKMessageView
+    MPKMessageView *v = [[MPKMessageView alloc] initWithTitle:title
                                                    subtitle:subtitle
                                                       image:image
                                                        type:type
@@ -151,12 +151,12 @@ __weak static UIViewController *_defaultViewController;
 }
 
 
-+ (void)prepareNotificationToBeShown:(TSMessageView *)messageView
++ (void)prepareNotificationToBeShown:(MPKMessageView *)messageView
 {
     NSString *title = messageView.title;
     NSString *subtitle = messageView.subtitle;
     
-    for (TSMessageView *n in [TSMessage sharedMessage].messages)
+    for (MPKMessageView *n in [MPKMessage sharedMessage].messages)
     {
         if (([n.title isEqualToString:title] || (!n.title && !title)) && ([n.subtitle isEqualToString:subtitle] || (!n.subtitle && !subtitle)))
         {
@@ -164,11 +164,11 @@ __weak static UIViewController *_defaultViewController;
         }
     }
     
-    [[TSMessage sharedMessage].messages addObject:messageView];
+    [[MPKMessage sharedMessage].messages addObject:messageView];
     
     if (!notificationActive)
     {
-        [[TSMessage sharedMessage] fadeInCurrentNotification];
+        [[MPKMessage sharedMessage] fadeInCurrentNotification];
     }
 }
 
@@ -190,7 +190,7 @@ __weak static UIViewController *_defaultViewController;
     
     notificationActive = YES;
     
-    TSMessageView *currentView = [self.messages objectAtIndex:0];
+    MPKMessageView *currentView = [self.messages objectAtIndex:0];
     
     __block CGFloat verticalOffset = 0.0f;
     
@@ -212,21 +212,21 @@ __weak static UIViewController *_defaultViewController;
         
         BOOL isViewIsUnderStatusBar = [[[currentNavigationController childViewControllers] firstObject] wantsFullScreenLayout];
         if (!isViewIsUnderStatusBar && currentNavigationController.parentViewController == nil) {
-            isViewIsUnderStatusBar = ![TSMessage isNavigationBarInNavigationControllerHidden:currentNavigationController]; // strange but true
+            isViewIsUnderStatusBar = ![MPKMessage isNavigationBarInNavigationControllerHidden:currentNavigationController]; // strange but true
         }
-        if (![TSMessage isNavigationBarInNavigationControllerHidden:currentNavigationController])
+        if (![MPKMessage isNavigationBarInNavigationControllerHidden:currentNavigationController])
         {
             [currentNavigationController.view insertSubview:currentView
                                                belowSubview:[currentNavigationController navigationBar]];
             verticalOffset = [currentNavigationController navigationBar].bounds.size.height;
-            if ([TSMessage iOS7StyleEnabled] || isViewIsUnderStatusBar) {
+            if ([MPKMessage iOS7StyleEnabled] || isViewIsUnderStatusBar) {
                 addStatusBarHeightToVerticalOffset();
             }
         }
         else
         {
             [currentView.viewController.view addSubview:currentView];
-            if ([TSMessage iOS7StyleEnabled] || isViewIsUnderStatusBar) {
+            if ([MPKMessage iOS7StyleEnabled] || isViewIsUnderStatusBar) {
                 addStatusBarHeightToVerticalOffset();
             }
         }
@@ -234,13 +234,13 @@ __weak static UIViewController *_defaultViewController;
     else
     {
         [currentView.viewController.view addSubview:currentView];
-        if ([TSMessage iOS7StyleEnabled]) {
+        if ([MPKMessage iOS7StyleEnabled]) {
             addStatusBarHeightToVerticalOffset();
         }
     }
     
     CGPoint toPoint;
-    if (currentView.messagePosition == TSMessageNotificationPositionTop)
+    if (currentView.messagePosition == MPKMessageNotificationPositionTop)
     {
         CGFloat navigationbarBottomOfViewController = 0;
         
@@ -261,15 +261,15 @@ __weak static UIViewController *_defaultViewController;
     
     dispatch_block_t animationBlock = ^{
         currentView.center = toPoint;
-        if (![TSMessage iOS7StyleEnabled]) {
-            currentView.alpha = TSMessageViewAlpha;
+        if (![MPKMessage iOS7StyleEnabled]) {
+            currentView.alpha = MPKMessageViewAlpha;
         }
     };
     void(^completionBlock)(BOOL) = ^(BOOL finished) {
         currentView.messageIsFullyDisplayed = YES;
     };
     
-    if (![TSMessage iOS7StyleEnabled]) {
+    if (![MPKMessage iOS7StyleEnabled]) {
         [UIView animateWithDuration:kTSMessageAnimationDuration
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction
@@ -287,12 +287,12 @@ __weak static UIViewController *_defaultViewController;
 #endif
     }
     
-    if (currentView.duration == TSMessageNotificationDurationAutomatic)
+    if (currentView.duration == MPKMessageNotificationDurationAutomatic)
     {
         currentView.duration = kTSMessageAnimationDuration + kTSMessageDisplayTime + currentView.frame.size.height * kTSMessageExtraDisplayTimePerPixel;
     }
     
-    if (currentView.duration != TSMessageNotificationDurationEndless)
+    if (currentView.duration != MPKMessageNotificationDurationEndless)
     {
         dispatch_async(dispatch_get_main_queue(), ^
                        {
@@ -314,7 +314,7 @@ __weak static UIViewController *_defaultViewController;
     }
 }
 
-- (void)fadeOutNotification:(TSMessageView *)currentView
+- (void)fadeOutNotification:(MPKMessageView *)currentView
 {
     currentView.messageIsFullyDisplayed = NO;
     [NSObject cancelPreviousPerformRequestsWithTarget:self
@@ -322,7 +322,7 @@ __weak static UIViewController *_defaultViewController;
                                                object:currentView];
     
     CGPoint fadeOutToPoint;
-    if (currentView.messagePosition == TSMessageNotificationPositionTop)
+    if (currentView.messagePosition == MPKMessageNotificationPositionTop)
     {
         fadeOutToPoint = CGPointMake(currentView.center.x, -CGRectGetHeight(currentView.frame)/2.f);
     }
@@ -335,7 +335,7 @@ __weak static UIViewController *_defaultViewController;
     [UIView animateWithDuration:kTSMessageAnimationDuration animations:^
      {
          currentView.center = fadeOutToPoint;
-         if (![TSMessage iOS7StyleEnabled]) {
+         if (![MPKMessage iOS7StyleEnabled]) {
              currentView.alpha = 0.f;
          }
      } completion:^(BOOL finished)
@@ -358,21 +358,21 @@ __weak static UIViewController *_defaultViewController;
 
 + (BOOL)dismissActiveNotification
 {
-    if ([[TSMessage sharedMessage].messages count] == 0) return NO;
+    if ([[MPKMessage sharedMessage].messages count] == 0) return NO;
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       if ([[TSMessage sharedMessage].messages count] == 0) return;
-                       TSMessageView *currentMessage = [[TSMessage sharedMessage].messages objectAtIndex:0];
+                       if ([[MPKMessage sharedMessage].messages count] == 0) return;
+                       MPKMessageView *currentMessage = [[MPKMessage sharedMessage].messages objectAtIndex:0];
                        if (currentMessage.messageIsFullyDisplayed)
                        {
-                           [[TSMessage sharedMessage] fadeOutNotification:currentMessage];
+                           [[MPKMessage sharedMessage] fadeOutNotification:currentMessage];
                        }
                    });
     return YES;
 }
 
-#pragma mark Customizing TSMessages
+#pragma mark Customizing MPKMessages
 
 + (void)setDefaultViewController:(UIViewController *)defaultViewController
 {
@@ -381,7 +381,7 @@ __weak static UIViewController *_defaultViewController;
 
 + (void)addCustomDesignFromFileWithName:(NSString *)fileName
 {
-    [TSMessageView addNotificationDesignFromFile:fileName];
+    [MPKMessageView addNotificationDesignFromFile:fileName];
 }
 
 
@@ -398,7 +398,7 @@ __weak static UIViewController *_defaultViewController;
     __strong UIViewController *defaultViewController = _defaultViewController;
     
     if (!defaultViewController) {
-        NSLog(@"TSMessages: It is recommended to set a custom defaultViewController that is used to display the notifications");
+        NSLog(@"MPKMessages: It is recommended to set a custom defaultViewController that is used to display the notifications");
         defaultViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     }
     return defaultViewController;
@@ -414,7 +414,7 @@ __weak static UIViewController *_defaultViewController;
         iOS7SDK = YES;
 #endif
         
-        _useiOS7Style = ! (TS_SYSTEM_VERSION_LESS_THAN(@"7.0") || !iOS7SDK);
+        _useiOS7Style = ! (MPK_SYSTEM_VERSION_LESS_THAN(@"7.0") || !iOS7SDK);
     });
     return _useiOS7Style;
 }

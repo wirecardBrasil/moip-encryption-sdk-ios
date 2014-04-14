@@ -25,7 +25,7 @@
 		6736AA8818E9FD22002F8432 /* NotificationBackgroundWarningIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51E18E9DA20002ABE83 /* NotificationBackgroundWarningIcon@2x.png */; };
 		6736AA8918E9FD22002F8432 /* NotificationButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A51F18E9DA20002ABE83 /* NotificationButtonBackground.png */; };
 		6736AA8A18E9FD22002F8432 /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A52018E9DA20002ABE83 /* NotificationButtonBackground@2x.png */; };
-		6736AA8B18E9FD22002F8432 /* TSMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A52118E9DA20002ABE83 /* TSMessagesDefaultDesign.json */; };
+		6736AA8B18E9FD22002F8432 /* MPKMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 67A2A52118E9DA20002ABE83 /* MPKMessagesDefaultDesign.json */; };
 		675074CD18CDE96E00FBF2CB /* HTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074C818CDE96E00FBF2CB /* HTTPStatusCodes.h */; };
 		675074CE18CDE96E00FBF2CB /* MoipHttpRequester.h in Headers */ = {isa = PBXBuildFile; fileRef = 675074C918CDE96E00FBF2CB /* MoipHttpRequester.h */; };
 		675074CF18CDE96E00FBF2CB /* MoipHttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 675074CA18CDE96E00FBF2CB /* MoipHttpRequester.m */; };
@@ -59,14 +59,14 @@
 		6761C3B618DB8C3800551E5D /* MPKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6761C3B018DB8C3800551E5D /* MPKConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6761C3B718DB8C3800551E5D /* MPKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6761C3B118DB8C3800551E5D /* MPKConfiguration.m */; };
 		67701B0818CE293800D66A5B /* MPKEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 67701B0618CE293800D66A5B /* MPKEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67A2A52718E9DA20002ABE83 /* HexColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A50918E9DA20002ABE83 /* HexColor.h */; };
+		67A2A52718E9DA20002ABE83 /* HexColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A50918E9DA20002ABE83 /* HexColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67A2A52818E9DA20002ABE83 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A50A18E9DA20002ABE83 /* HexColor.m */; };
-		67A2A52918E9DA20002ABE83 /* TSMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A50D18E9DA20002ABE83 /* TSMessage.h */; };
-		67A2A52A18E9DA20002ABE83 /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A50E18E9DA20002ABE83 /* TSMessage.m */; };
-		67A2A53C18E9DA20002ABE83 /* TSBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A52318E9DA20002ABE83 /* TSBlurView.h */; };
-		67A2A53D18E9DA20002ABE83 /* TSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A52418E9DA20002ABE83 /* TSBlurView.m */; };
-		67A2A53E18E9DA20002ABE83 /* TSMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A52518E9DA20002ABE83 /* TSMessageView.h */; };
-		67A2A53F18E9DA20002ABE83 /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A52618E9DA20002ABE83 /* TSMessageView.m */; };
+		67A2A52918E9DA20002ABE83 /* MPKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A50D18E9DA20002ABE83 /* MPKMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67A2A52A18E9DA20002ABE83 /* MPKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A50E18E9DA20002ABE83 /* MPKMessage.m */; };
+		67A2A53C18E9DA20002ABE83 /* MPKBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A52318E9DA20002ABE83 /* MPKBlurView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67A2A53D18E9DA20002ABE83 /* MPKBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A52418E9DA20002ABE83 /* MPKBlurView.m */; };
+		67A2A53E18E9DA20002ABE83 /* MPKMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A2A52518E9DA20002ABE83 /* MPKMessageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67A2A53F18E9DA20002ABE83 /* MPKMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A2A52618E9DA20002ABE83 /* MPKMessageView.m */; };
 		67BF00A718C77B7100080D43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BF00A618C77B7100080D43 /* Foundation.framework */; };
 		67BF00B118C77B7100080D43 /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BF00B018C77B7100080D43 /* MoipSDK.m */; };
 		67BF00B818C77B7100080D43 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BF00B718C77B7100080D43 /* XCTest.framework */; };
@@ -171,8 +171,8 @@
 		67701B0618CE293800D66A5B /* MPKEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKEnums.h; path = Model/MPKEnums.h; sourceTree = "<group>"; };
 		67A2A50918E9DA20002ABE83 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		67A2A50A18E9DA20002ABE83 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
-		67A2A50D18E9DA20002ABE83 /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
-		67A2A50E18E9DA20002ABE83 /* TSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
+		67A2A50D18E9DA20002ABE83 /* MPKMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMessage.h; sourceTree = "<group>"; };
+		67A2A50E18E9DA20002ABE83 /* MPKMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKMessage.m; sourceTree = "<group>"; };
 		67A2A51118E9DA20002ABE83 /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
 		67A2A51218E9DA20002ABE83 /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
 		67A2A51318E9DA20002ABE83 /* NotificationBackgroundErrorIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundErrorIcon.png; sourceTree = "<group>"; };
@@ -189,11 +189,11 @@
 		67A2A51E18E9DA20002ABE83 /* NotificationBackgroundWarningIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarningIcon@2x.png"; sourceTree = "<group>"; };
 		67A2A51F18E9DA20002ABE83 /* NotificationButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationButtonBackground.png; sourceTree = "<group>"; };
 		67A2A52018E9DA20002ABE83 /* NotificationButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationButtonBackground@2x.png"; sourceTree = "<group>"; };
-		67A2A52118E9DA20002ABE83 /* TSMessagesDefaultDesign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TSMessagesDefaultDesign.json; sourceTree = "<group>"; };
-		67A2A52318E9DA20002ABE83 /* TSBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSBlurView.h; sourceTree = "<group>"; };
-		67A2A52418E9DA20002ABE83 /* TSBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSBlurView.m; sourceTree = "<group>"; };
-		67A2A52518E9DA20002ABE83 /* TSMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessageView.h; sourceTree = "<group>"; };
-		67A2A52618E9DA20002ABE83 /* TSMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessageView.m; sourceTree = "<group>"; };
+		67A2A52118E9DA20002ABE83 /* MPKMessagesDefaultDesign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MPKMessagesDefaultDesign.json; sourceTree = "<group>"; };
+		67A2A52318E9DA20002ABE83 /* MPKBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKBlurView.h; sourceTree = "<group>"; };
+		67A2A52418E9DA20002ABE83 /* MPKBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKBlurView.m; sourceTree = "<group>"; };
+		67A2A52518E9DA20002ABE83 /* MPKMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMessageView.h; sourceTree = "<group>"; };
+		67A2A52618E9DA20002ABE83 /* MPKMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKMessageView.m; sourceTree = "<group>"; };
 		67BF00A318C77B7100080D43 /* MoipSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = MoipSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67BF00A618C77B7100080D43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		67BF00AA18C77B7100080D43 /* MoipSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDK-Info.plist"; sourceTree = "<group>"; };
@@ -347,13 +347,13 @@
 			name = Error;
 			sourceTree = "<group>";
 		};
-		67A2A50518E9DA20002ABE83 /* Libs */ = {
+		67A2A50518E9DA20002ABE83 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
 				67A2A50618E9DA20002ABE83 /* Submodules */,
 				67A2A50B18E9DA20002ABE83 /* TSMessages */,
 			);
-			path = Libs;
+			path = Vendor;
 			sourceTree = "<group>";
 		};
 		67A2A50618E9DA20002ABE83 /* Submodules */ = {
@@ -394,8 +394,8 @@
 		67A2A50C18E9DA20002ABE83 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				67A2A50D18E9DA20002ABE83 /* TSMessage.h */,
-				67A2A50E18E9DA20002ABE83 /* TSMessage.m */,
+				67A2A50D18E9DA20002ABE83 /* MPKMessage.h */,
+				67A2A50E18E9DA20002ABE83 /* MPKMessage.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -404,7 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				67A2A51018E9DA20002ABE83 /* Images */,
-				67A2A52118E9DA20002ABE83 /* TSMessagesDefaultDesign.json */,
+				67A2A52118E9DA20002ABE83 /* MPKMessagesDefaultDesign.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -435,10 +435,10 @@
 		67A2A52218E9DA20002ABE83 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				67A2A52318E9DA20002ABE83 /* TSBlurView.h */,
-				67A2A52418E9DA20002ABE83 /* TSBlurView.m */,
-				67A2A52518E9DA20002ABE83 /* TSMessageView.h */,
-				67A2A52618E9DA20002ABE83 /* TSMessageView.m */,
+				67A2A52318E9DA20002ABE83 /* MPKBlurView.h */,
+				67A2A52418E9DA20002ABE83 /* MPKBlurView.m */,
+				67A2A52518E9DA20002ABE83 /* MPKMessageView.h */,
+				67A2A52618E9DA20002ABE83 /* MPKMessageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -477,7 +477,7 @@
 			isa = PBXGroup;
 			children = (
 				67214BC018EF35E5007C5553 /* Configuration */,
-				67A2A50518E9DA20002ABE83 /* Libs */,
+				67A2A50518E9DA20002ABE83 /* Vendor */,
 				6760680918D9CFF100FCA007 /* Error */,
 				67C0504A18D88B2D0031D2CB /* SecurityUtil */,
 				675074D218CDEA3F00FBF2CB /* Utils */,
@@ -600,11 +600,11 @@
 				67FE838518C8ECE100F7F2DD /* MPKPaymentTransaction.h in Headers */,
 				67598C9D18E99CDC000C6811 /* MPKView.h in Headers */,
 				67F853A518CE61A600C94B5C /* MPKFundingInstrument.h in Headers */,
-				67A2A52918E9DA20002ABE83 /* TSMessage.h in Headers */,
+				67A2A52918E9DA20002ABE83 /* MPKMessage.h in Headers */,
 				67598C9618E99CDC000C6811 /* MPKCardType.h in Headers */,
 				67F8539D18CE5A0700C94B5C /* MPKFee.h in Headers */,
 				67214BC218EF368C007C5553 /* MPKEnvironment.h in Headers */,
-				67A2A53C18E9DA20002ABE83 /* TSBlurView.h in Headers */,
+				67A2A53C18E9DA20002ABE83 /* MPKBlurView.h in Headers */,
 				67701B0818CE293800D66A5B /* MPKEnums.h in Headers */,
 				67F853A118CE616000C94B5C /* MPKAmount.h in Headers */,
 				6760680C18D9D00B00FCA007 /* MPKError.h in Headers */,
@@ -613,7 +613,7 @@
 				67F8539918CE59FB00C94B5C /* MPKEvent.h in Headers */,
 				67598C9718E99CDC000C6811 /* MPKComponent.h in Headers */,
 				67598C9918E99CDC000C6811 /* MPKTextField.h in Headers */,
-				67A2A53E18E9DA20002ABE83 /* TSMessageView.h in Headers */,
+				67A2A53E18E9DA20002ABE83 /* MPKMessageView.h in Headers */,
 				67FE837718C8DE2900F7F2DD /* MPKCreditCard.h in Headers */,
 				675074D518CDEA3F00FBF2CB /* MPKUtilities.h in Headers */,
 				67598C9218E99CDC000C6811 /* MPKCardExpiry.h in Headers */,
@@ -739,7 +739,7 @@
 				6736AA8A18E9FD22002F8432 /* NotificationButtonBackground@2x.png in Resources */,
 				67EB237518EB038D005487AF /* placeholder.png in Resources */,
 				67EB237918EB038D005487AF /* visa.png in Resources */,
-				6736AA8B18E9FD22002F8432 /* TSMessagesDefaultDesign.json in Resources */,
+				6736AA8B18E9FD22002F8432 /* MPKMessagesDefaultDesign.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,7 +774,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67A2A52A18E9DA20002ABE83 /* TSMessage.m in Sources */,
+				67A2A52A18E9DA20002ABE83 /* MPKMessage.m in Sources */,
 				67F853A218CE616000C94B5C /* MPKAmount.m in Sources */,
 				675074D118CDE96E00FBF2CB /* MoipHttpResponse.m in Sources */,
 				67F853A618CE61A600C94B5C /* MPKFundingInstrument.m in Sources */,
@@ -790,9 +790,9 @@
 				67FE837818C8DE2900F7F2DD /* MPKCreditCard.m in Sources */,
 				67598C9A18E99CDC000C6811 /* MPKTextField.m in Sources */,
 				67FE838218C8E63800F7F2DD /* MPKPayment.m in Sources */,
-				67A2A53F18E9DA20002ABE83 /* TSMessageView.m in Sources */,
+				67A2A53F18E9DA20002ABE83 /* MPKMessageView.m in Sources */,
 				67A2A52818E9DA20002ABE83 /* HexColor.m in Sources */,
-				67A2A53D18E9DA20002ABE83 /* TSBlurView.m in Sources */,
+				67A2A53D18E9DA20002ABE83 /* MPKBlurView.m in Sources */,
 				67598C8D18E99CDC000C6811 /* MPKAddressZip.m in Sources */,
 				67598C9118E99CDC000C6811 /* MPKCardCVC.m in Sources */,
 				6761C3B718DB8C3800551E5D /* MPKConfiguration.m in Sources */,

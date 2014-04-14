@@ -1,29 +1,29 @@
 //
-//  TSMessageView.m
+//  MPKMessageView.m
 //  Felix Krause
 //
 //  Created by Felix Krause on 24.08.12.
 //  Copyright (c) 2012 Felix Krause. All rights reserved.
 //
 
-#import "TSMessageView.h"
+#import "MPKMessageView.h"
 #import "HexColor.h"
-#import "TSBlurView.h"
-#import "TSMessage.h"
+#import "MPKBlurView.h"
+#import "MPKMessage.h"
 
 
-#define TSMessageViewPadding 15.0
+#define MPKMessageViewPadding 15.0
 
-#define TSDesignFileName @"TSMessagesDefaultDesign.json"
+#define MPKDesignFileName @"MPKMessagesDefaultDesign.json"
 
 
 static NSMutableDictionary *_notificationDesign;
 
-@interface TSMessage (TSMessageView)
-- (void)fadeOutNotification:(TSMessageView *)currentView; // private method of TSMessage, but called by TSMessageView in -[fadeMeOut]
+@interface MPKMessage (MPKMessageView)
+- (void)fadeOutNotification:(MPKMessageView *)currentView; // private method of MPKMessage, but called by MPKMessageView in -[fadeMeOut]
 @end
 
-@interface TSMessageView () <UIGestureRecognizerDelegate>
+@interface MPKMessageView () <UIGestureRecognizerDelegate>
 
 /** The displayed title of this message */
 @property (nonatomic, strong) NSString *title;
@@ -45,7 +45,7 @@ static NSMutableDictionary *_notificationDesign;
 @property (nonatomic, strong) UIButton *button;
 @property (nonatomic, strong) UIView *borderView;
 @property (nonatomic, strong) UIImageView *backgroundImageView;
-@property (nonatomic, strong) TSBlurView *backgroundBlurView; // Only used in iOS 7
+@property (nonatomic, strong) MPKBlurView *backgroundBlurView; // Only used in iOS 7
 
 @property (nonatomic, assign) CGFloat textSpaceLeft;
 @property (nonatomic, assign) CGFloat textSpaceRight;
@@ -59,13 +59,13 @@ static NSMutableDictionary *_notificationDesign;
 @end
 
 
-@implementation TSMessageView
+@implementation MPKMessageView
 
 + (NSMutableDictionary *)notificationDesign
 {
     if (!_notificationDesign)
     {
-        NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:TSDesignFileName];
+        NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:MPKDesignFileName];
         _notificationDesign = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
                                                                                                             options:kNilOptions
                                                                                                               error:nil]];
@@ -82,22 +82,22 @@ static NSMutableDictionary *_notificationDesign;
                                                            options:kNilOptions
                                                              error:nil];
     
-    [[TSMessageView notificationDesign] addEntriesFromDictionary:design];
+    [[MPKMessageView notificationDesign] addEntriesFromDictionary:design];
 }
 
 - (id)initWithTitle:(NSString *)title
            subtitle:(NSString *)subtitle
               image:(UIImage *)image
-               type:(TSMessageNotificationType)notificationType
+               type:(MPKMessageNotificationType)notificationType
            duration:(CGFloat)duration
    inViewController:(UIViewController *)viewController
            callback:(void (^)())callback
         buttonTitle:(NSString *)buttonTitle
      buttonCallback:(void (^)())buttonCallback
-         atPosition:(TSMessageNotificationPosition)position
+         atPosition:(MPKMessageNotificationPosition)position
 canBeDismissedByUser:(BOOL)dismissingEnabled
 {
-    NSDictionary *notificationDesign = [TSMessageView notificationDesign];
+    NSDictionary *notificationDesign = [MPKMessageView notificationDesign];
     
     if ((self = [self init]))
     {
@@ -115,22 +115,22 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
         NSString *currentString;
         switch (notificationType)
         {
-            case TSMessageNotificationTypeMessage:
+            case MPKMessageNotificationTypeMessage:
             {
                 currentString = @"message";
                 break;
             }
-            case TSMessageNotificationTypeError:
+            case MPKMessageNotificationTypeError:
             {
                 currentString = @"error";
                 break;
             }
-            case TSMessageNotificationTypeSuccess:
+            case MPKMessageNotificationTypeSuccess:
             {
                 currentString = @"success";
                 break;
             }
-            case TSMessageNotificationTypeWarning:
+            case MPKMessageNotificationTypeWarning:
             {
                 currentString = @"warning";
                 break;
@@ -148,7 +148,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
             image = [UIImage imageNamed:[current valueForKey:@"imageName"]];
         }
         
-        if (![TSMessage iOS7StyleEnabled])
+        if (![MPKMessage iOS7StyleEnabled])
         {
             self.alpha = 0.0;
             
@@ -161,7 +161,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
         else
         {
             // On iOS 7 and above use a blur layer instead (not yet finished)
-            _backgroundBlurView = [[TSBlurView alloc] init];
+            _backgroundBlurView = [[MPKBlurView alloc] init];
             self.backgroundBlurView.autoresizingMask = (UIViewAutoresizingFlexibleWidth);
             self.backgroundBlurView.blurTintColor = [UIColor colorWithHexString:current[@"backgroundColor"]];
             [self addSubview:self.backgroundBlurView];
@@ -171,8 +171,8 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
                                                    alpha:1.0];
         
         
-        self.textSpaceLeft = 2 * TSMessageViewPadding;
-        if (image) self.textSpaceLeft += image.size.width + 2 * TSMessageViewPadding;
+        self.textSpaceLeft = 2 * MPKMessageViewPadding;
+        if (image) self.textSpaceLeft += image.size.width + 2 * MPKMessageViewPadding;
         
         // Set up title label
         _titleLabel = [[UILabel alloc] init];
@@ -224,8 +224,8 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
         if (image)
         {
             _iconImageView = [[UIImageView alloc] initWithImage:image];
-            self.iconImageView.frame = CGRectMake(TSMessageViewPadding * 2,
-                                                  TSMessageViewPadding,
+            self.iconImageView.frame = CGRectMake(MPKMessageViewPadding * 2,
+                                                  MPKMessageViewPadding,
                                                   image.size.width,
                                                   image.size.height);
             [self addSubview:self.iconImageView];
@@ -270,18 +270,18 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
             
             self.button.contentEdgeInsets = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);
             [self.button sizeToFit];
-            self.button.frame = CGRectMake(screenWidth - TSMessageViewPadding - self.button.frame.size.width,
+            self.button.frame = CGRectMake(screenWidth - MPKMessageViewPadding - self.button.frame.size.width,
                                            0.0,
                                            self.button.frame.size.width,
                                            31.0);
             
             [self addSubview:self.button];
             
-            self.textSpaceRight = self.button.frame.size.width + TSMessageViewPadding;
+            self.textSpaceRight = self.button.frame.size.width + MPKMessageViewPadding;
         }
         
         // Add a border on the bottom (or on the top, depending on the view's postion)
-        if (![TSMessage iOS7StyleEnabled])
+        if (![MPKMessage iOS7StyleEnabled])
         {
             _borderView = [[UIView alloc] initWithFrame:CGRectMake(0.0,
                                                                    0.0, // will be set later
@@ -297,14 +297,14 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
         CGFloat actualHeight = [self updateHeightOfMessageView]; // this call also takes care of positioning the labels
         CGFloat topPosition = -actualHeight;
         
-        if (self.messagePosition == TSMessageNotificationPositionBottom)
+        if (self.messagePosition == MPKMessageNotificationPositionBottom)
         {
             topPosition = self.viewController.view.bounds.size.height;
         }
         
         self.frame = CGRectMake(0.0, topPosition, screenWidth, actualHeight);
         
-        if (self.messagePosition == TSMessageNotificationPositionTop)
+        if (self.messagePosition == MPKMessageNotificationPositionTop)
         {
             self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         }
@@ -317,7 +317,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
         {
             UISwipeGestureRecognizer *gestureRec = [[UISwipeGestureRecognizer alloc] initWithTarget:self
                                                                                              action:@selector(fadeMeOut)];
-            [gestureRec setDirection:(self.messagePosition == TSMessageNotificationPositionTop ?
+            [gestureRec setDirection:(self.messagePosition == MPKMessageNotificationPositionTop ?
                                       UISwipeGestureRecognizerDirectionUp :
                                       UISwipeGestureRecognizerDirectionDown)];
             [self addGestureRecognizer:gestureRec];
@@ -342,8 +342,8 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
     
     
     self.titleLabel.frame = CGRectMake(self.textSpaceLeft,
-                                       TSMessageViewPadding,
-                                       screenWidth - TSMessageViewPadding - self.textSpaceLeft - self.textSpaceRight,
+                                       MPKMessageViewPadding,
+                                       screenWidth - MPKMessageViewPadding - self.textSpaceLeft - self.textSpaceRight,
                                        0.0);
     [self.titleLabel sizeToFit];
     
@@ -351,7 +351,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
     {
         self.contentLabel.frame = CGRectMake(self.textSpaceLeft,
                                              self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + 5.0,
-                                             screenWidth - TSMessageViewPadding - self.textSpaceLeft - self.textSpaceRight,
+                                             screenWidth - MPKMessageViewPadding - self.textSpaceLeft - self.textSpaceRight,
                                              0.0);
         [self.contentLabel sizeToFit];
         
@@ -363,12 +363,12 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
         currentHeight = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
     }
     
-    currentHeight += TSMessageViewPadding;
+    currentHeight += MPKMessageViewPadding;
     
     if (self.iconImageView)
     {
         // Check if that makes the popup larger (height)
-        if (self.iconImageView.frame.origin.y + self.iconImageView.frame.size.height + TSMessageViewPadding > currentHeight)
+        if (self.iconImageView.frame.origin.y + self.iconImageView.frame.size.height + MPKMessageViewPadding > currentHeight)
         {
             currentHeight = self.iconImageView.frame.origin.y + self.iconImageView.frame.size.height;
         }
@@ -384,7 +384,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
     self.button.center = CGPointMake([self.button center].x,
                                      round(currentHeight / 2.0));
     
-    if (self.messagePosition == TSMessageNotificationPositionTop)
+    if (self.messagePosition == MPKMessageNotificationPositionTop)
     {
         // Correct the border position
         CGRect borderFrame = self.borderView.frame;
@@ -412,9 +412,9 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
                                         currentHeight);
     
     // increase frame of background view because of the spring animation
-    if ([TSMessage iOS7StyleEnabled])
+    if ([MPKMessage iOS7StyleEnabled])
     {
-        if (self.messagePosition == TSMessageNotificationPositionTop)
+        if (self.messagePosition == MPKMessageNotificationPositionTop)
         {
             float topOffset = 0.f;
             
@@ -422,7 +422,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
             if (!navigationController && [self.viewController isKindOfClass:[UINavigationController class]]) {
                 navigationController = (UINavigationController *)self.viewController;
             }
-            BOOL isNavBarIsHidden = !navigationController || [TSMessage isNavigationBarInNavigationControllerHidden:self.viewController.navigationController];
+            BOOL isNavBarIsHidden = !navigationController || [MPKMessage isNavigationBarInNavigationControllerHidden:self.viewController.navigationController];
             BOOL isNavBarIsOpaque = !self.viewController.navigationController.navigationBar.isTranslucent && self.viewController.navigationController.navigationBar.alpha == 1;
             
             if (isNavBarIsHidden || isNavBarIsOpaque) {
@@ -430,7 +430,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
             }
             backgroundFrame = UIEdgeInsetsInsetRect(backgroundFrame, UIEdgeInsetsMake(topOffset, 0.f, 0.f, 0.f));
         }
-        else if (self.messagePosition == TSMessageNotificationPositionBottom)
+        else if (self.messagePosition == MPKMessageNotificationPositionBottom)
         {
             backgroundFrame = UIEdgeInsetsInsetRect(backgroundFrame, UIEdgeInsetsMake(0.f, 0.f, -30.f, 0.f));
         }
@@ -450,12 +450,12 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
 
 - (void)fadeMeOut
 {
-    [[TSMessage sharedMessage] performSelectorOnMainThread:@selector(fadeOutNotification:) withObject:self waitUntilDone:NO];
+    [[MPKMessage sharedMessage] performSelectorOnMainThread:@selector(fadeOutNotification:) withObject:self waitUntilDone:NO];
 }
 
 - (void)didMoveToWindow {
     [super didMoveToWindow];
-    if (self.duration == TSMessageNotificationDurationEndless && self.superview && !self.window ) {
+    if (self.duration == MPKMessageNotificationDurationEndless && self.superview && !self.window ) {
         // view controller was dismissed, let's fade out
         [self fadeMeOut];
     }

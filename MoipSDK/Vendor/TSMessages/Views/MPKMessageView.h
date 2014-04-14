@@ -1,5 +1,5 @@
 //
-//  TSMessageView.h
+//  MPKMessageView.h
 //  Felix Krause
 //
 //  Created by Felix Krause on 24.08.12.
@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TSMessage.h"
+#import "MPKMessage.h"
 
-#define TSMessageViewAlpha 0.95
+#define MPKMessageViewAlpha 0.95
 
 
 
-@protocol TSMessageViewProtocol<NSObject>
+@protocol MPKMessageViewProtocol<NSObject>
 @optional
 /** Implement this method to pass a custom value for positioning the message view */
 - (CGFloat)navigationbarBottomOfViewController:(UIViewController *)viewController;
@@ -22,7 +22,7 @@
 
 
 
-@interface TSMessageView : UIView
+@interface MPKMessageView : UIView
 
 /** The displayed title of this message */
 @property (nonatomic, readonly) NSString *title;
@@ -37,13 +37,13 @@
 @property (nonatomic, assign) CGFloat duration;
 
 /** The position of the message (top or bottom) */
-@property (nonatomic, assign) TSMessageNotificationPosition messagePosition;
+@property (nonatomic, assign) MPKMessageNotificationPosition messagePosition;
 
 /** Is the message currenlty fully displayed? Is set as soon as the message is really fully visible */
 @property (nonatomic, assign) BOOL messageIsFullyDisplayed;
 
 /** By setting this delegate it's possible to set a custom offset for the notification view */
-@property(nonatomic, assign) id <TSMessageViewProtocol>delegate;
+@property(nonatomic, assign) id <MPKMessageViewProtocol>delegate;
 
 /** Inits the notification view. Do not call this from outside this library.
  @param title The title of the notification view
@@ -61,13 +61,13 @@
 - (id)initWithTitle:(NSString *)title
            subtitle:(NSString *)subtitle
               image:(UIImage *)image
-               type:(TSMessageNotificationType)notificationType
+               type:(MPKMessageNotificationType)notificationType
            duration:(CGFloat)duration
    inViewController:(UIViewController *)viewController
            callback:(void (^)())callback
         buttonTitle:(NSString *)buttonTitle
      buttonCallback:(void (^)())buttonCallback
-         atPosition:(TSMessageNotificationPosition)position
+         atPosition:(MPKMessageNotificationPosition)position
 canBeDismissedByUser:(BOOL)dismissingEnabled;
 
 /** Fades out this notification view */

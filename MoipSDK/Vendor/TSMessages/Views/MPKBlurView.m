@@ -1,21 +1,21 @@
 //
-//  TSBlurView.m
+//  MPKBlurView.m
 //  Pods
 //
 //  Created by Felix Krause on 20.08.13.
 //
 //
 
-#import "TSBlurView.h"
+#import "MPKBlurView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface TSBlurView ()
+@interface MPKBlurView ()
 
 @property (nonatomic, strong) UIToolbar *toolbar;
 
 @end
 
-@implementation TSBlurView
+@implementation MPKBlurView
 
 
 - (UIToolbar *)toolbar

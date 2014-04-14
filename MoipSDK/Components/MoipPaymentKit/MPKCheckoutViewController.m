@@ -14,8 +14,8 @@
 #import "MoipHttpRequester.h"
 #import "MoipHttpResponse.h"
 #import "HTTPStatusCodes.h"
-#import "TSMessage.h"
-#import "TSMessageView.h"
+#import "MPKMessage.h"
+#import "MPKMessageView.h"
 
 @interface MPKCheckoutViewController () <MPKViewDelegate>
 {
@@ -89,7 +89,7 @@
     [self.view addSubview:self.tableViewForm];
     [self.tableViewForm setContentInset:UIEdgeInsetsMake(0, 0, 300, 0)];
 
-    [TSMessage setDefaultViewController:self];
+    [MPKMessage setDefaultViewController:self];
 
     [self setupPaymentForm];
     [self setupLoadingView];
@@ -361,7 +361,10 @@
 - (void) btnCancelTouched:(id)sender
 {
     [self dismissAction];
+    
+
 }
+
 
 - (void) dismissAction
 {
@@ -380,9 +383,9 @@
         message = [NSString stringWithFormat:message, @"foi concluido"];
     }
     
-    [TSMessage showNotificationWithTitle:@"Pagamento criado!"
+    [MPKMessage showNotificationWithTitle:@"Pagamento criado!"
                                 subtitle:@"O pagamento foi efetuado com sucesso!"
-                                    type:TSMessageNotificationTypeSuccess];
+                                    type:MPKMessageNotificationTypeSuccess];
 }
 
 - (void) showErrorFeedback:(NSArray *)errors
@@ -393,9 +396,9 @@
         [errorMessage appendFormat:@"%@\n", er.localizedFailureReason];
     }
     
-    [TSMessage showNotificationInViewController:self title:@"Oops! Ocorreu um imprevisto..."
+    [MPKMessage showNotificationInViewController:self title:@"Oops! Ocorreu um imprevisto..."
                                        subtitle:errorMessage
-                                           type:TSMessageNotificationTypeWarning
+                                           type:MPKMessageNotificationTypeWarning
                                        duration:5.0f];
 }
 

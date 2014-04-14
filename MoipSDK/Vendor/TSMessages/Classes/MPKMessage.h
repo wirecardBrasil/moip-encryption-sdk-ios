@@ -1,5 +1,5 @@
 //
-//  TSMessage.h
+//  MPKMessage.h
 //  Felix Krause
 //
 //  Created by Felix Krause on 24.08.12.
@@ -26,30 +26,30 @@
 #endif
 
 
-#define TS_SYSTEM_VERSION_LESS_THAN(v)            ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define MPK_SYSTEM_VERSION_LESS_THAN(v)            ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
 
-@class TSMessageView;
+@class MPKMessageView;
 
-typedef NS_ENUM(NSInteger, TSMessageNotificationType) {
-    TSMessageNotificationTypeMessage = 0,
-    TSMessageNotificationTypeWarning,
-    TSMessageNotificationTypeError,
-    TSMessageNotificationTypeSuccess
+typedef NS_ENUM(NSInteger, MPKMessageNotificationType) {
+    MPKMessageNotificationTypeMessage = 0,
+    MPKMessageNotificationTypeWarning,
+    MPKMessageNotificationTypeError,
+    MPKMessageNotificationTypeSuccess
 };
-typedef NS_ENUM(NSInteger, TSMessageNotificationPosition) {
-    TSMessageNotificationPositionTop = 0,
-    TSMessageNotificationPositionBottom
+typedef NS_ENUM(NSInteger, MPKMessageNotificationPosition) {
+    MPKMessageNotificationPositionTop = 0,
+    MPKMessageNotificationPositionBottom
 };
 
 /** This enum can be passed to the duration parameter */
-typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
-    TSMessageNotificationDurationAutomatic = 0,
-    TSMessageNotificationDurationEndless = -1 // The notification is displayed until the user dismissed it or it is dismissed by calling dismissActiveNotification
+typedef NS_ENUM(NSInteger,MPKMessageNotificationDuration) {
+    MPKMessageNotificationDurationAutomatic = 0,
+    MPKMessageNotificationDurationEndless = -1 // The notification is displayed until the user dismissed it or it is dismissed by calling dismissActiveNotification
 };
 
 
-@interface TSMessage : NSObject
+@interface MPKMessage : NSObject
 
 + (instancetype)sharedMessage;
 
@@ -60,7 +60,7 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
  @param type The notification type (Message, Warning, Error, Success)
  */
 + (void)showNotificationWithTitle:(NSString *)message
-                             type:(TSMessageNotificationType)type;
+                             type:(MPKMessageNotificationType)type;
 
 /** Shows a notification message
  @param title The title of the notification view
@@ -69,7 +69,7 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
  */
 + (void)showNotificationWithTitle:(NSString *)title
                          subtitle:(NSString *)subtitle
-                             type:(TSMessageNotificationType)type;
+                             type:(MPKMessageNotificationType)type;
 
 /** Shows a notification message in a specific view controller
  @param viewController The view controller to show the notification in.
@@ -81,7 +81,7 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
 + (void)showNotificationInViewController:(UIViewController *)viewController
                                    title:(NSString *)title
                                 subtitle:(NSString *)subtitle
-                                    type:(TSMessageNotificationType)type;
+                                    type:(MPKMessageNotificationType)type;
 
 /** Shows a notification message in a specific view controller with a specific duration
  @param viewController The view controller to show the notification in.
@@ -94,7 +94,7 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
 + (void)showNotificationInViewController:(UIViewController *)viewController
                                    title:(NSString *)title
                                 subtitle:(NSString *)subtitle
-                                    type:(TSMessageNotificationType)type
+                                    type:(MPKMessageNotificationType)type
                                 duration:(NSTimeInterval)duration;
 
 /** Shows a notification message in a specific view controller with a specific duration
@@ -109,7 +109,7 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
 + (void)showNotificationInViewController:(UIViewController *)viewController
                                    title:(NSString *)title
                                 subtitle:(NSString *)subtitle
-                                    type:(TSMessageNotificationType)type
+                                    type:(MPKMessageNotificationType)type
                                 duration:(NSTimeInterval)duration
                      canBeDismissedByUser:(BOOL)dismissingEnabled;
 
@@ -132,12 +132,12 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
                                    title:(NSString *)title
                                 subtitle:(NSString *)subtitle
                                    image:(UIImage *)image
-                                    type:(TSMessageNotificationType)type
+                                    type:(MPKMessageNotificationType)type
                                 duration:(NSTimeInterval)duration
                                 callback:(void (^)())callback
                              buttonTitle:(NSString *)buttonTitle
                           buttonCallback:(void (^)())buttonCallback
-                              atPosition:(TSMessageNotificationPosition)messagePosition
+                              atPosition:(MPKMessageNotificationPosition)messagePosition
                     canBeDismissedByUser:(BOOL)dismissingEnabled;
 
 /** Fades out the currently displayed notification. If another notification is in the queue,
@@ -159,9 +159,9 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
 /** Prepares the notification view to be displayed in the future. It is queued and then
  displayed in fadeInCurrentNotification.
  You don't have to use this method. */
-+ (void)prepareNotificationToBeShown:(TSMessageView *)messageView;
++ (void)prepareNotificationToBeShown:(MPKMessageView *)messageView;
 
-/** Indicates whether currently the iOS 7 style of TSMessages is used
+/** Indicates whether currently the iOS 7 style of MPKMessages is used
  This depends on the Base SDK and the currently used device */
 + (BOOL)iOS7StyleEnabled;
 

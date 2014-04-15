@@ -26,8 +26,17 @@
 static MoipSDK *sharedSingleton;
 
 #pragma mark -
-#pragma mark --> Public Methods
 #pragma Start SDK
+/**
+ *  Inicia o SDK para iniciar as transações
+ *
+ *  @param token     Token (acesse sua conta no moip para ver seu token)
+ *  @param key       Key (acesse sua conta no moip para ver seu token)
+ *  @param publicKey Chave publica em plain text
+ *  @param env       Ambiente que deseja utilizar o SDK
+ *
+ *  @return MoipSDK
+ */
 + (MoipSDK *) startSessionWithToken:(NSString *)token
                                 key:(NSString *)key
                           publicKey:(NSString *)publicKey
@@ -47,11 +56,21 @@ static MoipSDK *sharedSingleton;
     }
 }
 
+/**
+ *  Retorna a sessão
+ *
+ *  @return MoipSDK
+ */
 + (MoipSDK *) session
 {
     return sharedSingleton;
 }
 
+/**
+ *  importa a chave publica para criptografia dos dados de cartão e outros dados senseiveis
+ *
+ *  @param publicKeyPlainText chave publica em plain text
+ */
 - (void) importPublicKey:(NSString *)publicKeyPlainText
 {
     if (publicKeyPlainText != nil && ![publicKeyPlainText isEqualToString:@""])
@@ -60,7 +79,15 @@ static MoipSDK *sharedSingleton;
     }
 }
 
+#pragma mark -
 #pragma mark Submit Payment
+/**
+ *  Cria um pagamento no moip
+ *
+ *  @param payment Dados do pagamento, como cartão de credito, parcelas...
+ *  @param success Block de sucesso que retorna um MPKPaymentTransaction com o status do pagamento @see checkMPKPaymentStatus:
+ *  @param failure Block de erro
+ */
 - (void)submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *))success failure:(void (^)(NSArray *))failure
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -89,14 +116,17 @@ static MoipSDK *sharedSingleton;
 
 
 #pragma mark Check Payment Status
+/**
+ *  Verifica o status do pagamento
+ *
+ *  @param transaction MPKPaymentTransaction retornado no metodo submitPayment
+ */
 - (void) checkMPKPaymentStatus:(MPKPaymentTransaction *)transaction
 {
 
 }
 
 #pragma mark -
-#pragma mark --> Private Methods
-
 #pragma mark Check response after submit payment
 - (void) checkResponseSuccess:(MoipHttpResponse *)response successBlock:(void (^)(MPKPaymentTransaction *))successBlock
 {

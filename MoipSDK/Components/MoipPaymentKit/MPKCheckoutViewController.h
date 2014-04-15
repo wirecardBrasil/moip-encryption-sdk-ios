@@ -23,7 +23,8 @@ typedef NS_ENUM(NSInteger, MPKTextFieldTag)
     MPKTextFieldTagCVC,
     MPKTextFieldTagExpirationDate,
     MPKTextFieldTagFullname,
-    MPKTextFieldTagBirthdate
+    MPKTextFieldTagBirthdate,
+    MPKTextFieldTagInstallmentCount
 };
 
 @class MPKConfiguration;
@@ -38,7 +39,7 @@ typedef NS_ENUM(NSInteger, MPKTextFieldTag)
 @property id<MPKCheckoutDelegate> delegate;
 
 
-- (instancetype) initWithConfiguration:(MPKConfiguration *)configuration;
+- (instancetype) initWithConfiguration:(MPKConfiguration *)configuration maxInstallment:(NSInteger)maxInstallment;
 - (void) preloadUserData:(NSDictionary *)userData;
 
 @end

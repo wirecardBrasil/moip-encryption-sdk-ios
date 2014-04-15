@@ -24,35 +24,39 @@
 }
 
 @property MPKConfiguration *configs;
+@property NSInteger maxInstallmentCount;
 @property NSString *phoneMask;
 @property NSString *cpfMask;
 @property NSString *expirationDateMask;
 @property NSString *birthdateMask;
 @property NSRegularExpression *regex;
 
+@property (strong, nonatomic) MPKView *paymentView;
+@property (strong, nonatomic) MPKCreditCard *card;
 @property (strong, nonatomic) UITextField *txtCardHolder;
 @property (strong, nonatomic) UITextField *txtFullname;
 @property (strong, nonatomic) UITextField *txtDocument;
 @property (strong, nonatomic) UITextField *txtPhone;
 @property (strong, nonatomic) UITextField *txtBirthDate;
+@property (strong, nonatomic) UITextField *txtInstallmentCount;
 @property (strong, nonatomic) UITableView *tableViewForm;
 @property (strong, nonatomic) UIView *loadingView;
-@property (strong, nonatomic) MPKView *paymentView;
-@property (strong, nonatomic) MPKCreditCard *card;
 
 @end
 
 @implementation MPKCheckoutViewController
 
 - (instancetype) initWithConfiguration:(MPKConfiguration *)configuration
+                        maxInstallment:(NSInteger)maxInstallment;
 {
     self = [super init];
     if (self)
     {
         self.configs = configuration;
+        self.maxInstallmentCount = maxInstallment;
         self.regex = [NSRegularExpression regularExpressionWithPattern:@"[,\\.\\-\\(\\)\\ `\"]" options:0 error:nil];
-        
-        self.paymentView = [[MPKView alloc] initWithFrame:CGRectMake(5, 0, 282, 55) delegate:self];
+
+        self.paymentView = [[MPKView alloc] initWithFrame:CGRectMake(5, 0, 282, 55) borderStyle:MPKViewBorderStyleNone delegate:self];
         self.paymentView.defaultTextFieldFont = self.configs.textFieldFont;
         self.paymentView.defaultTextFieldTextColor = self.configs.textFieldColor;
     }
@@ -123,6 +127,15 @@
     self.txtFullname.font = self.configs.textFieldFont;
     self.txtFullname.delegate = self;
     self.txtFullname.tag = MPKTextFieldTagFullname;
+
+//    self.txtInstallmentCount = [[UITextField alloc] initWithFrame:CGRectMake(100, 0, 202, 55)];
+//    self.txtInstallmentCount.borderStyle = UITextBorderStyleNone;
+//    self.txtInstallmentCount.keyboardType = UIKeyboardTypeNumberPad;
+//    self.txtInstallmentCount.autocorrectionType = UITextAutocorrectionTypeNo;
+//    self.txtInstallmentCount.placeholder = @"12";
+//    self.txtInstallmentCount.font = self.configs.textFieldFont;
+//    self.txtInstallmentCount.delegate = self;
+//    self.txtInstallmentCount.tag = MPKTextFieldTagInstallmentCount;
     
     self.txtPhone = [[UITextField alloc] initWithFrame:CGRectMake(20, 0, 282, 55)];
     self.txtPhone.borderStyle = UITextBorderStyleNone;
@@ -238,6 +251,10 @@
             case 1:
                 [cell.contentView addSubview:self.paymentView];
                 break;
+//            case 2:
+//                cell.textLabel.text = @"Parcelas";
+//                [cell.contentView addSubview:self.txtInstallmentCount];
+//                break;
             default:
                 break;
         }

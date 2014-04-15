@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "MPKCreditCard.h"
 
-@class MPKView, PKTextField;
+typedef NS_ENUM(NSInteger, MPKViewBorderStyle)
+{
+    MPKViewBorderStyleNone,
+    MPKViewBorderStyleLine
+};
+
+@class MPKView, MPKTextField;
 
 @protocol MPKViewDelegate <NSObject>
 @optional
@@ -20,6 +26,7 @@
 
 @property UIFont *defaultTextFieldFont;
 @property UIColor *defaultTextFieldTextColor;
+@property (nonatomic) MPKViewBorderStyle borderStyle;
 
 @property (nonatomic, strong) UIView *innerView;
 @property (nonatomic, strong) UIView *clipView;
@@ -27,7 +34,7 @@
 @property (nonatomic, strong) UIView *opaqueOverGradientView;
 @property (readonly) MPKCreditCard *card;
 
-- (id)initWithFrame:(CGRect)frame delegate:(id)_del;
+- (id)initWithFrame:(CGRect)frame borderStyle:(MPKViewBorderStyle)style delegate:(id)_del;
 - (BOOL)isValid;
 
 @end

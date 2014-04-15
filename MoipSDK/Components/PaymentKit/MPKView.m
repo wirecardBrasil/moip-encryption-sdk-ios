@@ -46,7 +46,7 @@ static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable"
 - (void)setupCardExpiryField;
 - (void)setupCardCVCField;
 
-- (void)pkTextFieldDidBackSpaceWhileTextIsEmpty:(PKTextField *)textField;
+- (void)pkTextFieldDidBackSpaceWhileTextIsEmpty:(MPKTextField *)textField;
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)replacementString;
 - (BOOL)cardNumberFieldShouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)replacementString;
@@ -68,20 +68,14 @@ static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable"
 
 @implementation MPKView
 
-- (id)initWithFrame:(CGRect)frame delegate:(id)_del
+- (id)initWithFrame:(CGRect)frame borderStyle:(MPKViewBorderStyle)style delegate:(id)_del
 {
     self = [super initWithFrame:frame];
     if (self)
     {
         self.delegate = _del;
-        if ([self.delegate isKindOfClass:[MPKCheckoutViewController class]])
-        {
-            [self setup:YES];
-        }
-        else
-        {
-            [self setup:NO];
-        }
+        self.borderStyle = style;
+        [self setup];
     }
     return self;
 }
@@ -89,48 +83,29 @@ static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable"
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    [self setup:NO];
+    [self setup];
 }
 
-- (void)setup:(BOOL) moip
+- (void)setup
 {
     _isInitialState = YES;
     _isValidState = NO;
 
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
     self.backgroundColor = [UIColor clearColor];
-
-    if (moip)
-    {
-        self.innerView = [[UIView alloc] initWithFrame:CGRectMake(40, 0, self.frame.size.width - 40, 55)];
-        self.innerView.clipsToBounds = YES;
-        
-        [self setupPlaceholderViewMoipCheckout];
-        [self setupCardNumberFieldMoipCheckout];
-        [self setupCardExpiryFieldMoipCheckout];
-        [self setupCardCVCFieldMoipCheckout];
-    }
-    else
-    {
-        self.innerView = [[UIView alloc] initWithFrame:CGRectMake(40, 0, self.frame.size.width - 40, self.frame.size.height)];
-        self.innerView.clipsToBounds = YES;
-
-        UIView *backgroundImageView = [[UIView alloc] initWithFrame:self.bounds];
-        backgroundImageView.backgroundColor = [UIColor whiteColor];
-        backgroundImageView.layer.cornerRadius = 5.4f;
-        backgroundImageView.layer.borderWidth = 0.7f;
-        backgroundImageView.layer.borderColor = [[UIColor colorWithWhite:0.1f alpha:0.2f] CGColor];
-        [self addSubview:backgroundImageView];
-        
-        [self setupPlaceholderView];
-        [self setupCardNumberField];
-        [self setupCardExpiryField];
-        [self setupCardCVCField];
-    }
-
+    
+    [self setupPlaceholderView];
+    [self setupCardNumberField];
+    [self setupCardExpiryField];
+    [self setupCardCVCField];
+    
+    [self setupBorderStyle];
+    
+    self.innerView = [[UIView alloc] initWithFrame:CGRectMake(40, 0, self.frame.size.width - 40, self.frame.size.height)];
+    self.innerView.clipsToBounds = YES;
     [self.innerView addSubview:self.cardNumberField];
     
-    self.opaqueOverGradientView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 9, 34)];
+    self.opaqueOverGradientView = [[UIView alloc] initWithFrame:CGRectMake(0, 1, 10, (self.cardNumberField.frame.size.height - 2))];
     self.opaqueOverGradientView.backgroundColor = [UIColor whiteColor];
     self.opaqueOverGradientView.alpha = 0.0;
     [self.innerView addSubview:self.opaqueOverGradientView];
@@ -142,53 +117,27 @@ static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable"
 
 }
 
-
-- (void)setupPlaceholderViewMoipCheckout
+- (void)setupBorderStyle
 {
-    self.placeholderView = [[UIImageView alloc] initWithFrame:CGRectMake(12, 17.5f, 32, 20)];
-    self.placeholderView.backgroundColor = [UIColor clearColor];
-    self.placeholderView.image = [UIImage imageNamed:@"placeholder"];
-
-    CALayer *clip = [CALayer layer];
-    clip.frame = CGRectMake(32, 0, 4, 20);
-    clip.backgroundColor = [UIColor clearColor].CGColor;
-    [self.placeholderView.layer addSublayer:clip];
-}
-
-- (void)setupCardNumberFieldMoipCheckout
-{
-    self.cardNumberField = [[MPKTextField alloc] initWithFrame:CGRectMake(12, 0, 175, 55)];
-    self.cardNumberField.delegate = self;
-    self.cardNumberField.placeholder = [self.class localizedStringWithKey:@"placeholder.card_number" defaultValue:@"1234 5678 9012 3456"];
-    self.cardNumberField.keyboardType = UIKeyboardTypeNumberPad;
-    self.cardNumberField.textColor = self.defaultTextFieldTextColor;
-    self.cardNumberField.font = self.defaultTextFieldFont;
-
-    [self.cardNumberField.layer setMasksToBounds:YES];
-}
-
-- (void)setupCardExpiryFieldMoipCheckout
-{
-    self.cardExpiryField = [[MPKTextField alloc] initWithFrame:CGRectMake(kPKViewCardExpiryFieldStartX, 0, 60, 55)];
-    self.cardExpiryField.delegate = self;
-    self.cardExpiryField.placeholder = [self.class localizedStringWithKey:@"placeholder.card_expiry" defaultValue:@"MM/YY"];
-    self.cardExpiryField.keyboardType = UIKeyboardTypeNumberPad;
-    self.cardExpiryField.textColor = self.defaultTextFieldTextColor;
-    self.cardExpiryField.font = self.defaultTextFieldFont;
-
-    [self.cardExpiryField.layer setMasksToBounds:YES];
-}
-
-- (void)setupCardCVCFieldMoipCheckout
-{
-    self.cardCVCField = [[MPKTextField alloc] initWithFrame:CGRectMake(kPKViewCardCVCFieldStartX, 0, 55, 55)];
-    self.cardCVCField.delegate = self;
-    self.cardCVCField.placeholder = [self.class localizedStringWithKey:@"placeholder.card_cvc" defaultValue:@"CVC"];
-    self.cardCVCField.keyboardType = UIKeyboardTypeNumberPad;
-    self.cardCVCField.textColor = self.defaultTextFieldTextColor;
-    self.cardCVCField.font = self.defaultTextFieldFont;
-
-    [self.cardCVCField.layer setMasksToBounds:YES];
+    switch (self.borderStyle)
+    {
+        case MPKViewBorderStyleLine:
+        {
+            UIView *backgroundImageView = [[UIView alloc] initWithFrame:self.bounds];
+            backgroundImageView.backgroundColor = [UIColor whiteColor];
+            backgroundImageView.layer.cornerRadius = 5.4f;
+            backgroundImageView.layer.borderWidth = 0.7f;
+            backgroundImageView.layer.borderColor = [[UIColor colorWithWhite:0.1f alpha:0.2f] CGColor];
+            [self addSubview:backgroundImageView];
+        }
+            break;
+        case MPKViewBorderStyleNone:
+            
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)setupPlaceholderView
@@ -213,10 +162,17 @@ static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable"
 {
     self.cardNumberField = [[MPKTextField alloc] initWithFrame:CGRectMake(12, 0, 170, self.frame.size.height)];
     self.cardNumberField.delegate = self;
-    self.cardNumberField.placeholder = [self.class localizedStringWithKey:@"placeholder.card_number" defaultValue:@"1234 5678 9012 3456"];
+    self.cardNumberField.placeholder = @"1234 5678 9012 3456";
     self.cardNumberField.keyboardType = UIKeyboardTypeNumberPad;
     self.cardNumberField.textColor = DarkGreyColor;
-    self.cardNumberField.font = DefaultBoldFont;
+    if (self.defaultTextFieldFont != nil)
+    {
+        self.cardNumberField.font = self.defaultTextFieldFont;
+    }
+    else
+    {
+        self.cardNumberField.font = DefaultBoldFont;
+    }
     
     [self.cardNumberField.layer setMasksToBounds:YES];
 }
@@ -228,7 +184,14 @@ static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable"
     self.cardExpiryField.placeholder = [self.class localizedStringWithKey:@"placeholder.card_expiry" defaultValue:@"MM/YY"];
     self.cardExpiryField.keyboardType = UIKeyboardTypeNumberPad;
     self.cardExpiryField.textColor = DarkGreyColor;
-    self.cardExpiryField.font = DefaultBoldFont;
+    if (self.defaultTextFieldFont != nil)
+    {
+        self.cardExpiryField.font = self.defaultTextFieldFont;
+    }
+    else
+    {
+        self.cardExpiryField.font = DefaultBoldFont;
+    }
     
     [self.cardExpiryField.layer setMasksToBounds:YES];
 }
@@ -240,7 +203,14 @@ static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable"
     self.cardCVCField.placeholder = [self.class localizedStringWithKey:@"placeholder.card_cvc" defaultValue:@"CVC"];
     self.cardCVCField.keyboardType = UIKeyboardTypeNumberPad;
     self.cardCVCField.textColor = DarkGreyColor;
-    self.cardCVCField.font = DefaultBoldFont;
+    if (self.defaultTextFieldFont != nil)
+    {
+        self.cardCVCField.font = self.defaultTextFieldFont;
+    }
+    else
+    {
+        self.cardCVCField.font = DefaultBoldFont;
+    }
     
     [self.cardCVCField.layer setMasksToBounds:YES];
 }
@@ -334,8 +304,9 @@ static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable"
         lastGroupSize = [self.cardNumber.lastGroup sizeWithFont:DefaultBoldFont];
     }
 #else
+    
     NSDictionary *attributes = @{NSFontAttributeName: DefaultBoldFont};
-
+    
     cardNumberSize = [self.cardNumber.formattedString sizeWithAttributes:attributes];
     lastGroupSize = [self.cardNumber.lastGroup sizeWithAttributes:attributes];
 #endif

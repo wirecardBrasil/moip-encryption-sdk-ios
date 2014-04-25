@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "67BF00A218C77B7100080D43"
-               BuildableName = "MoipSDK.framework"
+               BlueprintIdentifier = "67E3C6A4190ADBBF00D3B728"
+               BuildableName = "libMoipSDK.a"
                BlueprintName = "MoipSDK"
                ReferencedContainer = "container:MoipSDK.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "67BF00B518C77B7100080D43"
+               BlueprintIdentifier = "67E3C6B8190ADBBF00D3B728"
                BuildableName = "MoipSDKTests.xctest"
                BlueprintName = "MoipSDKTests"
                ReferencedContainer = "container:MoipSDK.xcodeproj">
@@ -49,15 +49,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "67BF00A218C77B7100080D43"
-            BuildableName = "MoipSDK.framework"
-            BlueprintName = "MoipSDK"
-            ReferencedContainer = "container:MoipSDK.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

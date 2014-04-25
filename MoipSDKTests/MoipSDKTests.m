@@ -201,6 +201,11 @@
     }];
 }
 
+- (void) testShouldConfigurePiPad
+{
+    [[MoipSDK session] configureSitef];
+}
+
 #pragma mark - Methods Helper
 - (NSString *) getMoipOrderId
 {

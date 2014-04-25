@@ -23,6 +23,7 @@
                         environment:(MPKEnvironment)env;
 
 #pragma mark - Methods
+- (void) configureSitef;
 - (void) submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *transaction))success failure:(void (^)(NSArray *errorList))failure;
 
 @end

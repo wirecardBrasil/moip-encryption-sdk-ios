@@ -9,20 +9,35 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>MoipSDKAggregate.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>MoipSDKResources.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>675C76C718D1FADE0005C641</key>
+		<key>67E3C6A4190ADBBF00D3B728</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67BF00A218C77B7100080D43</key>
+		<key>67E3C6AB190ADBBF00D3B728</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67BF00B518C77B7100080D43</key>
+		<key>67E3C6B8190ADBBF00D3B728</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>67E5DE1B190AE7C4004E74C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

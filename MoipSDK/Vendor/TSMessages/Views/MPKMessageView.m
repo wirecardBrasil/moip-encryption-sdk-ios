@@ -65,7 +65,8 @@ static NSMutableDictionary *_notificationDesign;
 {
     if (!_notificationDesign)
     {
-        NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:MPKDesignFileName];
+        NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"MoipSDKResources" withExtension:@"bundle"]];
+        NSString *path = [[bundle resourcePath] stringByAppendingPathComponent:MPKDesignFileName];
         _notificationDesign = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
                                                                                                             options:kNilOptions
                                                                                                               error:nil]];
@@ -77,7 +78,8 @@ static NSMutableDictionary *_notificationDesign;
 
 + (void)addNotificationDesignFromFile:(NSString *)filename
 {
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:filename];
+    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"MoipSDKResources" withExtension:@"bundle"]];
+    NSString *path = [[bundle resourcePath] stringByAppendingPathComponent:filename];
     NSDictionary *design = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
                                                            options:kNilOptions
                                                              error:nil];

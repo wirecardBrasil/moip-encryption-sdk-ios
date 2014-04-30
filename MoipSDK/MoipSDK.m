@@ -60,6 +60,18 @@ static MoipSDK *sharedSingleton;
     }
 }
 
+- (id) init
+{
+    self = [super init];
+    if (self)
+    {
+        self.clisitef = [[ClisitefAsync alloc] init];
+        [self.clisitef SetDelegates:self];
+    }
+
+    return self;
+}
+
 /**
  *  Retorna a sessão
  *
@@ -87,8 +99,6 @@ static MoipSDK *sharedSingleton;
 #pragma mark Tef
 - (void) configureSitef
 {
-    self.clisitef = [[ClisitefAsync alloc] init];
-    [self.clisitef SetDelegates:self];
     [self.clisitef ConfiguraIntSiTefInterativo:IPSitef
                                    pCodigoLoja:Loja
                                pNumeroTerminal:Terminal ConfiguraResultado:0

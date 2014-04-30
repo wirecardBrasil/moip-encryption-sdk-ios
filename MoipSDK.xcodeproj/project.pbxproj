@@ -138,7 +138,6 @@
 /* Begin PBXFileReference section */
 		67C4C161190EC1DF00D65094 /* MoipSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = MoipSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67C4C164190EC1DF00D65094 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		67C4C168190EC1DF00D65094 /* MoipSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDK-Info.plist"; sourceTree = "<group>"; };
 		67C4C16C190EC1DF00D65094 /* MoipSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MoipSDK-Prefix.pch"; sourceTree = "<group>"; };
 		67C4C16D190EC1DF00D65094 /* MoipSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoipSDK.h; sourceTree = "<group>"; };
 		67C4C16E190EC1DF00D65094 /* MoipSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDK.m; sourceTree = "<group>"; };
@@ -326,7 +325,6 @@
 		67C4C167190EC1DF00D65094 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				67C4C168190EC1DF00D65094 /* MoipSDK-Info.plist */,
 				67C4C16C190EC1DF00D65094 /* MoipSDK-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -939,7 +937,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
-				INFOPLIST_FILE = "MoipSDK/MoipSDK-Info.plist";
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -961,7 +959,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
-				INFOPLIST_FILE = "MoipSDK/MoipSDK-Info.plist";
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

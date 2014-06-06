@@ -26,14 +26,17 @@
 
     NSMutableString *pk = [NSMutableString new];
     [pk appendFormat:@"-----BEGIN PUBLIC KEY-----\n"];
-    [pk appendFormat:@"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDce1lVh/ZelksxZaypzs0l+U1g\n"];
-    [pk appendFormat:@"lruZD3qnh9PrQQpT2DKh/JeRgOmMfU4fz7ayHnSRRvNWRyIDLBkWJr5KIq7jWgDS\n"];
-    [pk appendFormat:@"aGmb+QpAU8xm8iKx5mjepp1wl9guXXlDjQlCRoQfRCZtTSN0IVIlDcAfAhaK/ot8\n"];
-    [pk appendFormat:@"+hF+iW+8wgSrjVO+9wIDAQAB\n"];
+    [pk appendFormat:@"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoBttaXwRoI1Fbcond5mS\n"];
+    [pk appendFormat:@"7QOb7X2lykY5hvvDeLJelvFhpeLnS4YDwkrnziM3W00UNH1yiSDU+3JhfHu5G387\n"];
+    [pk appendFormat:@"O6uN9rIHXvL+TRzkVfa5iIjG+ap2N0/toPzy5ekpgxBicjtyPHEgoU6dRzdszEF4\n"];
+    [pk appendFormat:@"ItimGk5ACx/lMOvctncS5j3uWBaTPwyn0hshmtDwClf6dEZgQvm/dNaIkxHKV+9j\n"];
+    [pk appendFormat:@"Mn3ZfK/liT8A3xwaVvRzzuxf09xJTXrAd9v5VQbeWGxwFcW05oJulSFjmJA9Hcmb\n"];
+    [pk appendFormat:@"DYHJT+sG2mlZDEruCGAzCVubJwGY1aRlcs9AQc1jIm/l8JwH7le2kpk3QoX+gz0w\n"];
+    [pk appendFormat:@"WwIDAQAB\n"];
     [pk appendFormat:@"-----END PUBLIC KEY-----"];
     
-    [MoipSDK startSessionWithToken:@"MGWBTQT5FPWLADJKDGFTRJOPUFJ4EBRJ"
-                               key:@"KDF9BL8CC6RRF9KYJCU0SPLI0FSVH6NTAWLCJAEC"
+    [MoipSDK startSessionWithToken:@"01010101010101010101010101010101"
+                               key:@"ABABABABABABABABABABABABABABABABABABABAB"
                          publicKey:pk
                        environment:MPKEnvironmentSANDBOX];
 }
@@ -41,6 +44,14 @@
 - (void)tearDown
 {
     [super tearDown];
+}
+
+- (void) testShouldCreateMoipOrderId
+{
+    NSString *orderid = [self getMoipOrderId];
+    NSLog(@"-----------------------------------------------:::::::: %@", orderid);
+    
+    XCTAssertNotNil(orderid, @"");
 }
 
 - (void)testShouldCreateAPaymentInMoip
@@ -57,20 +68,23 @@
     MPKCreditCard *card = [MPKCreditCard new];
     card.expirationMonth = 06;
     card.expirationYear = 18;
-    card.number = @"4903762433566341";
-    card.cvv = @"751";
+    card.number = [MPKUtilities encryptData:@"4551870000000183"];
+    card.cvv = [MPKUtilities encryptData:@"123"];
     card.cardholder = holder;
     
     MPKPayment *payment = [MPKPayment new];
-    payment.moipOrderId = [self getMoipOrderId];
+    payment.moipOrderId = @"ORD-O3VHZ3AOVUU8";//[self getMoipOrderId];
     payment.installmentCount = 2;
     payment.method = MPKPaymentMethodCreditCard;
     payment.creditCard = card;
     
-    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
+    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction)
+    {
+        XCTAssertNotNil(transaction, @"payment transaction is nil");
         XCTAssertEqual(transaction.status, MPKPaymentStatusInAnalysis, @"Status equals to InAnalysis");
+        
     } failure:^(NSArray *errorList) {
-        XCTAssertTrue(errorList.count > 0, @"Errors: %@", errorList);
+        NSLog(@"%@", errorList);
     }];
 }
 
@@ -206,18 +220,37 @@
     [[MoipSDK session] configureSitef];
 }
 
+- (void) testShouldCheckIfCertificateIsTrust
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.moip.com.br/"]];
+    request.HTTPMethod = @"GET";
+    
+    NSHTTPURLResponse *response = nil;
+    NSError *error = [NSError new];
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    XCTAssertNotEqual(error.code, kCFURLErrorServerCertificateUntrusted, @"SSL Certificate Untrusted");
+}
+
 #pragma mark - Methods Helper
 - (NSString *) getMoipOrderId
 {
     NSString *orderJSON = [self generateOrderJSON];
     NSString *url = [MPKUtilities urlWithEnv:MPKEnvironmentSANDBOX endpoint:@"/orders"];
     
-    MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:@"Basic TUdXQlRRVDVGUFdMQURKS0RHRlRSSk9QVUZKNEVCUko6S0RGOUJMOENDNlJSRjlLWUpDVTBTUExJMEZTVkg2TlRBV0xDSkFFQw=="];
+    NSData *encodedLoginData = [@"01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB" dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *auth = [NSString stringWithFormat:@"Basic %@",  [encodedLoginData base64EncodedStringWithOptions:NSUTF8StringEncoding]];
+    
+    MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:auth];
     MoipHttpResponse *response = [requester post:url payload:orderJSON params:nil delegate:nil];
     if (response.httpStatusCode == kHTTPStatusCodeCreated)
     {
         id order = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
         return order[@"id"];
+    }
+    else if (response.urlErrorCode == kCFURLErrorServerCertificateUntrusted)
+    {
+        NSLog(@"SSL Certificate Untrusted");
     }
     else
     {

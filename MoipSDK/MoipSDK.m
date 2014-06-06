@@ -7,7 +7,7 @@
 //
 
 #import "MoipSDK.h"
-#import "ClisitefAsync.h"
+//#import "ClisitefAsync.h"
 #import "MoipHttpRequester.h"
 #import "MoipHttpResponse.h"
 #import "HTTPStatusCodes.h"
@@ -17,11 +17,11 @@ NSString* IPSitef = @"192.168.0.5";
 NSString* Loja = @"00000000";
 NSString* Terminal = @"IP000001";
 
-@interface MoipSDK () <ClisitefiDelegates>
+@interface MoipSDK () //<ClisitefiDelegates>
 
 @property NSString *auth;
 @property MPKEnvironment environment;
-@property ClisitefAsync *clisitef;
+//@property ClisitefAsync *clisitef;
 
 @end
 
@@ -65,8 +65,8 @@ static MoipSDK *sharedSingleton;
     self = [super init];
     if (self)
     {
-        self.clisitef = [[ClisitefAsync alloc] init];
-        [self.clisitef SetDelegates:self];
+//        self.clisitef = [[ClisitefAsync alloc] init];
+//        [self.clisitef SetDelegates:self];
     }
 
     return self;
@@ -99,10 +99,10 @@ static MoipSDK *sharedSingleton;
 #pragma mark Tef
 - (void) configureSitef
 {
-    [self.clisitef ConfiguraIntSiTefInterativo:IPSitef
-                                   pCodigoLoja:Loja
-                               pNumeroTerminal:Terminal ConfiguraResultado:0
-                         pParametrosAdicionais:@""];
+//    [self.clisitef ConfiguraIntSiTefInterativo:IPSitef
+//                                   pCodigoLoja:Loja
+//                               pNumeroTerminal:Terminal ConfiguraResultado:0
+//                         pParametrosAdicionais:@""];
 }
 
 #pragma mark -
@@ -186,6 +186,19 @@ static MoipSDK *sharedSingleton;
         }
         
         failureBlock(errors);
+    }
+    else
+    {
+        NSString *errorDescription = errorDict[@"ERROR"];
+
+        NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: errorDescription};
+        
+        MPKError *err = [[MPKError alloc] initWithDomain:@"MPKPaymentError" code:response.httpStatusCode userInfo:userInfo];
+        err.httpStatusCode = response.httpStatusCode;
+        err.apiErrorCode = nil;
+        err.errorDescription = errorDescription;
+        
+        failureBlock(@[err]);
     }
 }
 

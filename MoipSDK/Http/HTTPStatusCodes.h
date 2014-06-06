@@ -6,15 +6,6 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-/*! \file HTTPStatusCodes.h*/
-//  HTTPStatusCodes.h
-//  tcf-sdk-ios
-//
-//  Created by Diogo Autilio on 12/11/13.
-//  Last Update : 12/11/13 - Diogo Autilio
-//  Copyright (c) 2013 Titans Group. All rights reserved.
-//
-
 #ifndef HTTPStatusCodes_h
 #define HTTPStatusCodes_h
 

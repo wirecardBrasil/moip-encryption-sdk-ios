@@ -45,7 +45,7 @@ NSMutableDictionary *headers;
 
 - (void) setDefaultHeaders
 {
-    [headers setValue:@"Moip-SDK-iOS/1.0" forKey:@"User-Agent"];
+//    [headers setValue:@"Moip-SDK-iOS/1.0" forKey:@"User-Agent"];
     [headers setValue:@"application/json" forKey:@"Content-Type"];
     if (self.basicAuth != nil)
     {
@@ -121,20 +121,27 @@ NSMutableDictionary *headers;
     }
     else
     {
-        NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        MoipHttpResponse *newResponse = [MoipHttpResponse new];
-        newResponse.content = result;
-        
-        if ([response isKindOfClass:[NSHTTPURLResponse class]])
+        @try
         {
-            newResponse.httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
+            NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            MoipHttpResponse *newResponse = [MoipHttpResponse new];
+            newResponse.content = result;
+            
+            if ([response isKindOfClass:[NSHTTPURLResponse class]])
+            {
+                newResponse.httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
+            }
+            else
+            {
+                newResponse.urlErrorCode = error.code;
+            }
+            
+            return newResponse;
         }
-        else
-        {
-            newResponse.urlErrorCode = error.code;
+        @catch (NSException *exception) {
+            NSLog(@"%@", exception);
+            return nil;
         }
-
-        return newResponse;
     }
 }
 

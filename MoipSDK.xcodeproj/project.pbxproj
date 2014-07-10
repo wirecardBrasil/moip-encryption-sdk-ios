@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67B2775A196EAA7100822F34 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67B27759196EAA7100822F34 /* SenTestingKit.framework */; };
 		67C4C165190EC1DF00D65094 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C4C164190EC1DF00D65094 /* Foundation.framework */; };
 		67C4C16F190EC1DF00D65094 /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4C16E190EC1DF00D65094 /* MoipSDK.m */; };
-		67C4C176190EC1DF00D65094 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C4C175190EC1DF00D65094 /* XCTest.framework */; };
 		67C4C177190EC1DF00D65094 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C4C164190EC1DF00D65094 /* Foundation.framework */; };
-		67C4C179190EC1DF00D65094 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C4C178190EC1DF00D65094 /* UIKit.framework */; };
 		67C4C17E190EC1DF00D65094 /* MoipSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C4C161190EC1DF00D65094 /* MoipSDK.framework */; };
 		67C4C184190EC1DF00D65094 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67C4C182190EC1DF00D65094 /* InfoPlist.strings */; };
 		67C4C186190EC1DF00D65094 /* MoipSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C4C185190EC1DF00D65094 /* MoipSDKTests.m */; };
@@ -119,6 +118,48 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6784076D196C430A0012F4B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67C4C157190EC1DF00D65094 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67C4C160190EC1DF00D65094;
+			remoteInfo = MoipSDK;
+		};
+		6784076F196C430A0012F4B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67C4C157190EC1DF00D65094 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67C4C160190EC1DF00D65094;
+			remoteInfo = MoipSDK;
+		};
+		67B2774E196EA96E00822F34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67C4C157190EC1DF00D65094 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67C4C160190EC1DF00D65094;
+			remoteInfo = MoipSDK;
+		};
+		67B27750196EA96E00822F34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67C4C157190EC1DF00D65094 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67C4C160190EC1DF00D65094;
+			remoteInfo = MoipSDK;
+		};
+		67B27752196EA97000822F34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67C4C157190EC1DF00D65094 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67C4C160190EC1DF00D65094;
+			remoteInfo = MoipSDK;
+		};
+		67B27757196EAA5E00822F34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67C4C157190EC1DF00D65094 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67C4C160190EC1DF00D65094;
+			remoteInfo = MoipSDK;
+		};
 		67C4C17A190EC1DF00D65094 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 67C4C157190EC1DF00D65094 /* Project object */;
@@ -136,15 +177,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		671D7A5B1947867100D2B44D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67B27759196EAA7100822F34 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		67C4C161190EC1DF00D65094 /* MoipSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = MoipSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67C4C164190EC1DF00D65094 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		67C4C16C190EC1DF00D65094 /* MoipSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MoipSDK-Prefix.pch"; sourceTree = "<group>"; };
 		67C4C16D190EC1DF00D65094 /* MoipSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoipSDK.h; sourceTree = "<group>"; };
 		67C4C16E190EC1DF00D65094 /* MoipSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDK.m; sourceTree = "<group>"; };
 		67C4C174190EC1DF00D65094 /* MoipSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoipSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		67C4C175190EC1DF00D65094 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		67C4C178190EC1DF00D65094 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		67C4C181190EC1DF00D65094 /* MoipSDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDKTests-Info.plist"; sourceTree = "<group>"; };
 		67C4C183190EC1DF00D65094 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67C4C185190EC1DF00D65094 /* MoipSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDKTests.m; sourceTree = "<group>"; };
@@ -255,6 +294,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67B2775A196EAA7100822F34 /* SenTestingKit.framework in Frameworks */,
 				67C4C273190EC42B00D65094 /* ExternalAccessory.framework in Frameworks */,
 				67C4C165190EC1DF00D65094 /* Foundation.framework in Frameworks */,
 			);
@@ -265,8 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				67C4C17E190EC1DF00D65094 /* MoipSDK.framework in Frameworks */,
-				67C4C176190EC1DF00D65094 /* XCTest.framework in Frameworks */,
-				67C4C179190EC1DF00D65094 /* UIKit.framework in Frameworks */,
 				67C4C177190EC1DF00D65094 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,28 +312,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		671D7A591947867100D2B44D /* MoipResources */ = {
-			isa = PBXGroup;
-			children = (
-				671D7A5A1947867100D2B44D /* Supporting Files */,
-			);
-			path = MoipResources;
-			sourceTree = "<group>";
-		};
-		671D7A5A1947867100D2B44D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				671D7A5B1947867100D2B44D /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		67C4C156190EC1DF00D65094 = {
 			isa = PBXGroup;
 			children = (
 				67C4C166190EC1DF00D65094 /* MoipSDK */,
 				67C4C17F190EC1DF00D65094 /* MoipSDKTests */,
-				671D7A591947867100D2B44D /* MoipResources */,
 				67C4C163190EC1DF00D65094 /* Frameworks */,
 				67C4C162190EC1DF00D65094 /* Products */,
 			);
@@ -313,10 +334,9 @@
 		67C4C163190EC1DF00D65094 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				67B27759196EAA7100822F34 /* SenTestingKit.framework */,
 				67C4C272190EC42B00D65094 /* ExternalAccessory.framework */,
 				67C4C164190EC1DF00D65094 /* Foundation.framework */,
-				67C4C175190EC1DF00D65094 /* XCTest.framework */,
-				67C4C178190EC1DF00D65094 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -694,6 +714,12 @@
 			dependencies = (
 				67C4C17B190EC1DF00D65094 /* PBXTargetDependency */,
 				67C4C17D190EC1DF00D65094 /* PBXTargetDependency */,
+				6784076E196C430A0012F4B8 /* PBXTargetDependency */,
+				67840770196C430A0012F4B8 /* PBXTargetDependency */,
+				67B2774F196EA96E00822F34 /* PBXTargetDependency */,
+				67B27751196EA96E00822F34 /* PBXTargetDependency */,
+				67B27753196EA97000822F34 /* PBXTargetDependency */,
+				67B27758196EAA5E00822F34 /* PBXTargetDependency */,
 			);
 			name = MoipSDKTests;
 			productName = MoipSDKTests;
@@ -836,6 +862,36 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6784076E196C430A0012F4B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67C4C160190EC1DF00D65094 /* MoipSDK */;
+			targetProxy = 6784076D196C430A0012F4B8 /* PBXContainerItemProxy */;
+		};
+		67840770196C430A0012F4B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67C4C160190EC1DF00D65094 /* MoipSDK */;
+			targetProxy = 6784076F196C430A0012F4B8 /* PBXContainerItemProxy */;
+		};
+		67B2774F196EA96E00822F34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67C4C160190EC1DF00D65094 /* MoipSDK */;
+			targetProxy = 67B2774E196EA96E00822F34 /* PBXContainerItemProxy */;
+		};
+		67B27751196EA96E00822F34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67C4C160190EC1DF00D65094 /* MoipSDK */;
+			targetProxy = 67B27750196EA96E00822F34 /* PBXContainerItemProxy */;
+		};
+		67B27753196EA97000822F34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67C4C160190EC1DF00D65094 /* MoipSDK */;
+			targetProxy = 67B27752196EA97000822F34 /* PBXContainerItemProxy */;
+		};
+		67B27758196EAA5E00822F34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67C4C160190EC1DF00D65094 /* MoipSDK */;
+			targetProxy = 67B27757196EAA5E00822F34 /* PBXContainerItemProxy */;
+		};
 		67C4C17B190EC1DF00D65094 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 67C4C160190EC1DF00D65094 /* MoipSDK */;
@@ -934,11 +990,15 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MoipSDK/Vendor/libclisitef",
@@ -959,11 +1019,15 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MoipSDK/Vendor/libclisitef",
@@ -981,7 +1045,7 @@
 		67C4C18D190EC1DF00D65094 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MoipSDK.framework/Versions/A/MoipSDK";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -994,8 +1058,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MoipSDKTests/MoipSDKTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MoipSDKTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -1003,7 +1070,7 @@
 		67C4C18E190EC1DF00D65094 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MoipSDK.framework/Versions/A/MoipSDK";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1012,8 +1079,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
 				INFOPLIST_FILE = "MoipSDKTests/MoipSDKTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MoipSDKTests-Bridging-Header.h";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;

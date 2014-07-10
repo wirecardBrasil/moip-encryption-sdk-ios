@@ -123,27 +123,22 @@ static MoipSDK *sharedSingleton;
  */
 - (void)submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *))success failure:(void (^)(NSArray *))failure
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        NSString *paymentJSON = [self generatePaymentJSON:payment];
-        
-        NSString *endpoint = [NSString stringWithFormat:@"/orders/%@/payments", payment.moipOrderId];
-        NSString *url = [MPKUtilities urlWithEnv:self.environment endpoint:endpoint];
-        
-        MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.auth];
-        MoipHttpResponse *response = [requester post:url payload:paymentJSON params:nil delegate:nil];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
-            {
-                [self checkResponseSuccess:response successBlock:success];
-            }
-            else
-            {
-                [self checkResponseFailure:response failureBlock:failure];
-            }
-        });
-    });
+    NSString *paymentJSON = [self generatePaymentJSON:payment];
+    
+    NSString *endpoint = [NSString stringWithFormat:@"/orders/%@/payments", payment.moipOrderId];
+    NSString *url = [MPKUtilities urlWithEnv:self.environment endpoint:endpoint];
+    
+    MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.auth];
+    [requester post:url payload:paymentJSON completation:^(MoipHttpResponse *response) {
+        if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
+        {
+            [self checkResponseSuccess:response successBlock:success];
+        }
+        else
+        {
+            [self checkResponseFailure:response failureBlock:failure];
+        }
+    }];
 }
 
 

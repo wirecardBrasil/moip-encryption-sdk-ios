@@ -22,6 +22,11 @@
     [SecUtils setPrivateKey:privateKeyText tag:kPrivateKeyName];
 }
 
++ (void) removeKey:(NSString *)tag
+{
+    [SecUtils removeKey:tag];
+}
+
 + (NSString *) encryptData:(NSString *)plainText
 {
     return [SecUtils encryptRSA:plainText keyTag:kPublicKeyName];

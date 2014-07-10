@@ -13,6 +13,7 @@
 
 + (void) importPrivateKey:(NSString *)privateKeyText;
 + (void) importPublicKey:(NSString *)publicKeyText;
++ (void) removeKey:(NSString *)tag;
 + (NSString *) encryptData:(NSString *)plainText;
 + (NSString *) decryptData:(NSString *)plainText;
 + (NSString *) returnMD5Hash:(NSString*)concat;

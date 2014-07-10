@@ -44,6 +44,9 @@
 - (void)tearDown
 {
     [super tearDown];
+    
+    [MPKUtilities removeKey:kPublicKeyName];
+    [MPKUtilities removeKey:kPrivateKeyName];
 }
 
 - (void) testShouldCreateMoipOrderId
@@ -69,11 +72,11 @@
     card.expirationMonth = 06;
     card.expirationYear = 18;
     card.number = [MPKUtilities encryptData:@"4551870000000183"];
-    card.cvv = [MPKUtilities encryptData:@"123"];
+    card.cvv = @"123";//[MPKUtilities encryptData:@"123"];
     card.cardholder = holder;
     
     MPKPayment *payment = [MPKPayment new];
-    payment.moipOrderId = @"ORD-O3VHZ3AOVUU8";//[self getMoipOrderId];
+    payment.moipOrderId = [self getMoipOrderId];
     payment.installmentCount = 2;
     payment.method = MPKPaymentMethodCreditCard;
     payment.creditCard = card;
@@ -92,20 +95,31 @@
 {
     NSMutableString *privatekey = [NSMutableString new];
     [privatekey appendFormat:@"-----BEGIN RSA PRIVATE KEY-----"];
-    [privatekey appendFormat:@"MIICXAIBAAKBgQDce1lVh/ZelksxZaypzs0l+U1glruZD3qnh9PrQQpT2DKh/JeR"];
-    [privatekey appendFormat:@"gOmMfU4fz7ayHnSRRvNWRyIDLBkWJr5KIq7jWgDSaGmb+QpAU8xm8iKx5mjepp1w"];
-    [privatekey appendFormat:@"l9guXXlDjQlCRoQfRCZtTSN0IVIlDcAfAhaK/ot8+hF+iW+8wgSrjVO+9wIDAQAB"];
-    [privatekey appendFormat:@"AoGAdkzI1hepnX7OwaZoSoRnlqR5XAYEik+/4/wBPQ0c2Xf7UucQ/EVLCtKBBJiS"];
-    [privatekey appendFormat:@"0md87CZBkl2AZmtW2ofXOjf51Yvmu3dvwP3E/hOmFNP55KKeqWxzJzQbuQXPMp3T"];
-    [privatekey appendFormat:@"ICBqwFUCamDrbUUlE3MSFCnYHVYJNL2CG+gaPVNp+0dR36ECQQD2zUHUjtnrH5/+"];
-    [privatekey appendFormat:@"3wdEVmA1BSP8f2G0PyrTHx8kevzJaOL4gsRLooButgvmHpfIr3412CSVw6rKKbSq"];
-    [privatekey appendFormat:@"6bP9K/1NAkEA5LL47inYweWl1LUq1se+Inhnj381Elgf7AV0xiqE1FwyxlV5v3Hh"];
-    [privatekey appendFormat:@"b1Lp5A9RnRSk8/wKGHtrep7W3T9gnv+bUwJAdyDoj8NMaPPg9NOO3GudELqkfjK2"];
-    [privatekey appendFormat:@"ZJzA/RtemutKraWVOUNVoPSVbdstryxBM7uR/keQkUHbZK3w6TbZjHD5WQJAe/uO"];
-    [privatekey appendFormat:@"ukbTbOKb0UHaFJA6wqM1uXSECArgW2rl0JyyYBIPsLgcBa6uQVTY2bt4Skkr192W"];
-    [privatekey appendFormat:@"d4lJTjOYVl+KeQgnYwJBALSKPBXdvYWaVqihHn6l/SbawoOUsEC6M0bMupqeUpgU"];
-    [privatekey appendFormat:@"7XhyPUraO8WkcHz/WHXiBrtUyqGP0nz9Izc7H7yU5F4="];
+    [privatekey appendFormat:@"MIICXQIBAAKBgQDLnyIfrrqmbrTpBtPOuMmuZZzE22E4OP5fNRP8xS8wl/cGSX+4"];
+    [privatekey appendFormat:@"sYRWouu0vxIOfq7mNavycxHRXtsF2R6y5hhSkE4ji5xsQB6ZOvzNDfeflnzuJYVH"];
+    [privatekey appendFormat:@"OSPAFXG37CIJBELYnSoUVx5wPezAN0I6mFukMWBf7rOQ9qlHAw4oIuWK5wIDAQAB"];
+    [privatekey appendFormat:@"AoGBAJed+4u50FOjNWQaaFaSM+J+2PegHsj9bzM3U5Wwwc2eKhrtWYQN8muMTpQ8"];
+    [privatekey appendFormat:@"fdZ7MAJMzqbuVcMfrViybfBp8osbNCDCsiF+fFx5/b4StmxQLPTbShv9wC/hrxBf"];
+    [privatekey appendFormat:@"H4IR11eQC6HB17KIwNZX74dGQU1/vZ5bpQq4CYgYI2utGp+ZAkEA8pBX8nj19L7x"];
+    [privatekey appendFormat:@"YyGRbxy2faMBX34LqjMchh7PSYSdXDc0fqREdzPHRJvwQMhWHISEDAnuT3LMCpZC"];
+    [privatekey appendFormat:@"CzVluDCsOwJBANbmkp3xxrEIFY5unSrtG9q0pC7oGfKqavITNMZZ81plqm2a8v/c"];
+    [privatekey appendFormat:@"yaIX9KIzHhSwtdiCXj9HyVbBfZCtDlA2bUUCQFwow4F4u9pVgdksM9mHiz6I5Ein"];
+    [privatekey appendFormat:@"1z6/VKMQqalBHZif0O4c83Zm0dsbdFjoxO7o2lLIoybEcwnCtS0VCKTGuWkCQGbu"];
+    [privatekey appendFormat:@"HT+ldEOK2bhU5taOpw7EAvesl/ERCxRTeq2em96qX00MMGO4vqLy0mt2DGxgj1ja"];
+    [privatekey appendFormat:@"aIXqvlbdamUHXpmw1/kCQQCNRjrNfEhA+QE4VOsmaNCVe49it2n1hEoIu6sV7Jmw"];
+    [privatekey appendFormat:@"rAWnIqIRmFei3aMvmm/bqoHuMwRwKj9bFCKMuGtAb2+Y"];
     [privatekey appendFormat:@"-----END RSA PRIVATE KEY-----"];
+    
+    
+    NSMutableString *pk = [NSMutableString new];
+    [pk appendFormat:@"-----BEGIN PUBLIC KEY-----"];
+    [pk appendFormat:@"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDLnyIfrrqmbrTpBtPOuMmuZZzE"];
+    [pk appendFormat:@"22E4OP5fNRP8xS8wl/cGSX+4sYRWouu0vxIOfq7mNavycxHRXtsF2R6y5hhSkE4j"];
+    [pk appendFormat:@"i5xsQB6ZOvzNDfeflnzuJYVHOSPAFXG37CIJBELYnSoUVx5wPezAN0I6mFukMWBf"];
+    [pk appendFormat:@"7rOQ9qlHAw4oIuWK5wIDAQAB"];
+    [pk appendFormat:@"-----END PUBLIC KEY-----"];
+    
+    [MPKUtilities importPublicKey:pk];
     [MPKUtilities importPrivateKey:privatekey];
     
     NSString *creditCardNumber = @"4903762433566341";

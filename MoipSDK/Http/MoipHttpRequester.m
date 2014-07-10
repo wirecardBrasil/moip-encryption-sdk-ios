@@ -84,6 +84,50 @@ NSMutableDictionary *headers;
     return newResponse;
 }
 
+- (void)post:(NSString *)url payload:(id)payload completation:(void (^)(MoipHttpResponse *))completation
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    request.HTTPMethod = @"POST";
+    
+    for (NSString *key in [headers allKeys])
+    {
+        [request setValue:headers[key] forHTTPHeaderField:key];
+    }
+    
+    [request setTimeoutInterval:60];
+    
+    if (payload != nil && [payload isKindOfClass:[NSString class]])
+    {
+        [request setHTTPBody:[payload dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    else if ([payload isKindOfClass:[NSData class]])
+    {
+        [request setHTTPBody:payload];
+    }
+    else if([payload isKindOfClass:[NSInputStream class]])
+    {
+        [request setHTTPBodyStream:payload];
+        [request setTimeoutInterval:0];
+    }
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        MoipHttpResponse *newResponse = [MoipHttpResponse new];
+        newResponse.content = data;
+        
+        if ([response isKindOfClass:[NSHTTPURLResponse class]])
+        {
+            newResponse.httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
+        }
+        else
+        {
+            newResponse.urlErrorCode = connectionError.code;
+        }
+        
+        completation(newResponse);
+    }];
+}
+
 - (MoipHttpResponse *) post:(NSString *)url payload:(id)payload params:(NSDictionary * )params delegate:(id)postDelegate
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -123,6 +167,7 @@ NSMutableDictionary *headers;
     {
         @try
         {
+            
             NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             MoipHttpResponse *newResponse = [MoipHttpResponse new];
             newResponse.content = result;
@@ -135,7 +180,7 @@ NSMutableDictionary *headers;
             {
                 newResponse.urlErrorCode = error.code;
             }
-            
+
             return newResponse;
         }
         @catch (NSException *exception) {

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Constants.h"
 #import "MPKPaymentTransaction.h"
 
 static NSString *MPKTextFullname = @"MPKTextFullname";

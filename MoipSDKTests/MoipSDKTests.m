@@ -14,8 +14,6 @@
 #import "HTTPStatusCodes.h"
 
 @interface MoipSDKTests : XCTestCase
-
-
 @end
 
 @implementation MoipSDKTests
@@ -35,8 +33,8 @@
     [pk appendFormat:@"WwIDAQAB\n"];
     [pk appendFormat:@"-----END PUBLIC KEY-----"];
     
-    [MoipSDK startSessionWithToken:@"01010101010101010101010101010101"
-                               key:@"ABABABABABABABABABABABABABABABABABABABAB"
+    [MoipSDK startSessionWithToken:@"QZ9A1JYHORUWDVHPR5MLOLTYLIKWKYL7"
+                               key:@"JNQKBLSRYPE2C9ZCJNTSOVCEQBBJPNXINY13RQNB"
                          publicKey:pk
                        environment:MPKEnvironmentSANDBOX];
 }
@@ -44,15 +42,13 @@
 - (void)tearDown
 {
     [super tearDown];
-    
-    [MPKUtilities removeKey:kPublicKeyName];
-    [MPKUtilities removeKey:kPrivateKeyName];
+
 }
 
 - (void) testShouldCreateMoipOrderId
 {
     NSString *orderid = [self getMoipOrderId];
-    NSLog(@"-----------------------------------------------:::::::: %@", orderid);
+    NSLog(@"-------------------------------------------------------------------:::::::: %@", orderid);
     
     XCTAssertNotNil(orderid, @"");
 }
@@ -69,30 +65,41 @@
     holder.phoneNumber = @"975902554";
     
     MPKCreditCard *card = [MPKCreditCard new];
-    card.expirationMonth = 06;
+    card.expirationMonth = 05;
     card.expirationYear = 18;
-    card.number = [MPKUtilities encryptData:@"4551870000000183"];
-    card.cvv = @"123";//[MPKUtilities encryptData:@"123"];
+    card.number = [MPKUtilities encryptData:@"4012001037141112"];
+    card.cvv = [MPKUtilities encryptData:@"123"];
     card.cardholder = holder;
     
     MPKPayment *payment = [MPKPayment new];
     payment.moipOrderId = [self getMoipOrderId];
-    payment.installmentCount = 2;
+    payment.installmentCount = 1;
     payment.method = MPKPaymentMethodCreditCard;
     payment.creditCard = card;
     
-    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction)
-    {
+    __block BOOL waitingForBlock = YES;
+    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
+
+        waitingForBlock = NO;
         XCTAssertNotNil(transaction, @"payment transaction is nil");
         XCTAssertEqual(transaction.status, MPKPaymentStatusInAnalysis, @"Status equals to InAnalysis");
         
     } failure:^(NSArray *errorList) {
-        NSLog(@"%@", errorList);
+        waitingForBlock = NO;
+        XCTAssertNil(errorList, @"Error list: %@", errorList);
     }];
+    
+    while(waitingForBlock) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+    }
 }
 
 - (void) testShouldEncryptAndDecryptACreditCardNumber
 {
+    [MPKUtilities removeKey:kPublicKeyName];
+    [MPKUtilities removeKey:kPrivateKeyName];
+    
     NSMutableString *privatekey = [NSMutableString new];
     [privatekey appendFormat:@"-----BEGIN RSA PRIVATE KEY-----"];
     [privatekey appendFormat:@"MIICXQIBAAKBgQDLnyIfrrqmbrTpBtPOuMmuZZzE22E4OP5fNRP8xS8wl/cGSX+4"];
@@ -129,115 +136,10 @@
     XCTAssertEqualObjects(creditCardNumber, decryptedCreditCard, @"%@ %@", creditCardNumber, decryptedCreditCard);
 }
 
-- (void) testShouldReturnErrorTokenIsInvalid
-{
-    [MoipSDK startSessionWithToken:@"" key:@"" publicKey:@"" environment:MPKEnvironmentSANDBOX];
-    
-    MPKCardHolder *holder = [MPKCardHolder new];
-    holder.fullname = @"Fernando Nazario Sousa";
-    holder.birthdate = @"1988-04-27";
-    holder.documentType = MPKCardHolderDocumentTypeCPF;
-    holder.documentNumber = @"36021561848";
-    holder.phoneCountryCode = @"55";
-    holder.phoneAreaCode = @"11";
-    holder.phoneNumber = @"975902554";
-    
-    MPKCreditCard *card = [MPKCreditCard new];
-    card.expirationMonth = 06;
-    card.expirationYear = 18;
-    card.number = @"4903762433566341";
-    card.cvv = @"751";
-    card.cardholder = holder;
-    
-    MPKPayment *payment = [MPKPayment new];
-    payment.moipOrderId = [self getMoipOrderId];
-    payment.installmentCount = 2;
-    payment.method = MPKPaymentMethodCreditCard;
-    payment.creditCard = card;
-    
-    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
-        XCTAssertEqual(transaction.status, MPKPaymentStatusInAnalysis, @"Status equals to InAnalysis");
-    } failure:^(NSArray *errorList) {
-        
-        for (MPKError *err in errorList)
-        {
-            XCTAssertEqual(err.httpStatusCode, kCFURLErrorUserCancelledAuthentication, @"%@", err);
-            break;
-        }
-    }];
-}
-
-- (void) testShouldReturnErrorCreditCardIsInvalid
-{
-    MPKCardHolder *holder = [MPKCardHolder new];
-    holder.fullname = @"Fernando Nazario Sousa";
-    holder.birthdate = @"1988-04-27";
-    holder.documentType = MPKCardHolderDocumentTypeCPF;
-    holder.documentNumber = @"36021561848";
-    holder.phoneCountryCode = @"55";
-    holder.phoneAreaCode = @"11";
-    holder.phoneNumber = @"975902554";
-    
-    MPKCreditCard *card = [MPKCreditCard new];
-    card.expirationMonth = 06;
-    card.expirationYear = 18;
-    card.number = @"";
-    card.cvv = @"751";
-    card.cardholder = holder;
-    
-    MPKPayment *payment = [MPKPayment new];
-    payment.moipOrderId = [self getMoipOrderId];
-    payment.installmentCount = 2;
-    payment.method = MPKPaymentMethodCreditCard;
-    payment.creditCard = card;
-    
-    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
-        XCTAssertEqual(transaction.status, MPKPaymentStatusInAnalysis, @"Status equals to InAnalysis");
-    } failure:^(NSArray *errorList) {
-        XCTAssertTrue(errorList.count > 0, @"Errors: %@", errorList);
-    }];
-}
-
-- (void) testShouldReturnErrorMoipIdOrderIsInvalid
-{
-    MPKCardHolder *holder = [MPKCardHolder new];
-    holder.fullname = @"Fernando Nazario Sousa";
-    holder.birthdate = @"1988-04-27";
-    holder.documentType = MPKCardHolderDocumentTypeCPF;
-    holder.documentNumber = @"36021561848";
-    holder.phoneCountryCode = @"55";
-    holder.phoneAreaCode = @"11";
-    holder.phoneNumber = @"975902554";
-    
-    MPKCreditCard *card = [MPKCreditCard new];
-    card.expirationMonth = 06;
-    card.expirationYear = 18;
-    card.number = @"4903762433566341";
-    card.cvv = @"751";
-    card.cardholder = holder;
-    
-    MPKPayment *payment = [MPKPayment new];
-    payment.moipOrderId = @"";
-    payment.installmentCount = 2;
-    payment.method = MPKPaymentMethodCreditCard;
-    payment.creditCard = card;
-    
-    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
-        XCTAssertEqual(transaction.status, MPKPaymentStatusInAnalysis, @"Status equals to InAnalysis");
-    } failure:^(NSArray *errorList) {
-        XCTAssertTrue(errorList.count > 0, @"Errors: %@", errorList);
-    }];
-}
-
-- (void) testShouldConfigurePiPad
-{
-    [[MoipSDK session] configureSitef];
-}
-
 - (void) testShouldCheckIfCertificateIsTrust
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.moip.com.br/"]];
-    request.HTTPMethod = @"GET";
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://test.moip.com.br/"]];
+    request.HTTPMethod = @"POST";
     
     NSHTTPURLResponse *response = nil;
     NSError *error = [NSError new];

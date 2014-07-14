@@ -45,7 +45,7 @@ NSMutableDictionary *headers;
 
 - (void) setDefaultHeaders
 {
-//    [headers setValue:@"Moip-SDK-iOS/1.0" forKey:@"User-Agent"];
+    [headers setValue:@"Moip-SDK-iOS/1.0" forKey:@"User-Agent"];
     [headers setValue:@"application/json" forKey:@"Content-Type"];
     if (self.basicAuth != nil)
     {
@@ -109,23 +109,29 @@ NSMutableDictionary *headers;
         [request setHTTPBodyStream:payload];
         [request setTimeoutInterval:0];
     }
+
+    __block NSURLResponse *response = nil;
+    __block NSError *error = [NSError new];
     
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        MoipHttpResponse *newResponse = [MoipHttpResponse new];
-        newResponse.content = data;
+        NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
-        if ([response isKindOfClass:[NSHTTPURLResponse class]])
-        {
-            newResponse.httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
-        }
-        else
-        {
-            newResponse.urlErrorCode = connectionError.code;
-        }
-        
-        completation(newResponse);
-    }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            MoipHttpResponse *newResponse = [MoipHttpResponse new];
+            newResponse.content = result;
+            
+            if ([response isKindOfClass:[NSHTTPURLResponse class]])
+            {
+                newResponse.httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
+            }
+            else
+            {
+                newResponse.urlErrorCode = error.code;
+            }
+            completation(newResponse);
+        });
+    });
 }
 
 - (MoipHttpResponse *) post:(NSString *)url payload:(id)payload params:(NSDictionary * )params delegate:(id)postDelegate
@@ -165,28 +171,20 @@ NSMutableDictionary *headers;
     }
     else
     {
-        @try
+        NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        MoipHttpResponse *newResponse = [MoipHttpResponse new];
+        newResponse.content = result;
+        
+        if ([response isKindOfClass:[NSHTTPURLResponse class]])
         {
-            
-            NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            MoipHttpResponse *newResponse = [MoipHttpResponse new];
-            newResponse.content = result;
-            
-            if ([response isKindOfClass:[NSHTTPURLResponse class]])
-            {
-                newResponse.httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
-            }
-            else
-            {
-                newResponse.urlErrorCode = error.code;
-            }
-
-            return newResponse;
+            newResponse.httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
         }
-        @catch (NSException *exception) {
-            NSLog(@"%@", exception);
-            return nil;
+        else
+        {
+            newResponse.urlErrorCode = error.code;
         }
+        
+        return newResponse;
     }
 }
 

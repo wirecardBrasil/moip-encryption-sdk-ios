@@ -7,6 +7,7 @@
 //
 
 #import <CommonCrypto/CommonDigest.h>
+#import "Constants.h"
 #import "MPKEnvironment.h"
 
 @interface MPKUtilities : NSObject

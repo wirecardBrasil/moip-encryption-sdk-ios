@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
+#import "MPKView.h"
+
 #define GET_RGB(r,g,b) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1.0f]
 #define DarkGreyColor GET_RGB(0,0,0)
 #define RedColor GET_RGB(253,0,17)
@@ -22,7 +24,6 @@
 static NSString *const kPKLocalizedStringsTableName = @"MoipPaymentKit";
 static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable";
 
-#import "MPKView.h"
 #import "MPKTextField.h"
 #import "MPKCard.h"
 #import "MPKCardNumber.h"

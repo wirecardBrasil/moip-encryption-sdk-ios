@@ -23,18 +23,27 @@
     [super setUp];
 
     NSMutableString *pk = [NSMutableString new];
-    [pk appendFormat:@"-----BEGIN PUBLIC KEY-----\n"];
-    [pk appendFormat:@"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoBttaXwRoI1Fbcond5mS\n"];
-    [pk appendFormat:@"7QOb7X2lykY5hvvDeLJelvFhpeLnS4YDwkrnziM3W00UNH1yiSDU+3JhfHu5G387\n"];
-    [pk appendFormat:@"O6uN9rIHXvL+TRzkVfa5iIjG+ap2N0/toPzy5ekpgxBicjtyPHEgoU6dRzdszEF4\n"];
-    [pk appendFormat:@"ItimGk5ACx/lMOvctncS5j3uWBaTPwyn0hshmtDwClf6dEZgQvm/dNaIkxHKV+9j\n"];
-    [pk appendFormat:@"Mn3ZfK/liT8A3xwaVvRzzuxf09xJTXrAd9v5VQbeWGxwFcW05oJulSFjmJA9Hcmb\n"];
-    [pk appendFormat:@"DYHJT+sG2mlZDEruCGAzCVubJwGY1aRlcs9AQc1jIm/l8JwH7le2kpk3QoX+gz0w\n"];
-    [pk appendFormat:@"WwIDAQAB\n"];
+//    [pk appendFormat:@"-----BEGIN PUBLIC KEY-----\n"];
+//    [pk appendFormat:@"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoBttaXwRoI1Fbcond5mS\n"];
+//    [pk appendFormat:@"7QOb7X2lykY5hvvDeLJelvFhpeLnS4YDwkrnziM3W00UNH1yiSDU+3JhfHu5G387\n"];
+//    [pk appendFormat:@"O6uN9rIHXvL+TRzkVfa5iIjG+ap2N0/toPzy5ekpgxBicjtyPHEgoU6dRzdszEF4\n"];
+//    [pk appendFormat:@"ItimGk5ACx/lMOvctncS5j3uWBaTPwyn0hshmtDwClf6dEZgQvm/dNaIkxHKV+9j\n"];
+//    [pk appendFormat:@"Mn3ZfK/liT8A3xwaVvRzzuxf09xJTXrAd9v5VQbeWGxwFcW05oJulSFjmJA9Hcmb\n"];
+//    [pk appendFormat:@"DYHJT+sG2mlZDEruCGAzCVubJwGY1aRlcs9AQc1jIm/l8JwH7le2kpk3QoX+gz0w\n"];
+//    [pk appendFormat:@"WwIDAQAB\n"];
+//    [pk appendFormat:@"-----END PUBLIC KEY-----"];
+    [pk appendFormat:@"-----BEGIN PUBLIC KEY-----"];
+    [pk appendFormat:@"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi3UDmdCJ4LVJAs+2EqwY"];
+    [pk appendFormat:@"0q3fw6N+++KdxfSJbBbprSc0J3+NKiQjd+jERsDMJFzrjdndHn3z1grQ5D6p5ghp"];
+    [pk appendFormat:@"KyIAxbc/i7Td0lY3mYEiWcFO+N59ORFIFH4y1jJ+KBywvwZk7KDNNGkAReJFQmqU"];
+    [pk appendFormat:@"FMoc4THAgRg25GjSncN+nnaK+dbwkeG5fTL8vNJwn95v8ZLA531Vv8XzIPKIxUld"];
+    [pk appendFormat:@"wzdZh/+4hsRYoLaKbV7T/yCcoiNLzsf9eHOauAafB3UIar8PKwSL7VCf1nW6Y39K"];
+    [pk appendFormat:@"twjjp53Svu7KnWq0xOj4dAQgUcYBg7F6ZlIMqxXgzDckOYwsOBC3fkqKJTzK8dWn"];
+    [pk appendFormat:@"swIDAQAB"];
     [pk appendFormat:@"-----END PUBLIC KEY-----"];
     
-    [MoipSDK startSessionWithToken:@"QZ9A1JYHORUWDVHPR5MLOLTYLIKWKYL7"
-                               key:@"JNQKBLSRYPE2C9ZCJNTSOVCEQBBJPNXINY13RQNB"
+    [MoipSDK startSessionWithToken:@"TDY93LUSD6NSOXMBKHMROFV7G0FSXPUA"
+                               key:@"DM1ARXOGDXYXSDJYNULSAZ2JLI5J2XUTLVUYCXN6"
                          publicKey:pk
                        environment:MPKEnvironmentSANDBOX];
 }
@@ -86,7 +95,8 @@
         
     } failure:^(NSArray *errorList) {
         waitingForBlock = NO;
-        XCTAssertNil(errorList, @"Error list: %@", errorList);
+        NSLog(@"%@", errorList);
+        XCTAssertNil(errorList, @"");
     }];
     
     while(waitingForBlock) {

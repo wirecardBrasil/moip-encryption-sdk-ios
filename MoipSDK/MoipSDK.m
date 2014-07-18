@@ -129,17 +129,6 @@ static MoipSDK *sharedSingleton;
     NSString *url = [MPKUtilities urlWithEnv:self.environment endpoint:endpoint];
     
     MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.auth];
-//    MoipHttpResponse *response = [requester post:url payload:paymentJSON params:nil delegate:nil];
-//    if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
-//    {
-//        [self checkResponseSuccess:response successBlock:success];
-//    }
-//    else
-//    {
-//        [self checkResponseFailure:response failureBlock:failure];
-//    }
-//    
-    
     [requester post:url payload:paymentJSON completation:^(MoipHttpResponse *response) {
         if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
         {

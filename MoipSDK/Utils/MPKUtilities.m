@@ -32,6 +32,21 @@
     return [SecUtils encryptRSA:plainText keyTag:kPublicKeyName];
 }
 
++ (NSString *) encryptRSA:(NSString *)plainTextString key:(SecKeyRef)publicKey
+{
+    size_t cipherBufferSize = SecKeyGetBlockSize(publicKey);
+    uint8_t *cipherBuffer = malloc(cipherBufferSize);
+    uint8_t *nonce = (uint8_t *)[plainTextString UTF8String];
+    SecKeyEncrypt(publicKey,
+                  kSecPaddingOAEP,
+                  nonce,
+                  strlen( (char*)nonce ),
+                  &cipherBuffer[0],
+                  &cipherBufferSize);
+    NSData *encryptedData = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
+    return [encryptedData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+}
+
 + (NSString *) decryptData:(NSString *)plainText
 {
     return [SecUtils decryptRSA:plainText keyTag:kPrivateKeyName];

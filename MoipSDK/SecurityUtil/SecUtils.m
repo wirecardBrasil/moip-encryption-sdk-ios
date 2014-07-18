@@ -288,6 +288,7 @@ static NSString* pemPrivateFooter =  @"-----END RSA PRIVATE KEY-----";
         NSLog(@"read public key failed");
     }
     
+
     size_t cipherBufferSize = SecKeyGetBlockSize(privateKey);
     uint8_t *cipherBuffer = malloc(cipherBufferSize);
     
@@ -313,7 +314,8 @@ static NSString* pemPrivateFooter =  @"-----END RSA PRIVATE KEY-----";
 + (NSString*) decryptRSA:(NSString *)cipher withPubKey:(NSString *)key
 {
     NSString *pubKeyIdentifier = [NSString stringWithFormat:@"%@.publickey", [[NSBundle mainBundle] bundleIdentifier]];
-    // [SecUtils setPublicKey:key tag:pubKeyIdentifier];
+    [SecUtils setPublicKey:key tag:pubKeyIdentifier];
+    
     size_t plainBufferSize;
     uint8_t *plainBuffer;
     
@@ -423,27 +425,44 @@ static NSString* pemPrivateFooter =  @"-----END RSA PRIVATE KEY-----";
         if(publicKey) CFRelease(publicKey);
         //
         NSLog(@"read public key failed");
+        return nil;
     }
-    
-    size_t cipherBufferSize = SecKeyGetBlockSize(publicKey);
-    uint8_t *cipherBuffer = malloc(cipherBufferSize);
-    
-    uint8_t *nonce = (uint8_t*)[plainText UTF8String];
-    if(cipherBufferSize < sizeof(nonce))
+    else
     {
-        if(publicKey) CFRelease(publicKey);
-        //
-        NSLog(@"too long to encrypt");
-        free(cipherBuffer);
+        size_t cipherBufferSize = SecKeyGetBlockSize(publicKey);
+        uint8_t *cipherBuffer = malloc(cipherBufferSize);
+        uint8_t *nonce = (uint8_t *)[plainText UTF8String];
+        OSStatus status = SecKeyEncrypt(publicKey,
+                                        kSecPaddingOAEP,
+                                        nonce,
+                                        strlen( (char*)nonce ),
+                                        &cipherBuffer[0],
+                                        &cipherBufferSize);
+        
+        NSLog(@"%d", (int)status);
+        
+        NSData *encryptedData = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
+        return [self base64EncodedString:encryptedData];
+//        size_t cipherBufferSize = SecKeyGetBlockSize(publicKey);
+//        uint8_t *cipherBuffer = malloc(cipherBufferSize);
+//        
+//        uint8_t *nonce = (uint8_t*)[plainText UTF8String];
+//        if(cipherBufferSize < sizeof(nonce))
+//        {
+//            if(publicKey) CFRelease(publicKey);
+//            //
+//            NSLog(@"too long to encrypt");
+//            free(cipherBuffer);
+//        }
+//        
+//        SecKeyEncrypt(publicKey, kSecPaddingPKCS1, nonce, strlen((char*)nonce) + 1, &cipherBuffer[0], &cipherBufferSize);
+//        NSData *encryptedData = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
+//        
+//        if(publicKey) CFRelease(publicKey);
+//        free(cipherBuffer);
+//        
+//        return [self base64EncodedString:encryptedData];
     }
-    
-    SecKeyEncrypt(publicKey, kSecPaddingPKCS1, nonce, strlen((char*)nonce) + 1, &cipherBuffer[0], &cipherBufferSize);
-    NSData *encryptedData = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
-    
-    if(publicKey) CFRelease(publicKey);
-    free(cipherBuffer);
-    
-    return [self base64EncodedString:encryptedData];
 }
 
 #pragma mark - Public/Private Key Import Methods:
@@ -517,7 +536,8 @@ static NSString* pemPrivateFooter =  @"-----END RSA PRIVATE KEY-----";
         strippedKey = [[strippedKey stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
         isX509 = YES;
     }
-    else if(([pemPublicKeyString rangeOfString:pKCS1PublicHeader].location != NSNotFound) && ([pemPublicKeyString rangeOfString:pKCS1PublicFooter].location != NSNotFound)){
+    else if(([pemPublicKeyString rangeOfString:pKCS1PublicHeader].location != NSNotFound) && ([pemPublicKeyString rangeOfString:pKCS1PublicFooter].location != NSNotFound))
+    {
         strippedKey = [[pemPublicKeyString stringByReplacingOccurrencesOfString:pKCS1PublicHeader withString:@""] stringByReplacingOccurrencesOfString:pKCS1PublicFooter withString:@""];
         strippedKey = [[strippedKey stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
         isX509 = NO;
@@ -793,11 +813,14 @@ static NSString* pemPrivateFooter =  @"-----END RSA PRIVATE KEY-----";
                         initWithBytes:outputBuffer
                         length:outputLength
                         encoding:NSASCIIStringEncoding];
+//    NSString *result = [[NSString alloc]
+//                        initWithBytes:outputBuffer
+//                        length:outputLength
+//                        encoding:NSUTF8StringEncoding];
 	free(outputBuffer);
     
     result = [result stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    
-	return result;
+    return result;
 }
 
 #pragma mark - Public Key Import/Export convenience method

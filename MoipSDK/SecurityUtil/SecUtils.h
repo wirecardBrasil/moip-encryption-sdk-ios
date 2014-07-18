@@ -28,6 +28,8 @@
 +(NSString*)getX509FormattedPublicKey:(NSString*)tag;
 +(NSString*)getPEMFormattedPrivateKey:(NSString*)tag;
 
++ (NSData *)dataFromBase64String:(NSString *)aString;
+
 @end
 
 

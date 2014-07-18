@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
+#define MOIPTOKENTESTS @"TDY93LUSD6NSOXMBKHMROFV7G0FSXPUA"
+#define MOIPKEYTESTS @"DM1ARXOGDXYXSDJYNULSAZ2JLI5J2XUTLVUYCXN6"
+
 #import <XCTest/XCTest.h>
 #import "MoipSDK.h"
 #import "MPKUtilities.h"
@@ -14,6 +17,9 @@
 #import "HTTPStatusCodes.h"
 
 @interface MoipSDKTests : XCTestCase
+{
+    NSMutableString *publicKeyTests;
+}
 @end
 
 @implementation MoipSDKTests
@@ -22,7 +28,7 @@
 {
     [super setUp];
 
-    NSMutableString *pk = [NSMutableString new];
+    publicKeyTests = [NSMutableString new];
 //    [pk appendFormat:@"-----BEGIN PUBLIC KEY-----\n"];
 //    [pk appendFormat:@"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoBttaXwRoI1Fbcond5mS\n"];
 //    [pk appendFormat:@"7QOb7X2lykY5hvvDeLJelvFhpeLnS4YDwkrnziM3W00UNH1yiSDU+3JhfHu5G387\n"];
@@ -32,19 +38,19 @@
 //    [pk appendFormat:@"DYHJT+sG2mlZDEruCGAzCVubJwGY1aRlcs9AQc1jIm/l8JwH7le2kpk3QoX+gz0w\n"];
 //    [pk appendFormat:@"WwIDAQAB\n"];
 //    [pk appendFormat:@"-----END PUBLIC KEY-----"];
-    [pk appendFormat:@"-----BEGIN PUBLIC KEY-----"];
-    [pk appendFormat:@"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi3UDmdCJ4LVJAs+2EqwY"];
-    [pk appendFormat:@"0q3fw6N+++KdxfSJbBbprSc0J3+NKiQjd+jERsDMJFzrjdndHn3z1grQ5D6p5ghp"];
-    [pk appendFormat:@"KyIAxbc/i7Td0lY3mYEiWcFO+N59ORFIFH4y1jJ+KBywvwZk7KDNNGkAReJFQmqU"];
-    [pk appendFormat:@"FMoc4THAgRg25GjSncN+nnaK+dbwkeG5fTL8vNJwn95v8ZLA531Vv8XzIPKIxUld"];
-    [pk appendFormat:@"wzdZh/+4hsRYoLaKbV7T/yCcoiNLzsf9eHOauAafB3UIar8PKwSL7VCf1nW6Y39K"];
-    [pk appendFormat:@"twjjp53Svu7KnWq0xOj4dAQgUcYBg7F6ZlIMqxXgzDckOYwsOBC3fkqKJTzK8dWn"];
-    [pk appendFormat:@"swIDAQAB"];
-    [pk appendFormat:@"-----END PUBLIC KEY-----"];
+    [publicKeyTests appendFormat:@"-----BEGIN PUBLIC KEY-----\n"];
+    [publicKeyTests appendFormat:@"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi3UDmdCJ4LVJAs+2EqwY\n"];
+    [publicKeyTests appendFormat:@"0q3fw6N+++KdxfSJbBbprSc0J3+NKiQjd+jERsDMJFzrjdndHn3z1grQ5D6p5ghp\n"];
+    [publicKeyTests appendFormat:@"KyIAxbc/i7Td0lY3mYEiWcFO+N59ORFIFH4y1jJ+KBywvwZk7KDNNGkAReJFQmqU\n"];
+    [publicKeyTests appendFormat:@"FMoc4THAgRg25GjSncN+nnaK+dbwkeG5fTL8vNJwn95v8ZLA531Vv8XzIPKIxUld\n"];
+    [publicKeyTests appendFormat:@"wzdZh/+4hsRYoLaKbV7T/yCcoiNLzsf9eHOauAafB3UIar8PKwSL7VCf1nW6Y39K\n"];
+    [publicKeyTests appendFormat:@"twjjp53Svu7KnWq0xOj4dAQgUcYBg7F6ZlIMqxXgzDckOYwsOBC3fkqKJTzK8dWn\n"];
+    [publicKeyTests appendFormat:@"swIDAQAB\n"];
+    [publicKeyTests appendFormat:@"-----END PUBLIC KEY-----"];
     
-    [MoipSDK startSessionWithToken:@"TDY93LUSD6NSOXMBKHMROFV7G0FSXPUA"
-                               key:@"DM1ARXOGDXYXSDJYNULSAZ2JLI5J2XUTLVUYCXN6"
-                         publicKey:pk
+    [MoipSDK startSessionWithToken:MOIPTOKENTESTS
+                               key:MOIPKEYTESTS
+                         publicKey:publicKeyTests
                        environment:MPKEnvironmentSANDBOX];
 }
 
@@ -52,6 +58,13 @@
 {
     [super tearDown];
 
+}
+
+- (void) testShouldFucking
+{
+    NSString *cryptData = [MPKUtilities encryptData:@"4111111111111111"];
+    
+    XCTAssertNotNil(cryptData, @"");
 }
 
 - (void) testShouldCreateMoipOrderId
@@ -76,8 +89,8 @@
     MPKCreditCard *card = [MPKCreditCard new];
     card.expirationMonth = 05;
     card.expirationYear = 18;
-    card.number = [MPKUtilities encryptData:@"4012001037141112"];
-    card.cvv = [MPKUtilities encryptData:@"123"];
+    card.number = @"4111111111111111";//[MPKUtilities encryptData:@"4111111111111111"];
+    card.cvv = @"999";//[MPKUtilities encryptData:@"999"];
     card.cardholder = holder;
     
     MPKPayment *payment = [MPKPayment new];
@@ -91,7 +104,6 @@
 
         waitingForBlock = NO;
         XCTAssertNotNil(transaction, @"payment transaction is nil");
-        XCTAssertEqual(transaction.status, MPKPaymentStatusInAnalysis, @"Status equals to InAnalysis");
         
     } failure:^(NSArray *errorList) {
         waitingForBlock = NO;
@@ -164,7 +176,8 @@
     NSString *orderJSON = [self generateOrderJSON];
     NSString *url = [MPKUtilities urlWithEnv:MPKEnvironmentSANDBOX endpoint:@"/orders"];
     
-    NSData *encodedLoginData = [@"01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB" dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *tokenAndKey = [NSString stringWithFormat:@"%@:%@", MOIPTOKENTESTS, MOIPKEYTESTS];
+    NSData *encodedLoginData = [tokenAndKey dataUsingEncoding:NSUTF8StringEncoding];
     NSString *auth = [NSString stringWithFormat:@"Basic %@",  [encodedLoginData base64EncodedStringWithOptions:NSUTF8StringEncoding]];
     
     MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:auth];
@@ -192,7 +205,12 @@
     [jsonOrder appendFormat:@"{"];
     [jsonOrder appendFormat:@"  \"ownId\": \"id_proprio\","];
     [jsonOrder appendFormat:@"  \"amount\": {"];
-    [jsonOrder appendFormat:@"    \"MPKCurrency\": \"BRL\""];
+    [jsonOrder appendFormat:@"    \"currency\": \"BRL\","];
+    [jsonOrder appendFormat:@"    \"subtotals\": {"];
+    [jsonOrder appendFormat:@"        \"shipping\": 200,"];
+    [jsonOrder appendFormat:@"        \"addition\": 1000,"];
+    [jsonOrder appendFormat:@"        \"discount\": 80"];
+    [jsonOrder appendFormat:@"    }"];
     [jsonOrder appendFormat:@"  },"];
     [jsonOrder appendFormat:@"  \"items\": ["];
     [jsonOrder appendFormat:@"    {"];
@@ -203,7 +221,7 @@
     [jsonOrder appendFormat:@"    }"];
     [jsonOrder appendFormat:@"  ],"];
     [jsonOrder appendFormat:@"  \"customer\": {"];
-    [jsonOrder appendFormat:@"    \"ownId\": \"meu_id_de_cliente\","];
+    [jsonOrder appendFormat:@"    \"ownId\": \"teste\","];
     [jsonOrder appendFormat:@"    \"fullname\": \"Jose Silva\","];
     [jsonOrder appendFormat:@"    \"email\": \"josedasilva@email.com\","];
     [jsonOrder appendFormat:@"    \"birthDate\": \"1988-12-30\","];

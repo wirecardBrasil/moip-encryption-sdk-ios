@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MPKCardHolder.h"
+#import "MPKCreditCard.h"
 #import "MPKView.h"
 #import "MPKPayment.h"
 #import "MPKPaymentTransaction.h"

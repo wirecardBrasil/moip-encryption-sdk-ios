@@ -17,6 +17,7 @@
 + (void) removeKey:(NSString *)tag;
 + (NSString *) encryptData:(NSString *)plainText;
 + (NSString *) decryptData:(NSString *)plainText;
++ (NSString *) encryptRSA:(NSString *)plainTextString key:(SecKeyRef)publicKey;
 + (NSString *) returnMD5Hash:(NSString*)concat;
 + (NSString *) computeSHA256DigestForString:(NSString*)input;
 + (NSString *) computeSHA256DigestForData:(NSData *)input;

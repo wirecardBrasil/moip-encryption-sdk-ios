@@ -7,559 +7,607 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		67BBBCB5197418F40089E3D6 /* MoipSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCB4197418F40089E3D6 /* MoipSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBCBB197418F40089E3D6 /* MoipSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67BBBCAF197418F40089E3D6 /* MoipSDK.framework */; };
-		67BBBCC2197418F40089E3D6 /* MoipSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCC1197418F40089E3D6 /* MoipSDKTests.m */; };
-		67BBBD431974191C0089E3D6 /* MPKCheckoutViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCCD1974191C0089E3D6 /* MPKCheckoutViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD441974191C0089E3D6 /* MPKCheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCCE1974191C0089E3D6 /* MPKCheckoutViewController.m */; };
-		67BBBD451974191C0089E3D6 /* MPKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCCF1974191C0089E3D6 /* MPKConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD461974191C0089E3D6 /* MPKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCD01974191C0089E3D6 /* MPKConfiguration.m */; };
-		67BBBD471974191C0089E3D6 /* MPKAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCD21974191C0089E3D6 /* MPKAddressZip.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD481974191C0089E3D6 /* MPKAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCD31974191C0089E3D6 /* MPKAddressZip.m */; };
-		67BBBD491974191C0089E3D6 /* MPKCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCD41974191C0089E3D6 /* MPKCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD4A1974191C0089E3D6 /* MPKCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCD51974191C0089E3D6 /* MPKCard.m */; };
-		67BBBD4B1974191C0089E3D6 /* MPKCardCVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCD61974191C0089E3D6 /* MPKCardCVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD4C1974191C0089E3D6 /* MPKCardCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCD71974191C0089E3D6 /* MPKCardCVC.m */; };
-		67BBBD4D1974191C0089E3D6 /* MPKCardExpiry.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCD81974191C0089E3D6 /* MPKCardExpiry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD4E1974191C0089E3D6 /* MPKCardExpiry.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCD91974191C0089E3D6 /* MPKCardExpiry.m */; };
-		67BBBD4F1974191C0089E3D6 /* MPKCardNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCDA1974191C0089E3D6 /* MPKCardNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD501974191C0089E3D6 /* MPKCardNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCDB1974191C0089E3D6 /* MPKCardNumber.m */; };
-		67BBBD511974191C0089E3D6 /* MPKCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCDC1974191C0089E3D6 /* MPKCardType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD521974191C0089E3D6 /* MPKComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCDD1974191C0089E3D6 /* MPKComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD531974191C0089E3D6 /* MPKComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCDE1974191C0089E3D6 /* MPKComponent.m */; };
-		67BBBD541974191C0089E3D6 /* MPKTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCDF1974191C0089E3D6 /* MPKTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD551974191C0089E3D6 /* MPKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCE01974191C0089E3D6 /* MPKTextField.m */; };
-		67BBBD561974191C0089E3D6 /* MPKUSAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCE11974191C0089E3D6 /* MPKUSAddressZip.h */; };
-		67BBBD571974191C0089E3D6 /* MPKUSAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCE21974191C0089E3D6 /* MPKUSAddressZip.m */; };
-		67BBBD581974191C0089E3D6 /* MPKView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCE31974191C0089E3D6 /* MPKView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD591974191C0089E3D6 /* MPKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCE41974191C0089E3D6 /* MPKView.m */; };
-		67BBBD5A1974191C0089E3D6 /* MPKEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCE61974191C0089E3D6 /* MPKEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD5B1974191C0089E3D6 /* MPKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCE81974191C0089E3D6 /* MPKError.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD5C1974191C0089E3D6 /* MPKError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCE91974191C0089E3D6 /* MPKError.m */; };
-		67BBBD5D1974191C0089E3D6 /* HTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCEB1974191C0089E3D6 /* HTTPStatusCodes.h */; };
-		67BBBD5E1974191C0089E3D6 /* MoipHttpRequester.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCEC1974191C0089E3D6 /* MoipHttpRequester.h */; };
-		67BBBD5F1974191C0089E3D6 /* MoipHttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCED1974191C0089E3D6 /* MoipHttpRequester.m */; };
-		67BBBD601974191C0089E3D6 /* MoipHttpResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCEE1974191C0089E3D6 /* MoipHttpResponse.h */; };
-		67BBBD611974191C0089E3D6 /* MoipHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCEF1974191C0089E3D6 /* MoipHttpResponse.m */; };
-		67BBBD621974191C0089E3D6 /* MPKAmount.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCF11974191C0089E3D6 /* MPKAmount.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD631974191C0089E3D6 /* MPKAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCF21974191C0089E3D6 /* MPKAmount.m */; };
-		67BBBD641974191C0089E3D6 /* MPKCardHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCF31974191C0089E3D6 /* MPKCardHolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD651974191C0089E3D6 /* MPKCardHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCF41974191C0089E3D6 /* MPKCardHolder.m */; };
-		67BBBD661974191C0089E3D6 /* MPKCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCF51974191C0089E3D6 /* MPKCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD671974191C0089E3D6 /* MPKCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCF61974191C0089E3D6 /* MPKCreditCard.m */; };
-		67BBBD681974191C0089E3D6 /* MPKEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCF71974191C0089E3D6 /* MPKEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD691974191C0089E3D6 /* MPKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCF81974191C0089E3D6 /* MPKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD6A1974191C0089E3D6 /* MPKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCF91974191C0089E3D6 /* MPKEvent.m */; };
-		67BBBD6B1974191C0089E3D6 /* MPKFee.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCFA1974191C0089E3D6 /* MPKFee.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD6C1974191C0089E3D6 /* MPKFee.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCFB1974191C0089E3D6 /* MPKFee.m */; };
-		67BBBD6D1974191C0089E3D6 /* MPKFundingInstrument.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCFC1974191C0089E3D6 /* MPKFundingInstrument.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD6E1974191C0089E3D6 /* MPKFundingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCFD1974191C0089E3D6 /* MPKFundingInstrument.m */; };
-		67BBBD6F1974191C0089E3D6 /* MPKPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBCFE1974191C0089E3D6 /* MPKPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD701974191C0089E3D6 /* MPKPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBCFF1974191C0089E3D6 /* MPKPayment.m */; };
-		67BBBD711974191C0089E3D6 /* MPKPaymentTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBD001974191C0089E3D6 /* MPKPaymentTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD721974191C0089E3D6 /* MPKPaymentTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBD011974191C0089E3D6 /* MPKPaymentTransaction.m */; };
-		67BBBD731974191C0089E3D6 /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBD021974191C0089E3D6 /* MoipSDK.m */; };
-		67BBBD741974191C0089E3D6 /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD041974191C0089E3D6 /* amex.png */; };
-		67BBBD751974191C0089E3D6 /* amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD051974191C0089E3D6 /* amex@2x.png */; };
-		67BBBD761974191C0089E3D6 /* cvc-amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD061974191C0089E3D6 /* cvc-amex.png */; };
-		67BBBD771974191C0089E3D6 /* cvc-amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD071974191C0089E3D6 /* cvc-amex@2x.png */; };
-		67BBBD781974191C0089E3D6 /* cvc.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD081974191C0089E3D6 /* cvc.png */; };
-		67BBBD791974191C0089E3D6 /* cvc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD091974191C0089E3D6 /* cvc@2x.png */; };
-		67BBBD7A1974191C0089E3D6 /* diners.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD0A1974191C0089E3D6 /* diners.png */; };
-		67BBBD7B1974191C0089E3D6 /* diners@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD0B1974191C0089E3D6 /* diners@2x.png */; };
-		67BBBD7C1974191C0089E3D6 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD0C1974191C0089E3D6 /* discover.png */; };
-		67BBBD7D1974191C0089E3D6 /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD0D1974191C0089E3D6 /* discover@2x.png */; };
-		67BBBD7E1974191C0089E3D6 /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD0E1974191C0089E3D6 /* gradient@2x.png */; };
-		67BBBD7F1974191C0089E3D6 /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD0F1974191C0089E3D6 /* jcb.png */; };
-		67BBBD801974191C0089E3D6 /* jcb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD101974191C0089E3D6 /* jcb@2x.png */; };
-		67BBBD811974191C0089E3D6 /* mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD111974191C0089E3D6 /* mastercard.png */; };
-		67BBBD821974191C0089E3D6 /* mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD121974191C0089E3D6 /* mastercard@2x.png */; };
-		67BBBD831974191C0089E3D6 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD131974191C0089E3D6 /* placeholder.png */; };
-		67BBBD841974191C0089E3D6 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD141974191C0089E3D6 /* placeholder@2x.png */; };
-		67BBBD851974191C0089E3D6 /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD151974191C0089E3D6 /* textfield.png */; };
-		67BBBD861974191C0089E3D6 /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD161974191C0089E3D6 /* textfield@2x.png */; };
-		67BBBD871974191C0089E3D6 /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD171974191C0089E3D6 /* visa.png */; };
-		67BBBD881974191C0089E3D6 /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD181974191C0089E3D6 /* visa@2x.png */; };
-		67BBBD891974191C0089E3D6 /* SecUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBD1A1974191C0089E3D6 /* SecUtils.h */; };
-		67BBBD8A1974191C0089E3D6 /* SecUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBD1B1974191C0089E3D6 /* SecUtils.m */; };
-		67BBBD8B1974191C0089E3D6 /* MPKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBD1D1974191C0089E3D6 /* MPKUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD8C1974191C0089E3D6 /* MPKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBD1E1974191C0089E3D6 /* MPKUtilities.m */; };
-		67BBBD8D1974191C0089E3D6 /* ClisitefAsync.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBD211974191C0089E3D6 /* ClisitefAsync.h */; };
-		67BBBD8E1974191C0089E3D6 /* HexColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBD251974191C0089E3D6 /* HexColor.h */; };
-		67BBBD8F1974191C0089E3D6 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBD261974191C0089E3D6 /* HexColor.m */; };
-		67BBBD901974191C0089E3D6 /* MPKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBD291974191C0089E3D6 /* MPKMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBD911974191C0089E3D6 /* MPKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBD2A1974191C0089E3D6 /* MPKMessage.m */; };
-		67BBBD921974191C0089E3D6 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD2D1974191C0089E3D6 /* NotificationBackgroundError.png */; };
-		67BBBD931974191C0089E3D6 /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD2E1974191C0089E3D6 /* NotificationBackgroundError@2x.png */; };
-		67BBBD941974191C0089E3D6 /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD2F1974191C0089E3D6 /* NotificationBackgroundErrorIcon.png */; };
-		67BBBD951974191C0089E3D6 /* NotificationBackgroundErrorIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD301974191C0089E3D6 /* NotificationBackgroundErrorIcon@2x.png */; };
-		67BBBD961974191C0089E3D6 /* NotificationBackgroundMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD311974191C0089E3D6 /* NotificationBackgroundMessage.png */; };
-		67BBBD971974191C0089E3D6 /* NotificationBackgroundMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD321974191C0089E3D6 /* NotificationBackgroundMessage@2x.png */; };
-		67BBBD981974191C0089E3D6 /* NotificationBackgroundSuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD331974191C0089E3D6 /* NotificationBackgroundSuccess.png */; };
-		67BBBD991974191C0089E3D6 /* NotificationBackgroundSuccess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD341974191C0089E3D6 /* NotificationBackgroundSuccess@2x.png */; };
-		67BBBD9A1974191C0089E3D6 /* NotificationBackgroundSuccessIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD351974191C0089E3D6 /* NotificationBackgroundSuccessIcon.png */; };
-		67BBBD9B1974191C0089E3D6 /* NotificationBackgroundSuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD361974191C0089E3D6 /* NotificationBackgroundSuccessIcon@2x.png */; };
-		67BBBD9C1974191C0089E3D6 /* NotificationBackgroundWarning.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD371974191C0089E3D6 /* NotificationBackgroundWarning.png */; };
-		67BBBD9D1974191C0089E3D6 /* NotificationBackgroundWarning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD381974191C0089E3D6 /* NotificationBackgroundWarning@2x.png */; };
-		67BBBD9E1974191C0089E3D6 /* NotificationBackgroundWarningIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD391974191C0089E3D6 /* NotificationBackgroundWarningIcon.png */; };
-		67BBBD9F1974191C0089E3D6 /* NotificationBackgroundWarningIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD3A1974191C0089E3D6 /* NotificationBackgroundWarningIcon@2x.png */; };
-		67BBBDA01974191C0089E3D6 /* NotificationButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD3B1974191C0089E3D6 /* NotificationButtonBackground.png */; };
-		67BBBDA11974191C0089E3D6 /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD3C1974191C0089E3D6 /* NotificationButtonBackground@2x.png */; };
-		67BBBDA21974191C0089E3D6 /* MPKMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 67BBBD3D1974191C0089E3D6 /* MPKMessagesDefaultDesign.json */; };
-		67BBBDA31974191C0089E3D6 /* MPKBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBD3F1974191C0089E3D6 /* MPKBlurView.h */; };
-		67BBBDA41974191C0089E3D6 /* MPKBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBD401974191C0089E3D6 /* MPKBlurView.m */; };
-		67BBBDA51974191C0089E3D6 /* MPKMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BBBD411974191C0089E3D6 /* MPKMessageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67BBBDA61974191C0089E3D6 /* MPKMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBBD421974191C0089E3D6 /* MPKMessageView.m */; };
+		67D6A9EB1979A8C00069F742 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9EA1979A8C00069F742 /* Foundation.framework */; };
+		67D6A9F11979A8C00069F742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67D6A9EF1979A8C00069F742 /* InfoPlist.strings */; };
+		67D6A9F51979A8C00069F742 /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6A9F41979A8C00069F742 /* MoipSDK.m */; };
+		67D6A9FC1979A8C00069F742 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9FB1979A8C00069F742 /* XCTest.framework */; };
+		67D6A9FD1979A8C00069F742 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9EA1979A8C00069F742 /* Foundation.framework */; };
+		67D6A9FF1979A8C00069F742 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9FE1979A8C00069F742 /* UIKit.framework */; };
+		67D6AA041979A8C00069F742 /* MoipSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9E71979A8C00069F742 /* MoipSDK.framework */; };
+		67D6AA0A1979A8C00069F742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA081979A8C00069F742 /* InfoPlist.strings */; };
+		67D6AA0C1979A8C00069F742 /* MoipSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA0B1979A8C00069F742 /* MoipSDKTests.m */; };
+		67D6AA901979A8E30069F742 /* MPKCheckoutViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA171979A8E20069F742 /* MPKCheckoutViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AA911979A8E30069F742 /* MPKCheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA181979A8E20069F742 /* MPKCheckoutViewController.m */; };
+		67D6AA921979A8E30069F742 /* MPKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA191979A8E20069F742 /* MPKConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AA931979A8E30069F742 /* MPKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA1A1979A8E20069F742 /* MPKConfiguration.m */; };
+		67D6AA941979A8E30069F742 /* MPKAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA1C1979A8E20069F742 /* MPKAddressZip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AA951979A8E30069F742 /* MPKAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA1D1979A8E20069F742 /* MPKAddressZip.m */; };
+		67D6AA961979A8E30069F742 /* MPKCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA1E1979A8E20069F742 /* MPKCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AA971979A8E30069F742 /* MPKCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA1F1979A8E20069F742 /* MPKCard.m */; };
+		67D6AA981979A8E30069F742 /* MPKCardCVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA201979A8E20069F742 /* MPKCardCVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AA991979A8E30069F742 /* MPKCardCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA211979A8E20069F742 /* MPKCardCVC.m */; };
+		67D6AA9A1979A8E30069F742 /* MPKCardExpiry.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA221979A8E20069F742 /* MPKCardExpiry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AA9B1979A8E30069F742 /* MPKCardExpiry.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA231979A8E20069F742 /* MPKCardExpiry.m */; };
+		67D6AA9C1979A8E30069F742 /* MPKCardNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA241979A8E20069F742 /* MPKCardNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AA9D1979A8E30069F742 /* MPKCardNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA251979A8E20069F742 /* MPKCardNumber.m */; };
+		67D6AA9E1979A8E30069F742 /* MPKCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA261979A8E20069F742 /* MPKCardType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AA9F1979A8E30069F742 /* MPKComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA271979A8E20069F742 /* MPKComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAA01979A8E30069F742 /* MPKComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA281979A8E20069F742 /* MPKComponent.m */; };
+		67D6AAA11979A8E30069F742 /* MPKTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA291979A8E20069F742 /* MPKTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAA21979A8E30069F742 /* MPKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA2A1979A8E20069F742 /* MPKTextField.m */; };
+		67D6AAA31979A8E30069F742 /* MPKUSAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA2B1979A8E20069F742 /* MPKUSAddressZip.h */; };
+		67D6AAA41979A8E30069F742 /* MPKUSAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA2C1979A8E20069F742 /* MPKUSAddressZip.m */; };
+		67D6AAA51979A8E30069F742 /* MPKView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA2D1979A8E20069F742 /* MPKView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAA61979A8E30069F742 /* MPKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA2E1979A8E20069F742 /* MPKView.m */; };
+		67D6AAA71979A8E30069F742 /* MPKEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA301979A8E20069F742 /* MPKEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAA81979A8E30069F742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA321979A8E20069F742 /* InfoPlist.strings */; };
+		67D6AAA91979A8E30069F742 /* MPKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA351979A8E20069F742 /* MPKError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAAA1979A8E30069F742 /* MPKError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA361979A8E20069F742 /* MPKError.m */; };
+		67D6AAAB1979A8E30069F742 /* HTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA381979A8E20069F742 /* HTTPStatusCodes.h */; };
+		67D6AAAC1979A8E30069F742 /* MoipHttpRequester.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA391979A8E20069F742 /* MoipHttpRequester.h */; };
+		67D6AAAD1979A8E30069F742 /* MoipHttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA3A1979A8E20069F742 /* MoipHttpRequester.m */; };
+		67D6AAAE1979A8E30069F742 /* MoipHttpResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA3B1979A8E20069F742 /* MoipHttpResponse.h */; };
+		67D6AAAF1979A8E30069F742 /* MoipHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA3C1979A8E20069F742 /* MoipHttpResponse.m */; };
+		67D6AAB01979A8E30069F742 /* MPKAmount.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA3E1979A8E20069F742 /* MPKAmount.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAB11979A8E30069F742 /* MPKAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA3F1979A8E20069F742 /* MPKAmount.m */; };
+		67D6AAB21979A8E30069F742 /* MPKCardHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA401979A8E20069F742 /* MPKCardHolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAB31979A8E30069F742 /* MPKCardHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA411979A8E20069F742 /* MPKCardHolder.m */; };
+		67D6AAB41979A8E30069F742 /* MPKCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA421979A8E20069F742 /* MPKCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAB51979A8E30069F742 /* MPKCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA431979A8E20069F742 /* MPKCreditCard.m */; };
+		67D6AAB61979A8E30069F742 /* MPKEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA441979A8E20069F742 /* MPKEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAB71979A8E30069F742 /* MPKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA451979A8E20069F742 /* MPKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAB81979A8E30069F742 /* MPKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA461979A8E20069F742 /* MPKEvent.m */; };
+		67D6AAB91979A8E30069F742 /* MPKFee.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA471979A8E20069F742 /* MPKFee.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AABA1979A8E30069F742 /* MPKFee.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA481979A8E20069F742 /* MPKFee.m */; };
+		67D6AABB1979A8E30069F742 /* MPKFundingInstrument.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA491979A8E20069F742 /* MPKFundingInstrument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AABC1979A8E30069F742 /* MPKFundingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA4A1979A8E20069F742 /* MPKFundingInstrument.m */; };
+		67D6AABD1979A8E30069F742 /* MPKPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA4B1979A8E20069F742 /* MPKPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AABE1979A8E30069F742 /* MPKPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA4C1979A8E20069F742 /* MPKPayment.m */; };
+		67D6AABF1979A8E30069F742 /* MPKPaymentTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA4D1979A8E20069F742 /* MPKPaymentTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAC01979A8E30069F742 /* MPKPaymentTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA4E1979A8E20069F742 /* MPKPaymentTransaction.m */; };
+		67D6AAC11979A8E30069F742 /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA501979A8E20069F742 /* amex.png */; };
+		67D6AAC21979A8E30069F742 /* amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA511979A8E20069F742 /* amex@2x.png */; };
+		67D6AAC31979A8E30069F742 /* cvc-amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA521979A8E20069F742 /* cvc-amex.png */; };
+		67D6AAC41979A8E30069F742 /* cvc-amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA531979A8E20069F742 /* cvc-amex@2x.png */; };
+		67D6AAC51979A8E30069F742 /* cvc.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA541979A8E20069F742 /* cvc.png */; };
+		67D6AAC61979A8E30069F742 /* cvc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA551979A8E20069F742 /* cvc@2x.png */; };
+		67D6AAC71979A8E30069F742 /* diners.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA561979A8E20069F742 /* diners.png */; };
+		67D6AAC81979A8E30069F742 /* diners@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA571979A8E20069F742 /* diners@2x.png */; };
+		67D6AAC91979A8E30069F742 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA581979A8E20069F742 /* discover.png */; };
+		67D6AACA1979A8E30069F742 /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA591979A8E20069F742 /* discover@2x.png */; };
+		67D6AACB1979A8E30069F742 /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5A1979A8E20069F742 /* gradient@2x.png */; };
+		67D6AACC1979A8E30069F742 /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5B1979A8E20069F742 /* jcb.png */; };
+		67D6AACD1979A8E30069F742 /* jcb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5C1979A8E20069F742 /* jcb@2x.png */; };
+		67D6AACE1979A8E30069F742 /* mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5D1979A8E20069F742 /* mastercard.png */; };
+		67D6AACF1979A8E30069F742 /* mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5E1979A8E20069F742 /* mastercard@2x.png */; };
+		67D6AAD01979A8E30069F742 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5F1979A8E20069F742 /* placeholder.png */; };
+		67D6AAD11979A8E30069F742 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA601979A8E20069F742 /* placeholder@2x.png */; };
+		67D6AAD21979A8E30069F742 /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA611979A8E20069F742 /* textfield.png */; };
+		67D6AAD31979A8E30069F742 /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA621979A8E20069F742 /* textfield@2x.png */; };
+		67D6AAD41979A8E30069F742 /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA631979A8E20069F742 /* visa.png */; };
+		67D6AAD51979A8E30069F742 /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA641979A8E20069F742 /* visa@2x.png */; };
+		67D6AAD61979A8E30069F742 /* SecUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA661979A8E20069F742 /* SecUtils.h */; };
+		67D6AAD71979A8E30069F742 /* SecUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA671979A8E20069F742 /* SecUtils.m */; };
+		67D6AAD81979A8E30069F742 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA691979A8E20069F742 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAD91979A8E30069F742 /* MPKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA6A1979A8E20069F742 /* MPKUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AADA1979A8E30069F742 /* MPKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA6B1979A8E20069F742 /* MPKUtilities.m */; };
+		67D6AADB1979A8E30069F742 /* ClisitefAsync.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA6E1979A8E20069F742 /* ClisitefAsync.h */; };
+		67D6AADC1979A8E30069F742 /* HexColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA721979A8E20069F742 /* HexColor.h */; };
+		67D6AADD1979A8E30069F742 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA731979A8E20069F742 /* HexColor.m */; };
+		67D6AADE1979A8E30069F742 /* MPKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA761979A8E20069F742 /* MPKMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AADF1979A8E30069F742 /* MPKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA771979A8E20069F742 /* MPKMessage.m */; };
+		67D6AAE01979A8E30069F742 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7A1979A8E20069F742 /* NotificationBackgroundError.png */; };
+		67D6AAE11979A8E30069F742 /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7B1979A8E20069F742 /* NotificationBackgroundError@2x.png */; };
+		67D6AAE21979A8E30069F742 /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7C1979A8E20069F742 /* NotificationBackgroundErrorIcon.png */; };
+		67D6AAE31979A8E30069F742 /* NotificationBackgroundErrorIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7D1979A8E20069F742 /* NotificationBackgroundErrorIcon@2x.png */; };
+		67D6AAE41979A8E30069F742 /* NotificationBackgroundMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7E1979A8E20069F742 /* NotificationBackgroundMessage.png */; };
+		67D6AAE51979A8E30069F742 /* NotificationBackgroundMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7F1979A8E20069F742 /* NotificationBackgroundMessage@2x.png */; };
+		67D6AAE61979A8E30069F742 /* NotificationBackgroundSuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA801979A8E20069F742 /* NotificationBackgroundSuccess.png */; };
+		67D6AAE71979A8E30069F742 /* NotificationBackgroundSuccess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA811979A8E20069F742 /* NotificationBackgroundSuccess@2x.png */; };
+		67D6AAE81979A8E30069F742 /* NotificationBackgroundSuccessIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA821979A8E20069F742 /* NotificationBackgroundSuccessIcon.png */; };
+		67D6AAE91979A8E30069F742 /* NotificationBackgroundSuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA831979A8E30069F742 /* NotificationBackgroundSuccessIcon@2x.png */; };
+		67D6AAEA1979A8E30069F742 /* NotificationBackgroundWarning.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA841979A8E30069F742 /* NotificationBackgroundWarning.png */; };
+		67D6AAEB1979A8E30069F742 /* NotificationBackgroundWarning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA851979A8E30069F742 /* NotificationBackgroundWarning@2x.png */; };
+		67D6AAEC1979A8E30069F742 /* NotificationBackgroundWarningIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA861979A8E30069F742 /* NotificationBackgroundWarningIcon.png */; };
+		67D6AAED1979A8E30069F742 /* NotificationBackgroundWarningIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA871979A8E30069F742 /* NotificationBackgroundWarningIcon@2x.png */; };
+		67D6AAEE1979A8E30069F742 /* NotificationButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA881979A8E30069F742 /* NotificationButtonBackground.png */; };
+		67D6AAEF1979A8E30069F742 /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA891979A8E30069F742 /* NotificationButtonBackground@2x.png */; };
+		67D6AAF01979A8E30069F742 /* MPKMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA8A1979A8E30069F742 /* MPKMessagesDefaultDesign.json */; };
+		67D6AAF11979A8E30069F742 /* MPKBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA8C1979A8E30069F742 /* MPKBlurView.h */; };
+		67D6AAF21979A8E30069F742 /* MPKBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA8D1979A8E30069F742 /* MPKBlurView.m */; };
+		67D6AAF31979A8E30069F742 /* MPKMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA8E1979A8E30069F742 /* MPKMessageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D6AAF41979A8E30069F742 /* MPKMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA8F1979A8E30069F742 /* MPKMessageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		67BBBCBC197418F40089E3D6 /* PBXContainerItemProxy */ = {
+		67D6AA001979A8C00069F742 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 67BBBCA6197418F30089E3D6 /* Project object */;
+			containerPortal = 67D6A9DD1979A8C00069F742 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 67BBBCAE197418F40089E3D6;
+			remoteGlobalIDString = 67D6A9E61979A8C00069F742;
+			remoteInfo = MoipSDK;
+		};
+		67D6AA021979A8C00069F742 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67D6A9DD1979A8C00069F742 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67D6A9E61979A8C00069F742;
 			remoteInfo = MoipSDK;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		67BBBCAF197418F40089E3D6 /* MoipSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MoipSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67BBBCB3197418F40089E3D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67BBBCB4197418F40089E3D6 /* MoipSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoipSDK.h; sourceTree = "<group>"; };
-		67BBBCBA197418F40089E3D6 /* MoipSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoipSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		67BBBCC0197418F40089E3D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67BBBCC1197418F40089E3D6 /* MoipSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDKTests.m; sourceTree = "<group>"; };
-		67BBBCCD1974191C0089E3D6 /* MPKCheckoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCheckoutViewController.h; sourceTree = "<group>"; };
-		67BBBCCE1974191C0089E3D6 /* MPKCheckoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCheckoutViewController.m; sourceTree = "<group>"; };
-		67BBBCCF1974191C0089E3D6 /* MPKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKConfiguration.h; sourceTree = "<group>"; };
-		67BBBCD01974191C0089E3D6 /* MPKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKConfiguration.m; sourceTree = "<group>"; };
-		67BBBCD21974191C0089E3D6 /* MPKAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAddressZip.h; sourceTree = "<group>"; };
-		67BBBCD31974191C0089E3D6 /* MPKAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAddressZip.m; sourceTree = "<group>"; };
-		67BBBCD41974191C0089E3D6 /* MPKCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCard.h; sourceTree = "<group>"; };
-		67BBBCD51974191C0089E3D6 /* MPKCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCard.m; sourceTree = "<group>"; };
-		67BBBCD61974191C0089E3D6 /* MPKCardCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardCVC.h; sourceTree = "<group>"; };
-		67BBBCD71974191C0089E3D6 /* MPKCardCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardCVC.m; sourceTree = "<group>"; };
-		67BBBCD81974191C0089E3D6 /* MPKCardExpiry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardExpiry.h; sourceTree = "<group>"; };
-		67BBBCD91974191C0089E3D6 /* MPKCardExpiry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardExpiry.m; sourceTree = "<group>"; };
-		67BBBCDA1974191C0089E3D6 /* MPKCardNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardNumber.h; sourceTree = "<group>"; };
-		67BBBCDB1974191C0089E3D6 /* MPKCardNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardNumber.m; sourceTree = "<group>"; };
-		67BBBCDC1974191C0089E3D6 /* MPKCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardType.h; sourceTree = "<group>"; };
-		67BBBCDD1974191C0089E3D6 /* MPKComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKComponent.h; sourceTree = "<group>"; };
-		67BBBCDE1974191C0089E3D6 /* MPKComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKComponent.m; sourceTree = "<group>"; };
-		67BBBCDF1974191C0089E3D6 /* MPKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKTextField.h; sourceTree = "<group>"; };
-		67BBBCE01974191C0089E3D6 /* MPKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKTextField.m; sourceTree = "<group>"; };
-		67BBBCE11974191C0089E3D6 /* MPKUSAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUSAddressZip.h; sourceTree = "<group>"; };
-		67BBBCE21974191C0089E3D6 /* MPKUSAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUSAddressZip.m; sourceTree = "<group>"; };
-		67BBBCE31974191C0089E3D6 /* MPKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKView.h; sourceTree = "<group>"; };
-		67BBBCE41974191C0089E3D6 /* MPKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKView.m; sourceTree = "<group>"; };
-		67BBBCE61974191C0089E3D6 /* MPKEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKEnvironment.h; sourceTree = "<group>"; };
-		67BBBCE81974191C0089E3D6 /* MPKError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKError.h; sourceTree = "<group>"; };
-		67BBBCE91974191C0089E3D6 /* MPKError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKError.m; sourceTree = "<group>"; };
-		67BBBCEB1974191C0089E3D6 /* HTTPStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPStatusCodes.h; sourceTree = "<group>"; };
-		67BBBCEC1974191C0089E3D6 /* MoipHttpRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoipHttpRequester.h; sourceTree = "<group>"; };
-		67BBBCED1974191C0089E3D6 /* MoipHttpRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpRequester.m; sourceTree = "<group>"; };
-		67BBBCEE1974191C0089E3D6 /* MoipHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoipHttpResponse.h; sourceTree = "<group>"; };
-		67BBBCEF1974191C0089E3D6 /* MoipHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpResponse.m; sourceTree = "<group>"; };
-		67BBBCF11974191C0089E3D6 /* MPKAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAmount.h; sourceTree = "<group>"; };
-		67BBBCF21974191C0089E3D6 /* MPKAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAmount.m; sourceTree = "<group>"; };
-		67BBBCF31974191C0089E3D6 /* MPKCardHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardHolder.h; sourceTree = "<group>"; };
-		67BBBCF41974191C0089E3D6 /* MPKCardHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardHolder.m; sourceTree = "<group>"; };
-		67BBBCF51974191C0089E3D6 /* MPKCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCreditCard.h; sourceTree = "<group>"; };
-		67BBBCF61974191C0089E3D6 /* MPKCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCreditCard.m; sourceTree = "<group>"; };
-		67BBBCF71974191C0089E3D6 /* MPKEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKEnums.h; sourceTree = "<group>"; };
-		67BBBCF81974191C0089E3D6 /* MPKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKEvent.h; sourceTree = "<group>"; };
-		67BBBCF91974191C0089E3D6 /* MPKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKEvent.m; sourceTree = "<group>"; };
-		67BBBCFA1974191C0089E3D6 /* MPKFee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKFee.h; sourceTree = "<group>"; };
-		67BBBCFB1974191C0089E3D6 /* MPKFee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKFee.m; sourceTree = "<group>"; };
-		67BBBCFC1974191C0089E3D6 /* MPKFundingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKFundingInstrument.h; sourceTree = "<group>"; };
-		67BBBCFD1974191C0089E3D6 /* MPKFundingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKFundingInstrument.m; sourceTree = "<group>"; };
-		67BBBCFE1974191C0089E3D6 /* MPKPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKPayment.h; sourceTree = "<group>"; };
-		67BBBCFF1974191C0089E3D6 /* MPKPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKPayment.m; sourceTree = "<group>"; };
-		67BBBD001974191C0089E3D6 /* MPKPaymentTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKPaymentTransaction.h; sourceTree = "<group>"; };
-		67BBBD011974191C0089E3D6 /* MPKPaymentTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKPaymentTransaction.m; sourceTree = "<group>"; };
-		67BBBD021974191C0089E3D6 /* MoipSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipSDK.m; sourceTree = "<group>"; };
-		67BBBD041974191C0089E3D6 /* amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex.png; sourceTree = "<group>"; };
-		67BBBD051974191C0089E3D6 /* amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "amex@2x.png"; sourceTree = "<group>"; };
-		67BBBD061974191C0089E3D6 /* cvc-amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc-amex.png"; sourceTree = "<group>"; };
-		67BBBD071974191C0089E3D6 /* cvc-amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc-amex@2x.png"; sourceTree = "<group>"; };
-		67BBBD081974191C0089E3D6 /* cvc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cvc.png; sourceTree = "<group>"; };
-		67BBBD091974191C0089E3D6 /* cvc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc@2x.png"; sourceTree = "<group>"; };
-		67BBBD0A1974191C0089E3D6 /* diners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diners.png; sourceTree = "<group>"; };
-		67BBBD0B1974191C0089E3D6 /* diners@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diners@2x.png"; sourceTree = "<group>"; };
-		67BBBD0C1974191C0089E3D6 /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
-		67BBBD0D1974191C0089E3D6 /* discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@2x.png"; sourceTree = "<group>"; };
-		67BBBD0E1974191C0089E3D6 /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient@2x.png"; sourceTree = "<group>"; };
-		67BBBD0F1974191C0089E3D6 /* jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jcb.png; sourceTree = "<group>"; };
-		67BBBD101974191C0089E3D6 /* jcb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jcb@2x.png"; sourceTree = "<group>"; };
-		67BBBD111974191C0089E3D6 /* mastercard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mastercard.png; sourceTree = "<group>"; };
-		67BBBD121974191C0089E3D6 /* mastercard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mastercard@2x.png"; sourceTree = "<group>"; };
-		67BBBD131974191C0089E3D6 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		67BBBD141974191C0089E3D6 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
-		67BBBD151974191C0089E3D6 /* textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield.png; sourceTree = "<group>"; };
-		67BBBD161974191C0089E3D6 /* textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield@2x.png"; sourceTree = "<group>"; };
-		67BBBD171974191C0089E3D6 /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
-		67BBBD181974191C0089E3D6 /* visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa@2x.png"; sourceTree = "<group>"; };
-		67BBBD1A1974191C0089E3D6 /* SecUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecUtils.h; sourceTree = "<group>"; };
-		67BBBD1B1974191C0089E3D6 /* SecUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecUtils.m; sourceTree = "<group>"; };
-		67BBBD1D1974191C0089E3D6 /* MPKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUtilities.h; sourceTree = "<group>"; };
-		67BBBD1E1974191C0089E3D6 /* MPKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUtilities.m; sourceTree = "<group>"; };
-		67BBBD211974191C0089E3D6 /* ClisitefAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClisitefAsync.h; sourceTree = "<group>"; };
-		67BBBD251974191C0089E3D6 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
-		67BBBD261974191C0089E3D6 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
-		67BBBD291974191C0089E3D6 /* MPKMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMessage.h; sourceTree = "<group>"; };
-		67BBBD2A1974191C0089E3D6 /* MPKMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKMessage.m; sourceTree = "<group>"; };
-		67BBBD2D1974191C0089E3D6 /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
-		67BBBD2E1974191C0089E3D6 /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
-		67BBBD2F1974191C0089E3D6 /* NotificationBackgroundErrorIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundErrorIcon.png; sourceTree = "<group>"; };
-		67BBBD301974191C0089E3D6 /* NotificationBackgroundErrorIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundErrorIcon@2x.png"; sourceTree = "<group>"; };
-		67BBBD311974191C0089E3D6 /* NotificationBackgroundMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundMessage.png; sourceTree = "<group>"; };
-		67BBBD321974191C0089E3D6 /* NotificationBackgroundMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundMessage@2x.png"; sourceTree = "<group>"; };
-		67BBBD331974191C0089E3D6 /* NotificationBackgroundSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccess.png; sourceTree = "<group>"; };
-		67BBBD341974191C0089E3D6 /* NotificationBackgroundSuccess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccess@2x.png"; sourceTree = "<group>"; };
-		67BBBD351974191C0089E3D6 /* NotificationBackgroundSuccessIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccessIcon.png; sourceTree = "<group>"; };
-		67BBBD361974191C0089E3D6 /* NotificationBackgroundSuccessIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccessIcon@2x.png"; sourceTree = "<group>"; };
-		67BBBD371974191C0089E3D6 /* NotificationBackgroundWarning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarning.png; sourceTree = "<group>"; };
-		67BBBD381974191C0089E3D6 /* NotificationBackgroundWarning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarning@2x.png"; sourceTree = "<group>"; };
-		67BBBD391974191C0089E3D6 /* NotificationBackgroundWarningIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarningIcon.png; sourceTree = "<group>"; };
-		67BBBD3A1974191C0089E3D6 /* NotificationBackgroundWarningIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarningIcon@2x.png"; sourceTree = "<group>"; };
-		67BBBD3B1974191C0089E3D6 /* NotificationButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationButtonBackground.png; sourceTree = "<group>"; };
-		67BBBD3C1974191C0089E3D6 /* NotificationButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationButtonBackground@2x.png"; sourceTree = "<group>"; };
-		67BBBD3D1974191C0089E3D6 /* MPKMessagesDefaultDesign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MPKMessagesDefaultDesign.json; sourceTree = "<group>"; };
-		67BBBD3F1974191C0089E3D6 /* MPKBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKBlurView.h; sourceTree = "<group>"; };
-		67BBBD401974191C0089E3D6 /* MPKBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKBlurView.m; sourceTree = "<group>"; };
-		67BBBD411974191C0089E3D6 /* MPKMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMessageView.h; sourceTree = "<group>"; };
-		67BBBD421974191C0089E3D6 /* MPKMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKMessageView.m; sourceTree = "<group>"; };
-		67BBBDA719741A370089E3D6 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		67D6A9E71979A8C00069F742 /* MoipSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = MoipSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67D6A9EA1979A8C00069F742 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		67D6A9EE1979A8C00069F742 /* MoipSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDK-Info.plist"; sourceTree = "<group>"; };
+		67D6A9F01979A8C00069F742 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		67D6A9F21979A8C00069F742 /* MoipSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MoipSDK-Prefix.pch"; sourceTree = "<group>"; };
+		67D6A9F31979A8C00069F742 /* MoipSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoipSDK.h; sourceTree = "<group>"; };
+		67D6A9F41979A8C00069F742 /* MoipSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDK.m; sourceTree = "<group>"; };
+		67D6A9FA1979A8C00069F742 /* MoipSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoipSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67D6A9FB1979A8C00069F742 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		67D6A9FE1979A8C00069F742 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		67D6AA071979A8C00069F742 /* MoipSDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDKTests-Info.plist"; sourceTree = "<group>"; };
+		67D6AA091979A8C00069F742 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		67D6AA0B1979A8C00069F742 /* MoipSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDKTests.m; sourceTree = "<group>"; };
+		67D6AA171979A8E20069F742 /* MPKCheckoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCheckoutViewController.h; sourceTree = "<group>"; };
+		67D6AA181979A8E20069F742 /* MPKCheckoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCheckoutViewController.m; sourceTree = "<group>"; };
+		67D6AA191979A8E20069F742 /* MPKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKConfiguration.h; sourceTree = "<group>"; };
+		67D6AA1A1979A8E20069F742 /* MPKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKConfiguration.m; sourceTree = "<group>"; };
+		67D6AA1C1979A8E20069F742 /* MPKAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAddressZip.h; sourceTree = "<group>"; };
+		67D6AA1D1979A8E20069F742 /* MPKAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAddressZip.m; sourceTree = "<group>"; };
+		67D6AA1E1979A8E20069F742 /* MPKCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCard.h; sourceTree = "<group>"; };
+		67D6AA1F1979A8E20069F742 /* MPKCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCard.m; sourceTree = "<group>"; };
+		67D6AA201979A8E20069F742 /* MPKCardCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardCVC.h; sourceTree = "<group>"; };
+		67D6AA211979A8E20069F742 /* MPKCardCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardCVC.m; sourceTree = "<group>"; };
+		67D6AA221979A8E20069F742 /* MPKCardExpiry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardExpiry.h; sourceTree = "<group>"; };
+		67D6AA231979A8E20069F742 /* MPKCardExpiry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardExpiry.m; sourceTree = "<group>"; };
+		67D6AA241979A8E20069F742 /* MPKCardNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardNumber.h; sourceTree = "<group>"; };
+		67D6AA251979A8E20069F742 /* MPKCardNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardNumber.m; sourceTree = "<group>"; };
+		67D6AA261979A8E20069F742 /* MPKCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardType.h; sourceTree = "<group>"; };
+		67D6AA271979A8E20069F742 /* MPKComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKComponent.h; sourceTree = "<group>"; };
+		67D6AA281979A8E20069F742 /* MPKComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKComponent.m; sourceTree = "<group>"; };
+		67D6AA291979A8E20069F742 /* MPKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKTextField.h; sourceTree = "<group>"; };
+		67D6AA2A1979A8E20069F742 /* MPKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKTextField.m; sourceTree = "<group>"; };
+		67D6AA2B1979A8E20069F742 /* MPKUSAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUSAddressZip.h; sourceTree = "<group>"; };
+		67D6AA2C1979A8E20069F742 /* MPKUSAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUSAddressZip.m; sourceTree = "<group>"; };
+		67D6AA2D1979A8E20069F742 /* MPKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKView.h; sourceTree = "<group>"; };
+		67D6AA2E1979A8E20069F742 /* MPKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKView.m; sourceTree = "<group>"; };
+		67D6AA301979A8E20069F742 /* MPKEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKEnvironment.h; sourceTree = "<group>"; };
+		67D6AA331979A8E20069F742 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		67D6AA351979A8E20069F742 /* MPKError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKError.h; sourceTree = "<group>"; };
+		67D6AA361979A8E20069F742 /* MPKError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKError.m; sourceTree = "<group>"; };
+		67D6AA381979A8E20069F742 /* HTTPStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPStatusCodes.h; sourceTree = "<group>"; };
+		67D6AA391979A8E20069F742 /* MoipHttpRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoipHttpRequester.h; sourceTree = "<group>"; };
+		67D6AA3A1979A8E20069F742 /* MoipHttpRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpRequester.m; sourceTree = "<group>"; };
+		67D6AA3B1979A8E20069F742 /* MoipHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoipHttpResponse.h; sourceTree = "<group>"; };
+		67D6AA3C1979A8E20069F742 /* MoipHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpResponse.m; sourceTree = "<group>"; };
+		67D6AA3E1979A8E20069F742 /* MPKAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAmount.h; sourceTree = "<group>"; };
+		67D6AA3F1979A8E20069F742 /* MPKAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAmount.m; sourceTree = "<group>"; };
+		67D6AA401979A8E20069F742 /* MPKCardHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardHolder.h; sourceTree = "<group>"; };
+		67D6AA411979A8E20069F742 /* MPKCardHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardHolder.m; sourceTree = "<group>"; };
+		67D6AA421979A8E20069F742 /* MPKCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCreditCard.h; sourceTree = "<group>"; };
+		67D6AA431979A8E20069F742 /* MPKCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCreditCard.m; sourceTree = "<group>"; };
+		67D6AA441979A8E20069F742 /* MPKEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKEnums.h; sourceTree = "<group>"; };
+		67D6AA451979A8E20069F742 /* MPKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKEvent.h; sourceTree = "<group>"; };
+		67D6AA461979A8E20069F742 /* MPKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKEvent.m; sourceTree = "<group>"; };
+		67D6AA471979A8E20069F742 /* MPKFee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKFee.h; sourceTree = "<group>"; };
+		67D6AA481979A8E20069F742 /* MPKFee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKFee.m; sourceTree = "<group>"; };
+		67D6AA491979A8E20069F742 /* MPKFundingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKFundingInstrument.h; sourceTree = "<group>"; };
+		67D6AA4A1979A8E20069F742 /* MPKFundingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKFundingInstrument.m; sourceTree = "<group>"; };
+		67D6AA4B1979A8E20069F742 /* MPKPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKPayment.h; sourceTree = "<group>"; };
+		67D6AA4C1979A8E20069F742 /* MPKPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKPayment.m; sourceTree = "<group>"; };
+		67D6AA4D1979A8E20069F742 /* MPKPaymentTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKPaymentTransaction.h; sourceTree = "<group>"; };
+		67D6AA4E1979A8E20069F742 /* MPKPaymentTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKPaymentTransaction.m; sourceTree = "<group>"; };
+		67D6AA501979A8E20069F742 /* amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex.png; sourceTree = "<group>"; };
+		67D6AA511979A8E20069F742 /* amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "amex@2x.png"; sourceTree = "<group>"; };
+		67D6AA521979A8E20069F742 /* cvc-amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc-amex.png"; sourceTree = "<group>"; };
+		67D6AA531979A8E20069F742 /* cvc-amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc-amex@2x.png"; sourceTree = "<group>"; };
+		67D6AA541979A8E20069F742 /* cvc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cvc.png; sourceTree = "<group>"; };
+		67D6AA551979A8E20069F742 /* cvc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc@2x.png"; sourceTree = "<group>"; };
+		67D6AA561979A8E20069F742 /* diners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diners.png; sourceTree = "<group>"; };
+		67D6AA571979A8E20069F742 /* diners@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diners@2x.png"; sourceTree = "<group>"; };
+		67D6AA581979A8E20069F742 /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
+		67D6AA591979A8E20069F742 /* discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@2x.png"; sourceTree = "<group>"; };
+		67D6AA5A1979A8E20069F742 /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient@2x.png"; sourceTree = "<group>"; };
+		67D6AA5B1979A8E20069F742 /* jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jcb.png; sourceTree = "<group>"; };
+		67D6AA5C1979A8E20069F742 /* jcb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jcb@2x.png"; sourceTree = "<group>"; };
+		67D6AA5D1979A8E20069F742 /* mastercard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mastercard.png; sourceTree = "<group>"; };
+		67D6AA5E1979A8E20069F742 /* mastercard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mastercard@2x.png"; sourceTree = "<group>"; };
+		67D6AA5F1979A8E20069F742 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		67D6AA601979A8E20069F742 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
+		67D6AA611979A8E20069F742 /* textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield.png; sourceTree = "<group>"; };
+		67D6AA621979A8E20069F742 /* textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield@2x.png"; sourceTree = "<group>"; };
+		67D6AA631979A8E20069F742 /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
+		67D6AA641979A8E20069F742 /* visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa@2x.png"; sourceTree = "<group>"; };
+		67D6AA661979A8E20069F742 /* SecUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecUtils.h; sourceTree = "<group>"; };
+		67D6AA671979A8E20069F742 /* SecUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecUtils.m; sourceTree = "<group>"; };
+		67D6AA691979A8E20069F742 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		67D6AA6A1979A8E20069F742 /* MPKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUtilities.h; sourceTree = "<group>"; };
+		67D6AA6B1979A8E20069F742 /* MPKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUtilities.m; sourceTree = "<group>"; };
+		67D6AA6E1979A8E20069F742 /* ClisitefAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClisitefAsync.h; sourceTree = "<group>"; };
+		67D6AA721979A8E20069F742 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
+		67D6AA731979A8E20069F742 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
+		67D6AA761979A8E20069F742 /* MPKMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMessage.h; sourceTree = "<group>"; };
+		67D6AA771979A8E20069F742 /* MPKMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKMessage.m; sourceTree = "<group>"; };
+		67D6AA7A1979A8E20069F742 /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
+		67D6AA7B1979A8E20069F742 /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
+		67D6AA7C1979A8E20069F742 /* NotificationBackgroundErrorIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundErrorIcon.png; sourceTree = "<group>"; };
+		67D6AA7D1979A8E20069F742 /* NotificationBackgroundErrorIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundErrorIcon@2x.png"; sourceTree = "<group>"; };
+		67D6AA7E1979A8E20069F742 /* NotificationBackgroundMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundMessage.png; sourceTree = "<group>"; };
+		67D6AA7F1979A8E20069F742 /* NotificationBackgroundMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundMessage@2x.png"; sourceTree = "<group>"; };
+		67D6AA801979A8E20069F742 /* NotificationBackgroundSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccess.png; sourceTree = "<group>"; };
+		67D6AA811979A8E20069F742 /* NotificationBackgroundSuccess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccess@2x.png"; sourceTree = "<group>"; };
+		67D6AA821979A8E20069F742 /* NotificationBackgroundSuccessIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccessIcon.png; sourceTree = "<group>"; };
+		67D6AA831979A8E30069F742 /* NotificationBackgroundSuccessIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccessIcon@2x.png"; sourceTree = "<group>"; };
+		67D6AA841979A8E30069F742 /* NotificationBackgroundWarning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarning.png; sourceTree = "<group>"; };
+		67D6AA851979A8E30069F742 /* NotificationBackgroundWarning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarning@2x.png"; sourceTree = "<group>"; };
+		67D6AA861979A8E30069F742 /* NotificationBackgroundWarningIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarningIcon.png; sourceTree = "<group>"; };
+		67D6AA871979A8E30069F742 /* NotificationBackgroundWarningIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarningIcon@2x.png"; sourceTree = "<group>"; };
+		67D6AA881979A8E30069F742 /* NotificationButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationButtonBackground.png; sourceTree = "<group>"; };
+		67D6AA891979A8E30069F742 /* NotificationButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationButtonBackground@2x.png"; sourceTree = "<group>"; };
+		67D6AA8A1979A8E30069F742 /* MPKMessagesDefaultDesign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MPKMessagesDefaultDesign.json; sourceTree = "<group>"; };
+		67D6AA8C1979A8E30069F742 /* MPKBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKBlurView.h; sourceTree = "<group>"; };
+		67D6AA8D1979A8E30069F742 /* MPKBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKBlurView.m; sourceTree = "<group>"; };
+		67D6AA8E1979A8E30069F742 /* MPKMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMessageView.h; sourceTree = "<group>"; };
+		67D6AA8F1979A8E30069F742 /* MPKMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKMessageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		67BBBCAB197418F40089E3D6 /* Frameworks */ = {
+		67D6A9E21979A8C00069F742 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67D6A9EB1979A8C00069F742 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67BBBCB7197418F40089E3D6 /* Frameworks */ = {
+		67D6A9F71979A8C00069F742 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67BBBCBB197418F40089E3D6 /* MoipSDK.framework in Frameworks */,
+				67D6AA041979A8C00069F742 /* MoipSDK.framework in Frameworks */,
+				67D6A9FC1979A8C00069F742 /* XCTest.framework in Frameworks */,
+				67D6A9FF1979A8C00069F742 /* UIKit.framework in Frameworks */,
+				67D6A9FD1979A8C00069F742 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		67BBBCA5197418F30089E3D6 = {
+		67D6A9DC1979A8C00069F742 = {
 			isa = PBXGroup;
 			children = (
-				67BBBCB1197418F40089E3D6 /* MoipSDK */,
-				67BBBCBE197418F40089E3D6 /* MoipSDKTests */,
-				67BBBCB0197418F40089E3D6 /* Products */,
+				67D6A9EC1979A8C00069F742 /* MoipSDK */,
+				67D6AA051979A8C00069F742 /* MoipSDKTests */,
+				67D6A9E91979A8C00069F742 /* Frameworks */,
+				67D6A9E81979A8C00069F742 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		67BBBCB0197418F40089E3D6 /* Products */ = {
+		67D6A9E81979A8C00069F742 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCAF197418F40089E3D6 /* MoipSDK.framework */,
-				67BBBCBA197418F40089E3D6 /* MoipSDKTests.xctest */,
+				67D6A9E71979A8C00069F742 /* MoipSDK.framework */,
+				67D6A9FA1979A8C00069F742 /* MoipSDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		67BBBCB1197418F40089E3D6 /* MoipSDK */ = {
+		67D6A9E91979A8C00069F742 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCCB1974191C0089E3D6 /* Components */,
-				67BBBCE51974191C0089E3D6 /* Configuration */,
-				67BBBCE71974191C0089E3D6 /* Error */,
-				67BBBCEA1974191C0089E3D6 /* Http */,
-				67BBBCF01974191C0089E3D6 /* Model */,
-				67BBBD031974191C0089E3D6 /* Resources */,
-				67BBBD191974191C0089E3D6 /* SecurityUtil */,
-				67BBBD1C1974191C0089E3D6 /* Utils */,
-				67BBBD1F1974191C0089E3D6 /* Vendor */,
-				67BBBCB4197418F40089E3D6 /* MoipSDK.h */,
-				67BBBD021974191C0089E3D6 /* MoipSDK.m */,
-				67BBBCB2197418F40089E3D6 /* Supporting Files */,
+				67D6A9EA1979A8C00069F742 /* Foundation.framework */,
+				67D6A9FB1979A8C00069F742 /* XCTest.framework */,
+				67D6A9FE1979A8C00069F742 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		67D6A9EC1979A8C00069F742 /* MoipSDK */ = {
+			isa = PBXGroup;
+			children = (
+				67D6AA151979A8E20069F742 /* Components */,
+				67D6AA2F1979A8E20069F742 /* Configuration */,
+				67D6AA311979A8E20069F742 /* en.lproj */,
+				67D6AA341979A8E20069F742 /* Error */,
+				67D6AA371979A8E20069F742 /* Http */,
+				67D6AA3D1979A8E20069F742 /* Model */,
+				67D6AA4F1979A8E20069F742 /* Resources */,
+				67D6AA651979A8E20069F742 /* SecurityUtil */,
+				67D6AA681979A8E20069F742 /* Utils */,
+				67D6AA6C1979A8E20069F742 /* Vendor */,
+				67D6A9F31979A8C00069F742 /* MoipSDK.h */,
+				67D6A9F41979A8C00069F742 /* MoipSDK.m */,
+				67D6A9ED1979A8C00069F742 /* Supporting Files */,
 			);
 			path = MoipSDK;
 			sourceTree = "<group>";
 		};
-		67BBBCB2197418F40089E3D6 /* Supporting Files */ = {
+		67D6A9ED1979A8C00069F742 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCB3197418F40089E3D6 /* Info.plist */,
+				67D6A9EE1979A8C00069F742 /* MoipSDK-Info.plist */,
+				67D6A9EF1979A8C00069F742 /* InfoPlist.strings */,
+				67D6A9F21979A8C00069F742 /* MoipSDK-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		67BBBCBE197418F40089E3D6 /* MoipSDKTests */ = {
+		67D6AA051979A8C00069F742 /* MoipSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCC1197418F40089E3D6 /* MoipSDKTests.m */,
-				67BBBCBF197418F40089E3D6 /* Supporting Files */,
+				67D6AA0B1979A8C00069F742 /* MoipSDKTests.m */,
+				67D6AA061979A8C00069F742 /* Supporting Files */,
 			);
 			path = MoipSDKTests;
 			sourceTree = "<group>";
 		};
-		67BBBCBF197418F40089E3D6 /* Supporting Files */ = {
+		67D6AA061979A8C00069F742 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCC0197418F40089E3D6 /* Info.plist */,
+				67D6AA071979A8C00069F742 /* MoipSDKTests-Info.plist */,
+				67D6AA081979A8C00069F742 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		67BBBCCB1974191C0089E3D6 /* Components */ = {
+		67D6AA151979A8E20069F742 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCCC1974191C0089E3D6 /* MoipPaymentKit */,
-				67BBBCD11974191C0089E3D6 /* PaymentKit */,
+				67D6AA161979A8E20069F742 /* MoipPaymentKit */,
+				67D6AA1B1979A8E20069F742 /* PaymentKit */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		67BBBCCC1974191C0089E3D6 /* MoipPaymentKit */ = {
+		67D6AA161979A8E20069F742 /* MoipPaymentKit */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCCD1974191C0089E3D6 /* MPKCheckoutViewController.h */,
-				67BBBCCE1974191C0089E3D6 /* MPKCheckoutViewController.m */,
-				67BBBCCF1974191C0089E3D6 /* MPKConfiguration.h */,
-				67BBBCD01974191C0089E3D6 /* MPKConfiguration.m */,
+				67D6AA171979A8E20069F742 /* MPKCheckoutViewController.h */,
+				67D6AA181979A8E20069F742 /* MPKCheckoutViewController.m */,
+				67D6AA191979A8E20069F742 /* MPKConfiguration.h */,
+				67D6AA1A1979A8E20069F742 /* MPKConfiguration.m */,
 			);
 			path = MoipPaymentKit;
 			sourceTree = "<group>";
 		};
-		67BBBCD11974191C0089E3D6 /* PaymentKit */ = {
+		67D6AA1B1979A8E20069F742 /* PaymentKit */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCD21974191C0089E3D6 /* MPKAddressZip.h */,
-				67BBBCD31974191C0089E3D6 /* MPKAddressZip.m */,
-				67BBBCD41974191C0089E3D6 /* MPKCard.h */,
-				67BBBCD51974191C0089E3D6 /* MPKCard.m */,
-				67BBBCD61974191C0089E3D6 /* MPKCardCVC.h */,
-				67BBBCD71974191C0089E3D6 /* MPKCardCVC.m */,
-				67BBBCD81974191C0089E3D6 /* MPKCardExpiry.h */,
-				67BBBCD91974191C0089E3D6 /* MPKCardExpiry.m */,
-				67BBBCDA1974191C0089E3D6 /* MPKCardNumber.h */,
-				67BBBCDB1974191C0089E3D6 /* MPKCardNumber.m */,
-				67BBBCDC1974191C0089E3D6 /* MPKCardType.h */,
-				67BBBCDD1974191C0089E3D6 /* MPKComponent.h */,
-				67BBBCDE1974191C0089E3D6 /* MPKComponent.m */,
-				67BBBCDF1974191C0089E3D6 /* MPKTextField.h */,
-				67BBBCE01974191C0089E3D6 /* MPKTextField.m */,
-				67BBBCE11974191C0089E3D6 /* MPKUSAddressZip.h */,
-				67BBBCE21974191C0089E3D6 /* MPKUSAddressZip.m */,
-				67BBBCE31974191C0089E3D6 /* MPKView.h */,
-				67BBBCE41974191C0089E3D6 /* MPKView.m */,
+				67D6AA1C1979A8E20069F742 /* MPKAddressZip.h */,
+				67D6AA1D1979A8E20069F742 /* MPKAddressZip.m */,
+				67D6AA1E1979A8E20069F742 /* MPKCard.h */,
+				67D6AA1F1979A8E20069F742 /* MPKCard.m */,
+				67D6AA201979A8E20069F742 /* MPKCardCVC.h */,
+				67D6AA211979A8E20069F742 /* MPKCardCVC.m */,
+				67D6AA221979A8E20069F742 /* MPKCardExpiry.h */,
+				67D6AA231979A8E20069F742 /* MPKCardExpiry.m */,
+				67D6AA241979A8E20069F742 /* MPKCardNumber.h */,
+				67D6AA251979A8E20069F742 /* MPKCardNumber.m */,
+				67D6AA261979A8E20069F742 /* MPKCardType.h */,
+				67D6AA271979A8E20069F742 /* MPKComponent.h */,
+				67D6AA281979A8E20069F742 /* MPKComponent.m */,
+				67D6AA291979A8E20069F742 /* MPKTextField.h */,
+				67D6AA2A1979A8E20069F742 /* MPKTextField.m */,
+				67D6AA2B1979A8E20069F742 /* MPKUSAddressZip.h */,
+				67D6AA2C1979A8E20069F742 /* MPKUSAddressZip.m */,
+				67D6AA2D1979A8E20069F742 /* MPKView.h */,
+				67D6AA2E1979A8E20069F742 /* MPKView.m */,
 			);
 			path = PaymentKit;
 			sourceTree = "<group>";
 		};
-		67BBBCE51974191C0089E3D6 /* Configuration */ = {
+		67D6AA2F1979A8E20069F742 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCE61974191C0089E3D6 /* MPKEnvironment.h */,
+				67D6AA301979A8E20069F742 /* MPKEnvironment.h */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
 		};
-		67BBBCE71974191C0089E3D6 /* Error */ = {
+		67D6AA311979A8E20069F742 /* en.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCE81974191C0089E3D6 /* MPKError.h */,
-				67BBBCE91974191C0089E3D6 /* MPKError.m */,
+				67D6AA321979A8E20069F742 /* InfoPlist.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		67D6AA341979A8E20069F742 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				67D6AA351979A8E20069F742 /* MPKError.h */,
+				67D6AA361979A8E20069F742 /* MPKError.m */,
 			);
 			path = Error;
 			sourceTree = "<group>";
 		};
-		67BBBCEA1974191C0089E3D6 /* Http */ = {
+		67D6AA371979A8E20069F742 /* Http */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCEB1974191C0089E3D6 /* HTTPStatusCodes.h */,
-				67BBBCEC1974191C0089E3D6 /* MoipHttpRequester.h */,
-				67BBBCED1974191C0089E3D6 /* MoipHttpRequester.m */,
-				67BBBCEE1974191C0089E3D6 /* MoipHttpResponse.h */,
-				67BBBCEF1974191C0089E3D6 /* MoipHttpResponse.m */,
+				67D6AA381979A8E20069F742 /* HTTPStatusCodes.h */,
+				67D6AA391979A8E20069F742 /* MoipHttpRequester.h */,
+				67D6AA3A1979A8E20069F742 /* MoipHttpRequester.m */,
+				67D6AA3B1979A8E20069F742 /* MoipHttpResponse.h */,
+				67D6AA3C1979A8E20069F742 /* MoipHttpResponse.m */,
 			);
 			path = Http;
 			sourceTree = "<group>";
 		};
-		67BBBCF01974191C0089E3D6 /* Model */ = {
+		67D6AA3D1979A8E20069F742 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBCF11974191C0089E3D6 /* MPKAmount.h */,
-				67BBBCF21974191C0089E3D6 /* MPKAmount.m */,
-				67BBBCF31974191C0089E3D6 /* MPKCardHolder.h */,
-				67BBBCF41974191C0089E3D6 /* MPKCardHolder.m */,
-				67BBBCF51974191C0089E3D6 /* MPKCreditCard.h */,
-				67BBBCF61974191C0089E3D6 /* MPKCreditCard.m */,
-				67BBBCF71974191C0089E3D6 /* MPKEnums.h */,
-				67BBBCF81974191C0089E3D6 /* MPKEvent.h */,
-				67BBBCF91974191C0089E3D6 /* MPKEvent.m */,
-				67BBBCFA1974191C0089E3D6 /* MPKFee.h */,
-				67BBBCFB1974191C0089E3D6 /* MPKFee.m */,
-				67BBBCFC1974191C0089E3D6 /* MPKFundingInstrument.h */,
-				67BBBCFD1974191C0089E3D6 /* MPKFundingInstrument.m */,
-				67BBBCFE1974191C0089E3D6 /* MPKPayment.h */,
-				67BBBCFF1974191C0089E3D6 /* MPKPayment.m */,
-				67BBBD001974191C0089E3D6 /* MPKPaymentTransaction.h */,
-				67BBBD011974191C0089E3D6 /* MPKPaymentTransaction.m */,
+				67D6AA3E1979A8E20069F742 /* MPKAmount.h */,
+				67D6AA3F1979A8E20069F742 /* MPKAmount.m */,
+				67D6AA401979A8E20069F742 /* MPKCardHolder.h */,
+				67D6AA411979A8E20069F742 /* MPKCardHolder.m */,
+				67D6AA421979A8E20069F742 /* MPKCreditCard.h */,
+				67D6AA431979A8E20069F742 /* MPKCreditCard.m */,
+				67D6AA441979A8E20069F742 /* MPKEnums.h */,
+				67D6AA451979A8E20069F742 /* MPKEvent.h */,
+				67D6AA461979A8E20069F742 /* MPKEvent.m */,
+				67D6AA471979A8E20069F742 /* MPKFee.h */,
+				67D6AA481979A8E20069F742 /* MPKFee.m */,
+				67D6AA491979A8E20069F742 /* MPKFundingInstrument.h */,
+				67D6AA4A1979A8E20069F742 /* MPKFundingInstrument.m */,
+				67D6AA4B1979A8E20069F742 /* MPKPayment.h */,
+				67D6AA4C1979A8E20069F742 /* MPKPayment.m */,
+				67D6AA4D1979A8E20069F742 /* MPKPaymentTransaction.h */,
+				67D6AA4E1979A8E20069F742 /* MPKPaymentTransaction.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		67BBBD031974191C0089E3D6 /* Resources */ = {
+		67D6AA4F1979A8E20069F742 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD041974191C0089E3D6 /* amex.png */,
-				67BBBD051974191C0089E3D6 /* amex@2x.png */,
-				67BBBD061974191C0089E3D6 /* cvc-amex.png */,
-				67BBBD071974191C0089E3D6 /* cvc-amex@2x.png */,
-				67BBBD081974191C0089E3D6 /* cvc.png */,
-				67BBBD091974191C0089E3D6 /* cvc@2x.png */,
-				67BBBD0A1974191C0089E3D6 /* diners.png */,
-				67BBBD0B1974191C0089E3D6 /* diners@2x.png */,
-				67BBBD0C1974191C0089E3D6 /* discover.png */,
-				67BBBD0D1974191C0089E3D6 /* discover@2x.png */,
-				67BBBD0E1974191C0089E3D6 /* gradient@2x.png */,
-				67BBBD0F1974191C0089E3D6 /* jcb.png */,
-				67BBBD101974191C0089E3D6 /* jcb@2x.png */,
-				67BBBD111974191C0089E3D6 /* mastercard.png */,
-				67BBBD121974191C0089E3D6 /* mastercard@2x.png */,
-				67BBBD131974191C0089E3D6 /* placeholder.png */,
-				67BBBD141974191C0089E3D6 /* placeholder@2x.png */,
-				67BBBD151974191C0089E3D6 /* textfield.png */,
-				67BBBD161974191C0089E3D6 /* textfield@2x.png */,
-				67BBBD171974191C0089E3D6 /* visa.png */,
-				67BBBD181974191C0089E3D6 /* visa@2x.png */,
+				67D6AA501979A8E20069F742 /* amex.png */,
+				67D6AA511979A8E20069F742 /* amex@2x.png */,
+				67D6AA521979A8E20069F742 /* cvc-amex.png */,
+				67D6AA531979A8E20069F742 /* cvc-amex@2x.png */,
+				67D6AA541979A8E20069F742 /* cvc.png */,
+				67D6AA551979A8E20069F742 /* cvc@2x.png */,
+				67D6AA561979A8E20069F742 /* diners.png */,
+				67D6AA571979A8E20069F742 /* diners@2x.png */,
+				67D6AA581979A8E20069F742 /* discover.png */,
+				67D6AA591979A8E20069F742 /* discover@2x.png */,
+				67D6AA5A1979A8E20069F742 /* gradient@2x.png */,
+				67D6AA5B1979A8E20069F742 /* jcb.png */,
+				67D6AA5C1979A8E20069F742 /* jcb@2x.png */,
+				67D6AA5D1979A8E20069F742 /* mastercard.png */,
+				67D6AA5E1979A8E20069F742 /* mastercard@2x.png */,
+				67D6AA5F1979A8E20069F742 /* placeholder.png */,
+				67D6AA601979A8E20069F742 /* placeholder@2x.png */,
+				67D6AA611979A8E20069F742 /* textfield.png */,
+				67D6AA621979A8E20069F742 /* textfield@2x.png */,
+				67D6AA631979A8E20069F742 /* visa.png */,
+				67D6AA641979A8E20069F742 /* visa@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		67BBBD191974191C0089E3D6 /* SecurityUtil */ = {
+		67D6AA651979A8E20069F742 /* SecurityUtil */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD1A1974191C0089E3D6 /* SecUtils.h */,
-				67BBBD1B1974191C0089E3D6 /* SecUtils.m */,
+				67D6AA661979A8E20069F742 /* SecUtils.h */,
+				67D6AA671979A8E20069F742 /* SecUtils.m */,
 			);
 			path = SecurityUtil;
 			sourceTree = "<group>";
 		};
-		67BBBD1C1974191C0089E3D6 /* Utils */ = {
+		67D6AA681979A8E20069F742 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD1D1974191C0089E3D6 /* MPKUtilities.h */,
-				67BBBD1E1974191C0089E3D6 /* MPKUtilities.m */,
-				67BBBDA719741A370089E3D6 /* Constants.h */,
+				67D6AA691979A8E20069F742 /* Constants.h */,
+				67D6AA6A1979A8E20069F742 /* MPKUtilities.h */,
+				67D6AA6B1979A8E20069F742 /* MPKUtilities.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		67BBBD1F1974191C0089E3D6 /* Vendor */ = {
+		67D6AA6C1979A8E20069F742 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD201974191C0089E3D6 /* libclisitef */,
-				67BBBD221974191C0089E3D6 /* Submodules */,
-				67BBBD271974191C0089E3D6 /* TSMessages */,
+				67D6AA6D1979A8E20069F742 /* libclisitef */,
+				67D6AA6F1979A8E20069F742 /* Submodules */,
+				67D6AA741979A8E20069F742 /* TSMessages */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
 		};
-		67BBBD201974191C0089E3D6 /* libclisitef */ = {
+		67D6AA6D1979A8E20069F742 /* libclisitef */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD211974191C0089E3D6 /* ClisitefAsync.h */,
+				67D6AA6E1979A8E20069F742 /* ClisitefAsync.h */,
 			);
 			path = libclisitef;
 			sourceTree = "<group>";
 		};
-		67BBBD221974191C0089E3D6 /* Submodules */ = {
+		67D6AA6F1979A8E20069F742 /* Submodules */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD231974191C0089E3D6 /* HexColors */,
+				67D6AA701979A8E20069F742 /* HexColors */,
 			);
 			path = Submodules;
 			sourceTree = "<group>";
 		};
-		67BBBD231974191C0089E3D6 /* HexColors */ = {
+		67D6AA701979A8E20069F742 /* HexColors */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD241974191C0089E3D6 /* Classes */,
+				67D6AA711979A8E20069F742 /* Classes */,
 			);
 			path = HexColors;
 			sourceTree = "<group>";
 		};
-		67BBBD241974191C0089E3D6 /* Classes */ = {
+		67D6AA711979A8E20069F742 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD251974191C0089E3D6 /* HexColor.h */,
-				67BBBD261974191C0089E3D6 /* HexColor.m */,
+				67D6AA721979A8E20069F742 /* HexColor.h */,
+				67D6AA731979A8E20069F742 /* HexColor.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		67BBBD271974191C0089E3D6 /* TSMessages */ = {
+		67D6AA741979A8E20069F742 /* TSMessages */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD281974191C0089E3D6 /* Classes */,
-				67BBBD2B1974191C0089E3D6 /* Resources */,
-				67BBBD3E1974191C0089E3D6 /* Views */,
+				67D6AA751979A8E20069F742 /* Classes */,
+				67D6AA781979A8E20069F742 /* Resources */,
+				67D6AA8B1979A8E30069F742 /* Views */,
 			);
 			path = TSMessages;
 			sourceTree = "<group>";
 		};
-		67BBBD281974191C0089E3D6 /* Classes */ = {
+		67D6AA751979A8E20069F742 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD291974191C0089E3D6 /* MPKMessage.h */,
-				67BBBD2A1974191C0089E3D6 /* MPKMessage.m */,
+				67D6AA761979A8E20069F742 /* MPKMessage.h */,
+				67D6AA771979A8E20069F742 /* MPKMessage.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		67BBBD2B1974191C0089E3D6 /* Resources */ = {
+		67D6AA781979A8E20069F742 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD2C1974191C0089E3D6 /* Images */,
-				67BBBD3D1974191C0089E3D6 /* MPKMessagesDefaultDesign.json */,
+				67D6AA791979A8E20069F742 /* Images */,
+				67D6AA8A1979A8E30069F742 /* MPKMessagesDefaultDesign.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		67BBBD2C1974191C0089E3D6 /* Images */ = {
+		67D6AA791979A8E20069F742 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD2D1974191C0089E3D6 /* NotificationBackgroundError.png */,
-				67BBBD2E1974191C0089E3D6 /* NotificationBackgroundError@2x.png */,
-				67BBBD2F1974191C0089E3D6 /* NotificationBackgroundErrorIcon.png */,
-				67BBBD301974191C0089E3D6 /* NotificationBackgroundErrorIcon@2x.png */,
-				67BBBD311974191C0089E3D6 /* NotificationBackgroundMessage.png */,
-				67BBBD321974191C0089E3D6 /* NotificationBackgroundMessage@2x.png */,
-				67BBBD331974191C0089E3D6 /* NotificationBackgroundSuccess.png */,
-				67BBBD341974191C0089E3D6 /* NotificationBackgroundSuccess@2x.png */,
-				67BBBD351974191C0089E3D6 /* NotificationBackgroundSuccessIcon.png */,
-				67BBBD361974191C0089E3D6 /* NotificationBackgroundSuccessIcon@2x.png */,
-				67BBBD371974191C0089E3D6 /* NotificationBackgroundWarning.png */,
-				67BBBD381974191C0089E3D6 /* NotificationBackgroundWarning@2x.png */,
-				67BBBD391974191C0089E3D6 /* NotificationBackgroundWarningIcon.png */,
-				67BBBD3A1974191C0089E3D6 /* NotificationBackgroundWarningIcon@2x.png */,
-				67BBBD3B1974191C0089E3D6 /* NotificationButtonBackground.png */,
-				67BBBD3C1974191C0089E3D6 /* NotificationButtonBackground@2x.png */,
+				67D6AA7A1979A8E20069F742 /* NotificationBackgroundError.png */,
+				67D6AA7B1979A8E20069F742 /* NotificationBackgroundError@2x.png */,
+				67D6AA7C1979A8E20069F742 /* NotificationBackgroundErrorIcon.png */,
+				67D6AA7D1979A8E20069F742 /* NotificationBackgroundErrorIcon@2x.png */,
+				67D6AA7E1979A8E20069F742 /* NotificationBackgroundMessage.png */,
+				67D6AA7F1979A8E20069F742 /* NotificationBackgroundMessage@2x.png */,
+				67D6AA801979A8E20069F742 /* NotificationBackgroundSuccess.png */,
+				67D6AA811979A8E20069F742 /* NotificationBackgroundSuccess@2x.png */,
+				67D6AA821979A8E20069F742 /* NotificationBackgroundSuccessIcon.png */,
+				67D6AA831979A8E30069F742 /* NotificationBackgroundSuccessIcon@2x.png */,
+				67D6AA841979A8E30069F742 /* NotificationBackgroundWarning.png */,
+				67D6AA851979A8E30069F742 /* NotificationBackgroundWarning@2x.png */,
+				67D6AA861979A8E30069F742 /* NotificationBackgroundWarningIcon.png */,
+				67D6AA871979A8E30069F742 /* NotificationBackgroundWarningIcon@2x.png */,
+				67D6AA881979A8E30069F742 /* NotificationButtonBackground.png */,
+				67D6AA891979A8E30069F742 /* NotificationButtonBackground@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
 		};
-		67BBBD3E1974191C0089E3D6 /* Views */ = {
+		67D6AA8B1979A8E30069F742 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				67BBBD3F1974191C0089E3D6 /* MPKBlurView.h */,
-				67BBBD401974191C0089E3D6 /* MPKBlurView.m */,
-				67BBBD411974191C0089E3D6 /* MPKMessageView.h */,
-				67BBBD421974191C0089E3D6 /* MPKMessageView.m */,
+				67D6AA8C1979A8E30069F742 /* MPKBlurView.h */,
+				67D6AA8D1979A8E30069F742 /* MPKBlurView.m */,
+				67D6AA8E1979A8E30069F742 /* MPKMessageView.h */,
+				67D6AA8F1979A8E30069F742 /* MPKMessageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -567,58 +615,59 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		67BBBCAC197418F40089E3D6 /* Headers */ = {
+		67D6A9E31979A8C00069F742 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67BBBD621974191C0089E3D6 /* MPKAmount.h in Headers */,
-				67BBBD691974191C0089E3D6 /* MPKEvent.h in Headers */,
-				67BBBD6D1974191C0089E3D6 /* MPKFundingInstrument.h in Headers */,
-				67BBBD661974191C0089E3D6 /* MPKCreditCard.h in Headers */,
-				67BBBD5B1974191C0089E3D6 /* MPKError.h in Headers */,
-				67BBBD711974191C0089E3D6 /* MPKPaymentTransaction.h in Headers */,
-				67BBBD8B1974191C0089E3D6 /* MPKUtilities.h in Headers */,
-				67BBBD4F1974191C0089E3D6 /* MPKCardNumber.h in Headers */,
-				67BBBD601974191C0089E3D6 /* MoipHttpResponse.h in Headers */,
-				67BBBD431974191C0089E3D6 /* MPKCheckoutViewController.h in Headers */,
-				67BBBD581974191C0089E3D6 /* MPKView.h in Headers */,
-				67BBBD4D1974191C0089E3D6 /* MPKCardExpiry.h in Headers */,
-				67BBBD521974191C0089E3D6 /* MPKComponent.h in Headers */,
-				67BBBD451974191C0089E3D6 /* MPKConfiguration.h in Headers */,
-				67BBBD901974191C0089E3D6 /* MPKMessage.h in Headers */,
-				67BBBD471974191C0089E3D6 /* MPKAddressZip.h in Headers */,
-				67BBBD641974191C0089E3D6 /* MPKCardHolder.h in Headers */,
-				67BBBD541974191C0089E3D6 /* MPKTextField.h in Headers */,
-				67BBBD4B1974191C0089E3D6 /* MPKCardCVC.h in Headers */,
-				67BBBD681974191C0089E3D6 /* MPKEnums.h in Headers */,
-				67BBBDA51974191C0089E3D6 /* MPKMessageView.h in Headers */,
-				67BBBD5A1974191C0089E3D6 /* MPKEnvironment.h in Headers */,
-				67BBBD511974191C0089E3D6 /* MPKCardType.h in Headers */,
-				67BBBD6B1974191C0089E3D6 /* MPKFee.h in Headers */,
-				67BBBD491974191C0089E3D6 /* MPKCard.h in Headers */,
-				67BBBD6F1974191C0089E3D6 /* MPKPayment.h in Headers */,
-				67BBBD5E1974191C0089E3D6 /* MoipHttpRequester.h in Headers */,
-				67BBBCB5197418F40089E3D6 /* MoipSDK.h in Headers */,
-				67BBBD5D1974191C0089E3D6 /* HTTPStatusCodes.h in Headers */,
-				67BBBDA31974191C0089E3D6 /* MPKBlurView.h in Headers */,
-				67BBBD561974191C0089E3D6 /* MPKUSAddressZip.h in Headers */,
-				67BBBD891974191C0089E3D6 /* SecUtils.h in Headers */,
-				67BBBD8E1974191C0089E3D6 /* HexColor.h in Headers */,
-				67BBBD8D1974191C0089E3D6 /* ClisitefAsync.h in Headers */,
+				67D6AAA91979A8E30069F742 /* MPKError.h in Headers */,
+				67D6AA9C1979A8E30069F742 /* MPKCardNumber.h in Headers */,
+				67D6AA921979A8E30069F742 /* MPKConfiguration.h in Headers */,
+				67D6AA981979A8E30069F742 /* MPKCardCVC.h in Headers */,
+				67D6AAB01979A8E30069F742 /* MPKAmount.h in Headers */,
+				67D6AAD91979A8E30069F742 /* MPKUtilities.h in Headers */,
+				67D6AA9A1979A8E30069F742 /* MPKCardExpiry.h in Headers */,
+				67D6AABB1979A8E30069F742 /* MPKFundingInstrument.h in Headers */,
+				67D6AA961979A8E30069F742 /* MPKCard.h in Headers */,
+				67D6AAB21979A8E30069F742 /* MPKCardHolder.h in Headers */,
+				67D6AAB71979A8E30069F742 /* MPKEvent.h in Headers */,
+				67D6AA941979A8E30069F742 /* MPKAddressZip.h in Headers */,
+				67D6AA9F1979A8E30069F742 /* MPKComponent.h in Headers */,
+				67D6AADE1979A8E30069F742 /* MPKMessage.h in Headers */,
+				67D6AA901979A8E30069F742 /* MPKCheckoutViewController.h in Headers */,
+				67D6AABF1979A8E30069F742 /* MPKPaymentTransaction.h in Headers */,
+				67D6AAA71979A8E30069F742 /* MPKEnvironment.h in Headers */,
+				67D6AAB61979A8E30069F742 /* MPKEnums.h in Headers */,
+				67D6AAB91979A8E30069F742 /* MPKFee.h in Headers */,
+				67D6AA9E1979A8E30069F742 /* MPKCardType.h in Headers */,
+				67D6AAD81979A8E30069F742 /* Constants.h in Headers */,
+				67D6AAF31979A8E30069F742 /* MPKMessageView.h in Headers */,
+				67D6AAA51979A8E30069F742 /* MPKView.h in Headers */,
+				67D6AAB41979A8E30069F742 /* MPKCreditCard.h in Headers */,
+				67D6AAA11979A8E30069F742 /* MPKTextField.h in Headers */,
+				67D6AABD1979A8E30069F742 /* MPKPayment.h in Headers */,
+				67D6AAAB1979A8E30069F742 /* HTTPStatusCodes.h in Headers */,
+				67D6AAAE1979A8E30069F742 /* MoipHttpResponse.h in Headers */,
+				67D6AAD61979A8E30069F742 /* SecUtils.h in Headers */,
+				67D6AAF11979A8E30069F742 /* MPKBlurView.h in Headers */,
+				67D6AAA31979A8E30069F742 /* MPKUSAddressZip.h in Headers */,
+				67D6AAAC1979A8E30069F742 /* MoipHttpRequester.h in Headers */,
+				67D6AADC1979A8E30069F742 /* HexColor.h in Headers */,
+				67D6AADB1979A8E30069F742 /* ClisitefAsync.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		67BBBCAE197418F40089E3D6 /* MoipSDK */ = {
+		67D6A9E61979A8C00069F742 /* MoipSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 67BBBCC5197418F40089E3D6 /* Build configuration list for PBXNativeTarget "MoipSDK" */;
+			buildConfigurationList = 67D6AA0F1979A8C00069F742 /* Build configuration list for PBXNativeTarget "MoipSDK" */;
 			buildPhases = (
-				67BBBCAA197418F40089E3D6 /* Sources */,
-				67BBBCAB197418F40089E3D6 /* Frameworks */,
-				67BBBCAC197418F40089E3D6 /* Headers */,
-				67BBBCAD197418F40089E3D6 /* Resources */,
+				67D6A9E11979A8C00069F742 /* Sources */,
+				67D6A9E21979A8C00069F742 /* Frameworks */,
+				67D6A9E31979A8C00069F742 /* Headers */,
+				67D6A9E41979A8C00069F742 /* Resources */,
+				67D6A9E51979A8C00069F742 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -626,175 +675,224 @@
 			);
 			name = MoipSDK;
 			productName = MoipSDK;
-			productReference = 67BBBCAF197418F40089E3D6 /* MoipSDK.framework */;
-			productType = "com.apple.product-type.framework";
+			productReference = 67D6A9E71979A8C00069F742 /* MoipSDK.framework */;
+			productType = "com.apple.product-type.framework.static";
 		};
-		67BBBCB9197418F40089E3D6 /* MoipSDKTests */ = {
+		67D6A9F91979A8C00069F742 /* MoipSDKTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 67BBBCC8197418F40089E3D6 /* Build configuration list for PBXNativeTarget "MoipSDKTests" */;
+			buildConfigurationList = 67D6AA121979A8C00069F742 /* Build configuration list for PBXNativeTarget "MoipSDKTests" */;
 			buildPhases = (
-				67BBBCB6197418F40089E3D6 /* Sources */,
-				67BBBCB7197418F40089E3D6 /* Frameworks */,
-				67BBBCB8197418F40089E3D6 /* Resources */,
+				67D6A9F61979A8C00069F742 /* Sources */,
+				67D6A9F71979A8C00069F742 /* Frameworks */,
+				67D6A9F81979A8C00069F742 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				67BBBCBD197418F40089E3D6 /* PBXTargetDependency */,
+				67D6AA011979A8C00069F742 /* PBXTargetDependency */,
+				67D6AA031979A8C00069F742 /* PBXTargetDependency */,
 			);
 			name = MoipSDKTests;
 			productName = MoipSDKTests;
-			productReference = 67BBBCBA197418F40089E3D6 /* MoipSDKTests.xctest */;
+			productReference = 67D6A9FA1979A8C00069F742 /* MoipSDKTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		67BBBCA6197418F30089E3D6 /* Project object */ = {
+		67D6A9DD1979A8C00069F742 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Moip Pagamentos S/A";
 				TargetAttributes = {
-					67BBBCAE197418F40089E3D6 = {
-						CreatedOnToolsVersion = 6.0;
-					};
-					67BBBCB9197418F40089E3D6 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 67BBBCAE197418F40089E3D6;
+					67D6A9F91979A8C00069F742 = {
+						TestTargetID = 67D6A9E61979A8C00069F742;
 					};
 				};
 			};
-			buildConfigurationList = 67BBBCA9197418F30089E3D6 /* Build configuration list for PBXProject "MoipSDK" */;
+			buildConfigurationList = 67D6A9E01979A8C00069F742 /* Build configuration list for PBXProject "MoipSDK" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 67BBBCA5197418F30089E3D6;
-			productRefGroup = 67BBBCB0197418F40089E3D6 /* Products */;
+			mainGroup = 67D6A9DC1979A8C00069F742;
+			productRefGroup = 67D6A9E81979A8C00069F742 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				67BBBCAE197418F40089E3D6 /* MoipSDK */,
-				67BBBCB9197418F40089E3D6 /* MoipSDKTests */,
+				67D6A9E61979A8C00069F742 /* MoipSDK */,
+				67D6A9F91979A8C00069F742 /* MoipSDKTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		67BBBCAD197418F40089E3D6 /* Resources */ = {
+		67D6A9E41979A8C00069F742 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67BBBD7A1974191C0089E3D6 /* diners.png in Resources */,
-				67BBBD7D1974191C0089E3D6 /* discover@2x.png in Resources */,
-				67BBBD9F1974191C0089E3D6 /* NotificationBackgroundWarningIcon@2x.png in Resources */,
-				67BBBD781974191C0089E3D6 /* cvc.png in Resources */,
-				67BBBD841974191C0089E3D6 /* placeholder@2x.png in Resources */,
-				67BBBD9E1974191C0089E3D6 /* NotificationBackgroundWarningIcon.png in Resources */,
-				67BBBD991974191C0089E3D6 /* NotificationBackgroundSuccess@2x.png in Resources */,
-				67BBBD771974191C0089E3D6 /* cvc-amex@2x.png in Resources */,
-				67BBBD881974191C0089E3D6 /* visa@2x.png in Resources */,
-				67BBBD971974191C0089E3D6 /* NotificationBackgroundMessage@2x.png in Resources */,
-				67BBBD931974191C0089E3D6 /* NotificationBackgroundError@2x.png in Resources */,
-				67BBBD7C1974191C0089E3D6 /* discover.png in Resources */,
-				67BBBD941974191C0089E3D6 /* NotificationBackgroundErrorIcon.png in Resources */,
-				67BBBD921974191C0089E3D6 /* NotificationBackgroundError.png in Resources */,
-				67BBBD961974191C0089E3D6 /* NotificationBackgroundMessage.png in Resources */,
-				67BBBD9D1974191C0089E3D6 /* NotificationBackgroundWarning@2x.png in Resources */,
-				67BBBD871974191C0089E3D6 /* visa.png in Resources */,
-				67BBBD831974191C0089E3D6 /* placeholder.png in Resources */,
-				67BBBD9A1974191C0089E3D6 /* NotificationBackgroundSuccessIcon.png in Resources */,
-				67BBBD9B1974191C0089E3D6 /* NotificationBackgroundSuccessIcon@2x.png in Resources */,
-				67BBBD851974191C0089E3D6 /* textfield.png in Resources */,
-				67BBBD741974191C0089E3D6 /* amex.png in Resources */,
-				67BBBD9C1974191C0089E3D6 /* NotificationBackgroundWarning.png in Resources */,
-				67BBBD861974191C0089E3D6 /* textfield@2x.png in Resources */,
-				67BBBDA01974191C0089E3D6 /* NotificationButtonBackground.png in Resources */,
-				67BBBD7E1974191C0089E3D6 /* gradient@2x.png in Resources */,
-				67BBBD791974191C0089E3D6 /* cvc@2x.png in Resources */,
-				67BBBD761974191C0089E3D6 /* cvc-amex.png in Resources */,
-				67BBBD981974191C0089E3D6 /* NotificationBackgroundSuccess.png in Resources */,
-				67BBBD811974191C0089E3D6 /* mastercard.png in Resources */,
-				67BBBD7F1974191C0089E3D6 /* jcb.png in Resources */,
-				67BBBD751974191C0089E3D6 /* amex@2x.png in Resources */,
-				67BBBD821974191C0089E3D6 /* mastercard@2x.png in Resources */,
-				67BBBDA11974191C0089E3D6 /* NotificationButtonBackground@2x.png in Resources */,
-				67BBBDA21974191C0089E3D6 /* MPKMessagesDefaultDesign.json in Resources */,
-				67BBBD801974191C0089E3D6 /* jcb@2x.png in Resources */,
-				67BBBD951974191C0089E3D6 /* NotificationBackgroundErrorIcon@2x.png in Resources */,
-				67BBBD7B1974191C0089E3D6 /* diners@2x.png in Resources */,
+				67D6AAE31979A8E30069F742 /* NotificationBackgroundErrorIcon@2x.png in Resources */,
+				67D6AAEA1979A8E30069F742 /* NotificationBackgroundWarning.png in Resources */,
+				67D6AAEE1979A8E30069F742 /* NotificationButtonBackground.png in Resources */,
+				67D6AAE81979A8E30069F742 /* NotificationBackgroundSuccessIcon.png in Resources */,
+				67D6AAD41979A8E30069F742 /* visa.png in Resources */,
+				67D6AACF1979A8E30069F742 /* mastercard@2x.png in Resources */,
+				67D6A9F11979A8C00069F742 /* InfoPlist.strings in Resources */,
+				67D6AAE41979A8E30069F742 /* NotificationBackgroundMessage.png in Resources */,
+				67D6AAE01979A8E30069F742 /* NotificationBackgroundError.png in Resources */,
+				67D6AAC51979A8E30069F742 /* cvc.png in Resources */,
+				67D6AAC71979A8E30069F742 /* diners.png in Resources */,
+				67D6AAE21979A8E30069F742 /* NotificationBackgroundErrorIcon.png in Resources */,
+				67D6AAE11979A8E30069F742 /* NotificationBackgroundError@2x.png in Resources */,
+				67D6AAA81979A8E30069F742 /* InfoPlist.strings in Resources */,
+				67D6AAD31979A8E30069F742 /* textfield@2x.png in Resources */,
+				67D6AAD21979A8E30069F742 /* textfield.png in Resources */,
+				67D6AAC61979A8E30069F742 /* cvc@2x.png in Resources */,
+				67D6AAC41979A8E30069F742 /* cvc-amex@2x.png in Resources */,
+				67D6AAD11979A8E30069F742 /* placeholder@2x.png in Resources */,
+				67D6AAC31979A8E30069F742 /* cvc-amex.png in Resources */,
+				67D6AAE51979A8E30069F742 /* NotificationBackgroundMessage@2x.png in Resources */,
+				67D6AAE71979A8E30069F742 /* NotificationBackgroundSuccess@2x.png in Resources */,
+				67D6AACE1979A8E30069F742 /* mastercard.png in Resources */,
+				67D6AAC11979A8E30069F742 /* amex.png in Resources */,
+				67D6AAC91979A8E30069F742 /* discover.png in Resources */,
+				67D6AAC21979A8E30069F742 /* amex@2x.png in Resources */,
+				67D6AAEF1979A8E30069F742 /* NotificationButtonBackground@2x.png in Resources */,
+				67D6AAD51979A8E30069F742 /* visa@2x.png in Resources */,
+				67D6AAF01979A8E30069F742 /* MPKMessagesDefaultDesign.json in Resources */,
+				67D6AACD1979A8E30069F742 /* jcb@2x.png in Resources */,
+				67D6AAE91979A8E30069F742 /* NotificationBackgroundSuccessIcon@2x.png in Resources */,
+				67D6AAE61979A8E30069F742 /* NotificationBackgroundSuccess.png in Resources */,
+				67D6AAEB1979A8E30069F742 /* NotificationBackgroundWarning@2x.png in Resources */,
+				67D6AAEC1979A8E30069F742 /* NotificationBackgroundWarningIcon.png in Resources */,
+				67D6AAD01979A8E30069F742 /* placeholder.png in Resources */,
+				67D6AAC81979A8E30069F742 /* diners@2x.png in Resources */,
+				67D6AACB1979A8E30069F742 /* gradient@2x.png in Resources */,
+				67D6AAED1979A8E30069F742 /* NotificationBackgroundWarningIcon@2x.png in Resources */,
+				67D6AACA1979A8E30069F742 /* discover@2x.png in Resources */,
+				67D6AACC1979A8E30069F742 /* jcb.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67BBBCB8197418F40089E3D6 /* Resources */ = {
+		67D6A9F81979A8C00069F742 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67D6AA0A1979A8C00069F742 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		67D6A9E51979A8C00069F742 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /usr/bin/python;
+			shellScript = "# TAG: BUILD SCRIPT (do not remove this comment)\n# Build script generated using https://github.com/kstenerud/iOS-Universal-Framework Mk 8 (beta 2012-06-16)\nimport logging\n\n\n##############################################################################\n#\n# Configuration\n#\n##############################################################################\n\n# Select which kind of framework to build.\n#\n# Note: Due to issues with Xcode's build process, if you select\n#       'embeddedframework', it will still show the regular framework\n#       (as a symlink) along side of the embedded framework. Be sure to\n#       instruct your users to copy/move the embedded framework in this case!\n#\n# If your framework contains resources such as images, nibs, momds, plists,\n# zipfiles and such, choose 'embeddedframework'.\n#\n# If your framework contains no resources, choose 'framework'.\n#\nconfig_framework_type = 'framework'\n#config_framework_type = 'embeddedframework'\n\n# Open the build directory in Finder when the universal framework is\n# successfully built.\n#\n# This value can be overridden by setting the UFW_OPEN_BUILD_DIR env variable\n# to True or False.\n#\n# Recommended setting: True\n#\nconfig_open_build_dir = True\n\n# If true, ensures that all public headers are stored in the framework under\n# the same directory hierarchy as they were in the source tree.\n#\n# Xcode by default places all headers at the same top level, but every other\n# build tool in the known universe preserves directory structure. For simple\n# libraries it doesn't really matter much, but for ports of existing software\n# packages or for bigger libraries, it makes sense to have more structure.\n#\n# The default is set to \"False\" since that's what most Xcode users are used to.\n#\n# Recommended setting: True for deep hierarchy projects, False otherwise.\n#\nconfig_deep_header_hierarchy = False\n\n# Specify where the top of the public header hierarchy is. This path is\n# relative to the project's dir (PROJECT_DIR). You can reference environment\n# variables using templating syntax (e.g. \"${TARGET_NAME}/Some/Subdir\")\n#\n# NOTE: Only used if config_deep_header_hierarchy is True.\n#\n# If this is set to None, the script will attempt to figure out for itself\n# where the top of the header hierarchy is by looking for common path prefixes\n# in the public header files. This process can fail if:\n# - You only have one public header file.\n# - Your source header files don't all have a common root.\n#\n# A common approach is to use \"${TARGET_NAME}\", working under the assumption\n# that all of your header files share the common root of a directory under\n# your project with the same name as your target (which is the Xcode default).\n#\n# Recommended setting: \"${TARGET_NAME}\"\n#\nconfig_deep_header_top = \"${TARGET_NAME}\"\n\n# Warn when \"DerivedData\" is detected in any of the header, library, or\n# framework search paths. In almost all cases, references to directories under\n# DerivedData are added as a result of an Xcode bug and must be manually\n# removed.\n#\n# Recommended setting: True\n#\nconfig_warn_derived_data = True\n\n# Warn if no headers were marked public in this framework.\n#\n# Recommended setting: True\n#\nconfig_warn_no_public_headers = True\n\n# Cause the build to fail if any warnings are issued.\n#\n# Recommended setting: True\n#\nconfig_fail_on_warnings = True\n\n# Minimum log level\n#\n# Recommended setting: logging.INFO\n#\nconfig_log_level = logging.INFO\n\n\n##############################################################################\n#\n# Don't touch anything below here unless you know what you're doing.\n#\n##############################################################################\n\nimport collections\nimport json\nimport os\nimport re\nimport shlex\nimport shutil\nimport string\nimport subprocess\nimport sys\nimport time\nimport traceback\n\n\n##############################################################################\n#\n# Globals\n#\n##############################################################################\n\nlog = logging.getLogger('UFW')\n\nissued_warnings = False\n\n\n##############################################################################\n#\n# Classes\n#\n##############################################################################\n\n# Allows the slave build to communicate with the master build.\n#\nclass BuildState:\n\n    def __init__(self):\n        self.reload()\n\n    def reset(self):\n        self.slave_platform = None\n        self.slave_architectures = []\n        self.slave_linked_archive_paths = []\n        self.slave_built_fw_path = None\n        self.slave_built_embedded_fw_path = None\n\n    def set_slave_properties(self, architectures,\n                             linked_archive_paths,\n                             built_fw_path,\n                             built_embedded_fw_path):\n        self.slave_platform = os.environ['PLATFORM_NAME']\n        self.slave_architectures = architectures\n        self.slave_linked_archive_paths = linked_archive_paths\n        self.slave_built_fw_path = built_fw_path\n        self.slave_built_embedded_fw_path = built_embedded_fw_path\n\n    def get_save_path(self):\n        return os.path.join(os.environ['PROJECT_TEMP_DIR'], \"ufw_build_state.json\")\n\n    def persist(self):\n        filename = self.get_save_path()\n        parent = os.path.dirname(filename)\n        if not os.path.isdir(parent):\n            os.makedirs(parent)\n        with open(filename, \"w\") as f:\n            f.write(json.dumps(self.__dict__))\n\n    def reload(self):\n        self.reset()\n        filename = self.get_save_path()\n        if os.path.exists(filename):\n            with open(filename, \"r\") as f:\n                new_dict = json.loads(f.read())\n                if new_dict is not None:\n                    self.__dict__ = dict(self.__dict__.items() + new_dict.items())\n\n\n# Holds information about the current project and build environment.\n#\nclass Project:\n\n    def __init__(self, filename):\n        sourcecode_types = ['sourcecode.c.c',\n                            'sourcecode.c.objc',\n                            'sourcecode.cpp.cpp',\n                            'sourcecode.cpp.objcpp',\n                            'sourcecode.asm.asm',\n                            'sourcecode.asm.llvm',\n                            'sourcecode.nasm']\n\n        self.build_state = BuildState()\n        self.project_data = self.load_from_file(filename)\n        self.target = filter(lambda x: x['name'] == os.environ['TARGET_NAME'], self.project_data['targets'])[0]\n        self.public_headers = self.get_build_phase_files('PBXHeadersBuildPhase', lambda x: x.get('settings', False) and x['settings'].get('ATTRIBUTES', False) and 'Public' in x['settings']['ATTRIBUTES'])\n        self.static_libraries = self.get_build_phase_files('PBXFrameworksBuildPhase', lambda x: x['fileRef']['fileType'] == 'archive.ar' and x['fileRef']['sourceTree'] not in ['DEVELOPER_DIR', 'SDKROOT'])\n        self.static_frameworks = self.get_build_phase_files('PBXFrameworksBuildPhase', lambda x: x['fileRef']['fileType'] == 'wrapper.framework' and x['fileRef']['sourceTree'] not in ['DEVELOPER_DIR', 'SDKROOT'])\n        self.compilable_sources = self.get_build_phase_files('PBXSourcesBuildPhase', lambda x: x['fileRef']['fileType'] in sourcecode_types)\n        self.header_paths = [os.path.join(*x['pathComponents']) for x in self.public_headers]\n\n        self.headers_dir = os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['CONTENTS_FOLDER_PATH'], 'Headers')\n        self.libtool_path = os.path.join(os.environ['DT_TOOLCHAIN_DIR'], 'usr', 'bin', 'libtool')\n        self.project_filename = os.path.join(os.environ['PROJECT_FILE_PATH'], \"project.pbxproj\")\n        self.local_exe_path = os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['EXECUTABLE_PATH'])\n        self.local_architectures = os.environ['ARCHS'].split(' ')\n        self.local_built_fw_path = os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['WRAPPER_NAME'])\n        self.local_built_embedded_fw_path = os.path.splitext(self.local_built_fw_path)[0] + \".embeddedframework\"\n        self.local_linked_archive_paths = [self.get_linked_ufw_archive_path(arch) for arch in self.local_architectures]\n        self.local_platform = os.environ['PLATFORM_NAME']\n        other_platforms = os.environ['SUPPORTED_PLATFORMS'].split(' ')\n        other_platforms.remove(self.local_platform)\n        self.other_platform = other_platforms[0]\n\n        sdk_name = os.environ['SDK_NAME']\n        if not sdk_name.startswith(self.local_platform):\n            raise Exception(\"%s didn't start with %s\" % (sdk_name, self.local_platform))\n        self.sdk_version = sdk_name[len(self.local_platform):]\n\n    # Load an Xcode project file.\n    #\n    def load_from_file(self, filename):\n        project_file = json.loads(subprocess.check_output([\"plutil\", \"-convert\", \"json\", \"-o\", \"-\", filename]))\n        all_objects = project_file['objects']\n        del project_file['objects']\n        for obj in all_objects.values():\n            self.fix_keys(obj)\n        self.unpack_objects(self.build_dereference_list(all_objects, None, None, project_file))\n        self.unpack_objects(self.build_dereference_list(all_objects, None, None, all_objects.values()))\n        project_data = project_file['rootObject']\n        self.build_full_paths(project_data, splitpath(os.environ['SOURCE_ROOT']))\n        return project_data\n\n    def is_key(self, obj):        \n        return isinstance(obj, basestring) and len(obj) == 24 and re.search('^[0-9a-fA-F]+$', obj) is not None\n    \n    def build_dereference_list(self, all_objects, parent, key, obj):\n        deref_list = []\n        if self.is_key(obj):\n            dereferenced = all_objects.get(obj, obj)\n            if dereferenced is not obj:\n                deref_list.append((parent, key, obj, dereferenced))\n        elif isinstance(obj, collections.Mapping):\n            for k, v in obj.iteritems():\n                deref_list += self.build_dereference_list(all_objects, obj, k, v)\n        elif isinstance(obj, collections.Iterable) and not isinstance(obj, basestring):\n            for item in obj:\n                deref_list += self.build_dereference_list(all_objects, obj, None, item)\n        return deref_list\n    \n    def unpack_objects(self, deref_list):\n        for parent, key, orig, obj in deref_list:\n            if key is None:\n                parent.remove(orig)\n                parent.append(obj)\n            else:\n                parent[key] = obj\n\n    # Store the full path, separated into components, to a node inside the node\n    # as \"pathComponents\". Also recurse into that node if it's a group.\n    #\n    def build_full_paths(self, node, base_path):\n        # Some nodes are relative to a different source tree, specified as an\n        # env variable.\n        if node.get('sourceTree', '<group>') != '<group>':\n            new_base_path = os.environ.get(node['sourceTree'], None)\n            if new_base_path:\n                base_path = splitpath(new_base_path)\n        # Add the current node's path, if any.\n        if node.get('path', False):\n            base_path = base_path + splitpath(node['path'])\n        node['pathComponents'] = base_path\n        # Recurse if this is a group.\n        if node['isa'] == 'PBXGroup':\n            for child in node['children']:\n                self.build_full_paths(child, base_path)\n        elif node['isa'] == 'PBXProject':\n            self.build_full_paths(node['mainGroup'], base_path)\n            self.build_full_paths(node['productRefGroup'], base_path)\n            for child in node['targets']:\n                self.build_full_paths(child, base_path)\n            projectRefs = node.get('projectReferences', None)\n            if projectRefs is not None:\n                for child in projectRefs[0].values():\n                    self.build_full_paths(child, base_path)\n\n    # Fix up any inconvenient keys.\n    #\n    def fix_keys(self, obj):\n        key_remappings = {'lastKnownFileType': 'fileType', 'explicitFileType': 'fileType'}\n        for key in list(set(key_remappings.keys()) & set(obj.keys())):\n            obj[key_remappings[key]] = obj[key]\n            del obj[key]\n\n    # Get the files from a build phase.\n    #\n    def get_build_phase_files(self, build_phase_name, filter_func):\n        build_phase = filter(lambda x: x['isa'] == build_phase_name, self.target['buildPhases'])[0]\n        build_files = filter(filter_func, build_phase['files'])\n        return [x['fileRef'] for x in build_files]\n\n    # Get the truncated paths of all headers that start with the specified\n    # relative path. Paths are read and returned as fully separated lists.\n    # e.g. ['Some', 'Path', 'To', 'A', 'Header'] with relative_path of\n    # ['Some', 'Path'] gets truncated to ['To', 'A', 'Header']\n    #\n    def movable_headers_relative_to(self, relative_path):\n        rel_path_length = len(relative_path)\n        result = filter(lambda path: len(path) >= rel_path_length and\n                                     path[:rel_path_length] == relative_path, self.header_paths)\n        return [path[rel_path_length:] for path in result]\n\n    # Get the full path to where a linkable archive (library or framework)\n    # is supposed to be.\n    #\n    def get_linked_archive_path(self, architecture):\n        return os.path.join(os.environ['OBJECT_FILE_DIR_%s' % os.environ['CURRENT_VARIANT']],\n                            architecture,\n                            os.environ['EXECUTABLE_NAME'])\n\n    # Get the full path to our custom linked archive of the project.\n    #\n    def get_linked_ufw_archive_path(self, architecture):\n        return self.get_linked_archive_path(architecture) + \".ufwbuild\"\n\n    # Get the full path to the executable of an archive.\n    #\n    def get_exe_path(self, node):\n        path = os.path.join(*node['pathComponents'])\n        if node['fileType'] == 'wrapper.framework':\n            # Frameworks are directories, so go one deeper\n            path = os.path.join(path, os.path.splitext(node['pathComponents'][-1])[0])\n        return path\n\n    # Get the path to the directory containing the archive.\n    #\n    def get_containing_path(self, node):\n        return os.path.join(*node['pathComponents'])\n    \n    def get_archive_search_paths(self):\n        log.info(\"Search paths = %s\" % set([self.get_containing_path(fw) for fw in self.static_frameworks] + [self.get_containing_path(fw) for fw in self.static_libraries]))\n        return set([self.get_containing_path(fw) for fw in self.static_frameworks] + [self.get_containing_path(fw) for fw in self.static_libraries])\n\n    # Command to link all objects of a single architecture.\n    #\n    def get_single_arch_link_command(self, architecture):\n        cmd = [self.libtool_path,\n               \"-static\",\n               \"-arch_only\", architecture,\n               \"-syslibroot\", os.environ['SDKROOT'],\n               \"-L%s\" % os.environ['TARGET_BUILD_DIR'],\n               \"-filelist\", os.environ['LINK_FILE_LIST_%s_%s' % (os.environ['CURRENT_VARIANT'], architecture)]]\n        if os.environ.get('OTHER_LDFLAGS', False):\n            cmd += [os.environ['OTHER_LDFLAGS']]\n        if os.environ.get('WARNING_LDFLAGS', False):\n            cmd += [os.environ['WARNING_LDFLAGS']]\n#        cmd += [\"-L%s\" % libpath for libpath in self.get_archive_search_paths()]\n        cmd += [self.get_exe_path(fw) for fw in self.static_frameworks]\n        cmd += [self.get_exe_path(lib) for lib in self.static_libraries]\n        cmd += [\"-o\", self.get_linked_ufw_archive_path(architecture)]\n        return cmd\n\n    # Command to link all local architectures for the current configuration\n    # into an archive. This reads all libraries + the UFW-built archives and\n    # overwrites the final product.\n    #\n    def get_local_archs_link_command(self):\n        cmd = [self.libtool_path,\n               \"-static\"]\n        cmd += self.local_linked_archive_paths\n        cmd += [self.get_exe_path(fw) for fw in self.static_frameworks]\n        cmd += [self.get_exe_path(lib) for lib in self.static_libraries]\n        cmd += [\"-o\", os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['EXECUTABLE_PATH'])]\n        return cmd\n\n    # Command to link all architectures into a universal archive.\n    # This reads all UFW-built archives and overwrites the final product.\n    #\n    def get_all_archs_link_command(self):\n        cmd = [self.libtool_path,\n               \"-static\"]\n        cmd += self.local_linked_archive_paths + self.build_state.slave_linked_archive_paths\n        cmd += [\"-o\", os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['EXECUTABLE_PATH'])]\n        return cmd\n\n    # Build up an environment for the slave process. This uses BUILD_ROOT\n    # and TEMP_ROOT to convert all environment variables to values suitable\n    # for the slave build environment so that xcodebuild doesn't try to build\n    # in the project directory under \"build\".\n    #\n    def get_slave_environment(self):\n        ignored = ['LD_MAP_FILE_PATH',\n        'HEADER_SEARCH_PATHS',\n        'LIBRARY_SEARCH_PATHS',\n        'FRAMEWORK_SEARCH_PATHS']\n        build_root = os.environ['BUILD_ROOT']\n        temp_root = os.environ['TEMP_ROOT']\n        newenv = {}\n        for key, value in os.environ.items():\n            if key not in ignored and not key.startswith('LINK_FILE_LIST_') and not key.startswith('LD_DEPENDENCY_'):\n                if build_root in value or temp_root in value:\n                    newenv[key] = value.replace(self.local_platform, self.other_platform)\n        return newenv\n\n    # Command to invoke xcodebuild on the slave platform.\n    #\n    def get_slave_project_build_command(self):\n        cmd = [\"xcodebuild\",\n               \"-project\",\n               os.environ['PROJECT_FILE_PATH'],\n               \"-target\",\n               os.environ['TARGET_NAME'],\n               \"-configuration\",\n               os.environ['CONFIGURATION'],\n               \"-sdk\",\n               self.other_platform + self.sdk_version]\n        cmd += [\"%s=%s\" % (key, value) for key, value in self.get_slave_environment().items()]\n        cmd += [\"UFW_MASTER_PLATFORM=\" + os.environ['PLATFORM_NAME']]\n        cmd += [os.environ['ACTION']]\n        return cmd\n\n\n\n##############################################################################\n#\n# Utility Functions\n#\n##############################################################################\n\n# Split a path into a list of path components.\n#\ndef splitpath(path, maxdepth=20):\n     (head, tail) = os.path.split(path)\n     return splitpath(head, maxdepth - 1) + [tail] if maxdepth and head and head != path else [ head or tail ]\n\n# Remove all subdirectories under a path.\n#\ndef remove_subdirs(path, ignore_files):\n    if os.path.exists(path):\n        for filename in filter(lambda x: x not in ignore_files, os.listdir(path)):\n            fullpath = os.path.join(path, filename)\n            if os.path.isdir(fullpath):\n                log.info(\"Remove %s\" % fullpath)\n                shutil.rmtree(fullpath)\n\n# Make whatever parent paths are necessary for a path to exist.\n#\ndef ensure_path_exists(path):\n    if not os.path.isdir(path):\n        os.makedirs(path)\n\n# Make whatever parent paths are necessary for a path's parent to exist.\n#\ndef ensure_parent_exists(path):\n    parent = os.path.dirname(path)\n    if not os.path.isdir(parent):\n        os.makedirs(parent)\n\n# Remove a file or dir if it exists.\n#\ndef remove_path(path):\n    if os.path.exists(path):\n        if os.path.isdir(path) and not os.path.islink(path):\n            shutil.rmtree(path)\n        else:\n            os.remove(path)\n\n# Move a file or dir, replacing the destination if it exists.\n#\ndef move_file(src, dst):\n    if src == dst or not os.path.isfile(src):\n        return\n    log.info(\"Move %s to %s\" % (src, dst))\n    ensure_parent_exists(dst)\n    remove_path(dst)\n    shutil.move(src, dst)\n\n# Copy a file or dir, replacing the destination if it exists already.\n#\ndef copy_overwrite(src, dst):\n    if src != dst:\n        remove_path(dst)\n        ensure_parent_exists(dst)\n        shutil.copytree(src, dst, symlinks=True)\n\n# Attempt to symlink link_path -> link_to.\n# link_to must be a path relative to link_path's parent and must exist.\n# If link_path already exists, do nothing.\n#\ndef attempt_symlink(link_path, link_to):\n    # Only allow linking to an existing file\n    os.stat(os.path.abspath(os.path.join(link_path, \"..\", link_to)))\n\n    # Only make the link if it hasn't already been made\n    if not os.path.exists(link_path):\n        log.info(\"Symlink %s -> %s\" % (link_path, link_to))\n        os.symlink(link_to, link_path)\n\n# Takes the last entry in an array-based path and returns a normal path\n# relative to base_path.\n#\ndef top_level_file_path(base_path, path_list):\n    return os.path.join(base_path, os.path.split(path_list[-1])[-1])\n\n# Takes all entries in an array-based path and returns a normal path\n# relative to base_path.\n#\ndef full_file_path(base_path, path_list):\n    return os.path.join(*([base_path] + path_list))\n\n# Print a command before executing it.\n# Also print out all output from the command to STDOUT.\n#\ndef print_and_call(cmd):\n    log.info(\"Cmd \" + \" \".join(cmd))\n    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n    result = p.communicate()[0]\n    if len(result) > 0:\n        log.info(result)\n    if p.returncode != 0:\n        raise subprocess.CalledProcessError(p.returncode, cmd)\n\n# Special print-and-call command for the slave build that strips out\n# xcodebuild's spammy list of environment variables.\n#\ndef print_and_call_slave_build(cmd, other_platform):\n    separator = '=== BUILD NATIVE TARGET '\n    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n    result = p.communicate()[0].split(separator)\n    if len(result) == 1:\n        result = result[0]\n    else:\n        result = separator + result[1]\n    log.info(\"Cmd \" + \" \".join(cmd) + \"\\n\" + result)\n    if p.returncode != 0:\n        raise subprocess.CalledProcessError(p.returncode, cmd)\n\n# Issue a warning and record that a warning has been issued.\n#\ndef issue_warning(msg, *args, **kwargs):\n    global issued_warnings\n    issued_warnings = True\n    log.warn(msg, *args, **kwargs)\n\n\n\n##############################################################################\n#\n# Main Application\n#\n##############################################################################\n\n# Check if we are running as master.\n#\ndef is_master():\n    return os.environ.get('UFW_MASTER_PLATFORM', os.environ['PLATFORM_NAME']) == os.environ['PLATFORM_NAME']\n\n# DerivedData should almost never appear in any framework, library, or header\n# search paths. However, Xcode will sometimes add them in, so we check to make\n# sure.\n#\ndef check_for_derived_data_in_search_paths(project):\n    search_path_keys = [\"FRAMEWORK_SEARCH_PATHS\", \"LIBRARY_SEARCH_PATHS\", \"HEADER_SEARCH_PATHS\"]\n    build_configs = project.target['buildConfigurationList']['buildConfigurations']\n    build_settings = filter(lambda x: x['name'] == os.environ['CONFIGURATION'], build_configs)[0]['buildSettings']\n    \n    found_something = False\n    for path_key in filter(lambda x: x in build_settings, search_path_keys):\n        path = build_settings[path_key]\n        if \"DerivedData\" in path:\n            found_something = True\n            log.warn(\"Derived data in %s\" % path)\n            issue_warning(\"'%s' contains reference to 'DerivedData'.\" % path_key)\n    if found_something:\n        log.warn(\"Check your build settings and remove any entries that contain paths inside the DerivedData folder.\")\n        log.warn(\"Otherwise you can disable this warning by changing 'config_warn_derived_data' in this script.\")\n\n# Link local architectures into their respective archives.\n#\ndef link_local_archs(project):\n    for arch in project.local_architectures:\n        print_and_call(project.get_single_arch_link_command(arch))\n\n# Link only the local architectures into the final product, not the slave\n# architectures. For iphoneos, this will be armv6, armv7. For simulator, this\n# will be i386.\n#\ndef link_combine_local_archs(project):\n    print_and_call(project.get_local_archs_link_command())\n\n# Link all architectures into the final product.\n#\ndef link_combine_all_archs(project):\n    print_and_call(project.get_all_archs_link_command())\n\n# Check if we should open the build directory after a successful build.\n#\ndef should_open_build_dir():\n    env_setting = os.environ.get('UFW_OPEN_BUILD_DIR', None)\n    if env_setting is not None:\n        return env_setting\n    \n    # If building on Xcode Bots shouldn't open build directory.\n    build_user = os.environ['USER']\n    if build_user == '_teamsserver':\n        return False\n\n    return config_open_build_dir\n\n# Open the build dir in Finder.\n#\ndef open_build_dir():\n    print_and_call(['open', os.environ['TARGET_BUILD_DIR']])\n\n# Check if the build was started by selecting \"Archive\" under \"Product\" in\n# Xcode.\n#\ndef is_archive_build():\n    # ACTION is always 'build', but perhaps Apple will fix this someday?\n    archive_build = os.environ['ACTION'] == 'archive'\n\n    if not archive_build:\n        # This can be passed in as an env variable when building from command line.\n        archive_build = os.environ.get('UFW_ACTION', None) == 'archive'\n\n    build_dir = splitpath(os.environ['BUILD_DIR'])\n    if not archive_build:\n        # This partial path is used when you select \"archive\" from within Xcode.\n        archive_build = 'ArchiveIntermediates' in build_dir\n\n    # It only counts as a full archive build if this target is being built into\n    # its own build dir (not being built as a dependency of another target)\n    if archive_build:\n        archive_build = os.environ['TARGET_NAME'] in build_dir\n    \n    return archive_build\n\n# Xcode by default throws all public headers into the top level directory.\n# This function moves them to their expected deep hierarchy.\n#\ndef build_deep_header_hierarchy(project):\n    header_path_top = config_deep_header_top\n    if not header_path_top:\n        header_path_top = os.path.commonprefix(project.header_paths)\n    else:\n        header_path_top = splitpath(header_path_top)\n\n    built_headers_path = os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['PUBLIC_HEADERS_FOLDER_PATH'])\n    movable_headers = project.movable_headers_relative_to(header_path_top)\n\n    # Remove subdirs if they only contain files that have been rebuilt\n    ignore_headers = filter(lambda x: not os.path.isfile(top_level_file_path(built_headers_path, x)), movable_headers)\n    remove_subdirs(built_headers_path, [file[0] for file in ignore_headers])\n\n    # Move rebuilt headers into their proper subdirs\n    for header in movable_headers:\n        move_file(top_level_file_path(built_headers_path, header), full_file_path(built_headers_path, header))\n\n# Add all symlinks needed to make a full framework structure:\n#\n# MyFramework.framework\n# |-- MyFramework -> Versions/Current/MyFramework\n# |-- Headers -> Versions/Current/Headers\n# |-- Resources -> Versions/Current/Resources\n# `-- Versions\n#     |-- A\n#     |   |-- MyFramework\n#     |   |-- Headers\n#     |   |   `-- MyFramework.h\n#     |   `-- Resources\n#     |       |-- Info.plist\n#     |       |-- MyViewController.nib\n#     |       `-- en.lproj\n#     |           `-- InfoPlist.strings\n#     `-- Current -> A\n#\ndef add_symlinks_to_framework(project):\n    base_dir = project.local_built_fw_path\n    attempt_symlink(os.path.join(base_dir, \"Versions\", \"Current\"), os.environ['FRAMEWORK_VERSION'])\n    if os.path.isdir(os.path.join(base_dir, \"Versions\", \"Current\", \"Headers\")):\n        attempt_symlink(os.path.join(base_dir, \"Headers\"), os.path.join(\"Versions\", \"Current\", \"Headers\"))\n    if os.path.isdir(os.path.join(base_dir, \"Versions\", \"Current\", \"Resources\")):\n        attempt_symlink(os.path.join(base_dir, \"Resources\"), os.path.join(\"Versions\", \"Current\", \"Resources\"))\n    attempt_symlink(os.path.join(base_dir, os.environ['EXECUTABLE_NAME']), os.path.join(\"Versions\", \"Current\", os.environ['EXECUTABLE_NAME']))\n\n# Build an embedded framework structure.\n# An embedded framework contains the actual framework, plus a \"Resources\"\n# directory containing symlinks to all resources found in the actual framework,\n# with the exception of \"Info.plist\" and anything ending in \".lproj\":\n#\n# MyFramework.embeddedframework\n# |-- MyFramework.framework\n# |   |-- MyFramework -> Versions/Current/MyFramework\n# |   |-- Headers -> Versions/Current/Headers\n# |   |-- Resources -> Versions/Current/Resources\n# |   `-- Versions\n# |       |-- A\n# |       |   |-- MyFramework\n# |       |   |-- Headers\n# |       |   |   `-- MyFramework.h\n# |       |   `-- Resources\n# |       |       |-- Info.plist\n# |       |       |-- MyViewController.nib\n# |       |       `-- en.lproj\n# |       |           `-- InfoPlist.strings\n# |       `-- Current -> A\n# `-- Resources\n#     `-- MyViewController.nib -> ../MyFramework.framework/Resources/MyViewController.nib\n#\ndef build_embedded_framework(project):\n    fw_path = project.local_built_fw_path\n    embedded_path = project.local_built_embedded_fw_path\n    fw_name = os.environ['WRAPPER_NAME']\n\n    if (os.path.islink(fw_path)):\n        # If the framework path is a link, the build result already in embeddedframework.\n        # Just recreate embeddedframework's Resources\n        remove_path(os.path.join(embedded_path, \"Resources\"))\n    else:\n        remove_path(embedded_path)\n        ensure_path_exists(embedded_path)\n        copy_overwrite(fw_path, os.path.join(embedded_path, fw_name))\n\n    # Create embeddedframework's Resources        \n    ensure_path_exists(os.path.join(embedded_path, \"Resources\"))\n    symlink_source = os.path.join(\"..\", fw_name, \"Resources\")\n    symlink_path = os.path.join(embedded_path, \"Resources\")\n    if os.path.isdir(os.path.join(fw_path, \"Resources\")):\n        for file in filter(lambda x: x != \"Info.plist\" and not x.endswith(\".lproj\"), os.listdir(os.path.join(fw_path, \"Resources\"))):\n            attempt_symlink(os.path.join(symlink_path, file), os.path.join(symlink_source, file))\n\n    # Remove the normal framework and replace it with a symlink to the copy\n    # in the embedded framework. This is needed because Xcode runs its strip\n    # phase AFTER the script runs.\n    embed_fw_wrapper = os.path.splitext(os.environ['WRAPPER_NAME'])[0] + \".embeddedframework\"\n    remove_path(fw_path)\n    attempt_symlink(fw_path, os.path.join(embed_fw_wrapper, os.environ['WRAPPER_NAME']))\n\n\n# Run the build process in slave mode to build the other configuration\n# (device/simulator).\n#\ndef run_slave_build(project):\n    print_and_call_slave_build(project.get_slave_project_build_command(), project.other_platform)\n\n# Run the build process.\n#\ndef run_build():\n    project = Project(os.path.join(os.environ['PROJECT_FILE_PATH'], \"project.pbxproj\"))\n\n    # Issue warnings only if we're master.\n    if is_master():\n        if len(project.compilable_sources) == 0:\n            raise Exception(\"No compilable sources found. Please add at least one source file to build target %s.\" % os.environ['TARGET_NAME'])\n\n        if config_warn_derived_data:\n            check_for_derived_data_in_search_paths(project)\n        if config_warn_no_public_headers and len(project.public_headers) == 0:\n            issue_warning('No headers in build target %s were marked public. Please move at least one header to \"Public\" in the \"Copy Headers\" build phase.' % os.environ['TARGET_NAME'])\n\n    # Only build slave if this is an archive build.\n    if is_archive_build():\n        if is_master():\n            log.debug(\"Building as MASTER\")\n            # The slave-side linker tries to include this (nonexistent) path as\n            # a library path.\n            ensure_path_exists(project.get_slave_environment()['BUILT_PRODUCTS_DIR'])\n            project.build_state.persist()\n            run_slave_build(project)\n            project.build_state.reload()\n        else:\n            log.debug(\"Building as SLAVE\")\n            project.build_state.reload()\n            project.build_state.set_slave_properties(project.local_architectures,\n                                                     project.local_linked_archive_paths,\n                                                     project.local_built_fw_path,\n                                                     project.local_built_embedded_fw_path)\n            project.build_state.persist()\n\n    link_local_archs(project)\n    \n    # Only do a universal binary when building an archive.\n    if is_archive_build() and is_master():\n        link_combine_all_archs(project)\n    else:\n        link_combine_local_archs(project)\n\n    if config_deep_header_hierarchy:\n        build_deep_header_hierarchy(project)\n\n    add_symlinks_to_framework(project)\n    \n    if is_master():\n        if config_framework_type == 'embeddedframework':\n            build_embedded_framework(project)\n        elif config_framework_type != 'framework':\n            raise Exception(\"%s: Unknown framework type for config_framework_type\" % config_framework_type)\n\n\nif __name__ == \"__main__\":\n    log_handler = logging.StreamHandler()\n    log_handler.setFormatter(logging.Formatter(\"%(name)s (\" + os.environ['PLATFORM_NAME'] + \"): %(levelname)s: %(message)s\"))\n    log.addHandler(log_handler)\n    log.setLevel(config_log_level)\n\n    error_code = 0\n    prefix = \"M\" if is_master() else \"S\"\n    log_handler.setFormatter(logging.Formatter(\"%(name)s (\" + prefix + \" \" + os.environ['PLATFORM_NAME'] + \"): %(levelname)s: %(message)s\"))\n\n    log.debug(\"Begin build process\")\n\n    if config_deep_header_top:\n        config_deep_header_top = string.Template(config_deep_header_top).substitute(os.environ)\n\n    try:\n        run_build()\n        if issued_warnings:\n            if config_fail_on_warnings:\n                error_code = 1\n            log.warn(\"Build completed with warnings\")\n        else:\n            log.info(\"Build completed\")\n        if not is_archive_build():\n            log.info(\"Note: This is *NOT* a universal framework build. To build as a universal framework, do an archive build.\")\n            log.info(\"To do an archive build from command line, use \\\"xcodebuild -configuration Release UFW_ACTION=archive clean build\\\"\")\n    except Exception:\n        traceback.print_exc(file=sys.stdout)\n        error_code = 1\n        log.error(\"Build failed\")\n    finally:\n        if error_code == 0 and is_archive_build() and is_master():\n            log.info(\"Built framework is in \" + os.environ['TARGET_BUILD_DIR'])\n            if should_open_build_dir():\n                open_build_dir()\n        sys.exit(error_code)\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		67BBBCAA197418F40089E3D6 /* Sources */ = {
+		67D6A9E11979A8C00069F742 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67BBBD441974191C0089E3D6 /* MPKCheckoutViewController.m in Sources */,
-				67BBBD4C1974191C0089E3D6 /* MPKCardCVC.m in Sources */,
-				67BBBDA61974191C0089E3D6 /* MPKMessageView.m in Sources */,
-				67BBBD481974191C0089E3D6 /* MPKAddressZip.m in Sources */,
-				67BBBD6A1974191C0089E3D6 /* MPKEvent.m in Sources */,
-				67BBBD591974191C0089E3D6 /* MPKView.m in Sources */,
-				67BBBD6C1974191C0089E3D6 /* MPKFee.m in Sources */,
-				67BBBD501974191C0089E3D6 /* MPKCardNumber.m in Sources */,
-				67BBBD8F1974191C0089E3D6 /* HexColor.m in Sources */,
-				67BBBD531974191C0089E3D6 /* MPKComponent.m in Sources */,
-				67BBBD571974191C0089E3D6 /* MPKUSAddressZip.m in Sources */,
-				67BBBD911974191C0089E3D6 /* MPKMessage.m in Sources */,
-				67BBBD8C1974191C0089E3D6 /* MPKUtilities.m in Sources */,
-				67BBBDA41974191C0089E3D6 /* MPKBlurView.m in Sources */,
-				67BBBD8A1974191C0089E3D6 /* SecUtils.m in Sources */,
-				67BBBD611974191C0089E3D6 /* MoipHttpResponse.m in Sources */,
-				67BBBD631974191C0089E3D6 /* MPKAmount.m in Sources */,
-				67BBBD5C1974191C0089E3D6 /* MPKError.m in Sources */,
-				67BBBD701974191C0089E3D6 /* MPKPayment.m in Sources */,
-				67BBBD651974191C0089E3D6 /* MPKCardHolder.m in Sources */,
-				67BBBD4A1974191C0089E3D6 /* MPKCard.m in Sources */,
-				67BBBD461974191C0089E3D6 /* MPKConfiguration.m in Sources */,
-				67BBBD671974191C0089E3D6 /* MPKCreditCard.m in Sources */,
-				67BBBD5F1974191C0089E3D6 /* MoipHttpRequester.m in Sources */,
-				67BBBD721974191C0089E3D6 /* MPKPaymentTransaction.m in Sources */,
-				67BBBD6E1974191C0089E3D6 /* MPKFundingInstrument.m in Sources */,
-				67BBBD4E1974191C0089E3D6 /* MPKCardExpiry.m in Sources */,
-				67BBBD551974191C0089E3D6 /* MPKTextField.m in Sources */,
-				67BBBD731974191C0089E3D6 /* MoipSDK.m in Sources */,
+				67D6A9F51979A8C00069F742 /* MoipSDK.m in Sources */,
+				67D6AAAA1979A8E30069F742 /* MPKError.m in Sources */,
+				67D6AAF41979A8E30069F742 /* MPKMessageView.m in Sources */,
+				67D6AAB11979A8E30069F742 /* MPKAmount.m in Sources */,
+				67D6AA911979A8E30069F742 /* MPKCheckoutViewController.m in Sources */,
+				67D6AAAD1979A8E30069F742 /* MoipHttpRequester.m in Sources */,
+				67D6AA931979A8E30069F742 /* MPKConfiguration.m in Sources */,
+				67D6AA951979A8E30069F742 /* MPKAddressZip.m in Sources */,
+				67D6AADD1979A8E30069F742 /* HexColor.m in Sources */,
+				67D6AAB51979A8E30069F742 /* MPKCreditCard.m in Sources */,
+				67D6AAA41979A8E30069F742 /* MPKUSAddressZip.m in Sources */,
+				67D6AADF1979A8E30069F742 /* MPKMessage.m in Sources */,
+				67D6AADA1979A8E30069F742 /* MPKUtilities.m in Sources */,
+				67D6AAF21979A8E30069F742 /* MPKBlurView.m in Sources */,
+				67D6AAD71979A8E30069F742 /* SecUtils.m in Sources */,
+				67D6AAA21979A8E30069F742 /* MPKTextField.m in Sources */,
+				67D6AAA01979A8E30069F742 /* MPKComponent.m in Sources */,
+				67D6AABE1979A8E30069F742 /* MPKPayment.m in Sources */,
+				67D6AAA61979A8E30069F742 /* MPKView.m in Sources */,
+				67D6AABC1979A8E30069F742 /* MPKFundingInstrument.m in Sources */,
+				67D6AA9B1979A8E30069F742 /* MPKCardExpiry.m in Sources */,
+				67D6AAC01979A8E30069F742 /* MPKPaymentTransaction.m in Sources */,
+				67D6AA9D1979A8E30069F742 /* MPKCardNumber.m in Sources */,
+				67D6AAAF1979A8E30069F742 /* MoipHttpResponse.m in Sources */,
+				67D6AABA1979A8E30069F742 /* MPKFee.m in Sources */,
+				67D6AA971979A8E30069F742 /* MPKCard.m in Sources */,
+				67D6AAB81979A8E30069F742 /* MPKEvent.m in Sources */,
+				67D6AAB31979A8E30069F742 /* MPKCardHolder.m in Sources */,
+				67D6AA991979A8E30069F742 /* MPKCardCVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67BBBCB6197418F40089E3D6 /* Sources */ = {
+		67D6A9F61979A8C00069F742 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67BBBCC2197418F40089E3D6 /* MoipSDKTests.m in Sources */,
+				67D6AA0C1979A8C00069F742 /* MoipSDKTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		67BBBCBD197418F40089E3D6 /* PBXTargetDependency */ = {
+		67D6AA011979A8C00069F742 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 67BBBCAE197418F40089E3D6 /* MoipSDK */;
-			targetProxy = 67BBBCBC197418F40089E3D6 /* PBXContainerItemProxy */;
+			target = 67D6A9E61979A8C00069F742 /* MoipSDK */;
+			targetProxy = 67D6AA001979A8C00069F742 /* PBXContainerItemProxy */;
+		};
+		67D6AA031979A8C00069F742 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67D6A9E61979A8C00069F742 /* MoipSDK */;
+			targetProxy = 67D6AA021979A8C00069F742 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		67D6A9EF1979A8C00069F742 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67D6A9F01979A8C00069F742 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		67D6AA081979A8C00069F742 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67D6AA091979A8C00069F742 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		67D6AA321979A8E20069F742 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67D6AA331979A8E20069F742 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		67BBBCC3197418F40089E3D6 /* Debug */ = {
+		67D6AA0D1979A8C00069F742 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -809,12 +907,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -829,17 +923,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		67BBBCC4197418F40089E3D6 /* Release */ = {
+		67D6AA0E1979A8C00069F742 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -854,13 +944,9 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -868,109 +954,113 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		67BBBCC6197418F40089E3D6 /* Debug */ = {
+		67D6AA101979A8C00069F742 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEFINES_MODULE = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = MoipSDK/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
+				INFOPLIST_FILE = "MoipSDK/MoipSDK-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
 		};
-		67BBBCC7197418F40089E3D6 /* Release */ = {
+		67D6AA111979A8C00069F742 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEFINES_MODULE = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = MoipSDK/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
+				INFOPLIST_FILE = "MoipSDK/MoipSDK-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
 		};
-		67BBBCC9197418F40089E3D6 /* Debug */ = {
+		67D6AA131979A8C00069F742 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MoipSDK.framework/Versions/A/MoipSDK";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = MoipSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				INFOPLIST_FILE = "MoipSDKTests/MoipSDKTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		67BBBCCA197418F40089E3D6 /* Release */ = {
+		67D6AA141979A8C00069F742 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MoipSDK.framework/Versions/A/MoipSDK";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				INFOPLIST_FILE = MoipSDKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
+				INFOPLIST_FILE = "MoipSDKTests/MoipSDKTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		67BBBCA9197418F30089E3D6 /* Build configuration list for PBXProject "MoipSDK" */ = {
+		67D6A9E01979A8C00069F742 /* Build configuration list for PBXProject "MoipSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67BBBCC3197418F40089E3D6 /* Debug */,
-				67BBBCC4197418F40089E3D6 /* Release */,
+				67D6AA0D1979A8C00069F742 /* Debug */,
+				67D6AA0E1979A8C00069F742 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		67BBBCC5197418F40089E3D6 /* Build configuration list for PBXNativeTarget "MoipSDK" */ = {
+		67D6AA0F1979A8C00069F742 /* Build configuration list for PBXNativeTarget "MoipSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67BBBCC6197418F40089E3D6 /* Debug */,
-				67BBBCC7197418F40089E3D6 /* Release */,
+				67D6AA101979A8C00069F742 /* Debug */,
+				67D6AA111979A8C00069F742 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		67BBBCC8197418F40089E3D6 /* Build configuration list for PBXNativeTarget "MoipSDKTests" */ = {
+		67D6AA121979A8C00069F742 /* Build configuration list for PBXNativeTarget "MoipSDKTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67BBBCC9197418F40089E3D6 /* Debug */,
-				67BBBCCA197418F40089E3D6 /* Release */,
+				67D6AA131979A8C00069F742 /* Debug */,
+				67D6AA141979A8C00069F742 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 67BBBCA6197418F30089E3D6 /* Project object */;
+	rootObject = 67D6A9DD1979A8C00069F742 /* Project object */;
 }

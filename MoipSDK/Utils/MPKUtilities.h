@@ -6,21 +6,22 @@
 //  Copyright (c) 2012 Titans Group. All rights reserved.
 //
 
-#import <CommonCrypto/CommonDigest.h>
-#import "Constants.h"
+#import <Foundation/Foundation.h>
+//#import <CommonCrypto/CommonDigest.h>
 #import "MPKEnvironment.h"
+#import "Constants.h"
 
 @interface MPKUtilities : NSObject
 
-+ (void) importPrivateKey:(NSString *)privateKeyText;
-+ (void) importPublicKey:(NSString *)publicKeyText;
++ (void) importPrivateKey:(NSString *)privateKeyText tag:(NSString *)tag;
++ (void) importPublicKey:(NSString *)publicKeyText tag:(NSString *)tag;
 + (void) removeKey:(NSString *)tag;
-+ (NSString *) encryptData:(NSString *)plainText;
-+ (NSString *) decryptData:(NSString *)plainText;
-+ (NSString *) encryptRSA:(NSString *)plainTextString key:(SecKeyRef)publicKey;
-+ (NSString *) returnMD5Hash:(NSString*)concat;
-+ (NSString *) computeSHA256DigestForString:(NSString*)input;
-+ (NSString *) computeSHA256DigestForData:(NSData *)input;
++ (NSString *) encryptData:(NSString *)plainText keyTag:(NSString *)tag;
++ (NSString *) decryptData:(NSString *)plainText keyTag:(NSString *)tag;
+//+ (NSString *) encryptRSA:(NSString *)plainTextString key:(SecKeyRef)publicKey;
+//+ (NSString *) returnMD5Hash:(NSString*)concat;
+//+ (NSString *) computeSHA256DigestForString:(NSString*)input;
+//+ (NSString *) computeSHA256DigestForData:(NSData *)input;
 + (NSString *) encodeToPercentEscapeString:(NSString *)text;
 + (NSString *) addQueryStringToUrlString:(NSString *)urlString withDictionary:(NSDictionary *)dictionary;
 

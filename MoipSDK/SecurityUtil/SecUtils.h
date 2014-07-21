@@ -23,6 +23,7 @@
 +(void)generateKeyPairWithPublicTag:(NSString*)publicTagString privateTag:(NSString*)privateTagString;
 +(void)setPrivateKey:(NSString*)pemPrivateKeyString tag:(NSString*)tag;
 +(void)setPublicKey:(NSString*)pemPublicKeyString tag:(NSString*)tag;
++ (BOOL) setPublicKey:(NSString *)pemPublicKeyString keyTag:(NSString *)tag;
 +(void)removeKey:(NSString*)tag;
 
 +(NSString*)getX509FormattedPublicKey:(NSString*)tag;

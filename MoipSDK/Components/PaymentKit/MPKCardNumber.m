@@ -84,7 +84,7 @@
 
 - (NSString *)string
 {
-    return [MPKUtilities encryptData:_number];
+    return [MPKUtilities encryptData:_number keyTag:kPublicKeyName];
 }
 
 - (NSString *)formattedString

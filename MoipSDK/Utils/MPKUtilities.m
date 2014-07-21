@@ -6,20 +6,25 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-#import <UIKit/UIDevice.h>
 #import "MPKUtilities.h"
 #import "SecUtils.h"
+#import "Constants.h"
 
 @implementation MPKUtilities
 
-+ (void) importPublicKey:(NSString *)publicKeyText
++ (void) importPublicKey:(NSString *)publicKeyText tag:(NSString *)tag;
 {
-    [SecUtils setPublicKey:publicKeyText tag:kPublicKeyName];
+    [SecUtils setPublicKey:publicKeyText tag:tag];
 }
 
-+ (void) importPrivateKey:(NSString *)privateKeyText
++ (void) importPrivateKey:(NSString *)privateKeyText tag:(NSString *)tag;
 {
-    [SecUtils setPrivateKey:privateKeyText tag:kPrivateKeyName];
+    [SecUtils setPrivateKey:privateKeyText tag:tag];
+}
+
++ (BOOL) setPublicKey:(NSString *)publicKeyText
+{
+    return [SecUtils setPublicKey:publicKeyText keyTag:kPublicKeyName];
 }
 
 + (void) removeKey:(NSString *)tag
@@ -27,31 +32,18 @@
     [SecUtils removeKey:tag];
 }
 
-+ (NSString *) encryptData:(NSString *)plainText
++ (NSString *) encryptData:(NSString *)plainText keyTag:(NSString *)tag;
 {
-    return [SecUtils encryptRSA:plainText keyTag:kPublicKeyName];
+    NSString *encryptedData = [SecUtils encryptRSA:plainText keyTag:tag];
+    return encryptedData;
 }
 
-+ (NSString *) encryptRSA:(NSString *)plainTextString key:(SecKeyRef)publicKey
++ (NSString *) decryptData:(NSString *)plainText keyTag:(NSString *)tag;
 {
-    size_t cipherBufferSize = SecKeyGetBlockSize(publicKey);
-    uint8_t *cipherBuffer = malloc(cipherBufferSize);
-    uint8_t *nonce = (uint8_t *)[plainTextString UTF8String];
-    SecKeyEncrypt(publicKey,
-                  kSecPaddingOAEP,
-                  nonce,
-                  strlen( (char*)nonce ),
-                  &cipherBuffer[0],
-                  &cipherBufferSize);
-    NSData *encryptedData = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
-    return [encryptedData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    return [SecUtils decryptRSA:plainText keyTag:tag];
 }
 
-+ (NSString *) decryptData:(NSString *)plainText
-{
-    return [SecUtils decryptRSA:plainText keyTag:kPrivateKeyName];
-}
-
+/*
 + (NSString *) returnMD5Hash:(NSString*)concat
 {
     const char *concat_str = [concat UTF8String];
@@ -104,6 +96,7 @@
     
     return output;
 }
+ */
 
 + (NSString *)encodeToPercentEscapeString:(NSString *)text
 {

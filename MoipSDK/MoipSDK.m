@@ -91,7 +91,7 @@ static MoipSDK *sharedSingleton;
 {
     if (publicKeyPlainText != nil && ![publicKeyPlainText isEqualToString:@""])
     {
-        [MPKUtilities importPublicKey:publicKeyPlainText];
+        [MPKUtilities importPublicKey:publicKeyPlainText tag:kPublicKeyName];
     }
 }
 

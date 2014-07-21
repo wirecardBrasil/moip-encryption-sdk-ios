@@ -9,6 +9,8 @@
 #import "SecUtils.h"
 
 #import <CommonCrypto/CommonCryptor.h>
+#import <CommonCrypto/CommonCrypto.h>
+#import <Security/Security.h>
 
 //
 // Mapping from 6 bit pattern to ASCII character.
@@ -382,29 +384,37 @@ static NSString* pemPrivateFooter =  @"-----END RSA PRIVATE KEY-----";
     if(!privateKey)
     {
         if(privateKey) CFRelease(privateKey);
+        return nil;
     }
-    
-    plainBufferSize = SecKeyGetBlockSize(privateKey);
-    plainBuffer = malloc(plainBufferSize);
-    
-    NSData* incomingData = [self dataFromBase64String:cipher];
-    uint8_t *cipherBuffer = (uint8_t*)[incomingData bytes];
-    size_t cipherBufferSize = SecKeyGetBlockSize(privateKey);
-    
-    if(plainBufferSize < cipherBufferSize)
+    else
     {
-        //
+        plainBufferSize = SecKeyGetBlockSize(privateKey);
+        plainBuffer = malloc(plainBufferSize);
+        
+        NSData* incomingData = [self dataFromBase64String:cipher];
+        uint8_t *cipherBuffer = (uint8_t*)[incomingData bytes];
+        size_t cipherBufferSize = SecKeyGetBlockSize(privateKey);
+        
+        if(plainBufferSize < cipherBufferSize)
+        {
+            //
+        }
+        
+        SecKeyDecrypt(privateKey, kSecPaddingPKCS1, cipherBuffer, cipherBufferSize, plainBuffer, &plainBufferSize);
+        
+        NSData *decryptedData = [NSData dataWithBytes:plainBuffer length:plainBufferSize];
+        NSString *decryptedString = [[NSString alloc] initWithData:decryptedData encoding:NSASCIIStringEncoding];
+        
+        if(privateKey) CFRelease(privateKey);
+        
+        if (decryptedString != nil)
+        {
+            const char* decryptedStr = [decryptedString UTF8String];
+            return [[NSString alloc] initWithUTF8String:decryptedStr];
+        }
+        
+        return nil;
     }
-    
-    SecKeyDecrypt(privateKey, kSecPaddingPKCS1, cipherBuffer, cipherBufferSize, plainBuffer, &plainBufferSize);
-    
-    NSData *decryptedData = [NSData dataWithBytes:plainBuffer length:plainBufferSize];
-    NSString *decryptedString = [[NSString alloc] initWithData:decryptedData encoding:NSUTF8StringEncoding];
-    
-    if(privateKey) CFRelease(privateKey);
-    
-    const char* decryptedStr = [decryptedString UTF8String];
-    return [[NSString alloc] initWithUTF8String:decryptedStr];
 }
 
 +(NSString*)encryptRSA:(NSString *)plainText keyTag:(NSString *)key
@@ -429,39 +439,39 @@ static NSString* pemPrivateFooter =  @"-----END RSA PRIVATE KEY-----";
     }
     else
     {
-        size_t cipherBufferSize = SecKeyGetBlockSize(publicKey);
-        uint8_t *cipherBuffer = malloc(cipherBufferSize);
-        uint8_t *nonce = (uint8_t *)[plainText UTF8String];
-        OSStatus status = SecKeyEncrypt(publicKey,
-                                        kSecPaddingOAEP,
-                                        nonce,
-                                        strlen( (char*)nonce ),
-                                        &cipherBuffer[0],
-                                        &cipherBufferSize);
-        
-        NSLog(@"%d", (int)status);
-        
-        NSData *encryptedData = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
-        return [self base64EncodedString:encryptedData];
 //        size_t cipherBufferSize = SecKeyGetBlockSize(publicKey);
 //        uint8_t *cipherBuffer = malloc(cipherBufferSize);
+//        uint8_t *nonce = (uint8_t *)[plainText UTF8String];
+//        OSStatus status = SecKeyEncrypt(publicKey,
+//                                        kSecPaddingOAEP,
+//                                        nonce,
+//                                        strlen( (char*)nonce ),
+//                                        &cipherBuffer[0],
+//                                        &cipherBufferSize);
 //        
-//        uint8_t *nonce = (uint8_t*)[plainText UTF8String];
-//        if(cipherBufferSize < sizeof(nonce))
-//        {
-//            if(publicKey) CFRelease(publicKey);
-//            //
-//            NSLog(@"too long to encrypt");
-//            free(cipherBuffer);
-//        }
+//        NSLog(@"%d", (int)status);
 //        
-//        SecKeyEncrypt(publicKey, kSecPaddingPKCS1, nonce, strlen((char*)nonce) + 1, &cipherBuffer[0], &cipherBufferSize);
 //        NSData *encryptedData = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
-//        
-//        if(publicKey) CFRelease(publicKey);
-//        free(cipherBuffer);
-//        
 //        return [self base64EncodedString:encryptedData];
+        size_t cipherBufferSize = SecKeyGetBlockSize(publicKey);
+        uint8_t *cipherBuffer = malloc(cipherBufferSize);
+        
+        uint8_t *nonce = (uint8_t*)[plainText UTF8String];
+        if(cipherBufferSize < sizeof(nonce))
+        {
+            if(publicKey) CFRelease(publicKey);
+            //
+            NSLog(@"too long to encrypt");
+            free(cipherBuffer);
+        }
+        
+        SecKeyEncrypt(publicKey, kSecPaddingPKCS1, nonce, strlen((char*)nonce) + 1, &cipherBuffer[0], &cipherBufferSize);
+        NSData *encryptedData = [NSData dataWithBytes:cipherBuffer length:cipherBufferSize];
+        
+        if(publicKey) CFRelease(publicKey);
+        free(cipherBuffer);
+        
+        return [self base64EncodedString:encryptedData];
     }
 }
 
@@ -654,6 +664,147 @@ static NSString* pemPrivateFooter =  @"-----END RSA PRIVATE KEY-----";
     }
     
     if(keyRef) CFRelease(keyRef);
+}
+
++ (BOOL) setPublicKey:(NSString *)pemPublicKeyString keyTag:(NSString *)tag
+{
+    NSData *publicTag = [tag dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSMutableDictionary *publicKey = [[NSMutableDictionary alloc] init];
+    [publicKey setObject:(__bridge id)kSecClassKey forKey:(__bridge id)kSecClass];
+    [publicKey setObject:(__bridge id)kSecAttrKeyTypeRSA forKey:(__bridge id)kSecAttrKeyType];
+    [publicKey setObject:publicTag forKey:(__bridge id)kSecAttrApplicationTag];
+    SecItemDelete((__bridge CFDictionaryRef)publicKey);
+    
+    BOOL isX509 = NO;
+    NSString *strippedKey = nil;
+    
+    if(([pemPublicKeyString rangeOfString:x509PublicHeader].location != NSNotFound) && [pemPublicKeyString rangeOfString:x509PublicFooter].location != NSNotFound){
+        strippedKey = [[pemPublicKeyString stringByReplacingOccurrencesOfString:x509PublicHeader withString:@""] stringByReplacingOccurrencesOfString:x509PublicFooter withString:@""];
+        strippedKey = [[strippedKey stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+        isX509 = YES;
+    }
+    else if(([pemPublicKeyString rangeOfString:pKCS1PublicHeader].location != NSNotFound) && ([pemPublicKeyString rangeOfString:pKCS1PublicFooter].location != NSNotFound))
+    {
+        strippedKey = [[pemPublicKeyString stringByReplacingOccurrencesOfString:pKCS1PublicHeader withString:@""] stringByReplacingOccurrencesOfString:pKCS1PublicFooter withString:@""];
+        strippedKey = [[strippedKey stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+        isX509 = NO;
+    }
+    else {
+        // error
+        NSLog(@"unknown security type");
+    }
+    
+    BOOL success = YES;
+    NSData *strippedPublicKeyData = [self dataFromBase64String:strippedKey];
+    if(isX509)
+    {
+        unsigned char *bytes = (unsigned char*)[strippedPublicKeyData bytes];
+        size_t bytesLen = [strippedPublicKeyData length];
+        
+        size_t i = 0;
+        if (bytes[i++] != 0x30)
+        {
+            NSLog(@"linenum: %d,Could not set public key",__LINE__);
+        }
+        
+        if(bytes[i] > 0x80)
+        {
+            i+= bytes[i] - 0x80 + 1;
+        }else
+        {
+            i++;
+        }
+        
+        if(i >= bytesLen)
+        {
+            
+            NSLog(@"linenum: %d,Could not set public key",__LINE__);
+            
+        }
+        
+        if(bytes[i] != 0x30)
+        {
+            NSLog(@"linenum: %d,Could not set public key",__LINE__);
+        }
+        
+        // Skip OID
+        i+=15;
+        
+        if(i >= bytesLen - 2)
+        {
+            NSLog(@"linenum: %d,Could not set public key",__LINE__);
+        }
+        
+        if(bytes[i++] != 0x03)
+        {
+            NSLog(@"linenum: %d,Could not set public key",__LINE__);
+        }
+        
+        if(bytes[i] > 0x80)
+        {
+            i += bytes[i] - 0x80 + 1;
+        }
+        else {
+            i++;
+        }
+        
+        if(i >= bytesLen)
+        {
+            NSLog(@"linenum: %d,Could not set public key",__LINE__);
+        }
+        
+        if(bytes[i++] != 0x00)
+        {
+            NSLog(@"linenum: %d,Could not set public key",__LINE__);
+        }
+        
+        if(i >= bytesLen)
+        {
+            NSLog(@"linenum: %d,Could not set public key",__LINE__);
+        }
+        
+        strippedPublicKeyData = [NSData dataWithBytes:&bytes[i] length:bytesLen - i];
+        
+    }
+    
+    if(strippedPublicKeyData == nil)
+    {
+        NSLog(@"linenum: %d,Could not set public key",__LINE__);
+    }
+    
+    CFTypeRef persistKey = nil;
+    [publicKey setObject:strippedPublicKeyData forKey:(__bridge id)kSecValueData];
+    [publicKey setObject:(__bridge id)kSecAttrKeyClassPublic forKey:(__bridge id)kSecAttrKeyClass];
+    [publicKey setObject:[NSNumber numberWithBool:YES] forKey:(__bridge id)kSecReturnRef];
+    OSStatus secStatus = SecItemAdd((__bridge CFDictionaryRef)publicKey, &persistKey);
+    
+    if (persistKey != nil) {
+        CFRelease(persistKey);
+    }
+    
+    if((secStatus != noErr) && (secStatus != errSecDuplicateItem))
+    {
+        NSLog(@"linenum: %d,Could not set public key",__LINE__);
+    }
+    
+    SecKeyRef keyRef = nil;
+    [publicKey removeObjectForKey:(__bridge id)kSecValueData];
+    [publicKey removeObjectForKey:(__bridge id)kSecReturnPersistentRef];
+    [publicKey setObject:[NSNumber numberWithBool:YES] forKey:(__bridge id)kSecReturnRef];
+    [publicKey setObject:(__bridge id)kSecAttrKeyTypeRSA forKey:(__bridge id)kSecAttrKeyType];
+    
+    SecItemCopyMatching((__bridge CFDictionaryRef)publicKey, (CFTypeRef*)&keyRef);
+    
+    if(!keyRef)
+    {
+        success = NO;
+        NSLog(@"linenum: %d,Could not set public key",__LINE__);
+    }
+    
+    if(keyRef) CFRelease(keyRef);
+    
+    return success;
 }
 
 +(void)removeKey:(NSString *)tag

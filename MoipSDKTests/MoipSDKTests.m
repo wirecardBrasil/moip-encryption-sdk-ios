@@ -29,15 +29,6 @@
     [super setUp];
 
     publicKeyTests = [NSMutableString new];
-//    [pk appendFormat:@"-----BEGIN PUBLIC KEY-----\n"];
-//    [pk appendFormat:@"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoBttaXwRoI1Fbcond5mS\n"];
-//    [pk appendFormat:@"7QOb7X2lykY5hvvDeLJelvFhpeLnS4YDwkrnziM3W00UNH1yiSDU+3JhfHu5G387\n"];
-//    [pk appendFormat:@"O6uN9rIHXvL+TRzkVfa5iIjG+ap2N0/toPzy5ekpgxBicjtyPHEgoU6dRzdszEF4\n"];
-//    [pk appendFormat:@"ItimGk5ACx/lMOvctncS5j3uWBaTPwyn0hshmtDwClf6dEZgQvm/dNaIkxHKV+9j\n"];
-//    [pk appendFormat:@"Mn3ZfK/liT8A3xwaVvRzzuxf09xJTXrAd9v5VQbeWGxwFcW05oJulSFjmJA9Hcmb\n"];
-//    [pk appendFormat:@"DYHJT+sG2mlZDEruCGAzCVubJwGY1aRlcs9AQc1jIm/l8JwH7le2kpk3QoX+gz0w\n"];
-//    [pk appendFormat:@"WwIDAQAB\n"];
-//    [pk appendFormat:@"-----END PUBLIC KEY-----"];
     [publicKeyTests appendFormat:@"-----BEGIN PUBLIC KEY-----\n"];
     [publicKeyTests appendFormat:@"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi3UDmdCJ4LVJAs+2EqwY\n"];
     [publicKeyTests appendFormat:@"0q3fw6N+++KdxfSJbBbprSc0J3+NKiQjd+jERsDMJFzrjdndHn3z1grQ5D6p5ghp\n"];
@@ -60,7 +51,7 @@
 
 }
 
-- (void) testShouldFucking
+- (void) testShouldEncryptData
 {
     NSString *cryptData = [MPKUtilities encryptData:@"4111111111111111" keyTag:kPublicKeyName];
     
@@ -89,12 +80,15 @@
     MPKCreditCard *card = [MPKCreditCard new];
     card.expirationMonth = 05;
     card.expirationYear = 18;
-    card.number = @"4111111111111111";//[MPKUtilities encryptData:@"4111111111111111"];
-    card.cvv = @"999";//[MPKUtilities encryptData:@"999"];
+    card.number = @"4111111111111111";
+    card.cvv = @"999";
+    card.number = [MPKUtilities encryptData:@"4111111111111111" keyTag:kPublicKeyName];
+    card.cvv = [MPKUtilities encryptData:@"999" keyTag:kPublicKeyName];
     card.cardholder = holder;
     
     MPKPayment *payment = [MPKPayment new];
     payment.moipOrderId = [self getMoipOrderId];
+    NSLog(@"%@", payment.moipOrderId);
     payment.installmentCount = 1;
     payment.method = MPKPaymentMethodCreditCard;
     payment.creditCard = card;

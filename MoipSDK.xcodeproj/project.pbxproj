@@ -7,17 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6712E5F8197ED43E00A96BD5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6712E5F7197ED43E00A96BD5 /* CoreTelephony.framework */; };
-		6712E5FA197ED44700A96BD5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6712E5F9197ED44700A96BD5 /* SystemConfiguration.framework */; };
-		6712E5FC197ED45000A96BD5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6712E5FB197ED45000A96BD5 /* libz.dylib */; };
-		6712E5FE197ED49000A96BD5 /* NewRelicAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6712E5FD197ED49000A96BD5 /* NewRelicAgent.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6749A10A197EB40D00214BE8 /* MoipSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6A9F31979A8C00069F742 /* MoipSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67D6A9EB1979A8C00069F742 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9EA1979A8C00069F742 /* Foundation.framework */; };
 		67D6A9F11979A8C00069F742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67D6A9EF1979A8C00069F742 /* InfoPlist.strings */; };
 		67D6A9F51979A8C00069F742 /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6A9F41979A8C00069F742 /* MoipSDK.m */; };
 		67D6A9FC1979A8C00069F742 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9FB1979A8C00069F742 /* XCTest.framework */; };
 		67D6A9FD1979A8C00069F742 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9EA1979A8C00069F742 /* Foundation.framework */; };
-		67D6A9FF1979A8C00069F742 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9FE1979A8C00069F742 /* UIKit.framework */; };
 		67D6AA041979A8C00069F742 /* MoipSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9E71979A8C00069F742 /* MoipSDK.framework */; };
 		67D6AA0A1979A8C00069F742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA081979A8C00069F742 /* InfoPlist.strings */; };
 		67D6AA0C1979A8C00069F742 /* MoipSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA0B1979A8C00069F742 /* MoipSDKTests.m */; };
@@ -97,8 +92,6 @@
 		67D6AAD91979A8E30069F742 /* MPKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA6A1979A8E20069F742 /* MPKUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67D6AADA1979A8E30069F742 /* MPKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA6B1979A8E20069F742 /* MPKUtilities.m */; };
 		67D6AADB1979A8E30069F742 /* ClisitefAsync.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA6E1979A8E20069F742 /* ClisitefAsync.h */; };
-		67D6AADC1979A8E30069F742 /* HexColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA721979A8E20069F742 /* HexColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AADD1979A8E30069F742 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA731979A8E20069F742 /* HexColor.m */; };
 		67D6AADE1979A8E30069F742 /* MPKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA761979A8E20069F742 /* MPKMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67D6AADF1979A8E30069F742 /* MPKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA771979A8E20069F742 /* MPKMessage.m */; };
 		67D6AAE01979A8E30069F742 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7A1979A8E20069F742 /* NotificationBackgroundError.png */; };
@@ -122,6 +115,7 @@
 		67D6AAF21979A8E30069F742 /* MPKBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA8D1979A8E30069F742 /* MPKBlurView.m */; };
 		67D6AAF31979A8E30069F742 /* MPKMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA8E1979A8E30069F742 /* MPKMessageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67D6AAF41979A8E30069F742 /* MPKMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA8F1979A8E30069F742 /* MPKMessageView.m */; };
+		67E5483C197ED6A0001CAE2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E5483B197ED6A0001CAE2D /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,10 +136,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6712E5F7197ED43E00A96BD5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		6712E5F9197ED44700A96BD5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		6712E5FB197ED45000A96BD5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		6712E5FD197ED49000A96BD5 /* NewRelicAgent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NewRelicAgent.framework; path = Libs/NewRelicAgent.framework; sourceTree = "<group>"; };
 		67D6A9E71979A8C00069F742 /* MoipSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = MoipSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67D6A9EA1979A8C00069F742 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		67D6A9EE1979A8C00069F742 /* MoipSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDK-Info.plist"; sourceTree = "<group>"; };
@@ -155,7 +145,6 @@
 		67D6A9F41979A8C00069F742 /* MoipSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDK.m; sourceTree = "<group>"; };
 		67D6A9FA1979A8C00069F742 /* MoipSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoipSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		67D6A9FB1979A8C00069F742 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		67D6A9FE1979A8C00069F742 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		67D6AA071979A8C00069F742 /* MoipSDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDKTests-Info.plist"; sourceTree = "<group>"; };
 		67D6AA091979A8C00069F742 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		67D6AA0B1979A8C00069F742 /* MoipSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDKTests.m; sourceTree = "<group>"; };
@@ -235,8 +224,6 @@
 		67D6AA6A1979A8E20069F742 /* MPKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUtilities.h; sourceTree = "<group>"; };
 		67D6AA6B1979A8E20069F742 /* MPKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUtilities.m; sourceTree = "<group>"; };
 		67D6AA6E1979A8E20069F742 /* ClisitefAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClisitefAsync.h; sourceTree = "<group>"; };
-		67D6AA721979A8E20069F742 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
-		67D6AA731979A8E20069F742 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
 		67D6AA761979A8E20069F742 /* MPKMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMessage.h; sourceTree = "<group>"; };
 		67D6AA771979A8E20069F742 /* MPKMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKMessage.m; sourceTree = "<group>"; };
 		67D6AA7A1979A8E20069F742 /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
@@ -260,6 +247,7 @@
 		67D6AA8D1979A8E30069F742 /* MPKBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKBlurView.m; sourceTree = "<group>"; };
 		67D6AA8E1979A8E30069F742 /* MPKMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMessageView.h; sourceTree = "<group>"; };
 		67D6AA8F1979A8E30069F742 /* MPKMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKMessageView.m; sourceTree = "<group>"; };
+		67E5483B197ED6A0001CAE2D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,10 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6712E5FC197ED45000A96BD5 /* libz.dylib in Frameworks */,
-				6712E5FA197ED44700A96BD5 /* SystemConfiguration.framework in Frameworks */,
-				6712E5FE197ED49000A96BD5 /* NewRelicAgent.framework in Frameworks */,
-				6712E5F8197ED43E00A96BD5 /* CoreTelephony.framework in Frameworks */,
+				67E5483C197ED6A0001CAE2D /* UIKit.framework in Frameworks */,
 				67D6A9EB1979A8C00069F742 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +266,6 @@
 			files = (
 				67D6AA041979A8C00069F742 /* MoipSDK.framework in Frameworks */,
 				67D6A9FC1979A8C00069F742 /* XCTest.framework in Frameworks */,
-				67D6A9FF1979A8C00069F742 /* UIKit.framework in Frameworks */,
 				67D6A9FD1979A8C00069F742 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,13 +295,9 @@
 		67D6A9E91979A8C00069F742 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6712E5FB197ED45000A96BD5 /* libz.dylib */,
-				6712E5FD197ED49000A96BD5 /* NewRelicAgent.framework */,
-				6712E5F9197ED44700A96BD5 /* SystemConfiguration.framework */,
-				6712E5F7197ED43E00A96BD5 /* CoreTelephony.framework */,
+				67E5483B197ED6A0001CAE2D /* UIKit.framework */,
 				67D6A9EA1979A8C00069F742 /* Foundation.framework */,
 				67D6A9FB1979A8C00069F742 /* XCTest.framework */,
-				67D6A9FE1979A8C00069F742 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -528,7 +508,6 @@
 			isa = PBXGroup;
 			children = (
 				67D6AA6D1979A8E20069F742 /* libclisitef */,
-				67D6AA6F1979A8E20069F742 /* Submodules */,
 				67D6AA741979A8E20069F742 /* TSMessages */,
 			);
 			path = Vendor;
@@ -540,31 +519,6 @@
 				67D6AA6E1979A8E20069F742 /* ClisitefAsync.h */,
 			);
 			path = libclisitef;
-			sourceTree = "<group>";
-		};
-		67D6AA6F1979A8E20069F742 /* Submodules */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA701979A8E20069F742 /* HexColors */,
-			);
-			path = Submodules;
-			sourceTree = "<group>";
-		};
-		67D6AA701979A8E20069F742 /* HexColors */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA711979A8E20069F742 /* Classes */,
-			);
-			path = HexColors;
-			sourceTree = "<group>";
-		};
-		67D6AA711979A8E20069F742 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA721979A8E20069F742 /* HexColor.h */,
-				67D6AA731979A8E20069F742 /* HexColor.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		67D6AA741979A8E20069F742 /* TSMessages */ = {
@@ -662,7 +616,6 @@
 				67D6AAA51979A8E30069F742 /* MPKView.h in Headers */,
 				67D6AAB41979A8E30069F742 /* MPKCreditCard.h in Headers */,
 				67D6AAA11979A8E30069F742 /* MPKTextField.h in Headers */,
-				67D6AADC1979A8E30069F742 /* HexColor.h in Headers */,
 				67D6AABD1979A8E30069F742 /* MPKPayment.h in Headers */,
 				67D6AAAB1979A8E30069F742 /* HTTPStatusCodes.h in Headers */,
 				67D6AAAE1979A8E30069F742 /* MoipHttpResponse.h in Headers */,
@@ -835,7 +788,6 @@
 				67D6AAAD1979A8E30069F742 /* MoipHttpRequester.m in Sources */,
 				67D6AA931979A8E30069F742 /* MPKConfiguration.m in Sources */,
 				67D6AA951979A8E30069F742 /* MPKAddressZip.m in Sources */,
-				67D6AADD1979A8E30069F742 /* HexColor.m in Sources */,
 				67D6AAB51979A8E30069F742 /* MPKCreditCard.m in Sources */,
 				67D6AAA41979A8E30069F742 /* MPKUSAddressZip.m in Sources */,
 				67D6AADF1979A8E30069F742 /* MPKMessage.m in Sources */,

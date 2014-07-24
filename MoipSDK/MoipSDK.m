@@ -56,7 +56,6 @@ static MoipSDK *sharedSingleton;
             sharedSingleton.environment = env;
             [sharedSingleton importPublicKey:publicKey];
             
-            [NewRelicAgent startWithApplicationToken:@"AA2eb80ba64cdf2e6dede44c8851c581b929f99a8e"];            
         }
         return sharedSingleton;
     }

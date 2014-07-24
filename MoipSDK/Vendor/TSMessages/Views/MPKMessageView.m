@@ -7,7 +7,6 @@
 //
 
 #import "MPKMessageView.h"
-#import "HexColor.h"
 #import "MPKBlurView.h"
 #import "MPKMessage.h"
 
@@ -163,11 +162,11 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
             // On iOS 7 and above use a blur layer instead (not yet finished)
             _backgroundBlurView = [[MPKBlurView alloc] init];
             self.backgroundBlurView.autoresizingMask = (UIViewAutoresizingFlexibleWidth);
-            self.backgroundBlurView.blurTintColor = [UIColor colorWithHexString:current[@"backgroundColor"]];
+            self.backgroundBlurView.blurTintColor = [[self class] colorWithHexString:current[@"backgroundColor"]];
             [self addSubview:self.backgroundBlurView];
         }
         
-        UIColor *fontColor = [UIColor colorWithHexString:[current valueForKey:@"textColor"]
+        UIColor *fontColor = [[self class] colorWithHexString:[current valueForKey:@"textColor"]
                                                    alpha:1.0];
         
         
@@ -186,7 +185,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
         } else {
             [self.titleLabel setFont:[UIFont boldSystemFontOfSize:fontSize]];
         }
-        [self.titleLabel setShadowColor:[UIColor colorWithHexString:[current valueForKey:@"shadowColor"] alpha:1.0]];
+        [self.titleLabel setShadowColor:[[self class] colorWithHexString:[current valueForKey:@"shadowColor"] alpha:1.0]];
         [self.titleLabel setShadowOffset:CGSizeMake([[current valueForKey:@"shadowOffsetX"] floatValue],
                                                     [[current valueForKey:@"shadowOffsetY"] floatValue])];
         self.titleLabel.numberOfLines = 0;
@@ -199,7 +198,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
             _contentLabel = [[UILabel alloc] init];
             [self.contentLabel setText:subtitle];
             
-            UIColor *contentTextColor = [UIColor colorWithHexString:[current valueForKey:@"contentTextColor"] alpha:1.0];
+            UIColor *contentTextColor = [[self class] colorWithHexString:[current valueForKey:@"contentTextColor"] alpha:1.0];
             if (!contentTextColor)
             {
                 contentTextColor = fontColor;
@@ -246,7 +245,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
             [self.button setBackgroundImage:buttonBackgroundImage forState:UIControlStateNormal];
             [self.button setTitle:self.buttonTitle forState:UIControlStateNormal];
             
-            UIColor *buttonTitleShadowColor = [UIColor colorWithHexString:[current valueForKey:@"buttonTitleShadowColor"] alpha:1.0];
+            UIColor *buttonTitleShadowColor = [[self class] colorWithHexString:[current valueForKey:@"buttonTitleShadowColor"] alpha:1.0];
             if (!buttonTitleShadowColor)
             {
                 buttonTitleShadowColor = self.titleLabel.shadowColor;
@@ -254,7 +253,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
             
             [self.button setTitleShadowColor:buttonTitleShadowColor forState:UIControlStateNormal];
             
-            UIColor *buttonTitleTextColor = [UIColor colorWithHexString:[current valueForKey:@"buttonTitleTextColor"] alpha:1.0];
+            UIColor *buttonTitleTextColor = [[self class] colorWithHexString:[current valueForKey:@"buttonTitleTextColor"] alpha:1.0];
             if (!buttonTitleTextColor)
             {
                 buttonTitleTextColor = fontColor;
@@ -287,7 +286,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
                                                                    0.0, // will be set later
                                                                    screenWidth,
                                                                    [[current valueForKey:@"borderHeight"] floatValue])];
-            self.borderView.backgroundColor = [UIColor colorWithHexString:[current valueForKey:@"borderColor"]
+            self.borderView.backgroundColor = [[self class] colorWithHexString:[current valueForKey:@"borderColor"]
                                                                     alpha:1.0];
             self.borderView.autoresizingMask = (UIViewAutoresizingFlexibleWidth);
             [self addSubview:self.borderView];
@@ -488,6 +487,79 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
     return ! ([touch.view isKindOfClass:[UIControl class]]);
+}
+
++ (UIColor *)colorWithHexString:(NSString *)hexString
+{
+    return [[self class] colorWithHexString:hexString alpha:1.0];
+}
+
++ (UIColor *)colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha
+{
+    // Check for hash and add the missing hash
+    if('#' != [hexString characterAtIndex:0])
+    {
+        hexString = [NSString stringWithFormat:@"#%@", hexString];
+    }
+    
+    // check for string length
+    assert(7 == hexString.length || 4 == hexString.length);
+    
+    // check for 3 character HexStrings
+    hexString = [[self class] hexStringTransformFromThreeCharacters:hexString];
+    
+    NSString *redHex    = [NSString stringWithFormat:@"0x%@", [hexString substringWithRange:NSMakeRange(1, 2)]];
+    unsigned redInt = [[self class] hexValueToUnsigned:redHex];
+    
+    NSString *greenHex  = [NSString stringWithFormat:@"0x%@", [hexString substringWithRange:NSMakeRange(3, 2)]];
+    unsigned greenInt = [[self class] hexValueToUnsigned:greenHex];
+    
+    NSString *blueHex   = [NSString stringWithFormat:@"0x%@", [hexString substringWithRange:NSMakeRange(5, 2)]];
+    unsigned blueInt = [[self class] hexValueToUnsigned:blueHex];
+    
+    UIColor *color = [[self class] colorWith8BitRed:redInt green:greenInt blue:blueInt alpha:alpha];
+    
+    return color;
+}
+
++ (UIColor *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue
+{
+    return [[self class] colorWith8BitRed:red green:green blue:blue alpha:1.0];
+}
+
++ (UIColor *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha
+{
+    UIColor *color = nil;
+#if (TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE)
+    color = [UIColor colorWithRed:(float)red/255 green:(float)green/255 blue:(float)blue/255 alpha:alpha];
+#else
+    color = [UIColor colorWithCalibratedRed:(float)red/255 green:(float)green/255 blue:(float)blue/255 alpha:alpha];
+#endif
+    
+    return color;
+}
+
++ (NSString *)hexStringTransformFromThreeCharacters:(NSString *)hexString
+{
+    if(hexString.length == 4)
+    {
+        hexString = [NSString stringWithFormat:@"#%@%@%@%@%@%@",
+                     [hexString substringWithRange:NSMakeRange(1, 1)],[hexString substringWithRange:NSMakeRange(1, 1)],
+                     [hexString substringWithRange:NSMakeRange(2, 1)],[hexString substringWithRange:NSMakeRange(2, 1)],
+                     [hexString substringWithRange:NSMakeRange(3, 1)],[hexString substringWithRange:NSMakeRange(3, 1)]];
+    }
+    
+    return hexString;
+}
+
++ (unsigned)hexValueToUnsigned:(NSString *)hexValue
+{
+    unsigned value = 0;
+    
+    NSScanner *hexValueScanner = [NSScanner scannerWithString:hexValue];
+    [hexValueScanner scanHexInt:&value];
+    
+    return value;
 }
 
 @end

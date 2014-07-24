@@ -37,9 +37,7 @@
 
 - (NSString *)string
 {
-#warning FIX THIS BUG
-//    return [MPKUtilities encryptData:_cvc keyTag:kPublicKeyName];
-    return _cvc;
+    return [MPKUtilities encryptData:_cvc keyTag:kPublicKeyName];
 }
 
 - (BOOL)isValid

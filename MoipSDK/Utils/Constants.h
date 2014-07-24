@@ -9,7 +9,6 @@
 #import "MPKEnums.h"
 
 #define RGB(R,G,B,A) [UIColor colorWithRed:R/255.0f green:B/255.0f blue:B/255.0f alpha:A]
-#define NEW_RELIC_KEY @"AA2eb80ba64cdf2e6dede44c8851c581b929f99a8e"
 
 #define BASE_URL_SANDBOX @"https://test.moip.com.br/v2"
 #define BASE_URL_PRODUCTION @"https://api.moip.com.br/v2"

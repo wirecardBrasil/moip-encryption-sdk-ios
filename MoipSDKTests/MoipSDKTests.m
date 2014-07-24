@@ -80,8 +80,8 @@
     MPKCreditCard *card = [MPKCreditCard new];
     card.expirationMonth = 05;
     card.expirationYear = 18;
-    card.number = @"4111111111111111";
-    card.cvv = @"999";
+//    card.number = @"4111111111111111";
+//    card.cvv = @"999";
     card.number = [MPKUtilities encryptData:@"4111111111111111" keyTag:kPublicKeyName];
     card.cvv = [MPKUtilities encryptData:@"999" keyTag:kPublicKeyName];
     card.cardholder = holder;
@@ -156,8 +156,8 @@
     NSString *keyTagPublic = @"br.com.moip.labs.moipsdktests.publickey";
     NSString *keyTagPrivate = @"br.com.moip.labs.moipsdktests.privatekey";
     
-    [MPKUtilities importPublicKey:pk tag:@"br.com.moip.labs.moipsdktests.publickey"];
-    [MPKUtilities importPrivateKey:privatekey tag:@"br.com.moip.labs.moipsdktests.privatekey"];
+    [MPKUtilities importPublicKey:pk tag:keyTagPublic];
+    [MPKUtilities importPrivateKey:privatekey tag:keyTagPrivate];
     
     NSString *creditCardNumber = @"4111111111111111";
     NSString *encryptedCreditCard = [MPKUtilities encryptData:creditCardNumber keyTag:keyTagPublic];

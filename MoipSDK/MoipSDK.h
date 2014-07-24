@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <NewRelicAgent/NewRelic.h>
 #import "MPKCardHolder.h"
 #import "MPKCreditCard.h"
 #import "MPKView.h"

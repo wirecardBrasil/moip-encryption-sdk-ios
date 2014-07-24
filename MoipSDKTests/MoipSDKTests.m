@@ -11,6 +11,7 @@
 
 #import <XCTest/XCTest.h>
 #import "MoipSDK.h"
+#import "MPKCustomer.h"
 #import "MPKUtilities.h"
 #import "MoipHttpRequester.h"
 #import "MoipHttpResponse.h"
@@ -71,7 +72,7 @@
     MPKCardHolder *holder = [MPKCardHolder new];
     holder.fullname = @"Fernando Nazario Sousa";
     holder.birthdate = @"1988-04-27";
-    holder.documentType = MPKCardHolderDocumentTypeCPF;
+    holder.documentType = MPKDocumentTypeCPF;
     holder.documentNumber = @"36021561848";
     holder.phoneCountryCode = @"55";
     holder.phoneAreaCode = @"11";
@@ -80,28 +81,32 @@
     MPKCreditCard *card = [MPKCreditCard new];
     card.expirationMonth = 05;
     card.expirationYear = 18;
-//    card.number = @"4111111111111111";
-//    card.cvv = @"999";
     card.number = [MPKUtilities encryptData:@"4111111111111111" keyTag:kPublicKeyName];
     card.cvv = [MPKUtilities encryptData:@"999" keyTag:kPublicKeyName];
     card.cardholder = holder;
     
+    MPKFundingInstrument *instrument = [MPKFundingInstrument new];
+    instrument.creditCard = card;
+    instrument.method = MPKMethodTypeCreditCard;
+    
     MPKPayment *payment = [MPKPayment new];
     payment.moipOrderId = [self getMoipOrderId];
-    NSLog(@"%@", payment.moipOrderId);
     payment.installmentCount = 1;
-    payment.method = MPKPaymentMethodCreditCard;
-    payment.creditCard = card;
+    payment.fundingInstrument = instrument;
     
     __block BOOL waitingForBlock = YES;
     [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
 
+        NSLog(@"%@", transaction.paymentId);
+        
         waitingForBlock = NO;
         XCTAssertNotNil(transaction, @"payment transaction is nil");
         
     } failure:^(NSArray *errorList) {
-        waitingForBlock = NO;
+        
         NSLog(@"%@", errorList);
+        
+        waitingForBlock = NO;
         XCTAssertNil(errorList, @"");
     }];
     
@@ -176,6 +181,68 @@
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     XCTAssertNotEqual(error.code, kCFURLErrorServerCertificateUntrusted, @"SSL Certificate Untrusted");
+}
+
+- (void) testShouldCreateACustomerWithCreditCard
+{
+    __block BOOL waitingForBlock = YES;
+    
+    MPKAddress *address = [MPKAddress new];
+    address.type = MPKAdrressTypeBilling;
+    address.street = @"Rua Francisco Antunes";
+    address.streetNumber = @"437";
+    address.complement = @"apt 33 bl 1";
+    address.district = @"Vila Augusta";
+    address.city = @"Guarulhos";
+    address.state = @"São Paulo";
+    address.country = @"BRA";
+    address.zipCode = @"07040010";
+    
+    MPKCardHolder *holder = [MPKCardHolder new];
+    holder.fullname = @"Fernando Nazario Sousa";
+    holder.birthdate = @"1988-04-27";
+    holder.documentType = MPKDocumentTypeCPF;
+    holder.documentNumber = @"36021561848";
+    holder.phoneCountryCode = @"55";
+    holder.phoneAreaCode = @"11";
+    holder.phoneNumber = @"975902554";
+    
+    MPKCreditCard *card = [MPKCreditCard new];
+    card.expirationMonth = 05;
+    card.expirationYear = 18;
+    card.number = [MPKUtilities encryptData:@"4111111111111111" keyTag:kPublicKeyName];
+    card.cvv = [MPKUtilities encryptData:@"999" keyTag:kPublicKeyName];
+    card.cardholder = holder;
+    
+    MPKFundingInstrument *fundingInstrument = [MPKFundingInstrument new];
+    fundingInstrument.creditCard = card;
+    fundingInstrument.method = MPKMethodTypeCreditCard;
+    
+    MPKCustomer *customer = [MPKCustomer new];
+    customer.ownId = @"meuIdLidinho";
+    customer.fullname = @"Fernando Nazario Sousa";
+    customer.email = @"fnazarios@gmail.com";
+    customer.phoneAreaCode = 11;
+    customer.phoneNumber = 975902554;
+    customer.birthDate = [NSDate date];
+    customer.documentType = MPKDocumentTypeCPF;
+    customer.documentNumber = 36021561848;
+    customer.addresses = @[address];
+    customer.fundingInstrument = fundingInstrument;
+    
+    [[MoipSDK session] saveCustomer:customer success:^(MPKCustomer *customer) {
+        waitingForBlock = NO;
+        XCTAssertNotNil(customer.moipCustomerId, @"");
+    } failure:^(NSArray *errorList) {
+        waitingForBlock = NO;
+        NSLog(@"%@", errorList);
+        XCTAssertNil(errorList, @"");
+    }];
+    
+    while(waitingForBlock) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+    }
 }
 
 #pragma mark - Methods Helper

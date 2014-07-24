@@ -124,7 +124,7 @@ static MoipSDK *sharedSingleton;
  */
 - (void)submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *))success failure:(void (^)(NSArray *))failure
 {
-    NSString *paymentJSON = [self generatePaymentJSON:payment];
+    NSString *paymentJSON = [payment buildJson];
     
     NSString *endpoint = [NSString stringWithFormat:@"/orders/%@/payments", payment.moipOrderId];
     NSString *url = [MPKUtilities urlWithEnv:self.environment endpoint:endpoint];
@@ -133,7 +133,8 @@ static MoipSDK *sharedSingleton;
     [requester post:url payload:paymentJSON completation:^(MoipHttpResponse *response) {
         if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
         {
-            [self checkResponseSuccess:response successBlock:success];
+            MPKPaymentTransaction *transac = [[MPKPaymentTransaction new] transactionWithJSON:response.content];
+            success(transac);
         }
         else
         {
@@ -142,26 +143,8 @@ static MoipSDK *sharedSingleton;
     }];
 }
 
-
-#pragma mark Check Payment Status
-/**
- *  Verifica o status do pagamento
- *
- *  @param transaction MPKPaymentTransaction retornado no metodo submitPayment
- */
-- (void) checkMPKPaymentStatus:(MPKPaymentTransaction *)transaction
-{
-
-}
-
 #pragma mark -
-#pragma mark Check response after submit payment
-- (void) checkResponseSuccess:(MoipHttpResponse *)response successBlock:(void (^)(MPKPaymentTransaction *))successBlock
-{
-    MPKPaymentTransaction *transac = [[MPKPaymentTransaction new] transactionWithJSON:response.content];
-    successBlock(transac);
-}
-
+#pragma mark Check response when failure
 - (void) checkResponseFailure:(MoipHttpResponse *)response failureBlock:(void (^)(NSArray *))failureBlock
 {
     NSDictionary *errorDict = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
@@ -189,7 +172,7 @@ static MoipSDK *sharedSingleton;
 
         NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: errorDescription};
         
-        MPKError *err = [[MPKError alloc] initWithDomain:@"MPKPaymentError" code:response.httpStatusCode userInfo:userInfo];
+        MPKError *err = [[MPKError alloc] initWithDomain:@"MoipSDK" code:response.httpStatusCode userInfo:userInfo];
         err.httpStatusCode = response.httpStatusCode;
         err.apiErrorCode = nil;
         err.errorDescription = errorDescription;
@@ -198,37 +181,28 @@ static MoipSDK *sharedSingleton;
     }
 }
 
-#pragma mark Parse JSON request
-- (NSString *) generatePaymentJSON:(MPKPayment *)payment
+
+- (void) saveCustomer:(MPKCustomer *)customer success:(void (^)(MPKCustomer *))success failure:(void (^)(NSArray *))failure
 {
-    NSMutableString *jsonPayment = [NSMutableString new];
-    [jsonPayment appendFormat:@"{"];
-    [jsonPayment appendFormat:@"        \"installmentCount\": %li,", (long)payment.installmentCount];
-    [jsonPayment appendFormat:@"        \"fundingInstrument\": {"];
-    [jsonPayment appendFormat:@"            \"method\": \"%@\",", [payment getMPKPaymentMethod]];
-    [jsonPayment appendFormat:@"            \"creditCard\": {"];
-    [jsonPayment appendFormat:@"                \"expirationMonth\": %lu,", (unsigned long)payment.creditCard.expirationMonth];
-    [jsonPayment appendFormat:@"                \"expirationYear\": %lu,", (unsigned long)payment.creditCard.expirationYear];
-    [jsonPayment appendFormat:@"                \"number\": \"%@\",", payment.creditCard.number];
-    [jsonPayment appendFormat:@"                \"cvc\": \"%@\",", payment.creditCard.cvv];
-    [jsonPayment appendFormat:@"                \"holder\": {"];
-    [jsonPayment appendFormat:@"                    \"fullname\": \"%@\",", payment.creditCard.cardholder.fullname];
-    [jsonPayment appendFormat:@"                    \"birthdate\": \"%@\",", payment.creditCard.cardholder.birthdate];
-    [jsonPayment appendFormat:@"                    \"taxDocument\": {"];
-    [jsonPayment appendFormat:@"                        \"type\": \"%@\",", [payment.creditCard.cardholder getDocumentType]];
-    [jsonPayment appendFormat:@"                        \"number\": \"%@\"", payment.creditCard.cardholder.documentNumber];
-    [jsonPayment appendFormat:@"                    },"];
-    [jsonPayment appendFormat:@"                    \"phone\": {"];
-    [jsonPayment appendFormat:@"                        \"countryCode\": \"%@\",", payment.creditCard.cardholder.phoneCountryCode];
-    [jsonPayment appendFormat:@"                        \"areaCode\": \"%@\",", payment.creditCard.cardholder.phoneAreaCode];
-    [jsonPayment appendFormat:@"                        \"number\": \"%@\"", payment.creditCard.cardholder.phoneNumber];
-    [jsonPayment appendFormat:@"                    }"];
-    [jsonPayment appendFormat:@"                }"];
-    [jsonPayment appendFormat:@"            }"];
-    [jsonPayment appendFormat:@"        }"];
-    [jsonPayment appendFormat:@"    }"];
+    NSString *jsonCustomer = [customer builJson];
     
-    return jsonPayment;
+    NSString *endpoint = [NSString stringWithFormat:@"/customers"];
+    NSString *url = [MPKUtilities urlWithEnv:self.environment endpoint:endpoint];
+    
+    MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.auth];
+    [requester post:url payload:jsonCustomer completation:^(MoipHttpResponse *response) {
+        if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
+        {
+            NSDictionary *customerCreated = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
+            customer.moipCustomerId = customerCreated[@"id"];
+            success(customer);
+        }
+        else
+        {
+            [self checkResponseFailure:response failureBlock:failure];
+        }
+    }];
+    
 }
 
 @end

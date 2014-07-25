@@ -11,8 +11,8 @@
 
 typedef NS_ENUM(NSUInteger, MPKAddressType)
 {
-    MPKAdrressTypeBilling,
-    MPKAdrressTypeShipping
+    MPKAddressTypeBilling,
+    MPKAddressTypeShipping
 };
 
 #endif

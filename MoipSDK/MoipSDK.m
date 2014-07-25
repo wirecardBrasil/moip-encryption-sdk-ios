@@ -182,7 +182,7 @@ static MoipSDK *sharedSingleton;
 }
 
 
-- (void) saveCustomer:(MPKCustomer *)customer success:(void (^)(MPKCustomer *))success failure:(void (^)(NSArray *))failure
+- (void) saveCustomer:(MPKCustomer *)customer success:(void (^)(MPKCustomer *, NSString *, NSString *))success failure:(void (^)(NSArray *))failure
 {
     NSString *jsonCustomer = [customer builJson];
     
@@ -194,8 +194,15 @@ static MoipSDK *sharedSingleton;
         if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
         {
             NSDictionary *customerCreated = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
-            customer.moipCustomerId = customerCreated[@"id"];
-            success(customer);
+            if (customerCreated != nil)
+            {
+                NSString *moipCustomerId = customerCreated[@"id"];
+                NSString *moipCreditCardId = customerCreated[@"fundingInstrument"][@"creditCard"][@"id"];
+                
+                customer.moipCustomerId = moipCustomerId;
+                customer.fundingInstrument.creditCard.moipCreditCardId = moipCreditCardId;
+                success(customer, moipCustomerId, moipCreditCardId);
+            }
         }
         else
         {

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-#define MOIPTOKENTESTS @"TDY93LUSD6NSOXMBKHMROFV7G0FSXPUA"
-#define MOIPKEYTESTS @"DM1ARXOGDXYXSDJYNULSAZ2JLI5J2XUTLVUYCXN6"
+#define MOIPTOKENTESTS @"01010101010101010101010101010101"
+#define MOIPKEYTESTS @"ABABABABABABABABABABABABABABABABABABABAB"
 
 #import <XCTest/XCTest.h>
 #import "MoipSDK.h"
@@ -188,7 +188,7 @@
     __block BOOL waitingForBlock = YES;
     
     MPKAddress *address = [MPKAddress new];
-    address.type = MPKAdrressTypeBilling;
+    address.type = MPKAddressTypeBilling;
     address.street = @"Rua Francisco Antunes";
     address.streetNumber = @"437";
     address.complement = @"apt 33 bl 1";
@@ -197,6 +197,17 @@
     address.state = @"São Paulo";
     address.country = @"BRA";
     address.zipCode = @"07040010";
+    
+    MPKAddress *address2 = [MPKAddress new];
+    address2.type = MPKAddressTypeShipping;
+    address2.street = @"Rua Francisco Antunes";
+    address2.streetNumber = @"437";
+    address2.complement = @"apt 33 bl 1";
+    address2.district = @"Vila Augusta";
+    address2.city = @"Guarulhos";
+    address2.state = @"São Paulo";
+    address2.country = @"BRA";
+    address2.zipCode = @"07040010";
     
     MPKCardHolder *holder = [MPKCardHolder new];
     holder.fullname = @"Fernando Nazario Sousa";
@@ -210,8 +221,11 @@
     MPKCreditCard *card = [MPKCreditCard new];
     card.expirationMonth = 05;
     card.expirationYear = 18;
-    card.number = [MPKUtilities encryptData:@"4111111111111111" keyTag:kPublicKeyName];
-    card.cvv = [MPKUtilities encryptData:@"999" keyTag:kPublicKeyName];
+#warning Fix this with PUBLIC KEY for integracao@labs.moip.com.br account
+//    card.number = [MPKUtilities encryptData:@"4111111111111111" keyTag:kPublicKeyName];
+//    card.cvv = [MPKUtilities encryptData:@"999" keyTag:kPublicKeyName];
+    card.number = @"4111111111111111";
+    card.cvv = @"999";
     card.cardholder = holder;
     
     MPKFundingInstrument *fundingInstrument = [MPKFundingInstrument new];
@@ -227,12 +241,16 @@
     customer.birthDate = [NSDate date];
     customer.documentType = MPKDocumentTypeCPF;
     customer.documentNumber = 36021561848;
-    customer.addresses = @[address];
+    customer.addresses = @[address, address2];
     customer.fundingInstrument = fundingInstrument;
     
-    [[MoipSDK session] saveCustomer:customer success:^(MPKCustomer *customer) {
+    [[MoipSDK session] saveCustomer:customer success:^(MPKCustomer *customer, NSString *moipCustomerId, NSString *moipCreditCardId) {
         waitingForBlock = NO;
+        
+        NSLog(@"---------------------------------------------------------------->>>>>>>>%@", moipCustomerId);
+        NSLog(@"---------------------------------------------------------------->>>>>>>>%@", moipCreditCardId);
         XCTAssertNotNil(customer.moipCustomerId, @"");
+        XCTAssertNotNil(customer.fundingInstrument.creditCard.moipCreditCardId, @"");
     } failure:^(NSArray *errorList) {
         waitingForBlock = NO;
         NSLog(@"%@", errorList);

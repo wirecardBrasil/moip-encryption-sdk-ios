@@ -21,4 +21,6 @@
 @property NSString *country;
 @property NSString *zipCode;
 
+- (NSString *) getAddressType;
+
 @end

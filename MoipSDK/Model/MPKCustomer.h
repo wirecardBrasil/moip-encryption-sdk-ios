@@ -29,6 +29,7 @@
 @property MPKFundingInstrument *fundingInstrument;
 
 - (NSString *) builJson;
+- (NSString *) getDocumentType;
 
 @end
 

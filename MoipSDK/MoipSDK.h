@@ -27,7 +27,11 @@
 
 #pragma mark - Methods
 - (void) configureSitef;
-- (void) submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *transaction))success failure:(void (^)(NSArray *errorList))failure;
-- (void) saveCustomer:(MPKCustomer *)customer success:(void (^)(MPKCustomer *customer))success failure:(void (^)(NSArray *errorList))failure;
+- (void) submitPayment:(MPKPayment *)payment
+               success:(void (^)(MPKPaymentTransaction *transaction))success
+               failure:(void (^)(NSArray *errorList))failure;
+- (void) saveCustomer:(MPKCustomer *)customer
+              success:(void (^)(MPKCustomer *customer, NSString *moipCustomerId, NSString *moipCreditCardId))success
+              failure:(void (^)(NSArray *errorList))failure;
 
 @end

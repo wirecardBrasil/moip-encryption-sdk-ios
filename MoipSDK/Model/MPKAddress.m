@@ -10,4 +10,20 @@
 
 @implementation MPKAddress
 
+- (NSString *) getAddressType
+{
+    switch (self.type)
+    {
+        case MPKAddressTypeBilling:
+            return @"BILLING";
+            break;
+        case MPKAddressTypeShipping:
+            return @"SHIPPING";
+            break;
+        default:
+            return @"BILLING";
+            break;
+    }
+}
+
 @end

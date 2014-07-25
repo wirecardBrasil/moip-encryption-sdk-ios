@@ -28,61 +28,7 @@
 @property NSArray *addresses;
 @property MPKFundingInstrument *fundingInstrument;
 
-- (NSString *) builJson;
+- (NSString *) buildJson;
 - (NSString *) getDocumentType;
 
 @end
-
-
-
-/*
- 
- {
- "ownId":"meu_id_de_cliente",
- "fullname":"Jose Silva",
- "email":"josedasilva@email.com",
- "phone":{
- "areaCode":"11",
- "number":"66778899"
- },
- "birthDate":"1988-12-30",
- "taxDocument":{
- "type":"CPF",
- "number":"22222222222"
- },
- "addresses":[
- {
- "type":"BILLING",
- "street":"Avenida Faria Lima",
- "streetNumber":"2927",
- "complement":"8",
- "district":"Itaim",
- "city":"Sao Paulo",
- "state":"SP",
- "country":"BRA",
- "zipCode":"01234000"
- }
- ],
- "fundingInstrument":{
- "method":"CREDIT_CARD",
- "creditCard":{
- "expirationMonth":12,
- "expirationYear":15,
- "number":"4073020000000002",
- "holder":{
- "fullname":"Jose Silva",
- "birthdate":"1988-12-30",
- "taxDocument":{
- "type":"CPF",
- "number":"22222222222"
- },
- "phone":{
- "areaCode":"11",
- "number":"66778899"
- }
- }
- }
- }
- }
- 
- */

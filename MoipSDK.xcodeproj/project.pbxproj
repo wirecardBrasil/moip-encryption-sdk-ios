@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6743E6031981945100FE3917 /* MPKAddressType.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E6021981945100FE3917 /* MPKAddressType.h */; };
-		6743E6061981949D00FE3917 /* MPKAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E6041981949D00FE3917 /* MPKAddress.h */; };
+		6743E6061981949D00FE3917 /* MPKAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E6041981949D00FE3917 /* MPKAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6743E6071981949D00FE3917 /* MPKAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6743E6051981949D00FE3917 /* MPKAddress.m */; };
 		6743E60919819B9E00FE3917 /* MPKMethodType.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E60819819B9E00FE3917 /* MPKMethodType.h */; };
+		674719991982C0EB00A933AB /* MPKOrder.h in Headers */ = {isa = PBXBuildFile; fileRef = 674719971982C0EB00A933AB /* MPKOrder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6747199A1982C0EB00A933AB /* MPKOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 674719981982C0EB00A933AB /* MPKOrder.m */; };
+		6747199D1982C11400A933AB /* MPKAmount.h in Headers */ = {isa = PBXBuildFile; fileRef = 6747199B1982C11400A933AB /* MPKAmount.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6747199E1982C11400A933AB /* MPKAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6747199C1982C11400A933AB /* MPKAmount.m */; };
+		674719A11982C23000A933AB /* MPKItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 6747199F1982C23000A933AB /* MPKItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		674719A21982C23000A933AB /* MPKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 674719A01982C23000A933AB /* MPKItem.m */; };
 		6749A10A197EB40D00214BE8 /* MoipSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6A9F31979A8C00069F742 /* MoipSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		677EDC6719815F1B00D6F0EF /* MPKCustomer.h in Headers */ = {isa = PBXBuildFile; fileRef = 677EDC6519815F1B00D6F0EF /* MPKCustomer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		677EDC6819815F1B00D6F0EF /* MPKCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 677EDC6619815F1B00D6F0EF /* MPKCustomer.m */; };
@@ -54,8 +60,6 @@
 		67D6AAAD1979A8E30069F742 /* MoipHttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA3A1979A8E20069F742 /* MoipHttpRequester.m */; };
 		67D6AAAE1979A8E30069F742 /* MoipHttpResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA3B1979A8E20069F742 /* MoipHttpResponse.h */; };
 		67D6AAAF1979A8E30069F742 /* MoipHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA3C1979A8E20069F742 /* MoipHttpResponse.m */; };
-		67D6AAB01979A8E30069F742 /* MPKAmount.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA3E1979A8E20069F742 /* MPKAmount.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAB11979A8E30069F742 /* MPKAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA3F1979A8E20069F742 /* MPKAmount.m */; };
 		67D6AAB21979A8E30069F742 /* MPKCardHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA401979A8E20069F742 /* MPKCardHolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67D6AAB31979A8E30069F742 /* MPKCardHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA411979A8E20069F742 /* MPKCardHolder.m */; };
 		67D6AAB41979A8E30069F742 /* MPKCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA421979A8E20069F742 /* MPKCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -146,6 +150,12 @@
 		6743E6041981949D00FE3917 /* MPKAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAddress.h; sourceTree = "<group>"; };
 		6743E6051981949D00FE3917 /* MPKAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAddress.m; sourceTree = "<group>"; };
 		6743E60819819B9E00FE3917 /* MPKMethodType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMethodType.h; sourceTree = "<group>"; };
+		674719971982C0EB00A933AB /* MPKOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKOrder.h; sourceTree = "<group>"; };
+		674719981982C0EB00A933AB /* MPKOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKOrder.m; sourceTree = "<group>"; };
+		6747199B1982C11400A933AB /* MPKAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAmount.h; sourceTree = "<group>"; };
+		6747199C1982C11400A933AB /* MPKAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAmount.m; sourceTree = "<group>"; };
+		6747199F1982C23000A933AB /* MPKItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKItem.h; sourceTree = "<group>"; };
+		674719A01982C23000A933AB /* MPKItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKItem.m; sourceTree = "<group>"; };
 		677EDC6519815F1B00D6F0EF /* MPKCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCustomer.h; sourceTree = "<group>"; };
 		677EDC6619815F1B00D6F0EF /* MPKCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCustomer.m; sourceTree = "<group>"; };
 		677EDC691981608E00D6F0EF /* MPKDocumentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPKDocumentType.h; sourceTree = "<group>"; };
@@ -193,8 +203,6 @@
 		67D6AA3A1979A8E20069F742 /* MoipHttpRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpRequester.m; sourceTree = "<group>"; };
 		67D6AA3B1979A8E20069F742 /* MoipHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoipHttpResponse.h; sourceTree = "<group>"; };
 		67D6AA3C1979A8E20069F742 /* MoipHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpResponse.m; sourceTree = "<group>"; };
-		67D6AA3E1979A8E20069F742 /* MPKAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAmount.h; sourceTree = "<group>"; };
-		67D6AA3F1979A8E20069F742 /* MPKAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAmount.m; sourceTree = "<group>"; };
 		67D6AA401979A8E20069F742 /* MPKCardHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardHolder.h; sourceTree = "<group>"; };
 		67D6AA411979A8E20069F742 /* MPKCardHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardHolder.m; sourceTree = "<group>"; };
 		67D6AA421979A8E20069F742 /* MPKCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCreditCard.h; sourceTree = "<group>"; };
@@ -453,8 +461,6 @@
 				677EDC691981608E00D6F0EF /* MPKDocumentType.h */,
 				6743E6021981945100FE3917 /* MPKAddressType.h */,
 				6743E60819819B9E00FE3917 /* MPKMethodType.h */,
-				67D6AA3E1979A8E20069F742 /* MPKAmount.h */,
-				67D6AA3F1979A8E20069F742 /* MPKAmount.m */,
 				67D6AA401979A8E20069F742 /* MPKCardHolder.h */,
 				67D6AA411979A8E20069F742 /* MPKCardHolder.m */,
 				67D6AA421979A8E20069F742 /* MPKCreditCard.h */,
@@ -473,6 +479,12 @@
 				677EDC6619815F1B00D6F0EF /* MPKCustomer.m */,
 				6743E6041981949D00FE3917 /* MPKAddress.h */,
 				6743E6051981949D00FE3917 /* MPKAddress.m */,
+				674719971982C0EB00A933AB /* MPKOrder.h */,
+				674719981982C0EB00A933AB /* MPKOrder.m */,
+				6747199B1982C11400A933AB /* MPKAmount.h */,
+				6747199C1982C11400A933AB /* MPKAmount.m */,
+				6747199F1982C23000A933AB /* MPKItem.h */,
+				674719A01982C23000A933AB /* MPKItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -614,7 +626,6 @@
 				67D6AA9C1979A8E30069F742 /* MPKCardNumber.h in Headers */,
 				67D6AA921979A8E30069F742 /* MPKConfiguration.h in Headers */,
 				67D6AA981979A8E30069F742 /* MPKCardCVC.h in Headers */,
-				67D6AAB01979A8E30069F742 /* MPKAmount.h in Headers */,
 				67D6AAD91979A8E30069F742 /* MPKUtilities.h in Headers */,
 				6743E6031981945100FE3917 /* MPKAddressType.h in Headers */,
 				67D6AA9A1979A8E30069F742 /* MPKCardExpiry.h in Headers */,
@@ -633,6 +644,7 @@
 				67D6AAB91979A8E30069F742 /* MPKFee.h in Headers */,
 				67D6AA9E1979A8E30069F742 /* MPKCardType.h in Headers */,
 				67D6AAD81979A8E30069F742 /* Constants.h in Headers */,
+				674719A11982C23000A933AB /* MPKItem.h in Headers */,
 				67D6AAF31979A8E30069F742 /* MPKMessageView.h in Headers */,
 				6749A10A197EB40D00214BE8 /* MoipSDK.h in Headers */,
 				67D6AAA51979A8E30069F742 /* MPKView.h in Headers */,
@@ -640,6 +652,7 @@
 				67D6AAA11979A8E30069F742 /* MPKTextField.h in Headers */,
 				67D6AABD1979A8E30069F742 /* MPKPayment.h in Headers */,
 				67D6AAAB1979A8E30069F742 /* HTTPStatusCodes.h in Headers */,
+				6747199D1982C11400A933AB /* MPKAmount.h in Headers */,
 				67D6AAAE1979A8E30069F742 /* MoipHttpResponse.h in Headers */,
 				67D6AAAC1979A8E30069F742 /* MoipHttpRequester.h in Headers */,
 				67D6AAD61979A8E30069F742 /* SecUtils.h in Headers */,
@@ -647,6 +660,7 @@
 				6743E6061981949D00FE3917 /* MPKAddress.h in Headers */,
 				67D6AAF11979A8E30069F742 /* MPKBlurView.h in Headers */,
 				6743E60919819B9E00FE3917 /* MPKMethodType.h in Headers */,
+				674719991982C0EB00A933AB /* MPKOrder.h in Headers */,
 				67D6AAA31979A8E30069F742 /* MPKUSAddressZip.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -807,7 +821,6 @@
 				67D6A9F51979A8C00069F742 /* MoipSDK.m in Sources */,
 				67D6AAAA1979A8E30069F742 /* MPKError.m in Sources */,
 				67D6AAF41979A8E30069F742 /* MPKMessageView.m in Sources */,
-				67D6AAB11979A8E30069F742 /* MPKAmount.m in Sources */,
 				67D6AA911979A8E30069F742 /* MPKCheckoutViewController.m in Sources */,
 				6743E6071981949D00FE3917 /* MPKAddress.m in Sources */,
 				67D6AAAD1979A8E30069F742 /* MoipHttpRequester.m in Sources */,
@@ -817,6 +830,7 @@
 				67D6AAA41979A8E30069F742 /* MPKUSAddressZip.m in Sources */,
 				67D6AADF1979A8E30069F742 /* MPKMessage.m in Sources */,
 				67D6AADA1979A8E30069F742 /* MPKUtilities.m in Sources */,
+				6747199A1982C0EB00A933AB /* MPKOrder.m in Sources */,
 				67D6AAF21979A8E30069F742 /* MPKBlurView.m in Sources */,
 				67D6AAD71979A8E30069F742 /* SecUtils.m in Sources */,
 				67D6AAA21979A8E30069F742 /* MPKTextField.m in Sources */,
@@ -825,11 +839,13 @@
 				67D6AAA61979A8E30069F742 /* MPKView.m in Sources */,
 				67D6AABC1979A8E30069F742 /* MPKFundingInstrument.m in Sources */,
 				67D6AA9B1979A8E30069F742 /* MPKCardExpiry.m in Sources */,
+				6747199E1982C11400A933AB /* MPKAmount.m in Sources */,
 				67D6AAC01979A8E30069F742 /* MPKPaymentTransaction.m in Sources */,
 				67D6AA9D1979A8E30069F742 /* MPKCardNumber.m in Sources */,
 				67D6AAAF1979A8E30069F742 /* MoipHttpResponse.m in Sources */,
 				67D6AABA1979A8E30069F742 /* MPKFee.m in Sources */,
 				677EDC6819815F1B00D6F0EF /* MPKCustomer.m in Sources */,
+				674719A21982C23000A933AB /* MPKItem.m in Sources */,
 				67D6AA971979A8E30069F742 /* MPKCard.m in Sources */,
 				67D6AAB81979A8E30069F742 /* MPKEvent.m in Sources */,
 				67D6AAB31979A8E30069F742 /* MPKCardHolder.m in Sources */,

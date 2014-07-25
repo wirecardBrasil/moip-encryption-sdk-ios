@@ -10,54 +10,67 @@
 
 @implementation MPKCustomer
 
-- (NSString *) builJson
+- (NSString *) buildJson
 {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:self.birthDate];
     
     NSMutableString *json = [NSMutableString new];
     [json appendFormat:@"{"];
-    [json appendFormat:@"  \"ownId\": \"%@\",", self.ownId];
-    [json appendFormat:@"  \"fullname\": \"%@\",", self.fullname];
-    [json appendFormat:@"  \"email\": \"%@\",", self.email];
-    [json appendFormat:@"  \"phone\": {"];
-    [json appendFormat:@"    \"areaCode\": \"%li\",", (long)self.phoneAreaCode];
-    [json appendFormat:@"    \"number\": \"%li\"", (long)self.phoneNumber];
-    [json appendFormat:@"  },"];
-    [json appendFormat:@"  \"birthDate\": \"%ld-%ld-%ld\",", (long)components.year, (long)components.month, (long)components.day];
-    [json appendFormat:@"  \"taxDocument\": {"];
-    [json appendFormat:@"    \"type\": \"%@\",", [self getDocumentType]];
-    [json appendFormat:@"    \"number\": \"%li\"", (long)self.documentNumber];
-    [json appendFormat:@"  },"];
-    [json appendFormat:@"  \"addresses\": ["];
     
-    for (int i = 0; i < self.addresses.count; i++)
+    if (self.moipCustomerId != nil)
     {
-        MPKAddress *address = self.addresses[i];
-        [json appendFormat:@"    {"];
-        [json appendFormat:@"      \"type\": \"%@\",", [address getAddressType]];
-        [json appendFormat:@"      \"street\": \"%@\",", address.street];
-        [json appendFormat:@"      \"streetNumber\": \"%@\",", address.streetNumber];
-        [json appendFormat:@"      \"complement\": \"%@\",", address.complement];
-        [json appendFormat:@"      \"district\": \"%@\",", address.district];
-        [json appendFormat:@"      \"city\": \"%@\",", address.city];
-        [json appendFormat:@"      \"state\": \"%@\",", address.state];
-        [json appendFormat:@"      \"country\": \"%@\",", address.country];
-        [json appendFormat:@"      \"zipCode\": \"%@\"", address.zipCode];
+        [json appendFormat:@"\"id\": \"%@\",", self.moipCustomerId];
+    }
+    else
+    {
+        [json appendFormat:@"  \"ownId\": \"%@\",", self.ownId];
+        [json appendFormat:@"  \"fullname\": \"%@\",", self.fullname];
+        [json appendFormat:@"  \"email\": \"%@\",", self.email];
+        [json appendFormat:@"  \"phone\": {"];
+        [json appendFormat:@"    \"areaCode\": \"%li\",", (long)self.phoneAreaCode];
+        [json appendFormat:@"    \"number\": \"%li\"", (long)self.phoneNumber];
+        [json appendFormat:@"  },"];
+        [json appendFormat:@"  \"birthDate\": \"%ld-%ld-%ld\",", (long)components.year, (long)components.month, (long)components.day];
+        [json appendFormat:@"  \"taxDocument\": {"];
+        [json appendFormat:@"    \"type\": \"%@\",", [self getDocumentType]];
+        [json appendFormat:@"    \"number\": \"%li\"", (long)self.documentNumber];
+        [json appendFormat:@"  },"];
+        [json appendFormat:@"  \"addresses\": ["];
         
-        if (self.addresses.count > 1 && i < self.addresses.count-1)
+        for (int i = 0; i < self.addresses.count; i++)
         {
-            [json appendFormat:@"    },"];
+            MPKAddress *address = self.addresses[i];
+            [json appendFormat:@"    {"];
+            [json appendFormat:@"      \"type\": \"%@\",", [address getAddressType]];
+            [json appendFormat:@"      \"street\": \"%@\",", address.street];
+            [json appendFormat:@"      \"streetNumber\": \"%@\",", address.streetNumber];
+            [json appendFormat:@"      \"complement\": \"%@\",", address.complement];
+            [json appendFormat:@"      \"district\": \"%@\",", address.district];
+            [json appendFormat:@"      \"city\": \"%@\",", address.city];
+            [json appendFormat:@"      \"state\": \"%@\",", address.state];
+            [json appendFormat:@"      \"country\": \"%@\",", address.country];
+            [json appendFormat:@"      \"zipCode\": \"%@\"", address.zipCode];
+            
+            if (self.addresses.count > 1 && i < self.addresses.count-1)
+            {
+                [json appendFormat:@"    },"];
+            }
+            else
+            {
+                [json appendFormat:@"    }"];
+            }
         }
-        else
+        
+        [json appendFormat:@"  ]"];
+        
+        if (self.fundingInstrument != nil)
         {
-            [json appendFormat:@"    }"];
+            [json appendFormat:@",   \"fundingInstrument\": %@", [self.fundingInstrument buildJson]];
         }
     }
     
-    [json appendFormat:@"  ],"];
-    [json appendFormat:@"   \"fundingInstrument\": %@", [self.fundingInstrument buildJson]];
     [json appendFormat:@"  }"];
-//    [json appendFormat:@"}"];
+        
     return json;
 }
 

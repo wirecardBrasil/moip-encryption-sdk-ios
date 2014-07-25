@@ -116,6 +116,39 @@ static MoipSDK *sharedSingleton;
 #pragma mark -
 #pragma mark Submit Payment
 /**
+ *  Cria um pedido no moip
+ *
+ *  @param order Dados do pedido
+ *  @param success Block de sucesso
+ *  @param failure Block de erro
+ */
+- (void) createOrder:(MPKOrder *)order
+             success:(void (^)(MPKOrder *order, NSString *moipOrderId))success
+             failure:(void (^)(NSArray *errorList))failure
+{
+    NSString *orderJson = [order buildJson];
+    NSString *url = [MPKUtilities urlWithEnv:self.environment endpoint:@"/orders/"];
+    
+    MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.auth];
+    [requester post:url payload:orderJson completation:^(MoipHttpResponse *response) {
+        if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
+        {
+            NSDictionary *orderCreated = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
+            NSString *moipOrder = orderCreated[@"id"];
+            
+            order.moipOrderId = moipOrder;
+            success(order, moipOrder);
+        }
+        else
+        {
+            [self checkResponseFailure:response failureBlock:failure];
+        }
+    }];
+}
+
+#pragma mark -
+#pragma mark Submit Payment
+/**
  *  Cria um pagamento no moip
  *
  *  @param payment Dados do pagamento, como cartão de credito, parcelas...
@@ -141,6 +174,38 @@ static MoipSDK *sharedSingleton;
             [self checkResponseFailure:response failureBlock:failure];
         }
     }];
+}
+
+- (void) createCustomer:(MPKCustomer *)customer
+                success:(void (^)(MPKCustomer *customer, NSString *moipCustomerId, NSString *moipCreditCardId))success
+                failure:(void (^)(NSArray *errorList))failure;
+{
+    NSString *jsonCustomer = [customer buildJson];
+    
+    NSString *endpoint = [NSString stringWithFormat:@"/customers"];
+    NSString *url = [MPKUtilities urlWithEnv:self.environment endpoint:endpoint];
+    
+    MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.auth];
+    [requester post:url payload:jsonCustomer completation:^(MoipHttpResponse *response) {
+        if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
+        {
+            NSDictionary *customerCreated = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
+            if (customerCreated != nil)
+            {
+                NSString *moipCustomerId = customerCreated[@"id"];
+                NSString *moipCreditCardId = customerCreated[@"fundingInstrument"][@"creditCard"][@"id"];
+                
+                customer.moipCustomerId = moipCustomerId;
+                customer.fundingInstrument.creditCard.moipCreditCardId = moipCreditCardId;
+                success(customer, moipCustomerId, moipCreditCardId);
+            }
+        }
+        else
+        {
+            [self checkResponseFailure:response failureBlock:failure];
+        }
+    }];
+    
 }
 
 #pragma mark -
@@ -169,7 +234,7 @@ static MoipSDK *sharedSingleton;
     else
     {
         NSString *errorDescription = errorDict[@"ERROR"];
-
+        
         NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: errorDescription};
         
         MPKError *err = [[MPKError alloc] initWithDomain:@"MoipSDK" code:response.httpStatusCode userInfo:userInfo];
@@ -179,39 +244,6 @@ static MoipSDK *sharedSingleton;
         
         failureBlock(@[err]);
     }
-}
-
-
-- (void) createCustomer:(MPKCustomer *)customer
-                success:(void (^)(MPKCustomer *customer, NSString *moipCustomerId, NSString *moipCreditCardId))success
-                failure:(void (^)(NSArray *errorList))failure;
-{
-    NSString *jsonCustomer = [customer builJson];
-    
-    NSString *endpoint = [NSString stringWithFormat:@"/customers"];
-    NSString *url = [MPKUtilities urlWithEnv:self.environment endpoint:endpoint];
-    
-    MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.auth];
-    [requester post:url payload:jsonCustomer completation:^(MoipHttpResponse *response) {
-        if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
-        {
-            NSDictionary *customerCreated = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];
-            if (customerCreated != nil)
-            {
-                NSString *moipCustomerId = customerCreated[@"id"];
-                NSString *moipCreditCardId = customerCreated[@"fundingInstrument"][@"creditCard"][@"id"];
-                
-                customer.moipCustomerId = moipCustomerId;
-                customer.fundingInstrument.creditCard.moipCreditCardId = moipCreditCardId;
-                success(customer, moipCustomerId, moipCreditCardId);
-            }
-        }
-        else
-        {
-            [self checkResponseFailure:response failureBlock:failure];
-        }
-    }];
-    
 }
 
 @end

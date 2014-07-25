@@ -15,6 +15,7 @@
 #import "MPKError.h"
 #import "MPKEnvironment.h"
 #import "MPKCustomer.h"
+#import "MPKOrder.h"
 
 @interface MoipSDK : NSObject
 
@@ -27,9 +28,15 @@
 
 #pragma mark - Methods
 - (void) configureSitef;
+
+- (void) createOrder:(MPKOrder *)order
+             success:(void (^)(MPKOrder *order, NSString *moipOrderId))success
+             failure:(void (^)(NSArray *errorList))failure;
+
 - (void) submitPayment:(MPKPayment *)payment
                success:(void (^)(MPKPaymentTransaction *transaction))success
                failure:(void (^)(NSArray *errorList))failure;
+
 - (void) createCustomer:(MPKCustomer *)customer
                 success:(void (^)(MPKCustomer *customer, NSString *moipCustomerId, NSString *moipCreditCardId))success
                 failure:(void (^)(NSArray *errorList))failure;

@@ -15,6 +15,11 @@
 @property NSUInteger fees;
 @property NSUInteger refunds;
 @property NSUInteger liquid;
+@property NSUInteger shipping;
+@property NSUInteger addition;
+@property NSUInteger discount;
 @property MPKCurrency MPKCurrency;
+
+- (NSString *)buildJson;
 
 @end

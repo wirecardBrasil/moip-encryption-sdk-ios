@@ -7,6 +7,7 @@
 //
 
 #import "MPKCheckoutViewController.h"
+#import "MPKDocumentType.h"
 #import "MPKView.h"
 #import "MoipSDK.h"
 #import "MPKConfiguration.h"
@@ -324,18 +325,21 @@
         MPKCardHolder *holder = [MPKCardHolder new];
         holder.fullname = self.txtFullname.text;
         holder.birthdate = [NSString stringWithFormat:@"%@-%@-%@", birthdate[2], birthdate[1], birthdate[0]];
-        holder.documentType = MPKCardHolderDocumentTypeCPF;
+        holder.documentType = MPKDocumentTypeCPF;
         holder.documentNumber = docNumber;
         holder.phoneCountryCode = @"55";
         holder.phoneAreaCode = [phoneNumber substringToIndex:2];
         holder.phoneNumber = [phoneNumber substringFromIndex:2];
         
+        MPKFundingInstrument *fundingInstrument = [MPKFundingInstrument new];
+        fundingInstrument.creditCard = _card;
+        fundingInstrument.method = MPKMethodTypeCreditCard;
+        
         MPKPayment *payment = [MPKPayment new];
         payment.moipOrderId = self.moipOrderId;
         payment.installmentCount = 2;//self.installmentCount;
-        payment.method = MPKPaymentMethodCreditCard;
         _card.cardholder = holder;
-        payment.creditCard = _card;
+        payment.fundingInstrument = fundingInstrument;
         
         MoipSDK *instance = [MoipSDK session];
         [instance submitPayment:payment success:^(MPKPaymentTransaction *transaction) {

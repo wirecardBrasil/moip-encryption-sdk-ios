@@ -13,6 +13,7 @@
 @interface MPKCreditCard : NSObject
 
 @property NSString *creditCardId;
+@property NSString *moipCreditCardId;
 @property NSInteger expirationMonth;
 @property NSInteger expirationYear;
 @property NSString *number;

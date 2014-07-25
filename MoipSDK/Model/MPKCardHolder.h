@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "MPKEnums.h"
+#import "MPKDocumentType.h"
 
 @interface MPKCardHolder : NSObject
 
 @property NSString *fullname;
 @property NSString *birthdate;
-@property MPKCardHolderDocumentType documentType;
+@property MPKDocumentType documentType;
 @property NSString *documentNumber;
 @property NSString *phoneCountryCode;
 @property NSString *phoneAreaCode;

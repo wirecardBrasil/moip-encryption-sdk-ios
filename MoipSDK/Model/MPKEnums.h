@@ -6,11 +6,6 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-typedef NS_ENUM(NSUInteger, MPKPaymentMethod)
-{
-    MPKPaymentMethodCreditCard
-};
-
 typedef NS_ENUM(NSUInteger, MPKPaymentStatus)
 {
     MPKPaymentStatusInitiated,
@@ -26,13 +21,6 @@ typedef NS_ENUM(NSUInteger, MPKPaymentStatus)
 typedef NS_ENUM(NSUInteger, MPKCurrency)
 {
     BRL
-};
-
-typedef NS_ENUM(NSUInteger, MPKCardHolderDocumentType)
-{
-    MPKCardHolderDocumentTypeCNPJ,
-    MPKCardHolderDocumentTypeCPF,
-    MPKCardHolderDocumentTypeRG
 };
 
 typedef NS_ENUM (NSUInteger, MPKBrand)

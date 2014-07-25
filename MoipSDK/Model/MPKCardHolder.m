@@ -14,13 +14,13 @@
 {
     switch (self.documentType)
     {
-        case MPKCardHolderDocumentTypeCNPJ:
+        case MPKDocumentTypeCNPJ:
             return @"CNPJ";
             break;
-        case MPKCardHolderDocumentTypeCPF:
+        case MPKDocumentTypeCPF:
             return @"CPF";
             break;
-        case MPKCardHolderDocumentTypeRG:
+        case MPKDocumentTypeRG:
             return @"RG";
             break;
         default:

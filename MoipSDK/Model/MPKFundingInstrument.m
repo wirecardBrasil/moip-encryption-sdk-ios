@@ -60,23 +60,33 @@
     [jsonInstrument appendFormat:@"{"];
     [jsonInstrument appendFormat:@"\"method\": \"%@\",", [self getMethodTypeString]];
     [jsonInstrument appendFormat:@"\"creditCard\": {"];
-    [jsonInstrument appendFormat:@"     \"expirationMonth\": %lu,", (unsigned long)self.creditCard.expirationMonth];
-    [jsonInstrument appendFormat:@"     \"expirationYear\": %lu,", (unsigned long)self.creditCard.expirationYear];
-    [jsonInstrument appendFormat:@"     \"number\": \"%@\",", self.creditCard.number];
-    [jsonInstrument appendFormat:@"     \"cvc\": \"%@\",", self.creditCard.cvv];
-    [jsonInstrument appendFormat:@"     \"holder\": {"];
-    [jsonInstrument appendFormat:@"         \"fullname\": \"%@\",", self.creditCard.cardholder.fullname];
-    [jsonInstrument appendFormat:@"         \"birthdate\": \"%@\",", self.creditCard.cardholder.birthdate];
-    [jsonInstrument appendFormat:@"         \"taxDocument\": {"];
-    [jsonInstrument appendFormat:@"         \"type\": \"%@\",", [self.creditCard.cardholder getDocumentType]];
-    [jsonInstrument appendFormat:@"         \"number\": \"%@\"", self.creditCard.cardholder.documentNumber];
-    [jsonInstrument appendFormat:@"     },"];
-    [jsonInstrument appendFormat:@"     \"phone\": {"];
-    [jsonInstrument appendFormat:@"         \"countryCode\": \"%@\",", self.creditCard.cardholder.phoneCountryCode];
-    [jsonInstrument appendFormat:@"         \"areaCode\": \"%@\",", self.creditCard.cardholder.phoneAreaCode];
-    [jsonInstrument appendFormat:@"         \"number\": \"%@\"", self.creditCard.cardholder.phoneNumber];
-    [jsonInstrument appendFormat:@"     }"];
-    [jsonInstrument appendFormat:@"}"];
+    
+    if (self.creditCard.moipCreditCardId != nil)
+    {
+        [jsonInstrument appendFormat:@"     \"id\": \"%@\",", self.creditCard.moipCreditCardId];
+        [jsonInstrument appendFormat:@"     \"cvc\": \"%@\"", self.creditCard.cvv];
+    }
+    else
+    {
+        [jsonInstrument appendFormat:@"     \"expirationMonth\": %lu,", (unsigned long)self.creditCard.expirationMonth];
+        [jsonInstrument appendFormat:@"     \"expirationYear\": %lu,", (unsigned long)self.creditCard.expirationYear];
+        [jsonInstrument appendFormat:@"     \"number\": \"%@\",", self.creditCard.number];
+        [jsonInstrument appendFormat:@"     \"cvc\": \"%@\",", self.creditCard.cvv];
+        [jsonInstrument appendFormat:@"     \"holder\": {"];
+        [jsonInstrument appendFormat:@"             \"fullname\": \"%@\",", self.creditCard.cardholder.fullname];
+        [jsonInstrument appendFormat:@"             \"birthdate\": \"%@\",", self.creditCard.cardholder.birthdate];
+        [jsonInstrument appendFormat:@"             \"taxDocument\": {"];
+        [jsonInstrument appendFormat:@"             \"type\": \"%@\",", [self.creditCard.cardholder getDocumentType]];
+        [jsonInstrument appendFormat:@"             \"number\": \"%@\"", self.creditCard.cardholder.documentNumber];
+        [jsonInstrument appendFormat:@"         },"];
+        [jsonInstrument appendFormat:@"         \"phone\": {"];
+        [jsonInstrument appendFormat:@"             \"countryCode\": \"%@\",", self.creditCard.cardholder.phoneCountryCode];
+        [jsonInstrument appendFormat:@"             \"areaCode\": \"%@\",", self.creditCard.cardholder.phoneAreaCode];
+        [jsonInstrument appendFormat:@"             \"number\": \"%@\"", self.creditCard.cardholder.phoneNumber];
+        [jsonInstrument appendFormat:@"         }"];
+        [jsonInstrument appendFormat:@"     }"];
+    }
+    
     [jsonInstrument appendFormat:@"}"];
     [jsonInstrument appendFormat:@"}"];
 

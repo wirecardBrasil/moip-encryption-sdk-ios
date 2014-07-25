@@ -182,7 +182,9 @@ static MoipSDK *sharedSingleton;
 }
 
 
-- (void) saveCustomer:(MPKCustomer *)customer success:(void (^)(MPKCustomer *, NSString *, NSString *))success failure:(void (^)(NSArray *))failure
+- (void) createCustomer:(MPKCustomer *)customer
+                success:(void (^)(MPKCustomer *customer, NSString *moipCustomerId, NSString *moipCreditCardId))success
+                failure:(void (^)(NSArray *errorList))failure;
 {
     NSString *jsonCustomer = [customer builJson];
     

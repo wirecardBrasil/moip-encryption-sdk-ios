@@ -1,76 +1,76 @@
 # Moip SDK Beta - iOS
 
-Com o MoipSDK você pode receber pagamentos no seu aplicativo sem se preocupar com criptografia dos dados, formulário de pagamento e etc.
+Com o MoipSDK você pode receber pagamentos no seu aplicativo sem se preocupar com criptografia e de uma maneira fácil e simples.
 
 Veja abaixo como integrar o seu app com o Moip.
 
-### Usando o checkout moip
+### Iniciar o SDK
 
-MyViewController.h
+O primeiro passo iniciar o SDK passando seu Token, Key, Chave Publica RSA e o endpoint para criação da order do seu ecommerce.
+
 ```objective-c
-#import <MoipSDK/MoipSDK.h>
-#import <MoipSDK/MPKCheckoutViewController.h>
-#import <MoipSDK/MPKConfiguration.h>
-
-
-@interface MoipCheckoutViewController : UIViewController <MPKCheckoutDelegate>
-
-@end
-```
-MyViewController.m
-```
-@implementation MyCheckoutViewController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"publicKey" ofType:@"pem"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"myPublicKey" ofType:@"txt"];
     NSString *publicKeyText = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
-    [MoipSDK startSessionWithToken:@"TOKEN_MOIP" // Ver nota 1
-                               key:@"CHAVE_MOIP"
+    [MoipSDK startSessionWithToken:MOIPTOKEN
+                               key:MOIPKEY
                          publicKey:publicKeyText
                        environment:MPKEnvironmentSANDBOX];
-}
-
-- (IBAction)btnBuyTouched:(id)sender
-{    
-    MPKConfiguration *config = [MPKConfiguration new];
-    config.titleView = @"Pagamento";
-    config.textFieldColor = [UIColor blackColor];
-    config.textFieldFont = [UIFont fontWithName:@"HelveticaNeue" size:16];
-    config.showErrorFeedback = YES;  // Ver nota 2
-    config.showSuccessFeedback = YES;  // Ver nota 3
-
-    MPKCheckoutViewController *paymentViewController = [[MPKCheckoutViewController alloc] initWithConfiguration:config];
-    paymentViewController.delegate = self;
-    paymentViewController.moipOrderId = @"MOIP_ORDER_ID";  // Ver nota 4
-    [self presentViewController:paymentViewController animated:YES completion:nil];
-  
-}
-
-#pragma mark -
-#pragma mark Moip Checkout delegate
-- (void)paymentTransactionSuccess:(MPKPaymentTransaction *)transaction
-{
-    if (transaction.status == MPKPaymentStatusAuthorized)
-    {
-        NSLog(@"Yeah! Pagamento autorizado!");
-    }
-}
-
-- (void)paymentTransactionFailure:(NSArray *)errorList
-{
-    NSLog(@"errors: %@", errorList);	
-}
-
-@end
 ```
 
-### Notas
+### Criar um pedido (ORDER)
 
-1. Acesse sua conta moip para ver o Token e chave
-2. Quando a flag showErrorFeedback for YES, o proprio checkout exibirá uma mensagem amigável para erros no formulário de checkout ou erros no pagamento.
-3. Quando a flag showSuccessFeedback for YES, o proprio checkout exibirá uma mensagem amigável para sucesso no pagamento.
-4. O MOIP_ORDER_ID é o id do pedido já criado no moip. Se você ainda não fez isso, veja na documentação da API.
+```objective-c
+    MPKAddress *address = [MPKAddress new];
+    address.type = MPKAddressTypeBilling;
+    address.street = @"Rua Francisco Antunes";
+    address.streetNumber = @"437";
+    address.complement = @"apt 33 bl 1";
+    address.district = @"Vila Augusta";
+    address.city = @"Guarulhos";
+    address.state = @"São Paulo";
+    address.country = @"BRA";
+    address.zipCode = @"07040010";
+    
+    MPKCustomer *customer = [MPKCustomer new];
+    customer.ownId = @"idNovoCustomer";
+    customer.fullname = @"José da silva";
+    customer.email = @"josedasilva@email.com";
+    customer.phoneAreaCode = 11;
+    customer.phoneNumber = 999999999;
+    customer.birthDate = [NSDate date];
+    customer.documentType = MPKDocumentTypeCPF;
+    customer.documentNumber = 39999999399;
+    customer.addresses = @[address];
+    
+    MPKAmount *amount = [MPKAmount new];
+    amount.shipping = 1000;
+    
+    MPKItem *item = [MPKItem new];
+    item.quantity = 1;
+    item.product = @"Macbook Pro Unibody Late 2011";
+    item.detail = @"Macbook Pro Unibody Late 2011 c/ SSD e 8 GB de memoria";
+    item.price = 10000;
+    
+    MPKOrder *newOrder = [MPKOrder new];
+    newOrder.ownId = @"seuID";
+    newOrder.amount = amount;
+    newOrder.items = @[item];
+    newOrder.customer = customer;
+    
+    __block BOOL waitingForBlock = YES;
+    [[MoipSDK session] createOrder:newOrder success:^(MPKOrder *order, NSString *moipOrderId) {
+        NSLog(@"---->>>>>>>>%@", moipOrderId);
+        
+    } failure:^(NSArray *errorList) {
+        
+        NSLog(@"%@", errorList);
+    }];
+```
+
+
+### Criar um pagamento (Payment)
+
+```objective-c
+	
+```

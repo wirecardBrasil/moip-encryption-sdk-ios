@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6743E6031981945100FE3917 /* MPKAddressType.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E6021981945100FE3917 /* MPKAddressType.h */; };
+		6743E6031981945100FE3917 /* MPKAddressType.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E6021981945100FE3917 /* MPKAddressType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6743E6061981949D00FE3917 /* MPKAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E6041981949D00FE3917 /* MPKAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6743E6071981949D00FE3917 /* MPKAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6743E6051981949D00FE3917 /* MPKAddress.m */; };
-		6743E60919819B9E00FE3917 /* MPKMethodType.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E60819819B9E00FE3917 /* MPKMethodType.h */; };
+		6743E60919819B9E00FE3917 /* MPKMethodType.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E60819819B9E00FE3917 /* MPKMethodType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		674719991982C0EB00A933AB /* MPKOrder.h in Headers */ = {isa = PBXBuildFile; fileRef = 674719971982C0EB00A933AB /* MPKOrder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6747199A1982C0EB00A933AB /* MPKOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 674719981982C0EB00A933AB /* MPKOrder.m */; };
 		6747199D1982C11400A933AB /* MPKAmount.h in Headers */ = {isa = PBXBuildFile; fileRef = 6747199B1982C11400A933AB /* MPKAmount.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -20,6 +20,7 @@
 		6749A10A197EB40D00214BE8 /* MoipSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6A9F31979A8C00069F742 /* MoipSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		677EDC6719815F1B00D6F0EF /* MPKCustomer.h in Headers */ = {isa = PBXBuildFile; fileRef = 677EDC6519815F1B00D6F0EF /* MPKCustomer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		677EDC6819815F1B00D6F0EF /* MPKCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 677EDC6619815F1B00D6F0EF /* MPKCustomer.m */; };
+		67BD7AB41986A10200184A8C /* MPKDocumentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 677EDC691981608E00D6F0EF /* MPKDocumentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67D6A9EB1979A8C00069F742 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9EA1979A8C00069F742 /* Foundation.framework */; };
 		67D6A9F11979A8C00069F742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67D6A9EF1979A8C00069F742 /* InfoPlist.strings */; };
 		67D6A9F51979A8C00069F742 /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6A9F41979A8C00069F742 /* MoipSDK.m */; };
@@ -662,6 +663,7 @@
 				6743E60919819B9E00FE3917 /* MPKMethodType.h in Headers */,
 				674719991982C0EB00A933AB /* MPKOrder.h in Headers */,
 				67D6AAA31979A8E30069F742 /* MPKUSAddressZip.h in Headers */,
+				67BD7AB41986A10200184A8C /* MPKDocumentType.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

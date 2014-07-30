@@ -16,9 +16,9 @@
     [amountJson appendFormat:@"{"];
     [amountJson appendFormat:@" \"currency\": \"BRL\","];
     [amountJson appendFormat:@" \"subtotals\": {"];
-    [amountJson appendFormat:@"     \"shipping\": %li,", self.shipping];
-    [amountJson appendFormat:@"     \"addition\": %li,", self.addition];
-    [amountJson appendFormat:@"     \"discount\": %li", self.discount];
+    [amountJson appendFormat:@"     \"shipping\": %li,", (long)self.shipping];
+    [amountJson appendFormat:@"     \"addition\": %li,", (long)self.addition];
+    [amountJson appendFormat:@"     \"discount\": %li", (long)self.discount];
     [amountJson appendFormat:@" }"];
     [amountJson appendFormat:@"}"];
     

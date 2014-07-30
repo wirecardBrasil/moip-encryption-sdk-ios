@@ -9,6 +9,13 @@
 #define MOIPTOKENTESTS @"01010101010101010101010101010101"
 #define MOIPKEYTESTS @"ABABABABABABABABABABABABABABABABABABABAB"
 
+#define kMoipOrderIdKey @"SavedMoipOrderIdUnitTests"
+#define kMoipCustomerIdKey @"SavedCustomerIdUnitTests"
+#define kMoipCreditCardIdKey @"SavedCreditCardIdUnitTests"
+
+#define SaveValue(VALUE,KEY) [[NSUserDefaults standardUserDefaults] setValue:VALUE forKey:KEY]
+#define GetValue(KEY) [[NSUserDefaults standardUserDefaults] valueForKey:KEY]
+
 #import <XCTest/XCTest.h>
 #import "MoipSDK.h"
 #import "MPKCustomer.h"
@@ -18,9 +25,7 @@
 #import "HTTPStatusCodes.h"
 
 @interface MoipSDKTests : XCTestCase
-{
-    NSMutableString *publicKeyTests;
-}
+
 @end
 
 @implementation MoipSDKTests
@@ -28,8 +33,8 @@
 - (void)setUp
 {
     [super setUp];
-
-    publicKeyTests = [NSMutableString new];
+    
+    NSMutableString *publicKeyTests = [NSMutableString new];
     [publicKeyTests appendFormat:@"-----BEGIN PUBLIC KEY-----\n"];
     [publicKeyTests appendFormat:@"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoBttaXwRoI1Fbcond5mS\n"];
     [publicKeyTests appendFormat:@"7QOb7X2lykY5hvvDeLJelvFhpeLnS4YDwkrnziM3W00UNH1yiSDU+3JhfHu5G387\n"];
@@ -49,16 +54,15 @@
 - (void)tearDown
 {
     [super tearDown];
-
 }
 
-- (void) testShouldEncryptData
+- (void) test01ShouldEncryptData
 {
     NSString *cryptData = [MPKUtilities encryptData:@"4111111111111111" keyTag:kPublicKeyName];
     XCTAssertNotNil(cryptData, @"");
 }
 
-- (void) testShouldCreateMoipOrderId
+- (void) test02ShouldCreateMoipOrderId
 {
     MPKAddress *address = [MPKAddress new];
     address.type = MPKAddressTypeBilling;
@@ -104,7 +108,10 @@
 
         waitingForBlock = NO;
         
-        NSLog(@"---------------------------------------------------------------->>>>>>>>%@", moipOrderId);
+        NSLog(@">>>>>>>> %@", moipOrderId);
+        
+        SaveValue(moipOrderId, kMoipOrderIdKey);
+        
         XCTAssertNotNil(moipOrderId, @"");
         
     } failure:^(NSArray *errorList) {
@@ -121,7 +128,7 @@
     }
 }
 
-- (void)testShouldCreatePaymentInMoip
+- (void)test03ShouldCreatePaymentInMoip
 {
     MPKCardHolder *holder = [MPKCardHolder new];
     holder.fullname = @"Fernando Nazario Sousa";
@@ -144,14 +151,14 @@
     instrument.method = MPKMethodTypeCreditCard;
     
     MPKPayment *payment = [MPKPayment new];
-    payment.moipOrderId = @"";
+    payment.moipOrderId = GetValue(kMoipOrderIdKey);
     payment.installmentCount = 1;
     payment.fundingInstrument = instrument;
     
     __block BOOL waitingForBlock = YES;
     [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
 
-        NSLog(@"%@", transaction.paymentId);
+        NSLog(@">>>>>>>> %@", transaction.paymentId);
         
         waitingForBlock = NO;
         XCTAssertNotNil(transaction, @"payment transaction is nil");
@@ -170,7 +177,7 @@
     }
 }
 
-- (void) testShouldCreateCustomerWithCreditCard
+- (void) test04ShouldCreateCustomerWithCreditCard
 {
     __block BOOL waitingForBlock = YES;
     
@@ -231,8 +238,12 @@
     [[MoipSDK session] createCustomer:customer success:^(MPKCustomer *customer, NSString *moipCustomerId, NSString *moipCreditCardId) {
         waitingForBlock = NO;
         
-        NSLog(@"---------------------------------------------------------------->>>>>>>>%@", moipCustomerId);
-        NSLog(@"---------------------------------------------------------------->>>>>>>>%@", moipCreditCardId);
+        NSLog(@">>>>>>>> %@", moipCustomerId);
+        NSLog(@">>>>>>>> %@", moipCreditCardId);
+        
+        SaveValue(moipCustomerId, kMoipCustomerIdKey);
+        SaveValue(moipCreditCardId, kMoipCreditCardIdKey);
+        
         XCTAssertNotNil(customer.moipCustomerId, @"");
         XCTAssertNotNil(customer.fundingInstrument.creditCard.moipCreditCardId, @"");
     } failure:^(NSArray *errorList) {
@@ -247,20 +258,56 @@
     }
 }
 
-- (void) testShouldCreatePaymentWithSavedCreditCard
+- (void) test05ShouldCreateOrderWithSavedCustomer
 {
-    //CRC-JO5TKHG1UMAN
-    MPKCardHolder *holder = [MPKCardHolder new];
-    holder.fullname = @"Fernando Nazario Sousa";
-    holder.birthdate = @"1988-04-27";
-    holder.documentType = MPKDocumentTypeCPF;
-    holder.documentNumber = @"36021561848";
-    holder.phoneCountryCode = @"55";
-    holder.phoneAreaCode = @"11";
-    holder.phoneNumber = @"975902554";
+    MPKCustomer *customer = [MPKCustomer new];
+    customer.moipCustomerId = GetValue(kMoipCustomerIdKey);
     
+    MPKAmount *amount = [MPKAmount new];
+    amount.shipping = 1000;
+    amount.addition = 0;
+    amount.discount = 0;
+    
+    MPKItem *item = [MPKItem new];
+    item.quantity = 1;
+    item.product = @"Macbook Pro Unibody Late 2011";
+    item.detail = @"Macbook Pro Unibody Late 2011 c/ SSD e 8 GB de memoria";
+    item.price = 10000;
+    
+    MPKOrder *newOrder = [MPKOrder new];
+    newOrder.ownId = @"sandbox_OrderID_xxx";
+    newOrder.amount = amount;
+    newOrder.items = @[item];
+    newOrder.customer = customer;
+    
+    __block BOOL waitingForBlock = YES;
+    [[MoipSDK session] createOrder:newOrder success:^(MPKOrder *order, NSString *moipOrderId) {
+        
+        waitingForBlock = NO;
+        
+        NSLog(@">>>>>>>> %@", moipOrderId);
+        SaveValue(moipOrderId, kMoipOrderIdKey);
+        
+        XCTAssertNotNil(moipOrderId, @"");
+        
+    } failure:^(NSArray *errorList) {
+        
+        NSLog(@"%@", errorList);
+        
+        waitingForBlock = NO;
+        XCTAssertNil(errorList, @"");
+    }];
+    
+    while(waitingForBlock) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+    }
+}
+
+- (void) test06ShouldCreatePaymentWithSavedCreditCard
+{
     MPKCreditCard *card = [MPKCreditCard new];
-    card.moipCreditCardId = @"CRC-JO5TKHG1UMAN";
+    card.moipCreditCardId = GetValue(kMoipCreditCardIdKey);
     card.cvv = @"999";
     
     MPKFundingInstrument *instrument = [MPKFundingInstrument new];
@@ -268,14 +315,14 @@
     instrument.method = MPKMethodTypeCreditCard;
     
     MPKPayment *payment = [MPKPayment new];
-    payment.moipOrderId = @"";
+    payment.moipOrderId = GetValue(kMoipOrderIdKey);
     payment.installmentCount = 1;
     payment.fundingInstrument = instrument;
     
     __block BOOL waitingForBlock = YES;
     [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
         
-        NSLog(@"%@", transaction.paymentId);
+        NSLog(@">>>>>>>> %@", transaction.paymentId);
         
         waitingForBlock = NO;
         XCTAssertNotNil(transaction, @"payment transaction is nil");

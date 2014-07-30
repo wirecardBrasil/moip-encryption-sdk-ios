@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "MPKCardHolder.h"
 #import "MPKCreditCard.h"
 #import "MPKView.h"

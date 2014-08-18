@@ -122,15 +122,16 @@ static MoipSDK *sharedSingleton;
  *  @param success Block de sucesso
  *  @param failure Block de erro
  */
-- (void) createOrder:(MPKOrder *)order
+- (void) createOrder:(NSMutableURLRequest *)request
+               order:(MPKOrder *)order
              success:(void (^)(MPKOrder *order, NSString *moipOrderId))success
              failure:(void (^)(NSArray *errorList))failure
 {
     NSString *orderJson = [order buildJson];
-    NSString *url = [MPKUtilities urlWithEnv:self.environment endpoint:@"/orders/"];
+    [request setHTTPBody:[orderJson dataUsingEncoding:NSUTF8StringEncoding]];
     
     MoipHttpRequester *requester = [MoipHttpRequester requesterWithBasicAuthorization:self.auth];
-    [requester post:url payload:orderJson completation:^(MoipHttpResponse *response) {
+    [requester request:request completation:^(MoipHttpResponse *response) {
         if (response.httpStatusCode == kHTTPStatusCodeCreated || response.httpStatusCode == kHTTPStatusCodeOK)
         {
             NSDictionary *orderCreated = [NSJSONSerialization JSONObjectWithData:response.content options:NSJSONReadingAllowFragments error:nil];

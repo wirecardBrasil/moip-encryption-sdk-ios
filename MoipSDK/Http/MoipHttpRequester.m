@@ -244,6 +244,36 @@ NSMutableDictionary *headers;
     return newResponse;
 }
 
+- (void)request:(NSMutableURLRequest *)request completation:(void (^)(MoipHttpResponse *))completation
+{
+    for (NSString *key in [headers allKeys])
+    {
+        [request setValue:headers[key] forHTTPHeaderField:key];
+    }
+    
+    __block NSURLResponse *response = nil;
+    __block NSError *error = [NSError new];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            MoipHttpResponse *newResponse = [MoipHttpResponse new];
+            newResponse.content = result;
+            
+            if ([response isKindOfClass:[NSHTTPURLResponse class]])
+            {
+                newResponse.httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
+            }
+            else
+            {
+                newResponse.urlErrorCode = error.code;
+            }
+            completation(newResponse);
+        });
+    });
+}
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
 

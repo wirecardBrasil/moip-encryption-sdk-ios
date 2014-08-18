@@ -103,19 +103,19 @@
     newOrder.items = @[item];
     newOrder.customer = customer;
     
+    NSMutableURLRequest *rq = [NSMutableURLRequest new];
+    rq.HTTPMethod = @"POST";
+    rq.URL = [NSURL URLWithString:@"https://test.moip.com.br/v2/orders"];
+    
     __block BOOL waitingForBlock = YES;
-    [[MoipSDK session] createOrder:newOrder success:^(MPKOrder *order, NSString *moipOrderId) {
-
+    [[MoipSDK session] createOrder:rq order:newOrder success:^(MPKOrder *order, NSString *moipOrderId) {
+        
         waitingForBlock = NO;
-        
         NSLog(@">>>>>>>> %@", moipOrderId);
-        
         SaveValue(moipOrderId, kMoipOrderIdKey);
         
         XCTAssertNotNil(moipOrderId, @"");
-        
     } failure:^(NSArray *errorList) {
-        
         NSLog(@"%@", errorList);
         
         waitingForBlock = NO;
@@ -191,10 +191,10 @@
     holder.phoneNumber = @"975902554";
     
     MPKCreditCard *card = [MPKCreditCard new];
-    card.expirationMonth = 06;
-    card.expirationYear = 17;
-    card.number = [MPKUtilities encryptData:@"5224460508980328" keyTag:kPublicKeyName];
-    card.cvv = [MPKUtilities encryptData:@"473" keyTag:kPublicKeyName];
+    card.expirationMonth = 05;
+    card.expirationYear = 18;
+    card.number = @"4111111111111111";//[MPKUtilities encryptData:@"4111111111111111" keyTag:kPublicKeyName];
+    card.cvv = @"999"; //[MPKUtilities encryptData:@"999" keyTag:kPublicKeyName];
     card.cardholder = holder;
     
     MPKFundingInstrument *fundingInstrument = [MPKFundingInstrument new];
@@ -224,7 +224,7 @@
     address2.zipCode = @"07040010";
     
     MPKCustomer *customer = [MPKCustomer new];
-    customer.ownId = @"idNovoCustomer";
+    customer.ownId = @"idNovoCustomer1";
     customer.fullname = @"Fernando Nazario Sousa";
     customer.email = @"fnazarios@gmail.com";
     customer.phoneAreaCode = 11;
@@ -280,8 +280,12 @@
     newOrder.items = @[item];
     newOrder.customer = customer;
     
+    NSMutableURLRequest *rq = [NSMutableURLRequest new];
+    rq.HTTPMethod = @"POST";
+    rq.URL = [NSURL URLWithString:@"https://test.moip.com.br/v2"];
+    
     __block BOOL waitingForBlock = YES;
-    [[MoipSDK session] createOrder:newOrder success:^(MPKOrder *order, NSString *moipOrderId) {
+    [[MoipSDK session] createOrder:rq order:newOrder success:^(MPKOrder *order, NSString *moipOrderId) {
         
         waitingForBlock = NO;
         
@@ -329,6 +333,60 @@
         
     } failure:^(NSArray *errorList) {
         
+        NSLog(@"%@", errorList);
+        
+        waitingForBlock = NO;
+        XCTAssertNil(errorList, @"");
+    }];
+    
+    while(waitingForBlock) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+    }
+}
+
+- (void) test07ShouldCreateMoipOrderIdWihtoutShippingAddress
+{
+    MPKCustomer *customer = [MPKCustomer new];
+    customer.ownId = @"idNovoCustomer";
+    customer.fullname = @"Fernando Nazario Sousa";
+    customer.email = @"fnazarios@gmail.com";
+    customer.phoneAreaCode = 11;
+    customer.phoneNumber = 975902554;
+    customer.birthDate = [NSDate date];
+    customer.documentType = MPKDocumentTypeCPF;
+    customer.documentNumber = 36021561848;
+    
+    MPKAmount *amount = [MPKAmount new];
+    amount.shipping = 1000;
+    amount.addition = 0;
+    amount.discount = 0;
+    
+    MPKItem *item = [MPKItem new];
+    item.quantity = 1;
+    item.product = @"Macbook Pro Unibody Late 2011";
+    item.detail = @"Macbook Pro Unibody Late 2011 c/ SSD e 8 GB de memoria";
+    item.price = 10000;
+    
+    MPKOrder *newOrder = [MPKOrder new];
+    newOrder.ownId = @"sandbox_OrderID_xxx";
+    newOrder.amount = amount;
+    newOrder.items = @[item];
+    newOrder.customer = customer;
+    
+    NSMutableURLRequest *rq = [NSMutableURLRequest new];
+    rq.HTTPMethod = @"POST";
+    rq.URL = [NSURL URLWithString:@"https://test.moip.com.br/v2/orders"];
+    
+    __block BOOL waitingForBlock = YES;
+    [[MoipSDK session] createOrder:rq order:newOrder success:^(MPKOrder *order, NSString *moipOrderId) {
+        
+        waitingForBlock = NO;
+        NSLog(@">>>>>>>> %@", moipOrderId);
+        SaveValue(moipOrderId, kMoipOrderIdKey);
+        
+        XCTAssertNotNil(moipOrderId, @"");
+    } failure:^(NSArray *errorList) {
         NSLog(@"%@", errorList);
         
         waitingForBlock = NO;

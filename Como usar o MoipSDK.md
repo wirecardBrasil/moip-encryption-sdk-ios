@@ -1,76 +1,158 @@
-# Moip SDK Beta - iOS
+---
+title: Mobile SDK iOS
+anchor: mobile
+---
 
 Com o MoipSDK você pode receber pagamentos no seu aplicativo sem se preocupar com criptografia e de uma maneira fácil e simples.
 
 Veja abaixo como integrar o seu app com o Moip.
 
-### Iniciar o SDK
+### 1. Iniciar o SDK
 
 O primeiro passo iniciar o SDK passando seu Token, Key, Chave Publica RSA e o endpoint para criação da order do seu ecommerce.
 
 ```objective-c
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"myPublicKey" ofType:@"txt"];
-    NSString *publicKeyText = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+
+#import <MoipSDK/MoipSDK.h>
+#import <MoipSDK/MPKMessage.h>
+
+@interface PaymentViewController ()
+
+@property MPKView *paymentView;
+@property MPKCreditCard *card;
+
+@end
+
+@implementation PaymentViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
-    [MoipSDK startSessionWithToken:MOIPTOKEN
-                               key:MOIPKEY
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"pk" ofType:@"txt"];
+    NSString *publicKeyText = [NSString stringWithContentsOfFile:path
+                                                        encoding:NSUTF8StringEncoding
+                                                           error:nil];
+    
+    [MoipSDK startSessionWithToken:TOKEN
+                               key:KEY
                          publicKey:publicKeyText
                        environment:MPKEnvironmentSANDBOX];
+}
 ```
 
-### Criar um pedido (ORDER)
+### 2. Usar o componente de Cartão de Credito Moip
+
+A classe ```MPKView``` é responsável por capturar o número do cartão de credito, data de validade e também o CVC. Essa classe já criptografa os dados do cartão com a chave publica que você adicionou no passo anterior.
 
 ```objective-c
-    MPKAddress *address = [MPKAddress new];
-    address.type = MPKAddressTypeBilling;
-    address.street = @"Rua Francisco Antunes";
-    address.streetNumber = @"437";
-    address.complement = @"apt 33 bl 1";
-    address.district = @"Vila Augusta";
-    address.city = @"Guarulhos";
-    address.state = @"São Paulo";
-    address.country = @"BRA";
-    address.zipCode = @"07040010";
+	// Adicionando a MPKView no seu formulário de pagamento.
+    self.paymentView = [[MPKView alloc] initWithFrame:CGRectMake(5, 5, 300, 55) borderStyle:MPKViewBorderStyleNone delegate:self];
+    self.paymentView.defaultTextFieldFont = DEFAULT_FONT;
+    [self.view addSubview:self.paymentView];
     
-    MPKCustomer *customer = [MPKCustomer new];
-    customer.ownId = @"idNovoCustomer";
-    customer.fullname = @"José da silva";
-    customer.email = @"josedasilva@email.com";
-    customer.phoneAreaCode = 11;
-    customer.phoneNumber = 999999999;
-    customer.birthDate = [NSDate date];
-    customer.documentType = MPKDocumentTypeCPF;
-    customer.documentNumber = 39999999399;
-    customer.addresses = @[address];
+```
+
+##### 2.1 Delegate
+
+Após o preenchimento do número, data de validade e cvc do cartão, se o cartão for valido, o método ```- (void)paymentViewWithCard:(MPKCreditCard *)aCard isValid:(BOOL)valid``` receberá os dados do cartão.
+
+```objective-c
+#pragma mark -
+#pragma mark MPKViewDelegate
+- (void)paymentViewWithCard:(MPKCreditCard *)aCard isValid:(BOOL)valid
+{
+    self.card = aCard;
+    if (valid)
+    {
+        [self resignFirstResponder];
+        
+        [UIView animateWithDuration:0.3f animations:^{
+            self.btnPayment.alpha = 1;
+        }];
+    }
+}
+```
+
+### 3. Efetuar o pagamento
+
+Após o preenchimento do formulário de pagamento, você já pode enviar os dados para o Moip efetuar a transação.
+
+```objective-c
+
+
+
+- (void) createPayment:(NSString *)moipOrderId
+{
+    MPKCardHolder *holder = [MPKCardHolder new];
+    holder.fullname = @"José da Silva";
+    holder.birthdate = @"1980-01-22";
+    holder.documentType = MPKDocumentTypeCPF;
+    holder.documentNumber = @"99999999999";
+    holder.phoneCountryCode = @"55";
+    holder.phoneAreaCode = @"11";
+    holder.phoneNumber = @"999999999";
     
-    MPKAmount *amount = [MPKAmount new];
-    amount.shipping = 1000;
+    self.card.cardholder = holder;
     
-    MPKItem *item = [MPKItem new];
-    item.quantity = 1;
-    item.product = @"Macbook Pro Unibody Late 2011";
-    item.detail = @"Macbook Pro Unibody Late 2011 c/ SSD e 8 GB de memoria";
-    item.price = 10000;
+    MPKFundingInstrument *instrument = [MPKFundingInstrument new];
+    instrument.creditCard = self.card;
+    instrument.method = MPKMethodTypeCreditCard;
     
-    MPKOrder *newOrder = [MPKOrder new];
-    newOrder.ownId = @"seuID";
-    newOrder.amount = amount;
-    newOrder.items = @[item];
-    newOrder.customer = customer;
+    MPKPayment *payment = [MPKPayment new];
+    payment.moipOrderId = @"ORD-123456789";
+    payment.installmentCount = 1;
+    payment.fundingInstrument = instrument;
     
-    __block BOOL waitingForBlock = YES;
-    [[MoipSDK session] createOrder:newOrder success:^(MPKOrder *order, NSString *moipOrderId) {
-        NSLog(@"---->>>>>>>>%@", moipOrderId);
+    [[MoipSDK session] submitPayment:payment success:^(MPKPaymentTransaction *transaction) {
+
+        [self showSuccessFeedback:transaction];
         
     } failure:^(NSArray *errorList) {
-        
-        NSLog(@"%@", errorList);
+        [self showErrorFeedback:errorList];
     }];
+}	
+
 ```
-
-
-### Criar um pagamento (Payment)
+##### 3.1 Mostrando mensagens de erro e sucesso
 
 ```objective-c
+- (void) showSuccessFeedback:(MPKPaymentTransaction *)transaction
+{
+    NSString *message = @"Seu pagamento foi criado com sucesso!";
+    if (transaction.status == MPKPaymentStatusAuthorized)
+    {
+        message = @"Seu pagamento foi autorizado com sucesso!";
+    }
+    else if (transaction.status == MPKPaymentStatusConcluded)
+    {
+        message = @"Seu pagamento foi concluido com sucesso!";
+    }
+    else if (transaction.status == MPKPaymentStatusInAnalysis)
+    {
+        message = @"Seu pagamento foi criado e está em Analise";
+    }
+
+    [MPKMessage showNotificationInViewController:self
+                                           title:@"Pagamento criado"
+                                        subtitle:message
+                                            type:MPKMessageNotificationTypeSuccess
+                                        duration:7.20f];
+}
+
+- (void) showErrorFeedback:(NSArray *)errors
+{
+    NSMutableString *errorMessage = [NSMutableString string];
+    for (MPKError *er in errors)
+    {
+        [errorMessage appendFormat:@"%@\n", er.localizedFailureReason];
+    }
+    
+    [MPKMessage showNotificationInViewController:self
+                                           title:@"Oops! Ocorreu um imprevisto..."
+                                        subtitle:errorMessage
+                                            type:MPKMessageNotificationTypeWarning
+                                        duration:7.0f];
+}
 	
 ```

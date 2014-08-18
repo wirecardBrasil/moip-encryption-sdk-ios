@@ -34,34 +34,37 @@
         [json appendFormat:@"  \"taxDocument\": {"];
         [json appendFormat:@"    \"type\": \"%@\",", [self getDocumentType]];
         [json appendFormat:@"    \"number\": \"%li\"", (long)self.documentNumber];
-        [json appendFormat:@"  },"];
-        [json appendFormat:@"  \"addresses\": ["];
+        [json appendFormat:@"  }"];
         
-        for (int i = 0; i < self.addresses.count; i++)
+        if (self.addresses != nil)
         {
-            MPKAddress *address = self.addresses[i];
-            [json appendFormat:@"    {"];
-            [json appendFormat:@"      \"type\": \"%@\",", [address getAddressType]];
-            [json appendFormat:@"      \"street\": \"%@\",", address.street];
-            [json appendFormat:@"      \"streetNumber\": \"%@\",", address.streetNumber];
-            [json appendFormat:@"      \"complement\": \"%@\",", address.complement];
-            [json appendFormat:@"      \"district\": \"%@\",", address.district];
-            [json appendFormat:@"      \"city\": \"%@\",", address.city];
-            [json appendFormat:@"      \"state\": \"%@\",", address.state];
-            [json appendFormat:@"      \"country\": \"%@\",", address.country];
-            [json appendFormat:@"      \"zipCode\": \"%@\"", address.zipCode];
+            [json appendFormat:@",  \"addresses\": ["];
+            for (int i = 0; i < self.addresses.count; i++)
+            {
+                MPKAddress *address = self.addresses[i];
+                [json appendFormat:@"    {"];
+                [json appendFormat:@"      \"type\": \"%@\",", [address getAddressType]];
+                [json appendFormat:@"      \"street\": \"%@\",", address.street];
+                [json appendFormat:@"      \"streetNumber\": \"%@\",", address.streetNumber];
+                [json appendFormat:@"      \"complement\": \"%@\",", address.complement];
+                [json appendFormat:@"      \"district\": \"%@\",", address.district];
+                [json appendFormat:@"      \"city\": \"%@\",", address.city];
+                [json appendFormat:@"      \"state\": \"%@\",", address.state];
+                [json appendFormat:@"      \"country\": \"%@\",", address.country];
+                [json appendFormat:@"      \"zipCode\": \"%@\"", address.zipCode];
+                
+                if (self.addresses.count > 1 && i < self.addresses.count-1)
+                {
+                    [json appendFormat:@"    },"];
+                }
+                else
+                {
+                    [json appendFormat:@"    }"];
+                }
+            }
             
-            if (self.addresses.count > 1 && i < self.addresses.count-1)
-            {
-                [json appendFormat:@"    },"];
-            }
-            else
-            {
-                [json appendFormat:@"    }"];
-            }
+            [json appendFormat:@"  ]"];
         }
-        
-        [json appendFormat:@"  ]"];
         
         if (self.fundingInstrument != nil)
         {

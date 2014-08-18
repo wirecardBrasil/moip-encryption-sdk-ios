@@ -28,7 +28,8 @@
 #pragma mark - Methods
 - (void) configureSitef;
 
-- (void) createOrder:(MPKOrder *)order
+- (void) createOrder:(NSURLRequest *)request
+               order:(MPKOrder *)order
              success:(void (^)(MPKOrder *order, NSString *moipOrderId))success
              failure:(void (^)(NSArray *errorList))failure;
 

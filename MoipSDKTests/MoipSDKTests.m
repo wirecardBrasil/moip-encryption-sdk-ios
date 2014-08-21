@@ -141,7 +141,7 @@
     
     MPKCreditCard *card = [MPKCreditCard new];
     card.expirationMonth = 05;
-    card.expirationYear = 18;
+    card.expirationYear = 2018;
     card.number = [MPKUtilities encryptData:@"4111111111111111" keyTag:kPublicKeyName];
     card.cvv = [MPKUtilities encryptData:@"999" keyTag:kPublicKeyName];
     card.cardholder = holder;
@@ -282,7 +282,7 @@
     
     NSMutableURLRequest *rq = [NSMutableURLRequest new];
     rq.HTTPMethod = @"POST";
-    rq.URL = [NSURL URLWithString:@"https://test.moip.com.br/v2"];
+    rq.URL = [NSURL URLWithString:@"https://test.moip.com.br/v2/orders"];
     
     __block BOOL waitingForBlock = YES;
     [[MoipSDK session] createOrder:rq order:newOrder success:^(MPKOrder *order, NSString *moipOrderId) {
@@ -398,5 +398,5 @@
                                  beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
 }
-
+ 
 @end

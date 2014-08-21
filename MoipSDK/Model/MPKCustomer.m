@@ -12,17 +12,17 @@
 
 - (NSString *) buildJson
 {
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:self.birthDate];
-    
     NSMutableString *json = [NSMutableString new];
     [json appendFormat:@"{"];
     
     if (self.moipCustomerId != nil)
     {
-        [json appendFormat:@"\"id\": \"%@\",", self.moipCustomerId];
+        [json appendFormat:@"\"id\": \"%@\"", self.moipCustomerId];
     }
     else
     {
+        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:self.birthDate];
+        
         [json appendFormat:@"  \"ownId\": \"%@\",", self.ownId];
         [json appendFormat:@"  \"fullname\": \"%@\",", self.fullname];
         [json appendFormat:@"  \"email\": \"%@\",", self.email];
@@ -72,7 +72,7 @@
         }
     }
     
-    [json appendFormat:@"  }"];
+    [json appendFormat:@"}"];
         
     return json;
 }

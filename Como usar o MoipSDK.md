@@ -1,5 +1,5 @@
 ---
-title: Mobile SDK iOS
+title: Mobile SDK iOS (Beta)
 anchor: mobile
 ---
 
@@ -41,7 +41,65 @@ O primeiro passo iniciar o SDK passando seu Token, Key, Chave Publica RSA e o en
 }
 ```
 
-### 2. Usar o componente de Cartão de Credito Moip
+### 2. Criar o pedido (ORDER)
+
+Para criar o pedido usando o MoipSDK, é necessario especificar o endpoint para criação do pedido no seu ecommerce, e o seu ecommerce deve repassar o json de order para o Moip.
+
+```objective-c
+
+- (void) createOrder
+{
+    [self showHud:@"Criando Pedido"];
+    
+    MPKCustomer *customer = [MPKCustomer new];
+    customer.fullname = @"José Silva";
+    customer.email = @"jose@gmail.com";
+    customer.phoneAreaCode = 11;
+    customer.phoneNumber = 999999999;
+    customer.birthDate = [NSDate date];
+    customer.documentType = MPKDocumentTypeCPF;
+    customer.documentNumber = 99999999999;
+    
+    MPKAmount *amount = [MPKAmount new];
+    amount.shipping = 1000;
+    amount.addition = 0;
+    amount.discount = 0;
+    
+    NSMutableArray *mpkItems = [NSMutableArray new];
+    for (Product *p in self.productList)
+    {
+        MPKItem *newItem = [MPKItem new];
+        newItem.product = p.name;
+        newItem.quantity = p.quantity;
+        newItem.detail = p.detail;
+        newItem.price = p.amount;
+        
+        [mpkItems addObject:newItem];
+    }
+    
+    MPKOrder *newOrder = [MPKOrder new];
+    newOrder.ownId = @"sandbox_OrderID_xxx";
+    newOrder.amount = amount;
+    newOrder.items = mpkItems;
+    newOrder.customer = customer;
+    
+    NSMutableURLRequest *rq = [NSMutableURLRequest new];
+    rq.HTTPMethod = @"POST";
+    rq.URL = [NSURL URLWithString:@"https://api.seuecommerce.com.br/criapedido"];
+
+    [[MoipSDK session] createOrder:rq order:newOrder success:^(MPKOrder *order, NSString *moipOrderId) {
+        NSLog(@"Order Created at Moip: %@", moipOrderId);
+        [self createPayment:moipOrderId];
+    } failure:^(NSArray *errorList) {
+        [self hideHud];
+        [self showErrorFeedback:errorList];
+    }];
+}
+
+```
+
+
+### 3. Usar o componente de Cartão de Credito Moip
 
 A classe ```MPKView``` é responsável por capturar o número do cartão de credito, data de validade e também o CVC. Essa classe já criptografa os dados do cartão com a chave publica que você adicionou no passo anterior.
 
@@ -53,7 +111,7 @@ A classe ```MPKView``` é responsável por capturar o número do cartão de cred
     
 ```
 
-##### 2.1 Delegate
+##### 3.1 Delegate
 
 Após o preenchimento do número, data de validade e cvc do cartão, se o cartão for valido, o método ```- (void)paymentViewWithCard:(MPKCreditCard *)aCard isValid:(BOOL)valid``` receberá os dados do cartão.
 
@@ -74,7 +132,7 @@ Após o preenchimento do número, data de validade e cvc do cartão, se o cartã
 }
 ```
 
-### 3. Efetuar o pagamento
+### 4. Efetuar o pagamento
 
 Após o preenchimento do formulário de pagamento, você já pode enviar os dados para o Moip efetuar a transação.
 
@@ -114,7 +172,7 @@ Após o preenchimento do formulário de pagamento, você já pode enviar os dado
 }	
 
 ```
-##### 3.1 Mostrando mensagens de erro e sucesso
+##### 4.1 Mostrando mensagens de erro e sucesso
 
 ```objective-c
 - (void) showSuccessFeedback:(MPKPaymentTransaction *)transaction

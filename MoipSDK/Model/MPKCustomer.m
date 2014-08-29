@@ -21,16 +21,23 @@
     }
     else
     {
-        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:self.birthDate];
-        
         [json appendFormat:@"  \"ownId\": \"%@\",", self.ownId];
         [json appendFormat:@"  \"fullname\": \"%@\",", self.fullname];
         [json appendFormat:@"  \"email\": \"%@\",", self.email];
-        [json appendFormat:@"  \"phone\": {"];
-        [json appendFormat:@"    \"areaCode\": \"%li\",", (long)self.phoneAreaCode];
-        [json appendFormat:@"    \"number\": \"%li\"", (long)self.phoneNumber];
-        [json appendFormat:@"  },"];
-        [json appendFormat:@"  \"birthDate\": \"%ld-%ld-%ld\",", (long)components.year, (long)components.month, (long)components.day];
+        
+        if (self.phoneAreaCode > 0)
+        {
+            [json appendFormat:@"  \"phone\": {"];
+            [json appendFormat:@"    \"areaCode\": \"%li\",", (long)self.phoneAreaCode];
+            [json appendFormat:@"    \"number\": \"%li\"", (long)self.phoneNumber];
+            [json appendFormat:@"  },"];
+        }
+        if (self.birthDate != nil)
+        {
+            NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:self.birthDate];
+            [json appendFormat:@"  \"birthDate\": \"%ld-%ld-%ld\",", (long)components.year, (long)components.month, (long)components.day];
+        }
+        
         [json appendFormat:@"  \"taxDocument\": {"];
         [json appendFormat:@"    \"type\": \"%@\",", [self getDocumentType]];
         [json appendFormat:@"    \"number\": \"%li\"", (long)self.documentNumber];

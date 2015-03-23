@@ -26,8 +26,6 @@
                         environment:(MPKEnvironment)env;
 
 #pragma mark - Methods
-- (void) configureSitef;
-
 - (void) createOrder:(NSURLRequest *)request
                order:(MPKOrder *)order
              success:(void (^)(MPKOrder *order, NSString *moipOrderId))success

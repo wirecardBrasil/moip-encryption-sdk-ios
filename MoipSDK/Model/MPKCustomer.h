@@ -24,7 +24,7 @@
 @property NSInteger phoneNumber;
 @property NSDate *birthDate;
 @property MPKDocumentType documentType;
-@property long documentNumber;
+@property NSString *documentNumber;
 @property NSArray *addresses;
 @property MPKFundingInstrument *fundingInstrument;
 

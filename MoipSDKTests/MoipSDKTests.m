@@ -45,6 +45,7 @@
     [publicKeyTests appendFormat:@"WwIDAQAB\n"];
     [publicKeyTests appendFormat:@"-----END PUBLIC KEY-----"];
     
+    NSLog(@"public key:\n%@", publicKeyTests);
     [MoipSDK startSessionWithToken:MOIPTOKENTESTS
                                key:MOIPKEYTESTS
                          publicKey:publicKeyTests
@@ -83,7 +84,7 @@
     customer.phoneNumber = 975902554;
     customer.birthDate = [NSDate date];
     customer.documentType = MPKDocumentTypeCPF;
-    customer.documentNumber = 36021561848;
+    customer.documentNumber = @"36021561848";
     customer.addresses = @[address];
     
     MPKAmount *amount = [MPKAmount new];
@@ -231,7 +232,7 @@
     customer.phoneNumber = 975902554;
     customer.birthDate = [NSDate date];
     customer.documentType = MPKDocumentTypeCPF;
-    customer.documentNumber = 36021561848;
+    customer.documentNumber = @"36021561848";
     customer.addresses = @[address, address2];
     customer.fundingInstrument = fundingInstrument;
     
@@ -355,7 +356,7 @@
     customer.phoneNumber = 975902554;
     customer.birthDate = [NSDate date];
     customer.documentType = MPKDocumentTypeCPF;
-    customer.documentNumber = 36021561848;
+    customer.documentNumber = @"36021561848";
     
     MPKAmount *amount = [MPKAmount new];
     amount.shipping = 1000;

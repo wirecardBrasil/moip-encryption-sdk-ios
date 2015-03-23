@@ -7,21 +7,15 @@
 //
 
 #import "MoipSDK.h"
-//#import "ClisitefAsync.h"
 #import "MoipHttpRequester.h"
 #import "MoipHttpResponse.h"
 #import "HTTPStatusCodes.h"
 #import "MPKUtilities.h"
 
-NSString* IPSitef = @"192.168.0.5";
-NSString* Loja = @"00000000";
-NSString* Terminal = @"IP000001";
-
-@interface MoipSDK () //<ClisitefiDelegates>
+@interface MoipSDK ()
 
 @property NSString *auth;
 @property MPKEnvironment environment;
-//@property ClisitefAsync *clisitef;
 
 @end
 
@@ -66,8 +60,6 @@ static MoipSDK *sharedSingleton;
     self = [super init];
     if (self)
     {
-//        self.clisitef = [[ClisitefAsync alloc] init];
-//        [self.clisitef SetDelegates:self];
     }
 
     return self;
@@ -94,23 +86,6 @@ static MoipSDK *sharedSingleton;
     {
         [MPKUtilities importPublicKey:publicKeyPlainText tag:kPublicKeyName];
     }
-}
-
-#pragma mark -
-#pragma mark Tef
-- (void) configureSitef
-{
-//    [self.clisitef ConfiguraIntSiTefInterativo:IPSitef
-//                                   pCodigoLoja:Loja
-//                               pNumeroTerminal:Terminal ConfiguraResultado:0
-//                         pParametrosAdicionais:@""];
-}
-
-#pragma mark -
-#pragma mark Clisitef delegates
-- (void) respostaConfigura:(int)pResposta
-{
-    NSLog(@"%i", pResposta);
 }
 
 #pragma mark -

@@ -60,7 +60,7 @@
             NSString *dateStr = [evInfo[@"createdAt"] stringByReplacingOccurrencesOfString:@"T" withString:@" "];
             NSDate *dt = [dateFormat dateFromString:dateStr];
             ev.createdAt = dt;
-            ev.description = evInfo[@"description"];
+            ev.eventDescription = evInfo[@"description"];
             
             [feesList addObject:ev];
         }

@@ -40,7 +40,7 @@
         
         [json appendFormat:@"  \"taxDocument\": {"];
         [json appendFormat:@"    \"type\": \"%@\",", [self getDocumentType]];
-        [json appendFormat:@"    \"number\": \"%li\"", (long)self.documentNumber];
+        [json appendFormat:@"    \"number\": \"%@\"", self.documentNumber];
         [json appendFormat:@"  }"];
         
         if (self.addresses != nil)

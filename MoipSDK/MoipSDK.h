@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "MPKCardHolder.h"
 #import "MPKCreditCard.h"
 #import "MPKView.h"
@@ -14,6 +13,8 @@
 #import "MPKPaymentTransaction.h"
 #import "MPKError.h"
 #import "MPKEnvironment.h"
+#import "MPKCustomer.h"
+#import "MPKOrder.h"
 
 @interface MoipSDK : NSObject
 
@@ -25,7 +26,17 @@
                         environment:(MPKEnvironment)env;
 
 #pragma mark - Methods
-- (void) configureSitef;
-- (void) submitPayment:(MPKPayment *)payment success:(void (^)(MPKPaymentTransaction *transaction))success failure:(void (^)(NSArray *errorList))failure;
+- (void) createOrder:(NSURLRequest *)request
+               order:(MPKOrder *)order
+             success:(void (^)(MPKOrder *order, NSString *moipOrderId))success
+             failure:(void (^)(NSArray *errorList))failure;
+
+- (void) submitPayment:(MPKPayment *)payment
+               success:(void (^)(MPKPaymentTransaction *transaction))success
+               failure:(void (^)(NSArray *errorList))failure;
+
+- (void) createCustomer:(MPKCustomer *)customer
+                success:(void (^)(MPKCustomer *customer, NSString *moipCustomerId, NSString *moipCreditCardId))success
+                failure:(void (^)(NSArray *errorList))failure;
 
 @end

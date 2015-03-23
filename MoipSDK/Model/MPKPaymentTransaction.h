@@ -15,7 +15,7 @@
 
 @interface MPKPaymentTransaction : NSObject
 
-@property NSString *paymenteId;
+@property NSString *paymentId;
 @property MPKPaymentStatus status;
 @property MPKAmount *amount;
 @property MPKPayment *payment;

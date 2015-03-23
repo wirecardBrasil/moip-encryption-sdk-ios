@@ -10,27 +10,15 @@
 
 @implementation MPKPayment
 
-- (NSString *) getMPKPaymentMethod
+- (NSString *) buildJson
 {
-    switch (self.method)
-    {
-        case MPKPaymentMethodCreditCard:
-            return @"CREDIT_CARD";
-            break;
-            
-        default:
-            return @"CREDIT_CARD";
-            break;
-    }
-}
-
-- (MPKPaymentMethod) getMPKPaymentMethodFromString:(NSString *)method
-{
-    if ([method isEqualToString:@"CREDIT_CARD"])
-    {
-        return MPKPaymentMethodCreditCard;
-    }
-    return MPKPaymentMethodCreditCard;
+    NSMutableString *jsonPayment = [NSMutableString new];
+    [jsonPayment appendFormat:@"{"];
+    [jsonPayment appendFormat:@"\"installmentCount\": %li,", (long)self.installmentCount];
+    [jsonPayment appendFormat:@"\"fundingInstrument\": %@", [self.fundingInstrument buildJson]];
+    [jsonPayment appendFormat:@"}"];
+    
+    return jsonPayment;
 }
 
 @end

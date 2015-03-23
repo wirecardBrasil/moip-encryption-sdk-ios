@@ -10,16 +10,14 @@
 #import "MPKEnums.h"
 #import "MPKCreditCard.h"
 #import "MPKAmount.h"
+#import "MPKFundingInstrument.h"
 
 @interface MPKPayment : NSObject
 
 @property NSString *moipOrderId;
 @property NSInteger installmentCount;
-@property MPKPaymentMethod method;
-@property MPKCreditCard *creditCard;
+@property MPKFundingInstrument *fundingInstrument;
 
-- (NSString *) getMPKPaymentMethod;
-- (MPKPaymentMethod) getMPKPaymentMethodFromString:(NSString *)method;
-
+- (NSString *) buildJson;
 
 @end

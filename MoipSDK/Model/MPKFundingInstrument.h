@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "MPKEnums.h"
+#import "MPKMethodType.h"
+#import "MPKCreditCard.h"
 
 @interface MPKFundingInstrument : NSObject
 
-@property MPKPaymentMethod MPKPaymentMethod;
+@property MPKMethodType method;
 @property MPKBrand institution;
+@property MPKCreditCard *creditCard;
+
+- (NSString *) buildJson;
+- (NSString *) getMethodTypeString;
+- (MPKMethodType) getMethodTypeFromString:(NSString *)method;
 
 @end

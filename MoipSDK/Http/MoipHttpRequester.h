@@ -26,6 +26,7 @@
 - (void) post:(NSString *)url payload:(id)payload completation:(void (^)(MoipHttpResponse *response))completation;
 - (MoipHttpResponse *) put:(NSString *)url payload:(id)payload params:(NSDictionary * )params;
 - (MoipHttpResponse *) delete:(NSString *)url;
+- (void)request:(NSMutableURLRequest *)request completation:(void (^)(MoipHttpResponse *))completation;
 
 @end
 #endif

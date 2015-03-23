@@ -13,6 +13,6 @@
 
 @property MPKEventType type;
 @property NSDate *createdAt;
-@property NSString *description;
+@property NSString *eventDescription;
 
 @end

@@ -6,15 +6,19 @@
 //  Copyright (c) 2014 Moip Pagamentos. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "MPKEnums.h"
 
 @interface MPKAmount : NSObject
 
-@property NSUInteger total;
-@property NSUInteger fees;
-@property NSUInteger refunds;
-@property NSUInteger liquid;
+@property NSInteger total;
+@property NSInteger fees;
+@property NSInteger refunds;
+@property NSInteger liquid;
+@property NSInteger shipping;
+@property NSInteger addition;
+@property NSInteger discount;
 @property MPKCurrency MPKCurrency;
+
+- (NSString *)buildJson;
 
 @end

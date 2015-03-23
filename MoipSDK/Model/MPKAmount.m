@@ -10,4 +10,19 @@
 
 @implementation MPKAmount
 
+- (NSString *)buildJson
+{
+    NSMutableString *amountJson = [NSMutableString new];
+    [amountJson appendFormat:@"{"];
+    [amountJson appendFormat:@" \"currency\": \"BRL\","];
+    [amountJson appendFormat:@" \"subtotals\": {"];
+    [amountJson appendFormat:@"     \"shipping\": %li,", (long)self.shipping];
+    [amountJson appendFormat:@"     \"addition\": %li,", (long)self.addition];
+    [amountJson appendFormat:@"     \"discount\": %li", (long)self.discount];
+    [amountJson appendFormat:@" }"];
+    [amountJson appendFormat:@"}"];
+    
+    return amountJson;
+}
+
 @end

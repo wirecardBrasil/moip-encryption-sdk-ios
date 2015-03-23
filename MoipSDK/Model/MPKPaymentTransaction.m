@@ -29,14 +29,14 @@
         creditCard.brand = [creditCard getMPKBrandFromString:json[@"fundingInstrument"][@"creditCard"][@"brand"]];
         creditCard.first6 = json[@"fundingInstrument"][@"creditCard"][@"first6"];
         creditCard.last4 = json[@"fundingInstrument"][@"creditCard"][@"last4"];
-        
-        MPKPayment *payment = [MPKPayment new];
-        payment.creditCard = creditCard;
-        payment.installmentCount = [json[@"installmentCount"] intValue];
 
         MPKFundingInstrument *instrument = [MPKFundingInstrument new];
-        instrument.institution = payment.creditCard.brand;
-        instrument.MPKPaymentMethod = [payment getMPKPaymentMethodFromString:json[@"fundingInstrument"][@"method"]];
+        instrument.institution = creditCard.brand;
+        instrument.method = [instrument getMethodTypeFromString:json[@"fundingInstrument"][@"method"]];
+        
+        MPKPayment *payment = [MPKPayment new];
+        payment.installmentCount = [json[@"installmentCount"] intValue];
+        payment.fundingInstrument = instrument;
         
         NSMutableArray *feesList = [NSMutableArray new];
         for (NSDictionary *feeInfo in json[@"fees"])
@@ -60,13 +60,13 @@
             NSString *dateStr = [evInfo[@"createdAt"] stringByReplacingOccurrencesOfString:@"T" withString:@" "];
             NSDate *dt = [dateFormat dateFromString:dateStr];
             ev.createdAt = dt;
-            ev.description = evInfo[@"description"];
+            ev.eventDescription = evInfo[@"description"];
             
             [feesList addObject:ev];
         }
         
         self.payment = payment;
-        self.paymenteId = json[@"id"];
+        self.paymentId = json[@"id"];
         self.status = [self getMPKPaymentStatusFromString:json[@"status"]];
         self.amount = amount;
         self.fundingInstrument = instrument;

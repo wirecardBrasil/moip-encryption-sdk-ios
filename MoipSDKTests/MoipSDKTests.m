@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "MoipSDK.h"
+#import "MPKCreditCard.h"
 #import "MPKUtilities.h"
 
 
@@ -17,8 +18,8 @@
 
 @implementation MoipSDKTests
 
-- (void)setUp
-{
+- (void)setUp {
+    
     [super setUp];
     
     NSMutableString *publicKeyTests = [NSMutableString new];
@@ -35,16 +36,26 @@
     [MoipSDK importPublicKey:publicKeyTests];
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     [super tearDown];
 }
 
-- (void) test01ShouldEncryptData
-{
+- (void) testShouldEncryptData {
     NSString *cryptData = [MPKUtilities encryptData:@"4111111111111111" keyTag:kPublicKeyName];
     
     NSLog(@"test01ShouldEncryptData:\n%@", cryptData);
+    XCTAssertNotNil(cryptData, @"");
+}
+
+- (void) testShouldEndcryptDataWithCreditCard {
+    MPKCreditCard *creditCard = [MPKCreditCard new];
+    creditCard.number = @"4111111111111111";
+    creditCard.cvc = @"999";
+    creditCard.expirationMonth = @"07";
+    creditCard.expirationYear = @"15";
+    
+    NSString * cryptData = [MoipSDK encryptCreditCard:creditCard];
+    NSLog(@"testShouldEndcryptDataWithCreditCard:\n%@", cryptData);
     XCTAssertNotNil(cryptData, @"");
 }
  

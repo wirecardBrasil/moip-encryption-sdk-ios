@@ -353,7 +353,7 @@ static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable"
 {
     MPKCreditCard *card = [[MPKCreditCard alloc] init];
     card.number = [self.cardNumber string];
-    card.cvv = [self.cardCVC string];
+    card.cvc = [self.cardCVC string];
 
     return card;
 }

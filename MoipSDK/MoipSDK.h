@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MPKCreditCard.h"
 
 @interface MoipSDK : NSObject
 
 + (void) importPublicKey:(NSString *)publicKeyPlainText;
++ (NSString *)encryptCreditCard:(MPKCreditCard*)creditCard;
 
 @end

@@ -11,7 +11,7 @@
 @interface MPKCreditCard : NSObject
 
 @property NSString *number;
-@property NSString *cvv;
+@property NSString *cvc;
 @property NSString *expirationMonth;
 @property NSString *expirationYear;
 

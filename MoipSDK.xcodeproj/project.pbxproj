@@ -6,679 +6,413 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		67D4B16F1AE05C3B00B0BC4D /* Framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 67D4B1701AE05C3B00B0BC4D /* Build configuration list for PBXAggregateTarget "Framework" */;
+			buildPhases = (
+				67D4B1731AE05C4C00B0BC4D /* Muilt Platform Build */,
+			);
+			dependencies = (
+				67D4B1801AE0608800B0BC4D /* PBXTargetDependency */,
+				67A349AE1AE0628800CA9EF1 /* PBXTargetDependency */,
+			);
+			name = Framework;
+			productName = Framework;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		6743E6031981945100FE3917 /* MPKAddressType.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E6021981945100FE3917 /* MPKAddressType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6743E6061981949D00FE3917 /* MPKAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E6041981949D00FE3917 /* MPKAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6743E6071981949D00FE3917 /* MPKAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 6743E6051981949D00FE3917 /* MPKAddress.m */; };
-		6743E60919819B9E00FE3917 /* MPKMethodType.h in Headers */ = {isa = PBXBuildFile; fileRef = 6743E60819819B9E00FE3917 /* MPKMethodType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		674719991982C0EB00A933AB /* MPKOrder.h in Headers */ = {isa = PBXBuildFile; fileRef = 674719971982C0EB00A933AB /* MPKOrder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6747199A1982C0EB00A933AB /* MPKOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 674719981982C0EB00A933AB /* MPKOrder.m */; };
-		6747199D1982C11400A933AB /* MPKAmount.h in Headers */ = {isa = PBXBuildFile; fileRef = 6747199B1982C11400A933AB /* MPKAmount.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6747199E1982C11400A933AB /* MPKAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6747199C1982C11400A933AB /* MPKAmount.m */; };
-		674719A11982C23000A933AB /* MPKItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 6747199F1982C23000A933AB /* MPKItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		674719A21982C23000A933AB /* MPKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 674719A01982C23000A933AB /* MPKItem.m */; };
-		6749A10A197EB40D00214BE8 /* MoipSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6A9F31979A8C00069F742 /* MoipSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		677EDC6719815F1B00D6F0EF /* MPKCustomer.h in Headers */ = {isa = PBXBuildFile; fileRef = 677EDC6519815F1B00D6F0EF /* MPKCustomer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		677EDC6819815F1B00D6F0EF /* MPKCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = 677EDC6619815F1B00D6F0EF /* MPKCustomer.m */; };
-		67BD7AB41986A10200184A8C /* MPKDocumentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 677EDC691981608E00D6F0EF /* MPKDocumentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6A9EB1979A8C00069F742 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9EA1979A8C00069F742 /* Foundation.framework */; };
-		67D6A9F11979A8C00069F742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67D6A9EF1979A8C00069F742 /* InfoPlist.strings */; };
-		67D6A9F51979A8C00069F742 /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6A9F41979A8C00069F742 /* MoipSDK.m */; };
-		67D6A9FC1979A8C00069F742 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9FB1979A8C00069F742 /* XCTest.framework */; };
-		67D6A9FD1979A8C00069F742 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9EA1979A8C00069F742 /* Foundation.framework */; };
-		67D6AA041979A8C00069F742 /* MoipSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D6A9E71979A8C00069F742 /* MoipSDK.framework */; };
-		67D6AA0A1979A8C00069F742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA081979A8C00069F742 /* InfoPlist.strings */; };
-		67D6AA0C1979A8C00069F742 /* MoipSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA0B1979A8C00069F742 /* MoipSDKTests.m */; };
-		67D6AA901979A8E30069F742 /* MPKCheckoutViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA171979A8E20069F742 /* MPKCheckoutViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AA911979A8E30069F742 /* MPKCheckoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA181979A8E20069F742 /* MPKCheckoutViewController.m */; };
-		67D6AA921979A8E30069F742 /* MPKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA191979A8E20069F742 /* MPKConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AA931979A8E30069F742 /* MPKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA1A1979A8E20069F742 /* MPKConfiguration.m */; };
-		67D6AA941979A8E30069F742 /* MPKAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA1C1979A8E20069F742 /* MPKAddressZip.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AA951979A8E30069F742 /* MPKAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA1D1979A8E20069F742 /* MPKAddressZip.m */; };
-		67D6AA961979A8E30069F742 /* MPKCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA1E1979A8E20069F742 /* MPKCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AA971979A8E30069F742 /* MPKCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA1F1979A8E20069F742 /* MPKCard.m */; };
-		67D6AA981979A8E30069F742 /* MPKCardCVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA201979A8E20069F742 /* MPKCardCVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AA991979A8E30069F742 /* MPKCardCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA211979A8E20069F742 /* MPKCardCVC.m */; };
-		67D6AA9A1979A8E30069F742 /* MPKCardExpiry.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA221979A8E20069F742 /* MPKCardExpiry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AA9B1979A8E30069F742 /* MPKCardExpiry.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA231979A8E20069F742 /* MPKCardExpiry.m */; };
-		67D6AA9C1979A8E30069F742 /* MPKCardNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA241979A8E20069F742 /* MPKCardNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AA9D1979A8E30069F742 /* MPKCardNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA251979A8E20069F742 /* MPKCardNumber.m */; };
-		67D6AA9E1979A8E30069F742 /* MPKCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA261979A8E20069F742 /* MPKCardType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AA9F1979A8E30069F742 /* MPKComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA271979A8E20069F742 /* MPKComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAA01979A8E30069F742 /* MPKComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA281979A8E20069F742 /* MPKComponent.m */; };
-		67D6AAA11979A8E30069F742 /* MPKTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA291979A8E20069F742 /* MPKTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAA21979A8E30069F742 /* MPKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA2A1979A8E20069F742 /* MPKTextField.m */; };
-		67D6AAA31979A8E30069F742 /* MPKUSAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA2B1979A8E20069F742 /* MPKUSAddressZip.h */; };
-		67D6AAA41979A8E30069F742 /* MPKUSAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA2C1979A8E20069F742 /* MPKUSAddressZip.m */; };
-		67D6AAA51979A8E30069F742 /* MPKView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA2D1979A8E20069F742 /* MPKView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAA61979A8E30069F742 /* MPKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA2E1979A8E20069F742 /* MPKView.m */; };
-		67D6AAA71979A8E30069F742 /* MPKEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA301979A8E20069F742 /* MPKEnvironment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAA81979A8E30069F742 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA321979A8E20069F742 /* InfoPlist.strings */; };
-		67D6AAA91979A8E30069F742 /* MPKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA351979A8E20069F742 /* MPKError.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAAA1979A8E30069F742 /* MPKError.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA361979A8E20069F742 /* MPKError.m */; };
-		67D6AAAB1979A8E30069F742 /* HTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA381979A8E20069F742 /* HTTPStatusCodes.h */; };
-		67D6AAAC1979A8E30069F742 /* MoipHttpRequester.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA391979A8E20069F742 /* MoipHttpRequester.h */; };
-		67D6AAAD1979A8E30069F742 /* MoipHttpRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA3A1979A8E20069F742 /* MoipHttpRequester.m */; };
-		67D6AAAE1979A8E30069F742 /* MoipHttpResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA3B1979A8E20069F742 /* MoipHttpResponse.h */; };
-		67D6AAAF1979A8E30069F742 /* MoipHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA3C1979A8E20069F742 /* MoipHttpResponse.m */; };
-		67D6AAB21979A8E30069F742 /* MPKCardHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA401979A8E20069F742 /* MPKCardHolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAB31979A8E30069F742 /* MPKCardHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA411979A8E20069F742 /* MPKCardHolder.m */; };
-		67D6AAB41979A8E30069F742 /* MPKCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA421979A8E20069F742 /* MPKCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAB51979A8E30069F742 /* MPKCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA431979A8E20069F742 /* MPKCreditCard.m */; };
-		67D6AAB61979A8E30069F742 /* MPKEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA441979A8E20069F742 /* MPKEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAB71979A8E30069F742 /* MPKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA451979A8E20069F742 /* MPKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAB81979A8E30069F742 /* MPKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA461979A8E20069F742 /* MPKEvent.m */; };
-		67D6AAB91979A8E30069F742 /* MPKFee.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA471979A8E20069F742 /* MPKFee.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AABA1979A8E30069F742 /* MPKFee.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA481979A8E20069F742 /* MPKFee.m */; };
-		67D6AABB1979A8E30069F742 /* MPKFundingInstrument.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA491979A8E20069F742 /* MPKFundingInstrument.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AABC1979A8E30069F742 /* MPKFundingInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA4A1979A8E20069F742 /* MPKFundingInstrument.m */; };
-		67D6AABD1979A8E30069F742 /* MPKPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA4B1979A8E20069F742 /* MPKPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AABE1979A8E30069F742 /* MPKPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA4C1979A8E20069F742 /* MPKPayment.m */; };
-		67D6AABF1979A8E30069F742 /* MPKPaymentTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA4D1979A8E20069F742 /* MPKPaymentTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAC01979A8E30069F742 /* MPKPaymentTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA4E1979A8E20069F742 /* MPKPaymentTransaction.m */; };
-		67D6AAC11979A8E30069F742 /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA501979A8E20069F742 /* amex.png */; };
-		67D6AAC21979A8E30069F742 /* amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA511979A8E20069F742 /* amex@2x.png */; };
-		67D6AAC31979A8E30069F742 /* cvc-amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA521979A8E20069F742 /* cvc-amex.png */; };
-		67D6AAC41979A8E30069F742 /* cvc-amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA531979A8E20069F742 /* cvc-amex@2x.png */; };
-		67D6AAC51979A8E30069F742 /* cvc.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA541979A8E20069F742 /* cvc.png */; };
-		67D6AAC61979A8E30069F742 /* cvc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA551979A8E20069F742 /* cvc@2x.png */; };
-		67D6AAC71979A8E30069F742 /* diners.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA561979A8E20069F742 /* diners.png */; };
-		67D6AAC81979A8E30069F742 /* diners@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA571979A8E20069F742 /* diners@2x.png */; };
-		67D6AAC91979A8E30069F742 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA581979A8E20069F742 /* discover.png */; };
-		67D6AACA1979A8E30069F742 /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA591979A8E20069F742 /* discover@2x.png */; };
-		67D6AACB1979A8E30069F742 /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5A1979A8E20069F742 /* gradient@2x.png */; };
-		67D6AACC1979A8E30069F742 /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5B1979A8E20069F742 /* jcb.png */; };
-		67D6AACD1979A8E30069F742 /* jcb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5C1979A8E20069F742 /* jcb@2x.png */; };
-		67D6AACE1979A8E30069F742 /* mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5D1979A8E20069F742 /* mastercard.png */; };
-		67D6AACF1979A8E30069F742 /* mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5E1979A8E20069F742 /* mastercard@2x.png */; };
-		67D6AAD01979A8E30069F742 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA5F1979A8E20069F742 /* placeholder.png */; };
-		67D6AAD11979A8E30069F742 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA601979A8E20069F742 /* placeholder@2x.png */; };
-		67D6AAD21979A8E30069F742 /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA611979A8E20069F742 /* textfield.png */; };
-		67D6AAD31979A8E30069F742 /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA621979A8E20069F742 /* textfield@2x.png */; };
-		67D6AAD41979A8E30069F742 /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA631979A8E20069F742 /* visa.png */; };
-		67D6AAD51979A8E30069F742 /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA641979A8E20069F742 /* visa@2x.png */; };
-		67D6AAD61979A8E30069F742 /* SecUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA661979A8E20069F742 /* SecUtils.h */; };
-		67D6AAD71979A8E30069F742 /* SecUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA671979A8E20069F742 /* SecUtils.m */; };
-		67D6AAD81979A8E30069F742 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA691979A8E20069F742 /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAD91979A8E30069F742 /* MPKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA6A1979A8E20069F742 /* MPKUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AADA1979A8E30069F742 /* MPKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA6B1979A8E20069F742 /* MPKUtilities.m */; };
-		67D6AADB1979A8E30069F742 /* ClisitefAsync.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA6E1979A8E20069F742 /* ClisitefAsync.h */; };
-		67D6AADE1979A8E30069F742 /* MPKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA761979A8E20069F742 /* MPKMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AADF1979A8E30069F742 /* MPKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA771979A8E20069F742 /* MPKMessage.m */; };
-		67D6AAE01979A8E30069F742 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7A1979A8E20069F742 /* NotificationBackgroundError.png */; };
-		67D6AAE11979A8E30069F742 /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7B1979A8E20069F742 /* NotificationBackgroundError@2x.png */; };
-		67D6AAE21979A8E30069F742 /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7C1979A8E20069F742 /* NotificationBackgroundErrorIcon.png */; };
-		67D6AAE31979A8E30069F742 /* NotificationBackgroundErrorIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7D1979A8E20069F742 /* NotificationBackgroundErrorIcon@2x.png */; };
-		67D6AAE41979A8E30069F742 /* NotificationBackgroundMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7E1979A8E20069F742 /* NotificationBackgroundMessage.png */; };
-		67D6AAE51979A8E30069F742 /* NotificationBackgroundMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA7F1979A8E20069F742 /* NotificationBackgroundMessage@2x.png */; };
-		67D6AAE61979A8E30069F742 /* NotificationBackgroundSuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA801979A8E20069F742 /* NotificationBackgroundSuccess.png */; };
-		67D6AAE71979A8E30069F742 /* NotificationBackgroundSuccess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA811979A8E20069F742 /* NotificationBackgroundSuccess@2x.png */; };
-		67D6AAE81979A8E30069F742 /* NotificationBackgroundSuccessIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA821979A8E20069F742 /* NotificationBackgroundSuccessIcon.png */; };
-		67D6AAE91979A8E30069F742 /* NotificationBackgroundSuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA831979A8E30069F742 /* NotificationBackgroundSuccessIcon@2x.png */; };
-		67D6AAEA1979A8E30069F742 /* NotificationBackgroundWarning.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA841979A8E30069F742 /* NotificationBackgroundWarning.png */; };
-		67D6AAEB1979A8E30069F742 /* NotificationBackgroundWarning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA851979A8E30069F742 /* NotificationBackgroundWarning@2x.png */; };
-		67D6AAEC1979A8E30069F742 /* NotificationBackgroundWarningIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA861979A8E30069F742 /* NotificationBackgroundWarningIcon.png */; };
-		67D6AAED1979A8E30069F742 /* NotificationBackgroundWarningIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA871979A8E30069F742 /* NotificationBackgroundWarningIcon@2x.png */; };
-		67D6AAEE1979A8E30069F742 /* NotificationButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA881979A8E30069F742 /* NotificationButtonBackground.png */; };
-		67D6AAEF1979A8E30069F742 /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA891979A8E30069F742 /* NotificationButtonBackground@2x.png */; };
-		67D6AAF01979A8E30069F742 /* MPKMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 67D6AA8A1979A8E30069F742 /* MPKMessagesDefaultDesign.json */; };
-		67D6AAF11979A8E30069F742 /* MPKBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA8C1979A8E30069F742 /* MPKBlurView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAF21979A8E30069F742 /* MPKBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA8D1979A8E30069F742 /* MPKBlurView.m */; };
-		67D6AAF31979A8E30069F742 /* MPKMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D6AA8E1979A8E30069F742 /* MPKMessageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D6AAF41979A8E30069F742 /* MPKMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D6AA8F1979A8E30069F742 /* MPKMessageView.m */; };
-		67E5483C197ED6A0001CAE2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E5483B197ED6A0001CAE2D /* UIKit.framework */; };
+		67D4B0FC1AE059CA00B0BC4D /* MoipSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67D4B0FB1AE059CA00B0BC4D /* MoipSDK.h */; };
+		67D4B0FE1AE059CA00B0BC4D /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B0FD1AE059CA00B0BC4D /* MoipSDK.m */; };
+		67D4B1041AE059CA00B0BC4D /* libMoipSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D4B0F81AE059C900B0BC4D /* libMoipSDK.a */; };
+		67D4B14E1AE05A3C00B0BC4D /* MPKAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B11D1AE05A3C00B0BC4D /* MPKAddressZip.m */; };
+		67D4B14F1AE05A3C00B0BC4D /* MPKCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B11F1AE05A3C00B0BC4D /* MPKCard.m */; };
+		67D4B1501AE05A3C00B0BC4D /* MPKCardCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1211AE05A3C00B0BC4D /* MPKCardCVC.m */; };
+		67D4B1511AE05A3C00B0BC4D /* MPKCardExpiry.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1231AE05A3C00B0BC4D /* MPKCardExpiry.m */; };
+		67D4B1521AE05A3C00B0BC4D /* MPKCardNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1251AE05A3C00B0BC4D /* MPKCardNumber.m */; };
+		67D4B1531AE05A3C00B0BC4D /* MPKComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1281AE05A3C00B0BC4D /* MPKComponent.m */; };
+		67D4B1541AE05A3C00B0BC4D /* MPKCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B12A1AE05A3C00B0BC4D /* MPKCreditCard.m */; };
+		67D4B1551AE05A3C00B0BC4D /* MPKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B12C1AE05A3C00B0BC4D /* MPKTextField.m */; };
+		67D4B1561AE05A3C00B0BC4D /* MPKUSAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B12E1AE05A3C00B0BC4D /* MPKUSAddressZip.m */; };
+		67D4B1571AE05A3C00B0BC4D /* MPKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1301AE05A3C00B0BC4D /* MPKView.m */; };
+		67D4B1581AE05A3C00B0BC4D /* SecUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1491AE05A3C00B0BC4D /* SecUtils.m */; };
+		67D4B1591AE05A3C00B0BC4D /* MPKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B14D1AE05A3C00B0BC4D /* MPKUtilities.m */; };
+		67D4B15B1AE05A9100B0BC4D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D4B15A1AE05A9100B0BC4D /* UIKit.framework */; };
+		67D4B15E1AE05AEA00B0BC4D /* MPKAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B11C1AE05A3C00B0BC4D /* MPKAddressZip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B15F1AE05AEA00B0BC4D /* MPKCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B11E1AE05A3C00B0BC4D /* MPKCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B1601AE05AEA00B0BC4D /* MPKCardCVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1201AE05A3C00B0BC4D /* MPKCardCVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B1611AE05AEA00B0BC4D /* MPKCardExpiry.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1221AE05A3C00B0BC4D /* MPKCardExpiry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B1621AE05AEA00B0BC4D /* MPKCardNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1241AE05A3C00B0BC4D /* MPKCardNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B1631AE05AEA00B0BC4D /* MPKCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1261AE05A3C00B0BC4D /* MPKCardType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B1641AE05AEA00B0BC4D /* MPKComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1271AE05A3C00B0BC4D /* MPKComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B1651AE05AEA00B0BC4D /* MPKCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1291AE05A3C00B0BC4D /* MPKCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B1661AE05AEA00B0BC4D /* MPKTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B12B1AE05A3C00B0BC4D /* MPKTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B1671AE05AEA00B0BC4D /* MPKUSAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B12D1AE05A3C00B0BC4D /* MPKUSAddressZip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B1681AE05AEA00B0BC4D /* MPKView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B12F1AE05A3C00B0BC4D /* MPKView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B1691AE05AEA00B0BC4D /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B14B1AE05A3C00B0BC4D /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B16A1AE05AEA00B0BC4D /* MPKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B14C1AE05A3C00B0BC4D /* MPKUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B16B1AE05AEA00B0BC4D /* MoipSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B0FB1AE059CA00B0BC4D /* MoipSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67D4B16D1AE05B0F00B0BC4D /* MoipSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B16C1AE05B0F00B0BC4D /* MoipSDKTests.m */; };
+		67D4B1A31AE0616300B0BC4D /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1321AE05A3C00B0BC4D /* amex.png */; };
+		67D4B1A41AE0616300B0BC4D /* amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1331AE05A3C00B0BC4D /* amex@2x.png */; };
+		67D4B1A51AE0616300B0BC4D /* cvc-amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1341AE05A3C00B0BC4D /* cvc-amex.png */; };
+		67D4B1A61AE0616300B0BC4D /* cvc-amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1351AE05A3C00B0BC4D /* cvc-amex@2x.png */; };
+		67D4B1A71AE0616300B0BC4D /* cvc.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1361AE05A3C00B0BC4D /* cvc.png */; };
+		67D4B1A81AE0616300B0BC4D /* cvc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1371AE05A3C00B0BC4D /* cvc@2x.png */; };
+		67D4B1A91AE0616300B0BC4D /* diners.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1381AE05A3C00B0BC4D /* diners.png */; };
+		67D4B1AA1AE0616300B0BC4D /* diners@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1391AE05A3C00B0BC4D /* diners@2x.png */; };
+		67D4B1AB1AE0616300B0BC4D /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13A1AE05A3C00B0BC4D /* discover.png */; };
+		67D4B1AC1AE0616300B0BC4D /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13B1AE05A3C00B0BC4D /* discover@2x.png */; };
+		67D4B1AD1AE0616300B0BC4D /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13C1AE05A3C00B0BC4D /* gradient@2x.png */; };
+		67D4B1AE1AE0616300B0BC4D /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13D1AE05A3C00B0BC4D /* jcb.png */; };
+		67D4B1AF1AE0616300B0BC4D /* jcb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13E1AE05A3C00B0BC4D /* jcb@2x.png */; };
+		67D4B1B01AE0616300B0BC4D /* mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13F1AE05A3C00B0BC4D /* mastercard.png */; };
+		67D4B1B11AE0616300B0BC4D /* mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1401AE05A3C00B0BC4D /* mastercard@2x.png */; };
+		67D4B1B21AE0616300B0BC4D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1411AE05A3C00B0BC4D /* placeholder.png */; };
+		67D4B1B31AE0616300B0BC4D /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1421AE05A3C00B0BC4D /* placeholder@2x.png */; };
+		67D4B1B41AE0616300B0BC4D /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1431AE05A3C00B0BC4D /* textfield.png */; };
+		67D4B1B51AE0616300B0BC4D /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1441AE05A3C00B0BC4D /* textfield@2x.png */; };
+		67D4B1B61AE0616300B0BC4D /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1451AE05A3C00B0BC4D /* visa.png */; };
+		67D4B1B71AE0616300B0BC4D /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1461AE05A3C00B0BC4D /* visa@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		67D6AA001979A8C00069F742 /* PBXContainerItemProxy */ = {
+		67A349AD1AE0628800CA9EF1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 67D6A9DD1979A8C00069F742 /* Project object */;
+			containerPortal = 67D4B0F01AE059C900B0BC4D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 67D6A9E61979A8C00069F742;
+			remoteGlobalIDString = 67D4B19B1AE0615000B0BC4D;
+			remoteInfo = MoipSDKResources;
+		};
+		67D4B1051AE059CA00B0BC4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67D4B0F01AE059C900B0BC4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67D4B0F71AE059C900B0BC4D;
 			remoteInfo = MoipSDK;
 		};
-		67D6AA021979A8C00069F742 /* PBXContainerItemProxy */ = {
+		67D4B17F1AE0608800B0BC4D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 67D6A9DD1979A8C00069F742 /* Project object */;
+			containerPortal = 67D4B0F01AE059C900B0BC4D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 67D6A9E61979A8C00069F742;
+			remoteGlobalIDString = 67D4B0F71AE059C900B0BC4D;
 			remoteInfo = MoipSDK;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXFileReference section */
-		6743E6021981945100FE3917 /* MPKAddressType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAddressType.h; sourceTree = "<group>"; };
-		6743E6041981949D00FE3917 /* MPKAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAddress.h; sourceTree = "<group>"; };
-		6743E6051981949D00FE3917 /* MPKAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAddress.m; sourceTree = "<group>"; };
-		6743E60819819B9E00FE3917 /* MPKMethodType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMethodType.h; sourceTree = "<group>"; };
-		674719971982C0EB00A933AB /* MPKOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKOrder.h; sourceTree = "<group>"; };
-		674719981982C0EB00A933AB /* MPKOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKOrder.m; sourceTree = "<group>"; };
-		6747199B1982C11400A933AB /* MPKAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAmount.h; sourceTree = "<group>"; };
-		6747199C1982C11400A933AB /* MPKAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAmount.m; sourceTree = "<group>"; };
-		6747199F1982C23000A933AB /* MPKItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKItem.h; sourceTree = "<group>"; };
-		674719A01982C23000A933AB /* MPKItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKItem.m; sourceTree = "<group>"; };
-		677EDC6519815F1B00D6F0EF /* MPKCustomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCustomer.h; sourceTree = "<group>"; };
-		677EDC6619815F1B00D6F0EF /* MPKCustomer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCustomer.m; sourceTree = "<group>"; };
-		677EDC691981608E00D6F0EF /* MPKDocumentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPKDocumentType.h; sourceTree = "<group>"; };
-		67D6A9E71979A8C00069F742 /* MoipSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = MoipSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67D6A9EA1979A8C00069F742 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		67D6A9EE1979A8C00069F742 /* MoipSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDK-Info.plist"; sourceTree = "<group>"; };
-		67D6A9F01979A8C00069F742 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		67D6A9F21979A8C00069F742 /* MoipSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MoipSDK-Prefix.pch"; sourceTree = "<group>"; };
-		67D6A9F31979A8C00069F742 /* MoipSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoipSDK.h; sourceTree = "<group>"; };
-		67D6A9F41979A8C00069F742 /* MoipSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDK.m; sourceTree = "<group>"; };
-		67D6A9FA1979A8C00069F742 /* MoipSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoipSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		67D6A9FB1979A8C00069F742 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		67D6AA071979A8C00069F742 /* MoipSDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoipSDKTests-Info.plist"; sourceTree = "<group>"; };
-		67D6AA091979A8C00069F742 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		67D6AA0B1979A8C00069F742 /* MoipSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDKTests.m; sourceTree = "<group>"; };
-		67D6AA171979A8E20069F742 /* MPKCheckoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCheckoutViewController.h; sourceTree = "<group>"; };
-		67D6AA181979A8E20069F742 /* MPKCheckoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCheckoutViewController.m; sourceTree = "<group>"; };
-		67D6AA191979A8E20069F742 /* MPKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKConfiguration.h; sourceTree = "<group>"; };
-		67D6AA1A1979A8E20069F742 /* MPKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKConfiguration.m; sourceTree = "<group>"; };
-		67D6AA1C1979A8E20069F742 /* MPKAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAddressZip.h; sourceTree = "<group>"; };
-		67D6AA1D1979A8E20069F742 /* MPKAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAddressZip.m; sourceTree = "<group>"; };
-		67D6AA1E1979A8E20069F742 /* MPKCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCard.h; sourceTree = "<group>"; };
-		67D6AA1F1979A8E20069F742 /* MPKCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCard.m; sourceTree = "<group>"; };
-		67D6AA201979A8E20069F742 /* MPKCardCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardCVC.h; sourceTree = "<group>"; };
-		67D6AA211979A8E20069F742 /* MPKCardCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardCVC.m; sourceTree = "<group>"; };
-		67D6AA221979A8E20069F742 /* MPKCardExpiry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardExpiry.h; sourceTree = "<group>"; };
-		67D6AA231979A8E20069F742 /* MPKCardExpiry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardExpiry.m; sourceTree = "<group>"; };
-		67D6AA241979A8E20069F742 /* MPKCardNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardNumber.h; sourceTree = "<group>"; };
-		67D6AA251979A8E20069F742 /* MPKCardNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardNumber.m; sourceTree = "<group>"; };
-		67D6AA261979A8E20069F742 /* MPKCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardType.h; sourceTree = "<group>"; };
-		67D6AA271979A8E20069F742 /* MPKComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKComponent.h; sourceTree = "<group>"; };
-		67D6AA281979A8E20069F742 /* MPKComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKComponent.m; sourceTree = "<group>"; };
-		67D6AA291979A8E20069F742 /* MPKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKTextField.h; sourceTree = "<group>"; };
-		67D6AA2A1979A8E20069F742 /* MPKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKTextField.m; sourceTree = "<group>"; };
-		67D6AA2B1979A8E20069F742 /* MPKUSAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUSAddressZip.h; sourceTree = "<group>"; };
-		67D6AA2C1979A8E20069F742 /* MPKUSAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUSAddressZip.m; sourceTree = "<group>"; };
-		67D6AA2D1979A8E20069F742 /* MPKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKView.h; sourceTree = "<group>"; };
-		67D6AA2E1979A8E20069F742 /* MPKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKView.m; sourceTree = "<group>"; };
-		67D6AA301979A8E20069F742 /* MPKEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKEnvironment.h; sourceTree = "<group>"; };
-		67D6AA331979A8E20069F742 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		67D6AA351979A8E20069F742 /* MPKError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKError.h; sourceTree = "<group>"; };
-		67D6AA361979A8E20069F742 /* MPKError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKError.m; sourceTree = "<group>"; };
-		67D6AA381979A8E20069F742 /* HTTPStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPStatusCodes.h; sourceTree = "<group>"; };
-		67D6AA391979A8E20069F742 /* MoipHttpRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoipHttpRequester.h; sourceTree = "<group>"; };
-		67D6AA3A1979A8E20069F742 /* MoipHttpRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpRequester.m; sourceTree = "<group>"; };
-		67D6AA3B1979A8E20069F742 /* MoipHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoipHttpResponse.h; sourceTree = "<group>"; };
-		67D6AA3C1979A8E20069F742 /* MoipHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipHttpResponse.m; sourceTree = "<group>"; };
-		67D6AA401979A8E20069F742 /* MPKCardHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardHolder.h; sourceTree = "<group>"; };
-		67D6AA411979A8E20069F742 /* MPKCardHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardHolder.m; sourceTree = "<group>"; };
-		67D6AA421979A8E20069F742 /* MPKCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCreditCard.h; sourceTree = "<group>"; };
-		67D6AA431979A8E20069F742 /* MPKCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCreditCard.m; sourceTree = "<group>"; };
-		67D6AA441979A8E20069F742 /* MPKEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKEnums.h; sourceTree = "<group>"; };
-		67D6AA451979A8E20069F742 /* MPKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKEvent.h; sourceTree = "<group>"; };
-		67D6AA461979A8E20069F742 /* MPKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKEvent.m; sourceTree = "<group>"; };
-		67D6AA471979A8E20069F742 /* MPKFee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKFee.h; sourceTree = "<group>"; };
-		67D6AA481979A8E20069F742 /* MPKFee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKFee.m; sourceTree = "<group>"; };
-		67D6AA491979A8E20069F742 /* MPKFundingInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKFundingInstrument.h; sourceTree = "<group>"; };
-		67D6AA4A1979A8E20069F742 /* MPKFundingInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKFundingInstrument.m; sourceTree = "<group>"; };
-		67D6AA4B1979A8E20069F742 /* MPKPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKPayment.h; sourceTree = "<group>"; };
-		67D6AA4C1979A8E20069F742 /* MPKPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKPayment.m; sourceTree = "<group>"; };
-		67D6AA4D1979A8E20069F742 /* MPKPaymentTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKPaymentTransaction.h; sourceTree = "<group>"; };
-		67D6AA4E1979A8E20069F742 /* MPKPaymentTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKPaymentTransaction.m; sourceTree = "<group>"; };
-		67D6AA501979A8E20069F742 /* amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex.png; sourceTree = "<group>"; };
-		67D6AA511979A8E20069F742 /* amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "amex@2x.png"; sourceTree = "<group>"; };
-		67D6AA521979A8E20069F742 /* cvc-amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc-amex.png"; sourceTree = "<group>"; };
-		67D6AA531979A8E20069F742 /* cvc-amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc-amex@2x.png"; sourceTree = "<group>"; };
-		67D6AA541979A8E20069F742 /* cvc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cvc.png; sourceTree = "<group>"; };
-		67D6AA551979A8E20069F742 /* cvc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc@2x.png"; sourceTree = "<group>"; };
-		67D6AA561979A8E20069F742 /* diners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diners.png; sourceTree = "<group>"; };
-		67D6AA571979A8E20069F742 /* diners@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diners@2x.png"; sourceTree = "<group>"; };
-		67D6AA581979A8E20069F742 /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
-		67D6AA591979A8E20069F742 /* discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@2x.png"; sourceTree = "<group>"; };
-		67D6AA5A1979A8E20069F742 /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient@2x.png"; sourceTree = "<group>"; };
-		67D6AA5B1979A8E20069F742 /* jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jcb.png; sourceTree = "<group>"; };
-		67D6AA5C1979A8E20069F742 /* jcb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jcb@2x.png"; sourceTree = "<group>"; };
-		67D6AA5D1979A8E20069F742 /* mastercard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mastercard.png; sourceTree = "<group>"; };
-		67D6AA5E1979A8E20069F742 /* mastercard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mastercard@2x.png"; sourceTree = "<group>"; };
-		67D6AA5F1979A8E20069F742 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		67D6AA601979A8E20069F742 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
-		67D6AA611979A8E20069F742 /* textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield.png; sourceTree = "<group>"; };
-		67D6AA621979A8E20069F742 /* textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield@2x.png"; sourceTree = "<group>"; };
-		67D6AA631979A8E20069F742 /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
-		67D6AA641979A8E20069F742 /* visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa@2x.png"; sourceTree = "<group>"; };
-		67D6AA661979A8E20069F742 /* SecUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecUtils.h; sourceTree = "<group>"; };
-		67D6AA671979A8E20069F742 /* SecUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecUtils.m; sourceTree = "<group>"; };
-		67D6AA691979A8E20069F742 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		67D6AA6A1979A8E20069F742 /* MPKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUtilities.h; sourceTree = "<group>"; };
-		67D6AA6B1979A8E20069F742 /* MPKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUtilities.m; sourceTree = "<group>"; };
-		67D6AA6E1979A8E20069F742 /* ClisitefAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClisitefAsync.h; sourceTree = "<group>"; };
-		67D6AA761979A8E20069F742 /* MPKMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMessage.h; sourceTree = "<group>"; };
-		67D6AA771979A8E20069F742 /* MPKMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKMessage.m; sourceTree = "<group>"; };
-		67D6AA7A1979A8E20069F742 /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
-		67D6AA7B1979A8E20069F742 /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
-		67D6AA7C1979A8E20069F742 /* NotificationBackgroundErrorIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundErrorIcon.png; sourceTree = "<group>"; };
-		67D6AA7D1979A8E20069F742 /* NotificationBackgroundErrorIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundErrorIcon@2x.png"; sourceTree = "<group>"; };
-		67D6AA7E1979A8E20069F742 /* NotificationBackgroundMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundMessage.png; sourceTree = "<group>"; };
-		67D6AA7F1979A8E20069F742 /* NotificationBackgroundMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundMessage@2x.png"; sourceTree = "<group>"; };
-		67D6AA801979A8E20069F742 /* NotificationBackgroundSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccess.png; sourceTree = "<group>"; };
-		67D6AA811979A8E20069F742 /* NotificationBackgroundSuccess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccess@2x.png"; sourceTree = "<group>"; };
-		67D6AA821979A8E20069F742 /* NotificationBackgroundSuccessIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccessIcon.png; sourceTree = "<group>"; };
-		67D6AA831979A8E30069F742 /* NotificationBackgroundSuccessIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccessIcon@2x.png"; sourceTree = "<group>"; };
-		67D6AA841979A8E30069F742 /* NotificationBackgroundWarning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarning.png; sourceTree = "<group>"; };
-		67D6AA851979A8E30069F742 /* NotificationBackgroundWarning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarning@2x.png"; sourceTree = "<group>"; };
-		67D6AA861979A8E30069F742 /* NotificationBackgroundWarningIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarningIcon.png; sourceTree = "<group>"; };
-		67D6AA871979A8E30069F742 /* NotificationBackgroundWarningIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarningIcon@2x.png"; sourceTree = "<group>"; };
-		67D6AA881979A8E30069F742 /* NotificationButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationButtonBackground.png; sourceTree = "<group>"; };
-		67D6AA891979A8E30069F742 /* NotificationButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationButtonBackground@2x.png"; sourceTree = "<group>"; };
-		67D6AA8A1979A8E30069F742 /* MPKMessagesDefaultDesign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MPKMessagesDefaultDesign.json; sourceTree = "<group>"; };
-		67D6AA8C1979A8E30069F742 /* MPKBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKBlurView.h; sourceTree = "<group>"; };
-		67D6AA8D1979A8E30069F742 /* MPKBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKBlurView.m; sourceTree = "<group>"; };
-		67D6AA8E1979A8E30069F742 /* MPKMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKMessageView.h; sourceTree = "<group>"; };
-		67D6AA8F1979A8E30069F742 /* MPKMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKMessageView.m; sourceTree = "<group>"; };
-		67E5483B197ED6A0001CAE2D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		67D6A9E21979A8C00069F742 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
+/* Begin PBXCopyFilesBuildPhase section */
+		67D4B0F61AE059C900B0BC4D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
 			files = (
-				67E5483C197ED6A0001CAE2D /* UIKit.framework in Frameworks */,
-				67D6A9EB1979A8C00069F742 /* Foundation.framework in Frameworks */,
+				67D4B0FC1AE059CA00B0BC4D /* MoipSDK.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67D6A9F71979A8C00069F742 /* Frameworks */ = {
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		67D4B0F81AE059C900B0BC4D /* libMoipSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMoipSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		67D4B0FB1AE059CA00B0BC4D /* MoipSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoipSDK.h; sourceTree = "<group>"; };
+		67D4B0FD1AE059CA00B0BC4D /* MoipSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDK.m; sourceTree = "<group>"; };
+		67D4B1031AE059CA00B0BC4D /* MoipSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoipSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67D4B1091AE059CA00B0BC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67D4B11C1AE05A3C00B0BC4D /* MPKAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAddressZip.h; sourceTree = "<group>"; };
+		67D4B11D1AE05A3C00B0BC4D /* MPKAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAddressZip.m; sourceTree = "<group>"; };
+		67D4B11E1AE05A3C00B0BC4D /* MPKCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCard.h; sourceTree = "<group>"; };
+		67D4B11F1AE05A3C00B0BC4D /* MPKCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCard.m; sourceTree = "<group>"; };
+		67D4B1201AE05A3C00B0BC4D /* MPKCardCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardCVC.h; sourceTree = "<group>"; };
+		67D4B1211AE05A3C00B0BC4D /* MPKCardCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardCVC.m; sourceTree = "<group>"; };
+		67D4B1221AE05A3C00B0BC4D /* MPKCardExpiry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardExpiry.h; sourceTree = "<group>"; };
+		67D4B1231AE05A3C00B0BC4D /* MPKCardExpiry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardExpiry.m; sourceTree = "<group>"; };
+		67D4B1241AE05A3C00B0BC4D /* MPKCardNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardNumber.h; sourceTree = "<group>"; };
+		67D4B1251AE05A3C00B0BC4D /* MPKCardNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardNumber.m; sourceTree = "<group>"; };
+		67D4B1261AE05A3C00B0BC4D /* MPKCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardType.h; sourceTree = "<group>"; };
+		67D4B1271AE05A3C00B0BC4D /* MPKComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKComponent.h; sourceTree = "<group>"; };
+		67D4B1281AE05A3C00B0BC4D /* MPKComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKComponent.m; sourceTree = "<group>"; };
+		67D4B1291AE05A3C00B0BC4D /* MPKCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCreditCard.h; sourceTree = "<group>"; };
+		67D4B12A1AE05A3C00B0BC4D /* MPKCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCreditCard.m; sourceTree = "<group>"; };
+		67D4B12B1AE05A3C00B0BC4D /* MPKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKTextField.h; sourceTree = "<group>"; };
+		67D4B12C1AE05A3C00B0BC4D /* MPKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKTextField.m; sourceTree = "<group>"; };
+		67D4B12D1AE05A3C00B0BC4D /* MPKUSAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUSAddressZip.h; sourceTree = "<group>"; };
+		67D4B12E1AE05A3C00B0BC4D /* MPKUSAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUSAddressZip.m; sourceTree = "<group>"; };
+		67D4B12F1AE05A3C00B0BC4D /* MPKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKView.h; sourceTree = "<group>"; };
+		67D4B1301AE05A3C00B0BC4D /* MPKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKView.m; sourceTree = "<group>"; };
+		67D4B1321AE05A3C00B0BC4D /* amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex.png; sourceTree = "<group>"; };
+		67D4B1331AE05A3C00B0BC4D /* amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "amex@2x.png"; sourceTree = "<group>"; };
+		67D4B1341AE05A3C00B0BC4D /* cvc-amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc-amex.png"; sourceTree = "<group>"; };
+		67D4B1351AE05A3C00B0BC4D /* cvc-amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc-amex@2x.png"; sourceTree = "<group>"; };
+		67D4B1361AE05A3C00B0BC4D /* cvc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cvc.png; sourceTree = "<group>"; };
+		67D4B1371AE05A3C00B0BC4D /* cvc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc@2x.png"; sourceTree = "<group>"; };
+		67D4B1381AE05A3C00B0BC4D /* diners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diners.png; sourceTree = "<group>"; };
+		67D4B1391AE05A3C00B0BC4D /* diners@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diners@2x.png"; sourceTree = "<group>"; };
+		67D4B13A1AE05A3C00B0BC4D /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
+		67D4B13B1AE05A3C00B0BC4D /* discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@2x.png"; sourceTree = "<group>"; };
+		67D4B13C1AE05A3C00B0BC4D /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient@2x.png"; sourceTree = "<group>"; };
+		67D4B13D1AE05A3C00B0BC4D /* jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jcb.png; sourceTree = "<group>"; };
+		67D4B13E1AE05A3C00B0BC4D /* jcb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jcb@2x.png"; sourceTree = "<group>"; };
+		67D4B13F1AE05A3C00B0BC4D /* mastercard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mastercard.png; sourceTree = "<group>"; };
+		67D4B1401AE05A3C00B0BC4D /* mastercard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mastercard@2x.png"; sourceTree = "<group>"; };
+		67D4B1411AE05A3C00B0BC4D /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		67D4B1421AE05A3C00B0BC4D /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
+		67D4B1431AE05A3C00B0BC4D /* textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield.png; sourceTree = "<group>"; };
+		67D4B1441AE05A3C00B0BC4D /* textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield@2x.png"; sourceTree = "<group>"; };
+		67D4B1451AE05A3C00B0BC4D /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
+		67D4B1461AE05A3C00B0BC4D /* visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa@2x.png"; sourceTree = "<group>"; };
+		67D4B1481AE05A3C00B0BC4D /* SecUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecUtils.h; sourceTree = "<group>"; };
+		67D4B1491AE05A3C00B0BC4D /* SecUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecUtils.m; sourceTree = "<group>"; };
+		67D4B14B1AE05A3C00B0BC4D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		67D4B14C1AE05A3C00B0BC4D /* MPKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUtilities.h; sourceTree = "<group>"; };
+		67D4B14D1AE05A3C00B0BC4D /* MPKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUtilities.m; sourceTree = "<group>"; };
+		67D4B15A1AE05A9100B0BC4D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		67D4B16C1AE05B0F00B0BC4D /* MoipSDKTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipSDKTests.m; sourceTree = "<group>"; };
+		67D4B17B1AE05FE900B0BC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67D4B19C1AE0615100B0BC4D /* MoipSDKResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoipSDKResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		67D4B19F1AE0615100B0BC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		67D4B0F51AE059C900B0BC4D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67D6AA041979A8C00069F742 /* MoipSDK.framework in Frameworks */,
-				67D6A9FC1979A8C00069F742 /* XCTest.framework in Frameworks */,
-				67D6A9FD1979A8C00069F742 /* Foundation.framework in Frameworks */,
+				67D4B15B1AE05A9100B0BC4D /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67D4B1001AE059CA00B0BC4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67D4B1041AE059CA00B0BC4D /* libMoipSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67D4B1991AE0615000B0BC4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		67D6A9DC1979A8C00069F742 = {
+		67D4B0EF1AE059C900B0BC4D = {
 			isa = PBXGroup;
 			children = (
-				67D6A9EC1979A8C00069F742 /* MoipSDK */,
-				67D6AA051979A8C00069F742 /* MoipSDKTests */,
-				67D6A9E91979A8C00069F742 /* Frameworks */,
-				67D6A9E81979A8C00069F742 /* Products */,
+				67D4B0FA1AE059C900B0BC4D /* MoipSDK */,
+				67D4B1071AE059CA00B0BC4D /* MoipSDKTests */,
+				67D4B1791AE05FE900B0BC4D /* MoipSDKResources */,
+				67D4B19D1AE0615100B0BC4D /* MoipSDKResources */,
+				67D4B15C1AE05AB400B0BC4D /* Frameworks */,
+				67D4B0F91AE059C900B0BC4D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		67D6A9E81979A8C00069F742 /* Products */ = {
+		67D4B0F91AE059C900B0BC4D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				67D6A9E71979A8C00069F742 /* MoipSDK.framework */,
-				67D6A9FA1979A8C00069F742 /* MoipSDKTests.xctest */,
+				67D4B0F81AE059C900B0BC4D /* libMoipSDK.a */,
+				67D4B1031AE059CA00B0BC4D /* MoipSDKTests.xctest */,
+				67D4B19C1AE0615100B0BC4D /* MoipSDKResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		67D6A9E91979A8C00069F742 /* Frameworks */ = {
+		67D4B0FA1AE059C900B0BC4D /* MoipSDK */ = {
 			isa = PBXGroup;
 			children = (
-				67E5483B197ED6A0001CAE2D /* UIKit.framework */,
-				67D6A9EA1979A8C00069F742 /* Foundation.framework */,
-				67D6A9FB1979A8C00069F742 /* XCTest.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		67D6A9EC1979A8C00069F742 /* MoipSDK */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA151979A8E20069F742 /* Components */,
-				67D6AA2F1979A8E20069F742 /* Configuration */,
-				67D6AA311979A8E20069F742 /* en.lproj */,
-				67D6AA341979A8E20069F742 /* Error */,
-				67D6AA371979A8E20069F742 /* Http */,
-				67D6AA3D1979A8E20069F742 /* Model */,
-				67D6AA4F1979A8E20069F742 /* Resources */,
-				67D6AA651979A8E20069F742 /* SecurityUtil */,
-				67D6AA681979A8E20069F742 /* Utils */,
-				67D6AA6C1979A8E20069F742 /* Vendor */,
-				67D6A9F31979A8C00069F742 /* MoipSDK.h */,
-				67D6A9F41979A8C00069F742 /* MoipSDK.m */,
-				67D6A9ED1979A8C00069F742 /* Supporting Files */,
+				67D4B11A1AE05A3C00B0BC4D /* Components */,
+				67D4B1311AE05A3C00B0BC4D /* Resources */,
+				67D4B1471AE05A3C00B0BC4D /* SecurityUtil */,
+				67D4B14A1AE05A3C00B0BC4D /* Utils */,
+				67D4B0FB1AE059CA00B0BC4D /* MoipSDK.h */,
+				67D4B0FD1AE059CA00B0BC4D /* MoipSDK.m */,
 			);
 			path = MoipSDK;
 			sourceTree = "<group>";
 		};
-		67D6A9ED1979A8C00069F742 /* Supporting Files */ = {
+		67D4B1071AE059CA00B0BC4D /* MoipSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				67D6A9EE1979A8C00069F742 /* MoipSDK-Info.plist */,
-				67D6A9EF1979A8C00069F742 /* InfoPlist.strings */,
-				67D6A9F21979A8C00069F742 /* MoipSDK-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		67D6AA051979A8C00069F742 /* MoipSDKTests */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA0B1979A8C00069F742 /* MoipSDKTests.m */,
-				67D6AA061979A8C00069F742 /* Supporting Files */,
+				67D4B16C1AE05B0F00B0BC4D /* MoipSDKTests.m */,
+				67D4B1081AE059CA00B0BC4D /* Supporting Files */,
 			);
 			path = MoipSDKTests;
 			sourceTree = "<group>";
 		};
-		67D6AA061979A8C00069F742 /* Supporting Files */ = {
+		67D4B1081AE059CA00B0BC4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				67D6AA071979A8C00069F742 /* MoipSDKTests-Info.plist */,
-				67D6AA081979A8C00069F742 /* InfoPlist.strings */,
+				67D4B1091AE059CA00B0BC4D /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		67D6AA151979A8E20069F742 /* Components */ = {
+		67D4B11A1AE05A3C00B0BC4D /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				67D6AA161979A8E20069F742 /* MoipPaymentKit */,
-				67D6AA1B1979A8E20069F742 /* PaymentKit */,
+				67D4B11B1AE05A3C00B0BC4D /* PaymentKit */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		67D6AA161979A8E20069F742 /* MoipPaymentKit */ = {
+		67D4B11B1AE05A3C00B0BC4D /* PaymentKit */ = {
 			isa = PBXGroup;
 			children = (
-				67D6AA171979A8E20069F742 /* MPKCheckoutViewController.h */,
-				67D6AA181979A8E20069F742 /* MPKCheckoutViewController.m */,
-				67D6AA191979A8E20069F742 /* MPKConfiguration.h */,
-				67D6AA1A1979A8E20069F742 /* MPKConfiguration.m */,
-			);
-			path = MoipPaymentKit;
-			sourceTree = "<group>";
-		};
-		67D6AA1B1979A8E20069F742 /* PaymentKit */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA1C1979A8E20069F742 /* MPKAddressZip.h */,
-				67D6AA1D1979A8E20069F742 /* MPKAddressZip.m */,
-				67D6AA1E1979A8E20069F742 /* MPKCard.h */,
-				67D6AA1F1979A8E20069F742 /* MPKCard.m */,
-				67D6AA201979A8E20069F742 /* MPKCardCVC.h */,
-				67D6AA211979A8E20069F742 /* MPKCardCVC.m */,
-				67D6AA221979A8E20069F742 /* MPKCardExpiry.h */,
-				67D6AA231979A8E20069F742 /* MPKCardExpiry.m */,
-				67D6AA241979A8E20069F742 /* MPKCardNumber.h */,
-				67D6AA251979A8E20069F742 /* MPKCardNumber.m */,
-				67D6AA261979A8E20069F742 /* MPKCardType.h */,
-				67D6AA271979A8E20069F742 /* MPKComponent.h */,
-				67D6AA281979A8E20069F742 /* MPKComponent.m */,
-				67D6AA291979A8E20069F742 /* MPKTextField.h */,
-				67D6AA2A1979A8E20069F742 /* MPKTextField.m */,
-				67D6AA2B1979A8E20069F742 /* MPKUSAddressZip.h */,
-				67D6AA2C1979A8E20069F742 /* MPKUSAddressZip.m */,
-				67D6AA2D1979A8E20069F742 /* MPKView.h */,
-				67D6AA2E1979A8E20069F742 /* MPKView.m */,
+				67D4B11C1AE05A3C00B0BC4D /* MPKAddressZip.h */,
+				67D4B11D1AE05A3C00B0BC4D /* MPKAddressZip.m */,
+				67D4B11E1AE05A3C00B0BC4D /* MPKCard.h */,
+				67D4B11F1AE05A3C00B0BC4D /* MPKCard.m */,
+				67D4B1201AE05A3C00B0BC4D /* MPKCardCVC.h */,
+				67D4B1211AE05A3C00B0BC4D /* MPKCardCVC.m */,
+				67D4B1221AE05A3C00B0BC4D /* MPKCardExpiry.h */,
+				67D4B1231AE05A3C00B0BC4D /* MPKCardExpiry.m */,
+				67D4B1241AE05A3C00B0BC4D /* MPKCardNumber.h */,
+				67D4B1251AE05A3C00B0BC4D /* MPKCardNumber.m */,
+				67D4B1261AE05A3C00B0BC4D /* MPKCardType.h */,
+				67D4B1271AE05A3C00B0BC4D /* MPKComponent.h */,
+				67D4B1281AE05A3C00B0BC4D /* MPKComponent.m */,
+				67D4B1291AE05A3C00B0BC4D /* MPKCreditCard.h */,
+				67D4B12A1AE05A3C00B0BC4D /* MPKCreditCard.m */,
+				67D4B12B1AE05A3C00B0BC4D /* MPKTextField.h */,
+				67D4B12C1AE05A3C00B0BC4D /* MPKTextField.m */,
+				67D4B12D1AE05A3C00B0BC4D /* MPKUSAddressZip.h */,
+				67D4B12E1AE05A3C00B0BC4D /* MPKUSAddressZip.m */,
+				67D4B12F1AE05A3C00B0BC4D /* MPKView.h */,
+				67D4B1301AE05A3C00B0BC4D /* MPKView.m */,
 			);
 			path = PaymentKit;
 			sourceTree = "<group>";
 		};
-		67D6AA2F1979A8E20069F742 /* Configuration */ = {
+		67D4B1311AE05A3C00B0BC4D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				67D6AA301979A8E20069F742 /* MPKEnvironment.h */,
-			);
-			path = Configuration;
-			sourceTree = "<group>";
-		};
-		67D6AA311979A8E20069F742 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA321979A8E20069F742 /* InfoPlist.strings */,
-			);
-			path = en.lproj;
-			sourceTree = "<group>";
-		};
-		67D6AA341979A8E20069F742 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA351979A8E20069F742 /* MPKError.h */,
-				67D6AA361979A8E20069F742 /* MPKError.m */,
-			);
-			path = Error;
-			sourceTree = "<group>";
-		};
-		67D6AA371979A8E20069F742 /* Http */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA381979A8E20069F742 /* HTTPStatusCodes.h */,
-				67D6AA391979A8E20069F742 /* MoipHttpRequester.h */,
-				67D6AA3A1979A8E20069F742 /* MoipHttpRequester.m */,
-				67D6AA3B1979A8E20069F742 /* MoipHttpResponse.h */,
-				67D6AA3C1979A8E20069F742 /* MoipHttpResponse.m */,
-			);
-			path = Http;
-			sourceTree = "<group>";
-		};
-		67D6AA3D1979A8E20069F742 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA441979A8E20069F742 /* MPKEnums.h */,
-				677EDC691981608E00D6F0EF /* MPKDocumentType.h */,
-				6743E6021981945100FE3917 /* MPKAddressType.h */,
-				6743E60819819B9E00FE3917 /* MPKMethodType.h */,
-				67D6AA401979A8E20069F742 /* MPKCardHolder.h */,
-				67D6AA411979A8E20069F742 /* MPKCardHolder.m */,
-				67D6AA421979A8E20069F742 /* MPKCreditCard.h */,
-				67D6AA431979A8E20069F742 /* MPKCreditCard.m */,
-				67D6AA451979A8E20069F742 /* MPKEvent.h */,
-				67D6AA461979A8E20069F742 /* MPKEvent.m */,
-				67D6AA471979A8E20069F742 /* MPKFee.h */,
-				67D6AA481979A8E20069F742 /* MPKFee.m */,
-				67D6AA491979A8E20069F742 /* MPKFundingInstrument.h */,
-				67D6AA4A1979A8E20069F742 /* MPKFundingInstrument.m */,
-				67D6AA4B1979A8E20069F742 /* MPKPayment.h */,
-				67D6AA4C1979A8E20069F742 /* MPKPayment.m */,
-				67D6AA4D1979A8E20069F742 /* MPKPaymentTransaction.h */,
-				67D6AA4E1979A8E20069F742 /* MPKPaymentTransaction.m */,
-				677EDC6519815F1B00D6F0EF /* MPKCustomer.h */,
-				677EDC6619815F1B00D6F0EF /* MPKCustomer.m */,
-				6743E6041981949D00FE3917 /* MPKAddress.h */,
-				6743E6051981949D00FE3917 /* MPKAddress.m */,
-				674719971982C0EB00A933AB /* MPKOrder.h */,
-				674719981982C0EB00A933AB /* MPKOrder.m */,
-				6747199B1982C11400A933AB /* MPKAmount.h */,
-				6747199C1982C11400A933AB /* MPKAmount.m */,
-				6747199F1982C23000A933AB /* MPKItem.h */,
-				674719A01982C23000A933AB /* MPKItem.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		67D6AA4F1979A8E20069F742 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA501979A8E20069F742 /* amex.png */,
-				67D6AA511979A8E20069F742 /* amex@2x.png */,
-				67D6AA521979A8E20069F742 /* cvc-amex.png */,
-				67D6AA531979A8E20069F742 /* cvc-amex@2x.png */,
-				67D6AA541979A8E20069F742 /* cvc.png */,
-				67D6AA551979A8E20069F742 /* cvc@2x.png */,
-				67D6AA561979A8E20069F742 /* diners.png */,
-				67D6AA571979A8E20069F742 /* diners@2x.png */,
-				67D6AA581979A8E20069F742 /* discover.png */,
-				67D6AA591979A8E20069F742 /* discover@2x.png */,
-				67D6AA5A1979A8E20069F742 /* gradient@2x.png */,
-				67D6AA5B1979A8E20069F742 /* jcb.png */,
-				67D6AA5C1979A8E20069F742 /* jcb@2x.png */,
-				67D6AA5D1979A8E20069F742 /* mastercard.png */,
-				67D6AA5E1979A8E20069F742 /* mastercard@2x.png */,
-				67D6AA5F1979A8E20069F742 /* placeholder.png */,
-				67D6AA601979A8E20069F742 /* placeholder@2x.png */,
-				67D6AA611979A8E20069F742 /* textfield.png */,
-				67D6AA621979A8E20069F742 /* textfield@2x.png */,
-				67D6AA631979A8E20069F742 /* visa.png */,
-				67D6AA641979A8E20069F742 /* visa@2x.png */,
+				67D4B1321AE05A3C00B0BC4D /* amex.png */,
+				67D4B1331AE05A3C00B0BC4D /* amex@2x.png */,
+				67D4B1341AE05A3C00B0BC4D /* cvc-amex.png */,
+				67D4B1351AE05A3C00B0BC4D /* cvc-amex@2x.png */,
+				67D4B1361AE05A3C00B0BC4D /* cvc.png */,
+				67D4B1371AE05A3C00B0BC4D /* cvc@2x.png */,
+				67D4B1381AE05A3C00B0BC4D /* diners.png */,
+				67D4B1391AE05A3C00B0BC4D /* diners@2x.png */,
+				67D4B13A1AE05A3C00B0BC4D /* discover.png */,
+				67D4B13B1AE05A3C00B0BC4D /* discover@2x.png */,
+				67D4B13C1AE05A3C00B0BC4D /* gradient@2x.png */,
+				67D4B13D1AE05A3C00B0BC4D /* jcb.png */,
+				67D4B13E1AE05A3C00B0BC4D /* jcb@2x.png */,
+				67D4B13F1AE05A3C00B0BC4D /* mastercard.png */,
+				67D4B1401AE05A3C00B0BC4D /* mastercard@2x.png */,
+				67D4B1411AE05A3C00B0BC4D /* placeholder.png */,
+				67D4B1421AE05A3C00B0BC4D /* placeholder@2x.png */,
+				67D4B1431AE05A3C00B0BC4D /* textfield.png */,
+				67D4B1441AE05A3C00B0BC4D /* textfield@2x.png */,
+				67D4B1451AE05A3C00B0BC4D /* visa.png */,
+				67D4B1461AE05A3C00B0BC4D /* visa@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		67D6AA651979A8E20069F742 /* SecurityUtil */ = {
+		67D4B1471AE05A3C00B0BC4D /* SecurityUtil */ = {
 			isa = PBXGroup;
 			children = (
-				67D6AA661979A8E20069F742 /* SecUtils.h */,
-				67D6AA671979A8E20069F742 /* SecUtils.m */,
+				67D4B1481AE05A3C00B0BC4D /* SecUtils.h */,
+				67D4B1491AE05A3C00B0BC4D /* SecUtils.m */,
 			);
 			path = SecurityUtil;
 			sourceTree = "<group>";
 		};
-		67D6AA681979A8E20069F742 /* Utils */ = {
+		67D4B14A1AE05A3C00B0BC4D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				67D6AA691979A8E20069F742 /* Constants.h */,
-				67D6AA6A1979A8E20069F742 /* MPKUtilities.h */,
-				67D6AA6B1979A8E20069F742 /* MPKUtilities.m */,
+				67D4B14B1AE05A3C00B0BC4D /* Constants.h */,
+				67D4B14C1AE05A3C00B0BC4D /* MPKUtilities.h */,
+				67D4B14D1AE05A3C00B0BC4D /* MPKUtilities.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		67D6AA6C1979A8E20069F742 /* Vendor */ = {
+		67D4B15C1AE05AB400B0BC4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				67D6AA6D1979A8E20069F742 /* libclisitef */,
-				67D6AA741979A8E20069F742 /* TSMessages */,
+				67D4B15A1AE05A9100B0BC4D /* UIKit.framework */,
 			);
-			path = Vendor;
+			name = Frameworks;
+			path = MoipSDK.xcodeproj;
 			sourceTree = "<group>";
 		};
-		67D6AA6D1979A8E20069F742 /* libclisitef */ = {
+		67D4B1791AE05FE900B0BC4D /* MoipSDKResources */ = {
 			isa = PBXGroup;
 			children = (
-				67D6AA6E1979A8E20069F742 /* ClisitefAsync.h */,
+				67D4B17A1AE05FE900B0BC4D /* Supporting Files */,
 			);
-			path = libclisitef;
+			path = MoipSDKResources;
 			sourceTree = "<group>";
 		};
-		67D6AA741979A8E20069F742 /* TSMessages */ = {
+		67D4B17A1AE05FE900B0BC4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				67D6AA751979A8E20069F742 /* Classes */,
-				67D6AA781979A8E20069F742 /* Resources */,
-				67D6AA8B1979A8E30069F742 /* Views */,
+				67D4B17B1AE05FE900B0BC4D /* Info.plist */,
 			);
-			path = TSMessages;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		67D6AA751979A8E20069F742 /* Classes */ = {
+		67D4B19D1AE0615100B0BC4D /* MoipSDKResources */ = {
 			isa = PBXGroup;
 			children = (
-				67D6AA761979A8E20069F742 /* MPKMessage.h */,
-				67D6AA771979A8E20069F742 /* MPKMessage.m */,
+				67D4B19E1AE0615100B0BC4D /* Supporting Files */,
 			);
-			path = Classes;
+			path = MoipSDKResources;
 			sourceTree = "<group>";
 		};
-		67D6AA781979A8E20069F742 /* Resources */ = {
+		67D4B19E1AE0615100B0BC4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				67D6AA791979A8E20069F742 /* Images */,
-				67D6AA8A1979A8E30069F742 /* MPKMessagesDefaultDesign.json */,
+				67D4B19F1AE0615100B0BC4D /* Info.plist */,
 			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		67D6AA791979A8E20069F742 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA7A1979A8E20069F742 /* NotificationBackgroundError.png */,
-				67D6AA7B1979A8E20069F742 /* NotificationBackgroundError@2x.png */,
-				67D6AA7C1979A8E20069F742 /* NotificationBackgroundErrorIcon.png */,
-				67D6AA7D1979A8E20069F742 /* NotificationBackgroundErrorIcon@2x.png */,
-				67D6AA7E1979A8E20069F742 /* NotificationBackgroundMessage.png */,
-				67D6AA7F1979A8E20069F742 /* NotificationBackgroundMessage@2x.png */,
-				67D6AA801979A8E20069F742 /* NotificationBackgroundSuccess.png */,
-				67D6AA811979A8E20069F742 /* NotificationBackgroundSuccess@2x.png */,
-				67D6AA821979A8E20069F742 /* NotificationBackgroundSuccessIcon.png */,
-				67D6AA831979A8E30069F742 /* NotificationBackgroundSuccessIcon@2x.png */,
-				67D6AA841979A8E30069F742 /* NotificationBackgroundWarning.png */,
-				67D6AA851979A8E30069F742 /* NotificationBackgroundWarning@2x.png */,
-				67D6AA861979A8E30069F742 /* NotificationBackgroundWarningIcon.png */,
-				67D6AA871979A8E30069F742 /* NotificationBackgroundWarningIcon@2x.png */,
-				67D6AA881979A8E30069F742 /* NotificationButtonBackground.png */,
-				67D6AA891979A8E30069F742 /* NotificationButtonBackground@2x.png */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
-		67D6AA8B1979A8E30069F742 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				67D6AA8C1979A8E30069F742 /* MPKBlurView.h */,
-				67D6AA8D1979A8E30069F742 /* MPKBlurView.m */,
-				67D6AA8E1979A8E30069F742 /* MPKMessageView.h */,
-				67D6AA8F1979A8E30069F742 /* MPKMessageView.m */,
-			);
-			path = Views;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		67D6A9E31979A8C00069F742 /* Headers */ = {
+		67D4B15D1AE05AD000B0BC4D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67D6AAA91979A8E30069F742 /* MPKError.h in Headers */,
-				67D6AA9C1979A8E30069F742 /* MPKCardNumber.h in Headers */,
-				67D6AA921979A8E30069F742 /* MPKConfiguration.h in Headers */,
-				67D6AA981979A8E30069F742 /* MPKCardCVC.h in Headers */,
-				67D6AAD91979A8E30069F742 /* MPKUtilities.h in Headers */,
-				6743E6031981945100FE3917 /* MPKAddressType.h in Headers */,
-				67D6AA9A1979A8E30069F742 /* MPKCardExpiry.h in Headers */,
-				67D6AABB1979A8E30069F742 /* MPKFundingInstrument.h in Headers */,
-				67D6AA961979A8E30069F742 /* MPKCard.h in Headers */,
-				677EDC6719815F1B00D6F0EF /* MPKCustomer.h in Headers */,
-				67D6AAB21979A8E30069F742 /* MPKCardHolder.h in Headers */,
-				67D6AAB71979A8E30069F742 /* MPKEvent.h in Headers */,
-				67D6AA941979A8E30069F742 /* MPKAddressZip.h in Headers */,
-				67D6AA9F1979A8E30069F742 /* MPKComponent.h in Headers */,
-				67D6AADE1979A8E30069F742 /* MPKMessage.h in Headers */,
-				67D6AA901979A8E30069F742 /* MPKCheckoutViewController.h in Headers */,
-				67D6AABF1979A8E30069F742 /* MPKPaymentTransaction.h in Headers */,
-				67D6AAA71979A8E30069F742 /* MPKEnvironment.h in Headers */,
-				67D6AAB61979A8E30069F742 /* MPKEnums.h in Headers */,
-				67D6AAB91979A8E30069F742 /* MPKFee.h in Headers */,
-				67D6AA9E1979A8E30069F742 /* MPKCardType.h in Headers */,
-				67D6AAD81979A8E30069F742 /* Constants.h in Headers */,
-				674719A11982C23000A933AB /* MPKItem.h in Headers */,
-				67D6AAF31979A8E30069F742 /* MPKMessageView.h in Headers */,
-				6749A10A197EB40D00214BE8 /* MoipSDK.h in Headers */,
-				67D6AAA51979A8E30069F742 /* MPKView.h in Headers */,
-				67D6AAB41979A8E30069F742 /* MPKCreditCard.h in Headers */,
-				67D6AAA11979A8E30069F742 /* MPKTextField.h in Headers */,
-				67D6AABD1979A8E30069F742 /* MPKPayment.h in Headers */,
-				67D6AAAB1979A8E30069F742 /* HTTPStatusCodes.h in Headers */,
-				6747199D1982C11400A933AB /* MPKAmount.h in Headers */,
-				67D6AAAE1979A8E30069F742 /* MoipHttpResponse.h in Headers */,
-				67D6AAAC1979A8E30069F742 /* MoipHttpRequester.h in Headers */,
-				67D6AAD61979A8E30069F742 /* SecUtils.h in Headers */,
-				67D6AADB1979A8E30069F742 /* ClisitefAsync.h in Headers */,
-				6743E6061981949D00FE3917 /* MPKAddress.h in Headers */,
-				67D6AAF11979A8E30069F742 /* MPKBlurView.h in Headers */,
-				6743E60919819B9E00FE3917 /* MPKMethodType.h in Headers */,
-				674719991982C0EB00A933AB /* MPKOrder.h in Headers */,
-				67D6AAA31979A8E30069F742 /* MPKUSAddressZip.h in Headers */,
-				67BD7AB41986A10200184A8C /* MPKDocumentType.h in Headers */,
+				67D4B15E1AE05AEA00B0BC4D /* MPKAddressZip.h in Headers */,
+				67D4B15F1AE05AEA00B0BC4D /* MPKCard.h in Headers */,
+				67D4B1601AE05AEA00B0BC4D /* MPKCardCVC.h in Headers */,
+				67D4B1611AE05AEA00B0BC4D /* MPKCardExpiry.h in Headers */,
+				67D4B1621AE05AEA00B0BC4D /* MPKCardNumber.h in Headers */,
+				67D4B1631AE05AEA00B0BC4D /* MPKCardType.h in Headers */,
+				67D4B1641AE05AEA00B0BC4D /* MPKComponent.h in Headers */,
+				67D4B1651AE05AEA00B0BC4D /* MPKCreditCard.h in Headers */,
+				67D4B1661AE05AEA00B0BC4D /* MPKTextField.h in Headers */,
+				67D4B1671AE05AEA00B0BC4D /* MPKUSAddressZip.h in Headers */,
+				67D4B1681AE05AEA00B0BC4D /* MPKView.h in Headers */,
+				67D4B1691AE05AEA00B0BC4D /* Constants.h in Headers */,
+				67D4B16A1AE05AEA00B0BC4D /* MPKUtilities.h in Headers */,
+				67D4B16B1AE05AEA00B0BC4D /* MoipSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		67D6A9E61979A8C00069F742 /* MoipSDK */ = {
+		67D4B0F71AE059C900B0BC4D /* MoipSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 67D6AA0F1979A8C00069F742 /* Build configuration list for PBXNativeTarget "MoipSDK" */;
+			buildConfigurationList = 67D4B10C1AE059CA00B0BC4D /* Build configuration list for PBXNativeTarget "MoipSDK" */;
 			buildPhases = (
-				67D6A9E11979A8C00069F742 /* Sources */,
-				67D6A9E21979A8C00069F742 /* Frameworks */,
-				67D6A9E31979A8C00069F742 /* Headers */,
-				67D6A9E41979A8C00069F742 /* Resources */,
-				67D6A9E51979A8C00069F742 /* ShellScript */,
+				67D4B0F41AE059C900B0BC4D /* Sources */,
+				67D4B0F51AE059C900B0BC4D /* Frameworks */,
+				67D4B0F61AE059C900B0BC4D /* CopyFiles */,
+				67D4B15D1AE05AD000B0BC4D /* Headers */,
+				67D4B16E1AE05BDA00B0BC4D /* Build Framework */,
 			);
 			buildRules = (
 			);
@@ -686,227 +420,214 @@
 			);
 			name = MoipSDK;
 			productName = MoipSDK;
-			productReference = 67D6A9E71979A8C00069F742 /* MoipSDK.framework */;
-			productType = "com.apple.product-type.framework.static";
+			productReference = 67D4B0F81AE059C900B0BC4D /* libMoipSDK.a */;
+			productType = "com.apple.product-type.library.static";
 		};
-		67D6A9F91979A8C00069F742 /* MoipSDKTests */ = {
+		67D4B1021AE059CA00B0BC4D /* MoipSDKTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 67D6AA121979A8C00069F742 /* Build configuration list for PBXNativeTarget "MoipSDKTests" */;
+			buildConfigurationList = 67D4B10F1AE059CA00B0BC4D /* Build configuration list for PBXNativeTarget "MoipSDKTests" */;
 			buildPhases = (
-				67D6A9F61979A8C00069F742 /* Sources */,
-				67D6A9F71979A8C00069F742 /* Frameworks */,
-				67D6A9F81979A8C00069F742 /* Resources */,
+				67D4B0FF1AE059CA00B0BC4D /* Sources */,
+				67D4B1001AE059CA00B0BC4D /* Frameworks */,
+				67D4B1011AE059CA00B0BC4D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				67D6AA011979A8C00069F742 /* PBXTargetDependency */,
-				67D6AA031979A8C00069F742 /* PBXTargetDependency */,
+				67D4B1061AE059CA00B0BC4D /* PBXTargetDependency */,
 			);
 			name = MoipSDKTests;
 			productName = MoipSDKTests;
-			productReference = 67D6A9FA1979A8C00069F742 /* MoipSDKTests.xctest */;
+			productReference = 67D4B1031AE059CA00B0BC4D /* MoipSDKTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		67D4B19B1AE0615000B0BC4D /* MoipSDKResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67D4B1A01AE0615100B0BC4D /* Build configuration list for PBXNativeTarget "MoipSDKResources" */;
+			buildPhases = (
+				67D4B1981AE0615000B0BC4D /* Sources */,
+				67D4B1991AE0615000B0BC4D /* Frameworks */,
+				67D4B19A1AE0615000B0BC4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoipSDKResources;
+			productName = MoipSDKResources;
+			productReference = 67D4B19C1AE0615100B0BC4D /* MoipSDKResources.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		67D6A9DD1979A8C00069F742 /* Project object */ = {
+		67D4B0F01AE059C900B0BC4D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "Moip Pagamentos S/A";
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Moip Pagamentos";
 				TargetAttributes = {
-					67D6A9F91979A8C00069F742 = {
-						TestTargetID = 67D6A9E61979A8C00069F742;
+					67D4B0F71AE059C900B0BC4D = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					67D4B1021AE059CA00B0BC4D = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					67D4B16F1AE05C3B00B0BC4D = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					67D4B19B1AE0615000B0BC4D = {
+						CreatedOnToolsVersion = 6.3;
 					};
 				};
 			};
-			buildConfigurationList = 67D6A9E01979A8C00069F742 /* Build configuration list for PBXProject "MoipSDK" */;
+			buildConfigurationList = 67D4B0F31AE059C900B0BC4D /* Build configuration list for PBXProject "MoipSDK" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 67D6A9DC1979A8C00069F742;
-			productRefGroup = 67D6A9E81979A8C00069F742 /* Products */;
+			mainGroup = 67D4B0EF1AE059C900B0BC4D;
+			productRefGroup = 67D4B0F91AE059C900B0BC4D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				67D6A9E61979A8C00069F742 /* MoipSDK */,
-				67D6A9F91979A8C00069F742 /* MoipSDKTests */,
+				67D4B0F71AE059C900B0BC4D /* MoipSDK */,
+				67D4B1021AE059CA00B0BC4D /* MoipSDKTests */,
+				67D4B16F1AE05C3B00B0BC4D /* Framework */,
+				67D4B19B1AE0615000B0BC4D /* MoipSDKResources */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		67D6A9E41979A8C00069F742 /* Resources */ = {
+		67D4B1011AE059CA00B0BC4D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67D6AAE31979A8E30069F742 /* NotificationBackgroundErrorIcon@2x.png in Resources */,
-				67D6AAEA1979A8E30069F742 /* NotificationBackgroundWarning.png in Resources */,
-				67D6AAEE1979A8E30069F742 /* NotificationButtonBackground.png in Resources */,
-				67D6AAE81979A8E30069F742 /* NotificationBackgroundSuccessIcon.png in Resources */,
-				67D6AAD41979A8E30069F742 /* visa.png in Resources */,
-				67D6AACF1979A8E30069F742 /* mastercard@2x.png in Resources */,
-				67D6A9F11979A8C00069F742 /* InfoPlist.strings in Resources */,
-				67D6AAE41979A8E30069F742 /* NotificationBackgroundMessage.png in Resources */,
-				67D6AAE01979A8E30069F742 /* NotificationBackgroundError.png in Resources */,
-				67D6AAC51979A8E30069F742 /* cvc.png in Resources */,
-				67D6AAC71979A8E30069F742 /* diners.png in Resources */,
-				67D6AAE21979A8E30069F742 /* NotificationBackgroundErrorIcon.png in Resources */,
-				67D6AAE11979A8E30069F742 /* NotificationBackgroundError@2x.png in Resources */,
-				67D6AAA81979A8E30069F742 /* InfoPlist.strings in Resources */,
-				67D6AAD31979A8E30069F742 /* textfield@2x.png in Resources */,
-				67D6AAD21979A8E30069F742 /* textfield.png in Resources */,
-				67D6AAC61979A8E30069F742 /* cvc@2x.png in Resources */,
-				67D6AAC41979A8E30069F742 /* cvc-amex@2x.png in Resources */,
-				67D6AAD11979A8E30069F742 /* placeholder@2x.png in Resources */,
-				67D6AAC31979A8E30069F742 /* cvc-amex.png in Resources */,
-				67D6AAE51979A8E30069F742 /* NotificationBackgroundMessage@2x.png in Resources */,
-				67D6AAE71979A8E30069F742 /* NotificationBackgroundSuccess@2x.png in Resources */,
-				67D6AACE1979A8E30069F742 /* mastercard.png in Resources */,
-				67D6AAC11979A8E30069F742 /* amex.png in Resources */,
-				67D6AAC91979A8E30069F742 /* discover.png in Resources */,
-				67D6AAC21979A8E30069F742 /* amex@2x.png in Resources */,
-				67D6AAEF1979A8E30069F742 /* NotificationButtonBackground@2x.png in Resources */,
-				67D6AAD51979A8E30069F742 /* visa@2x.png in Resources */,
-				67D6AAF01979A8E30069F742 /* MPKMessagesDefaultDesign.json in Resources */,
-				67D6AACD1979A8E30069F742 /* jcb@2x.png in Resources */,
-				67D6AAE91979A8E30069F742 /* NotificationBackgroundSuccessIcon@2x.png in Resources */,
-				67D6AAE61979A8E30069F742 /* NotificationBackgroundSuccess.png in Resources */,
-				67D6AAEB1979A8E30069F742 /* NotificationBackgroundWarning@2x.png in Resources */,
-				67D6AAEC1979A8E30069F742 /* NotificationBackgroundWarningIcon.png in Resources */,
-				67D6AAD01979A8E30069F742 /* placeholder.png in Resources */,
-				67D6AAC81979A8E30069F742 /* diners@2x.png in Resources */,
-				67D6AACB1979A8E30069F742 /* gradient@2x.png in Resources */,
-				67D6AAED1979A8E30069F742 /* NotificationBackgroundWarningIcon@2x.png in Resources */,
-				67D6AACA1979A8E30069F742 /* discover@2x.png in Resources */,
-				67D6AACC1979A8E30069F742 /* jcb.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67D6A9F81979A8C00069F742 /* Resources */ = {
+		67D4B19A1AE0615000B0BC4D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67D6AA0A1979A8C00069F742 /* InfoPlist.strings in Resources */,
+				67D4B1A31AE0616300B0BC4D /* amex.png in Resources */,
+				67D4B1A41AE0616300B0BC4D /* amex@2x.png in Resources */,
+				67D4B1A51AE0616300B0BC4D /* cvc-amex.png in Resources */,
+				67D4B1A61AE0616300B0BC4D /* cvc-amex@2x.png in Resources */,
+				67D4B1A71AE0616300B0BC4D /* cvc.png in Resources */,
+				67D4B1A81AE0616300B0BC4D /* cvc@2x.png in Resources */,
+				67D4B1A91AE0616300B0BC4D /* diners.png in Resources */,
+				67D4B1AA1AE0616300B0BC4D /* diners@2x.png in Resources */,
+				67D4B1AB1AE0616300B0BC4D /* discover.png in Resources */,
+				67D4B1AC1AE0616300B0BC4D /* discover@2x.png in Resources */,
+				67D4B1AD1AE0616300B0BC4D /* gradient@2x.png in Resources */,
+				67D4B1AE1AE0616300B0BC4D /* jcb.png in Resources */,
+				67D4B1AF1AE0616300B0BC4D /* jcb@2x.png in Resources */,
+				67D4B1B01AE0616300B0BC4D /* mastercard.png in Resources */,
+				67D4B1B11AE0616300B0BC4D /* mastercard@2x.png in Resources */,
+				67D4B1B21AE0616300B0BC4D /* placeholder.png in Resources */,
+				67D4B1B31AE0616300B0BC4D /* placeholder@2x.png in Resources */,
+				67D4B1B41AE0616300B0BC4D /* textfield.png in Resources */,
+				67D4B1B51AE0616300B0BC4D /* textfield@2x.png in Resources */,
+				67D4B1B61AE0616300B0BC4D /* visa.png in Resources */,
+				67D4B1B71AE0616300B0BC4D /* visa@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		67D6A9E51979A8C00069F742 /* ShellScript */ = {
+		67D4B16E1AE05BDA00B0BC4D /* Build Framework */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Build Framework";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /usr/bin/python;
-			shellScript = "# TAG: BUILD SCRIPT (do not remove this comment)\n# Build script generated using https://github.com/kstenerud/iOS-Universal-Framework Mk 8 (beta 2012-06-16)\nimport logging\n\n\n##############################################################################\n#\n# Configuration\n#\n##############################################################################\n\n# Select which kind of framework to build.\n#\n# Note: Due to issues with Xcode's build process, if you select\n#       'embeddedframework', it will still show the regular framework\n#       (as a symlink) along side of the embedded framework. Be sure to\n#       instruct your users to copy/move the embedded framework in this case!\n#\n# If your framework contains resources such as images, nibs, momds, plists,\n# zipfiles and such, choose 'embeddedframework'.\n#\n# If your framework contains no resources, choose 'framework'.\n#\n#config_framework_type = 'framework'\nconfig_framework_type = 'embeddedframework'\n\n# Open the build directory in Finder when the universal framework is\n# successfully built.\n#\n# This value can be overridden by setting the UFW_OPEN_BUILD_DIR env variable\n# to True or False.\n#\n# Recommended setting: True\n#\nconfig_open_build_dir = True\n\n# If true, ensures that all public headers are stored in the framework under\n# the same directory hierarchy as they were in the source tree.\n#\n# Xcode by default places all headers at the same top level, but every other\n# build tool in the known universe preserves directory structure. For simple\n# libraries it doesn't really matter much, but for ports of existing software\n# packages or for bigger libraries, it makes sense to have more structure.\n#\n# The default is set to \"False\" since that's what most Xcode users are used to.\n#\n# Recommended setting: True for deep hierarchy projects, False otherwise.\n#\nconfig_deep_header_hierarchy = False\n\n# Specify where the top of the public header hierarchy is. This path is\n# relative to the project's dir (PROJECT_DIR). You can reference environment\n# variables using templating syntax (e.g. \"${TARGET_NAME}/Some/Subdir\")\n#\n# NOTE: Only used if config_deep_header_hierarchy is True.\n#\n# If this is set to None, the script will attempt to figure out for itself\n# where the top of the header hierarchy is by looking for common path prefixes\n# in the public header files. This process can fail if:\n# - You only have one public header file.\n# - Your source header files don't all have a common root.\n#\n# A common approach is to use \"${TARGET_NAME}\", working under the assumption\n# that all of your header files share the common root of a directory under\n# your project with the same name as your target (which is the Xcode default).\n#\n# Recommended setting: \"${TARGET_NAME}\"\n#\nconfig_deep_header_top = \"${TARGET_NAME}\"\n\n# Warn when \"DerivedData\" is detected in any of the header, library, or\n# framework search paths. In almost all cases, references to directories under\n# DerivedData are added as a result of an Xcode bug and must be manually\n# removed.\n#\n# Recommended setting: True\n#\nconfig_warn_derived_data = True\n\n# Warn if no headers were marked public in this framework.\n#\n# Recommended setting: True\n#\nconfig_warn_no_public_headers = True\n\n# Cause the build to fail if any warnings are issued.\n#\n# Recommended setting: True\n#\nconfig_fail_on_warnings = True\n\n# Minimum log level\n#\n# Recommended setting: logging.INFO\n#\nconfig_log_level = logging.INFO\n\n\n##############################################################################\n#\n# Don't touch anything below here unless you know what you're doing.\n#\n##############################################################################\n\nimport collections\nimport json\nimport os\nimport re\nimport shlex\nimport shutil\nimport string\nimport subprocess\nimport sys\nimport time\nimport traceback\n\n\n##############################################################################\n#\n# Globals\n#\n##############################################################################\n\nlog = logging.getLogger('UFW')\n\nissued_warnings = False\n\n\n##############################################################################\n#\n# Classes\n#\n##############################################################################\n\n# Allows the slave build to communicate with the master build.\n#\nclass BuildState:\n\n    def __init__(self):\n        self.reload()\n\n    def reset(self):\n        self.slave_platform = None\n        self.slave_architectures = []\n        self.slave_linked_archive_paths = []\n        self.slave_built_fw_path = None\n        self.slave_built_embedded_fw_path = None\n\n    def set_slave_properties(self, architectures,\n                             linked_archive_paths,\n                             built_fw_path,\n                             built_embedded_fw_path):\n        self.slave_platform = os.environ['PLATFORM_NAME']\n        self.slave_architectures = architectures\n        self.slave_linked_archive_paths = linked_archive_paths\n        self.slave_built_fw_path = built_fw_path\n        self.slave_built_embedded_fw_path = built_embedded_fw_path\n\n    def get_save_path(self):\n        return os.path.join(os.environ['PROJECT_TEMP_DIR'], \"ufw_build_state.json\")\n\n    def persist(self):\n        filename = self.get_save_path()\n        parent = os.path.dirname(filename)\n        if not os.path.isdir(parent):\n            os.makedirs(parent)\n        with open(filename, \"w\") as f:\n            f.write(json.dumps(self.__dict__))\n\n    def reload(self):\n        self.reset()\n        filename = self.get_save_path()\n        if os.path.exists(filename):\n            with open(filename, \"r\") as f:\n                new_dict = json.loads(f.read())\n                if new_dict is not None:\n                    self.__dict__ = dict(self.__dict__.items() + new_dict.items())\n\n\n# Holds information about the current project and build environment.\n#\nclass Project:\n\n    def __init__(self, filename):\n        sourcecode_types = ['sourcecode.c.c',\n                            'sourcecode.c.objc',\n                            'sourcecode.cpp.cpp',\n                            'sourcecode.cpp.objcpp',\n                            'sourcecode.asm.asm',\n                            'sourcecode.asm.llvm',\n                            'sourcecode.nasm']\n\n        self.build_state = BuildState()\n        self.project_data = self.load_from_file(filename)\n        self.target = filter(lambda x: x['name'] == os.environ['TARGET_NAME'], self.project_data['targets'])[0]\n        self.public_headers = self.get_build_phase_files('PBXHeadersBuildPhase', lambda x: x.get('settings', False) and x['settings'].get('ATTRIBUTES', False) and 'Public' in x['settings']['ATTRIBUTES'])\n        self.static_libraries = self.get_build_phase_files('PBXFrameworksBuildPhase', lambda x: x['fileRef']['fileType'] == 'archive.ar' and x['fileRef']['sourceTree'] not in ['DEVELOPER_DIR', 'SDKROOT'])\n        self.static_frameworks = self.get_build_phase_files('PBXFrameworksBuildPhase', lambda x: x['fileRef']['fileType'] == 'wrapper.framework' and x['fileRef']['sourceTree'] not in ['DEVELOPER_DIR', 'SDKROOT'])\n        self.compilable_sources = self.get_build_phase_files('PBXSourcesBuildPhase', lambda x: x['fileRef']['fileType'] in sourcecode_types)\n        self.header_paths = [os.path.join(*x['pathComponents']) for x in self.public_headers]\n\n        self.headers_dir = os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['CONTENTS_FOLDER_PATH'], 'Headers')\n        self.libtool_path = os.path.join(os.environ['DT_TOOLCHAIN_DIR'], 'usr', 'bin', 'libtool')\n        self.project_filename = os.path.join(os.environ['PROJECT_FILE_PATH'], \"project.pbxproj\")\n        self.local_exe_path = os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['EXECUTABLE_PATH'])\n        self.local_architectures = os.environ['ARCHS'].split(' ')\n        self.local_built_fw_path = os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['WRAPPER_NAME'])\n        self.local_built_embedded_fw_path = os.path.splitext(self.local_built_fw_path)[0] + \".embeddedframework\"\n        self.local_linked_archive_paths = [self.get_linked_ufw_archive_path(arch) for arch in self.local_architectures]\n        self.local_platform = os.environ['PLATFORM_NAME']\n        other_platforms = os.environ['SUPPORTED_PLATFORMS'].split(' ')\n        other_platforms.remove(self.local_platform)\n        self.other_platform = other_platforms[0]\n\n        sdk_name = os.environ['SDK_NAME']\n        if not sdk_name.startswith(self.local_platform):\n            raise Exception(\"%s didn't start with %s\" % (sdk_name, self.local_platform))\n        self.sdk_version = sdk_name[len(self.local_platform):]\n\n    # Load an Xcode project file.\n    #\n    def load_from_file(self, filename):\n        project_file = json.loads(subprocess.check_output([\"plutil\", \"-convert\", \"json\", \"-o\", \"-\", filename]))\n        all_objects = project_file['objects']\n        del project_file['objects']\n        for obj in all_objects.values():\n            self.fix_keys(obj)\n        self.unpack_objects(self.build_dereference_list(all_objects, None, None, project_file))\n        self.unpack_objects(self.build_dereference_list(all_objects, None, None, all_objects.values()))\n        project_data = project_file['rootObject']\n        self.build_full_paths(project_data, splitpath(os.environ['SOURCE_ROOT']))\n        return project_data\n\n    def is_key(self, obj):        \n        return isinstance(obj, basestring) and len(obj) == 24 and re.search('^[0-9a-fA-F]+$', obj) is not None\n    \n    def build_dereference_list(self, all_objects, parent, key, obj):\n        deref_list = []\n        if self.is_key(obj):\n            dereferenced = all_objects.get(obj, obj)\n            if dereferenced is not obj:\n                deref_list.append((parent, key, obj, dereferenced))\n        elif isinstance(obj, collections.Mapping):\n            for k, v in obj.iteritems():\n                deref_list += self.build_dereference_list(all_objects, obj, k, v)\n        elif isinstance(obj, collections.Iterable) and not isinstance(obj, basestring):\n            for item in obj:\n                deref_list += self.build_dereference_list(all_objects, obj, None, item)\n        return deref_list\n    \n    def unpack_objects(self, deref_list):\n        for parent, key, orig, obj in deref_list:\n            if key is None:\n                parent.remove(orig)\n                parent.append(obj)\n            else:\n                parent[key] = obj\n\n    # Store the full path, separated into components, to a node inside the node\n    # as \"pathComponents\". Also recurse into that node if it's a group.\n    #\n    def build_full_paths(self, node, base_path):\n        # Some nodes are relative to a different source tree, specified as an\n        # env variable.\n        if node.get('sourceTree', '<group>') != '<group>':\n            new_base_path = os.environ.get(node['sourceTree'], None)\n            if new_base_path:\n                base_path = splitpath(new_base_path)\n        # Add the current node's path, if any.\n        if node.get('path', False):\n            base_path = base_path + splitpath(node['path'])\n        node['pathComponents'] = base_path\n        # Recurse if this is a group.\n        if node['isa'] == 'PBXGroup':\n            for child in node['children']:\n                self.build_full_paths(child, base_path)\n        elif node['isa'] == 'PBXProject':\n            self.build_full_paths(node['mainGroup'], base_path)\n            self.build_full_paths(node['productRefGroup'], base_path)\n            for child in node['targets']:\n                self.build_full_paths(child, base_path)\n            projectRefs = node.get('projectReferences', None)\n            if projectRefs is not None:\n                for child in projectRefs[0].values():\n                    self.build_full_paths(child, base_path)\n\n    # Fix up any inconvenient keys.\n    #\n    def fix_keys(self, obj):\n        key_remappings = {'lastKnownFileType': 'fileType', 'explicitFileType': 'fileType'}\n        for key in list(set(key_remappings.keys()) & set(obj.keys())):\n            obj[key_remappings[key]] = obj[key]\n            del obj[key]\n\n    # Get the files from a build phase.\n    #\n    def get_build_phase_files(self, build_phase_name, filter_func):\n        build_phase = filter(lambda x: x['isa'] == build_phase_name, self.target['buildPhases'])[0]\n        build_files = filter(filter_func, build_phase['files'])\n        return [x['fileRef'] for x in build_files]\n\n    # Get the truncated paths of all headers that start with the specified\n    # relative path. Paths are read and returned as fully separated lists.\n    # e.g. ['Some', 'Path', 'To', 'A', 'Header'] with relative_path of\n    # ['Some', 'Path'] gets truncated to ['To', 'A', 'Header']\n    #\n    def movable_headers_relative_to(self, relative_path):\n        rel_path_length = len(relative_path)\n        result = filter(lambda path: len(path) >= rel_path_length and\n                                     path[:rel_path_length] == relative_path, self.header_paths)\n        return [path[rel_path_length:] for path in result]\n\n    # Get the full path to where a linkable archive (library or framework)\n    # is supposed to be.\n    #\n    def get_linked_archive_path(self, architecture):\n        return os.path.join(os.environ['OBJECT_FILE_DIR_%s' % os.environ['CURRENT_VARIANT']],\n                            architecture,\n                            os.environ['EXECUTABLE_NAME'])\n\n    # Get the full path to our custom linked archive of the project.\n    #\n    def get_linked_ufw_archive_path(self, architecture):\n        return self.get_linked_archive_path(architecture) + \".ufwbuild\"\n\n    # Get the full path to the executable of an archive.\n    #\n    def get_exe_path(self, node):\n        path = os.path.join(*node['pathComponents'])\n        if node['fileType'] == 'wrapper.framework':\n            # Frameworks are directories, so go one deeper\n            path = os.path.join(path, os.path.splitext(node['pathComponents'][-1])[0])\n        return path\n\n    # Get the path to the directory containing the archive.\n    #\n    def get_containing_path(self, node):\n        return os.path.join(*node['pathComponents'])\n    \n    def get_archive_search_paths(self):\n        log.info(\"Search paths = %s\" % set([self.get_containing_path(fw) for fw in self.static_frameworks] + [self.get_containing_path(fw) for fw in self.static_libraries]))\n        return set([self.get_containing_path(fw) for fw in self.static_frameworks] + [self.get_containing_path(fw) for fw in self.static_libraries])\n\n    # Command to link all objects of a single architecture.\n    #\n    def get_single_arch_link_command(self, architecture):\n        cmd = [self.libtool_path,\n               \"-static\",\n               \"-arch_only\", architecture,\n               \"-syslibroot\", os.environ['SDKROOT'],\n               \"-L%s\" % os.environ['TARGET_BUILD_DIR'],\n               \"-filelist\", os.environ['LINK_FILE_LIST_%s_%s' % (os.environ['CURRENT_VARIANT'], architecture)]]\n        if os.environ.get('OTHER_LDFLAGS', False):\n            cmd += [os.environ['OTHER_LDFLAGS']]\n        if os.environ.get('WARNING_LDFLAGS', False):\n            cmd += [os.environ['WARNING_LDFLAGS']]\n#        cmd += [\"-L%s\" % libpath for libpath in self.get_archive_search_paths()]\n        cmd += [self.get_exe_path(fw) for fw in self.static_frameworks]\n        cmd += [self.get_exe_path(lib) for lib in self.static_libraries]\n        cmd += [\"-o\", self.get_linked_ufw_archive_path(architecture)]\n        return cmd\n\n    # Command to link all local architectures for the current configuration\n    # into an archive. This reads all libraries + the UFW-built archives and\n    # overwrites the final product.\n    #\n    def get_local_archs_link_command(self):\n        cmd = [self.libtool_path,\n               \"-static\"]\n        cmd += self.local_linked_archive_paths\n        cmd += [self.get_exe_path(fw) for fw in self.static_frameworks]\n        cmd += [self.get_exe_path(lib) for lib in self.static_libraries]\n        cmd += [\"-o\", os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['EXECUTABLE_PATH'])]\n        return cmd\n\n    # Command to link all architectures into a universal archive.\n    # This reads all UFW-built archives and overwrites the final product.\n    #\n    def get_all_archs_link_command(self):\n        cmd = [self.libtool_path,\n               \"-static\"]\n        cmd += self.local_linked_archive_paths + self.build_state.slave_linked_archive_paths\n        cmd += [\"-o\", os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['EXECUTABLE_PATH'])]\n        return cmd\n\n    # Build up an environment for the slave process. This uses BUILD_ROOT\n    # and TEMP_ROOT to convert all environment variables to values suitable\n    # for the slave build environment so that xcodebuild doesn't try to build\n    # in the project directory under \"build\".\n    #\n    def get_slave_environment(self):\n        ignored = ['LD_MAP_FILE_PATH',\n        'HEADER_SEARCH_PATHS',\n        'LIBRARY_SEARCH_PATHS',\n        'FRAMEWORK_SEARCH_PATHS']\n        build_root = os.environ['BUILD_ROOT']\n        temp_root = os.environ['TEMP_ROOT']\n        newenv = {}\n        for key, value in os.environ.items():\n            if key not in ignored and not key.startswith('LINK_FILE_LIST_') and not key.startswith('LD_DEPENDENCY_'):\n                if build_root in value or temp_root in value:\n                    newenv[key] = value.replace(self.local_platform, self.other_platform)\n        return newenv\n\n    # Command to invoke xcodebuild on the slave platform.\n    #\n    def get_slave_project_build_command(self):\n        cmd = [\"xcodebuild\",\n               \"-project\",\n               os.environ['PROJECT_FILE_PATH'],\n               \"-target\",\n               os.environ['TARGET_NAME'],\n               \"-configuration\",\n               os.environ['CONFIGURATION'],\n               \"-sdk\",\n               self.other_platform + self.sdk_version]\n        cmd += [\"%s=%s\" % (key, value) for key, value in self.get_slave_environment().items()]\n        cmd += [\"UFW_MASTER_PLATFORM=\" + os.environ['PLATFORM_NAME']]\n        cmd += [os.environ['ACTION']]\n        return cmd\n\n\n\n##############################################################################\n#\n# Utility Functions\n#\n##############################################################################\n\n# Split a path into a list of path components.\n#\ndef splitpath(path, maxdepth=20):\n     (head, tail) = os.path.split(path)\n     return splitpath(head, maxdepth - 1) + [tail] if maxdepth and head and head != path else [ head or tail ]\n\n# Remove all subdirectories under a path.\n#\ndef remove_subdirs(path, ignore_files):\n    if os.path.exists(path):\n        for filename in filter(lambda x: x not in ignore_files, os.listdir(path)):\n            fullpath = os.path.join(path, filename)\n            if os.path.isdir(fullpath):\n                log.info(\"Remove %s\" % fullpath)\n                shutil.rmtree(fullpath)\n\n# Make whatever parent paths are necessary for a path to exist.\n#\ndef ensure_path_exists(path):\n    if not os.path.isdir(path):\n        os.makedirs(path)\n\n# Make whatever parent paths are necessary for a path's parent to exist.\n#\ndef ensure_parent_exists(path):\n    parent = os.path.dirname(path)\n    if not os.path.isdir(parent):\n        os.makedirs(parent)\n\n# Remove a file or dir if it exists.\n#\ndef remove_path(path):\n    if os.path.exists(path):\n        if os.path.isdir(path) and not os.path.islink(path):\n            shutil.rmtree(path)\n        else:\n            os.remove(path)\n\n# Move a file or dir, replacing the destination if it exists.\n#\ndef move_file(src, dst):\n    if src == dst or not os.path.isfile(src):\n        return\n    log.info(\"Move %s to %s\" % (src, dst))\n    ensure_parent_exists(dst)\n    remove_path(dst)\n    shutil.move(src, dst)\n\n# Copy a file or dir, replacing the destination if it exists already.\n#\ndef copy_overwrite(src, dst):\n    if src != dst:\n        remove_path(dst)\n        ensure_parent_exists(dst)\n        shutil.copytree(src, dst, symlinks=True)\n\n# Attempt to symlink link_path -> link_to.\n# link_to must be a path relative to link_path's parent and must exist.\n# If link_path already exists, do nothing.\n#\ndef attempt_symlink(link_path, link_to):\n    # Only allow linking to an existing file\n    os.stat(os.path.abspath(os.path.join(link_path, \"..\", link_to)))\n\n    # Only make the link if it hasn't already been made\n    if not os.path.exists(link_path):\n        log.info(\"Symlink %s -> %s\" % (link_path, link_to))\n        os.symlink(link_to, link_path)\n\n# Takes the last entry in an array-based path and returns a normal path\n# relative to base_path.\n#\ndef top_level_file_path(base_path, path_list):\n    return os.path.join(base_path, os.path.split(path_list[-1])[-1])\n\n# Takes all entries in an array-based path and returns a normal path\n# relative to base_path.\n#\ndef full_file_path(base_path, path_list):\n    return os.path.join(*([base_path] + path_list))\n\n# Print a command before executing it.\n# Also print out all output from the command to STDOUT.\n#\ndef print_and_call(cmd):\n    log.info(\"Cmd \" + \" \".join(cmd))\n    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n    result = p.communicate()[0]\n    if len(result) > 0:\n        log.info(result)\n    if p.returncode != 0:\n        raise subprocess.CalledProcessError(p.returncode, cmd)\n\n# Special print-and-call command for the slave build that strips out\n# xcodebuild's spammy list of environment variables.\n#\ndef print_and_call_slave_build(cmd, other_platform):\n    separator = '=== BUILD NATIVE TARGET '\n    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n    result = p.communicate()[0].split(separator)\n    if len(result) == 1:\n        result = result[0]\n    else:\n        result = separator + result[1]\n    log.info(\"Cmd \" + \" \".join(cmd) + \"\\n\" + result)\n    if p.returncode != 0:\n        raise subprocess.CalledProcessError(p.returncode, cmd)\n\n# Issue a warning and record that a warning has been issued.\n#\ndef issue_warning(msg, *args, **kwargs):\n    global issued_warnings\n    issued_warnings = True\n    log.warn(msg, *args, **kwargs)\n\n\n\n##############################################################################\n#\n# Main Application\n#\n##############################################################################\n\n# Check if we are running as master.\n#\ndef is_master():\n    return os.environ.get('UFW_MASTER_PLATFORM', os.environ['PLATFORM_NAME']) == os.environ['PLATFORM_NAME']\n\n# DerivedData should almost never appear in any framework, library, or header\n# search paths. However, Xcode will sometimes add them in, so we check to make\n# sure.\n#\ndef check_for_derived_data_in_search_paths(project):\n    search_path_keys = [\"FRAMEWORK_SEARCH_PATHS\", \"LIBRARY_SEARCH_PATHS\", \"HEADER_SEARCH_PATHS\"]\n    build_configs = project.target['buildConfigurationList']['buildConfigurations']\n    build_settings = filter(lambda x: x['name'] == os.environ['CONFIGURATION'], build_configs)[0]['buildSettings']\n    \n    found_something = False\n    for path_key in filter(lambda x: x in build_settings, search_path_keys):\n        path = build_settings[path_key]\n        if \"DerivedData\" in path:\n            found_something = True\n            log.warn(\"Derived data in %s\" % path)\n            issue_warning(\"'%s' contains reference to 'DerivedData'.\" % path_key)\n    if found_something:\n        log.warn(\"Check your build settings and remove any entries that contain paths inside the DerivedData folder.\")\n        log.warn(\"Otherwise you can disable this warning by changing 'config_warn_derived_data' in this script.\")\n\n# Link local architectures into their respective archives.\n#\ndef link_local_archs(project):\n    for arch in project.local_architectures:\n        print_and_call(project.get_single_arch_link_command(arch))\n\n# Link only the local architectures into the final product, not the slave\n# architectures. For iphoneos, this will be armv6, armv7. For simulator, this\n# will be i386.\n#\ndef link_combine_local_archs(project):\n    print_and_call(project.get_local_archs_link_command())\n\n# Link all architectures into the final product.\n#\ndef link_combine_all_archs(project):\n    print_and_call(project.get_all_archs_link_command())\n\n# Check if we should open the build directory after a successful build.\n#\ndef should_open_build_dir():\n    env_setting = os.environ.get('UFW_OPEN_BUILD_DIR', None)\n    if env_setting is not None:\n        return env_setting\n    \n    # If building on Xcode Bots shouldn't open build directory.\n    build_user = os.environ['USER']\n    if build_user == '_teamsserver':\n        return False\n\n    return config_open_build_dir\n\n# Open the build dir in Finder.\n#\ndef open_build_dir():\n    print_and_call(['open', os.environ['TARGET_BUILD_DIR']])\n\n# Check if the build was started by selecting \"Archive\" under \"Product\" in\n# Xcode.\n#\ndef is_archive_build():\n    # ACTION is always 'build', but perhaps Apple will fix this someday?\n    archive_build = os.environ['ACTION'] == 'archive'\n\n    if not archive_build:\n        # This can be passed in as an env variable when building from command line.\n        archive_build = os.environ.get('UFW_ACTION', None) == 'archive'\n\n    build_dir = splitpath(os.environ['BUILD_DIR'])\n    if not archive_build:\n        # This partial path is used when you select \"archive\" from within Xcode.\n        archive_build = 'ArchiveIntermediates' in build_dir\n\n    # It only counts as a full archive build if this target is being built into\n    # its own build dir (not being built as a dependency of another target)\n    if archive_build:\n        archive_build = os.environ['TARGET_NAME'] in build_dir\n    \n    return archive_build\n\n# Xcode by default throws all public headers into the top level directory.\n# This function moves them to their expected deep hierarchy.\n#\ndef build_deep_header_hierarchy(project):\n    header_path_top = config_deep_header_top\n    if not header_path_top:\n        header_path_top = os.path.commonprefix(project.header_paths)\n    else:\n        header_path_top = splitpath(header_path_top)\n\n    built_headers_path = os.path.join(os.environ['TARGET_BUILD_DIR'], os.environ['PUBLIC_HEADERS_FOLDER_PATH'])\n    movable_headers = project.movable_headers_relative_to(header_path_top)\n\n    # Remove subdirs if they only contain files that have been rebuilt\n    ignore_headers = filter(lambda x: not os.path.isfile(top_level_file_path(built_headers_path, x)), movable_headers)\n    remove_subdirs(built_headers_path, [file[0] for file in ignore_headers])\n\n    # Move rebuilt headers into their proper subdirs\n    for header in movable_headers:\n        move_file(top_level_file_path(built_headers_path, header), full_file_path(built_headers_path, header))\n\n# Add all symlinks needed to make a full framework structure:\n#\n# MyFramework.framework\n# |-- MyFramework -> Versions/Current/MyFramework\n# |-- Headers -> Versions/Current/Headers\n# |-- Resources -> Versions/Current/Resources\n# `-- Versions\n#     |-- A\n#     |   |-- MyFramework\n#     |   |-- Headers\n#     |   |   `-- MyFramework.h\n#     |   `-- Resources\n#     |       |-- Info.plist\n#     |       |-- MyViewController.nib\n#     |       `-- en.lproj\n#     |           `-- InfoPlist.strings\n#     `-- Current -> A\n#\ndef add_symlinks_to_framework(project):\n    base_dir = project.local_built_fw_path\n    attempt_symlink(os.path.join(base_dir, \"Versions\", \"Current\"), os.environ['FRAMEWORK_VERSION'])\n    if os.path.isdir(os.path.join(base_dir, \"Versions\", \"Current\", \"Headers\")):\n        attempt_symlink(os.path.join(base_dir, \"Headers\"), os.path.join(\"Versions\", \"Current\", \"Headers\"))\n    if os.path.isdir(os.path.join(base_dir, \"Versions\", \"Current\", \"Resources\")):\n        attempt_symlink(os.path.join(base_dir, \"Resources\"), os.path.join(\"Versions\", \"Current\", \"Resources\"))\n    attempt_symlink(os.path.join(base_dir, os.environ['EXECUTABLE_NAME']), os.path.join(\"Versions\", \"Current\", os.environ['EXECUTABLE_NAME']))\n\n# Build an embedded framework structure.\n# An embedded framework contains the actual framework, plus a \"Resources\"\n# directory containing symlinks to all resources found in the actual framework,\n# with the exception of \"Info.plist\" and anything ending in \".lproj\":\n#\n# MyFramework.embeddedframework\n# |-- MyFramework.framework\n# |   |-- MyFramework -> Versions/Current/MyFramework\n# |   |-- Headers -> Versions/Current/Headers\n# |   |-- Resources -> Versions/Current/Resources\n# |   `-- Versions\n# |       |-- A\n# |       |   |-- MyFramework\n# |       |   |-- Headers\n# |       |   |   `-- MyFramework.h\n# |       |   `-- Resources\n# |       |       |-- Info.plist\n# |       |       |-- MyViewController.nib\n# |       |       `-- en.lproj\n# |       |           `-- InfoPlist.strings\n# |       `-- Current -> A\n# `-- Resources\n#     `-- MyViewController.nib -> ../MyFramework.framework/Resources/MyViewController.nib\n#\ndef build_embedded_framework(project):\n    fw_path = project.local_built_fw_path\n    embedded_path = project.local_built_embedded_fw_path\n    fw_name = os.environ['WRAPPER_NAME']\n\n    if (os.path.islink(fw_path)):\n        # If the framework path is a link, the build result already in embeddedframework.\n        # Just recreate embeddedframework's Resources\n        remove_path(os.path.join(embedded_path, \"Resources\"))\n    else:\n        remove_path(embedded_path)\n        ensure_path_exists(embedded_path)\n        copy_overwrite(fw_path, os.path.join(embedded_path, fw_name))\n\n    # Create embeddedframework's Resources        \n    ensure_path_exists(os.path.join(embedded_path, \"Resources\"))\n    symlink_source = os.path.join(\"..\", fw_name, \"Resources\")\n    symlink_path = os.path.join(embedded_path, \"Resources\")\n    if os.path.isdir(os.path.join(fw_path, \"Resources\")):\n        for file in filter(lambda x: x != \"Info.plist\" and not x.endswith(\".lproj\"), os.listdir(os.path.join(fw_path, \"Resources\"))):\n            attempt_symlink(os.path.join(symlink_path, file), os.path.join(symlink_source, file))\n\n    # Remove the normal framework and replace it with a symlink to the copy\n    # in the embedded framework. This is needed because Xcode runs its strip\n    # phase AFTER the script runs.\n    embed_fw_wrapper = os.path.splitext(os.environ['WRAPPER_NAME'])[0] + \".embeddedframework\"\n    remove_path(fw_path)\n    attempt_symlink(fw_path, os.path.join(embed_fw_wrapper, os.environ['WRAPPER_NAME']))\n\n\n# Run the build process in slave mode to build the other configuration\n# (device/simulator).\n#\ndef run_slave_build(project):\n    print_and_call_slave_build(project.get_slave_project_build_command(), project.other_platform)\n\n# Run the build process.\n#\ndef run_build():\n    project = Project(os.path.join(os.environ['PROJECT_FILE_PATH'], \"project.pbxproj\"))\n\n    # Issue warnings only if we're master.\n    if is_master():\n        if len(project.compilable_sources) == 0:\n            raise Exception(\"No compilable sources found. Please add at least one source file to build target %s.\" % os.environ['TARGET_NAME'])\n\n        if config_warn_derived_data:\n            check_for_derived_data_in_search_paths(project)\n        if config_warn_no_public_headers and len(project.public_headers) == 0:\n            issue_warning('No headers in build target %s were marked public. Please move at least one header to \"Public\" in the \"Copy Headers\" build phase.' % os.environ['TARGET_NAME'])\n\n    # Only build slave if this is an archive build.\n    if is_archive_build():\n        if is_master():\n            log.debug(\"Building as MASTER\")\n            # The slave-side linker tries to include this (nonexistent) path as\n            # a library path.\n            ensure_path_exists(project.get_slave_environment()['BUILT_PRODUCTS_DIR'])\n            project.build_state.persist()\n            run_slave_build(project)\n            project.build_state.reload()\n        else:\n            log.debug(\"Building as SLAVE\")\n            project.build_state.reload()\n            project.build_state.set_slave_properties(project.local_architectures,\n                                                     project.local_linked_archive_paths,\n                                                     project.local_built_fw_path,\n                                                     project.local_built_embedded_fw_path)\n            project.build_state.persist()\n\n    link_local_archs(project)\n    \n    # Only do a universal binary when building an archive.\n    if is_archive_build() and is_master():\n        link_combine_all_archs(project)\n    else:\n        link_combine_local_archs(project)\n\n    if config_deep_header_hierarchy:\n        build_deep_header_hierarchy(project)\n\n    add_symlinks_to_framework(project)\n    \n    if is_master():\n        if config_framework_type == 'embeddedframework':\n            build_embedded_framework(project)\n        elif config_framework_type != 'framework':\n            raise Exception(\"%s: Unknown framework type for config_framework_type\" % config_framework_type)\n\n\nif __name__ == \"__main__\":\n    log_handler = logging.StreamHandler()\n    log_handler.setFormatter(logging.Formatter(\"%(name)s (\" + os.environ['PLATFORM_NAME'] + \"): %(levelname)s: %(message)s\"))\n    log.addHandler(log_handler)\n    log.setLevel(config_log_level)\n\n    error_code = 0\n    prefix = \"M\" if is_master() else \"S\"\n    log_handler.setFormatter(logging.Formatter(\"%(name)s (\" + prefix + \" \" + os.environ['PLATFORM_NAME'] + \"): %(levelname)s: %(message)s\"))\n\n    log.debug(\"Begin build process\")\n\n    if config_deep_header_top:\n        config_deep_header_top = string.Template(config_deep_header_top).substitute(os.environ)\n\n    try:\n        run_build()\n        if issued_warnings:\n            if config_fail_on_warnings:\n                error_code = 1\n            log.warn(\"Build completed with warnings\")\n        else:\n            log.info(\"Build completed\")\n        if not is_archive_build():\n            log.info(\"Note: This is *NOT* a universal framework build. To build as a universal framework, do an archive build.\")\n            log.info(\"To do an archive build from command line, use \\\"xcodebuild -configuration Release UFW_ACTION=archive clean build\\\"\")\n    except Exception:\n        traceback.print_exc(file=sys.stdout)\n        error_code = 1\n        log.error(\"Build failed\")\n    finally:\n        if error_code == 0 and is_archive_build() and is_master():\n            log.info(\"Built framework is in \" + os.environ['TARGET_BUILD_DIR'])\n            if should_open_build_dir():\n                open_build_dir()\n        sys.exit(error_code)\n";
-			showEnvVarsInLog = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport FRAMEWORK_LOCN=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\n\n# Create the path to the real Headers die\nmkdir -p \"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n\n# Create the required symlinks\n/bin/ln -sfh A \"${FRAMEWORK_LOCN}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${FRAMEWORK_LOCN}/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \\\n\"${FRAMEWORK_LOCN}/${PRODUCT_NAME}\"\n\n# Copy the public headers into the framework\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \\\n\"${FRAMEWORK_LOCN}/Versions/A/Headers\"";
+		};
+		67D4B1731AE05C4C00B0BC4D /* Muilt Platform Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Muilt Platform Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the user's desktop\nditto \"${RW_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.framework\"\n\n# Copy the resources bundle to the user's desktop\nditto \"${BUILT_PRODUCTS_DIR}/MoipSDKResources.bundle\" \\\n\"${HOME}/Desktop/MoipSDKResources.bundle\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		67D6A9E11979A8C00069F742 /* Sources */ = {
+		67D4B0F41AE059C900B0BC4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67D6A9F51979A8C00069F742 /* MoipSDK.m in Sources */,
-				67D6AAAA1979A8E30069F742 /* MPKError.m in Sources */,
-				67D6AAF41979A8E30069F742 /* MPKMessageView.m in Sources */,
-				67D6AA911979A8E30069F742 /* MPKCheckoutViewController.m in Sources */,
-				6743E6071981949D00FE3917 /* MPKAddress.m in Sources */,
-				67D6AAAD1979A8E30069F742 /* MoipHttpRequester.m in Sources */,
-				67D6AA931979A8E30069F742 /* MPKConfiguration.m in Sources */,
-				67D6AA951979A8E30069F742 /* MPKAddressZip.m in Sources */,
-				67D6AAB51979A8E30069F742 /* MPKCreditCard.m in Sources */,
-				67D6AAA41979A8E30069F742 /* MPKUSAddressZip.m in Sources */,
-				67D6AADF1979A8E30069F742 /* MPKMessage.m in Sources */,
-				67D6AADA1979A8E30069F742 /* MPKUtilities.m in Sources */,
-				6747199A1982C0EB00A933AB /* MPKOrder.m in Sources */,
-				67D6AAF21979A8E30069F742 /* MPKBlurView.m in Sources */,
-				67D6AAD71979A8E30069F742 /* SecUtils.m in Sources */,
-				67D6AAA21979A8E30069F742 /* MPKTextField.m in Sources */,
-				67D6AAA01979A8E30069F742 /* MPKComponent.m in Sources */,
-				67D6AABE1979A8E30069F742 /* MPKPayment.m in Sources */,
-				67D6AAA61979A8E30069F742 /* MPKView.m in Sources */,
-				67D6AABC1979A8E30069F742 /* MPKFundingInstrument.m in Sources */,
-				67D6AA9B1979A8E30069F742 /* MPKCardExpiry.m in Sources */,
-				6747199E1982C11400A933AB /* MPKAmount.m in Sources */,
-				67D6AAC01979A8E30069F742 /* MPKPaymentTransaction.m in Sources */,
-				67D6AA9D1979A8E30069F742 /* MPKCardNumber.m in Sources */,
-				67D6AAAF1979A8E30069F742 /* MoipHttpResponse.m in Sources */,
-				67D6AABA1979A8E30069F742 /* MPKFee.m in Sources */,
-				677EDC6819815F1B00D6F0EF /* MPKCustomer.m in Sources */,
-				674719A21982C23000A933AB /* MPKItem.m in Sources */,
-				67D6AA971979A8E30069F742 /* MPKCard.m in Sources */,
-				67D6AAB81979A8E30069F742 /* MPKEvent.m in Sources */,
-				67D6AAB31979A8E30069F742 /* MPKCardHolder.m in Sources */,
-				67D6AA991979A8E30069F742 /* MPKCardCVC.m in Sources */,
+				67D4B0FE1AE059CA00B0BC4D /* MoipSDK.m in Sources */,
+				67D4B1521AE05A3C00B0BC4D /* MPKCardNumber.m in Sources */,
+				67D4B1501AE05A3C00B0BC4D /* MPKCardCVC.m in Sources */,
+				67D4B1571AE05A3C00B0BC4D /* MPKView.m in Sources */,
+				67D4B1591AE05A3C00B0BC4D /* MPKUtilities.m in Sources */,
+				67D4B14F1AE05A3C00B0BC4D /* MPKCard.m in Sources */,
+				67D4B1511AE05A3C00B0BC4D /* MPKCardExpiry.m in Sources */,
+				67D4B1561AE05A3C00B0BC4D /* MPKUSAddressZip.m in Sources */,
+				67D4B14E1AE05A3C00B0BC4D /* MPKAddressZip.m in Sources */,
+				67D4B1531AE05A3C00B0BC4D /* MPKComponent.m in Sources */,
+				67D4B1581AE05A3C00B0BC4D /* SecUtils.m in Sources */,
+				67D4B1541AE05A3C00B0BC4D /* MPKCreditCard.m in Sources */,
+				67D4B1551AE05A3C00B0BC4D /* MPKTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67D6A9F61979A8C00069F742 /* Sources */ = {
+		67D4B0FF1AE059CA00B0BC4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67D6AA0C1979A8C00069F742 /* MoipSDKTests.m in Sources */,
+				67D4B16D1AE05B0F00B0BC4D /* MoipSDKTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67D4B1981AE0615000B0BC4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		67D6AA011979A8C00069F742 /* PBXTargetDependency */ = {
+		67A349AE1AE0628800CA9EF1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 67D6A9E61979A8C00069F742 /* MoipSDK */;
-			targetProxy = 67D6AA001979A8C00069F742 /* PBXContainerItemProxy */;
+			target = 67D4B19B1AE0615000B0BC4D /* MoipSDKResources */;
+			targetProxy = 67A349AD1AE0628800CA9EF1 /* PBXContainerItemProxy */;
 		};
-		67D6AA031979A8C00069F742 /* PBXTargetDependency */ = {
+		67D4B1061AE059CA00B0BC4D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 67D6A9E61979A8C00069F742 /* MoipSDK */;
-			targetProxy = 67D6AA021979A8C00069F742 /* PBXContainerItemProxy */;
+			target = 67D4B0F71AE059C900B0BC4D /* MoipSDK */;
+			targetProxy = 67D4B1051AE059CA00B0BC4D /* PBXContainerItemProxy */;
+		};
+		67D4B1801AE0608800B0BC4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67D4B0F71AE059C900B0BC4D /* MoipSDK */;
+			targetProxy = 67D4B17F1AE0608800B0BC4D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		67D6A9EF1979A8C00069F742 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				67D6A9F01979A8C00069F742 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		67D6AA081979A8C00069F742 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				67D6AA091979A8C00069F742 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		67D6AA321979A8E20069F742 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				67D6AA331979A8E20069F742 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		67D6AA0D1979A8C00069F742 /* Debug */ = {
+		67D4B10A1AE059CA00B0BC4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -921,10 +642,14 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -937,13 +662,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		67D6AA0E1979A8C00069F742 /* Release */ = {
+		67D4B10B1AE059CA00B0BC4D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -958,137 +684,175 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		67D6AA101979A8C00069F742 /* Debug */ = {
+		67D4B10D1AE059CA00B0BC4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Libs",
-				);
-				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
-				INFOPLIST_FILE = "MoipSDK/MoipSDK-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				COMPRESS_PNG_FILES = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
 		};
-		67D6AA111979A8C00069F742 /* Release */ = {
+		67D4B10E1AE059CA00B0BC4D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Libs",
-				);
-				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
-				INFOPLIST_FILE = "MoipSDK/MoipSDK-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				COMPRESS_PNG_FILES = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
 		};
-		67D6AA131979A8C00069F742 /* Debug */ = {
+		67D4B1101AE059CA00B0BC4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MoipSDK.framework/Versions/A/MoipSDK";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "MoipSDKTests/MoipSDKTests-Info.plist";
+				INFOPLIST_FILE = MoipSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		67D6AA141979A8C00069F742 /* Release */ = {
+		67D4B1111AE059CA00B0BC4D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MoipSDK.framework/Versions/A/MoipSDK";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MoipSDK/MoipSDK-Prefix.pch";
-				INFOPLIST_FILE = "MoipSDKTests/MoipSDKTests-Info.plist";
+				INFOPLIST_FILE = MoipSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		67D4B1711AE05C3B00B0BC4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		67D4B1721AE05C3B00B0BC4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		67D4B1A11AE0615100B0BC4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MoipSDKResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		67D4B1A21AE0615100B0BC4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = NO;
+				INFOPLIST_FILE = MoipSDKResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		67D6A9E01979A8C00069F742 /* Build configuration list for PBXProject "MoipSDK" */ = {
+		67D4B0F31AE059C900B0BC4D /* Build configuration list for PBXProject "MoipSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67D6AA0D1979A8C00069F742 /* Debug */,
-				67D6AA0E1979A8C00069F742 /* Release */,
+				67D4B10A1AE059CA00B0BC4D /* Debug */,
+				67D4B10B1AE059CA00B0BC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		67D6AA0F1979A8C00069F742 /* Build configuration list for PBXNativeTarget "MoipSDK" */ = {
+		67D4B10C1AE059CA00B0BC4D /* Build configuration list for PBXNativeTarget "MoipSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67D6AA101979A8C00069F742 /* Debug */,
-				67D6AA111979A8C00069F742 /* Release */,
+				67D4B10D1AE059CA00B0BC4D /* Debug */,
+				67D4B10E1AE059CA00B0BC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		67D6AA121979A8C00069F742 /* Build configuration list for PBXNativeTarget "MoipSDKTests" */ = {
+		67D4B10F1AE059CA00B0BC4D /* Build configuration list for PBXNativeTarget "MoipSDKTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67D6AA131979A8C00069F742 /* Debug */,
-				67D6AA141979A8C00069F742 /* Release */,
+				67D4B1101AE059CA00B0BC4D /* Debug */,
+				67D4B1111AE059CA00B0BC4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67D4B1701AE05C3B00B0BC4D /* Build configuration list for PBXAggregateTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67D4B1711AE05C3B00B0BC4D /* Debug */,
+				67D4B1721AE05C3B00B0BC4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67D4B1A01AE0615100B0BC4D /* Build configuration list for PBXNativeTarget "MoipSDKResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67D4B1A11AE0615100B0BC4D /* Debug */,
+				67D4B1A21AE0615100B0BC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 67D6A9DD1979A8C00069F742 /* Project object */;
+	rootObject = 67D4B0F01AE059C900B0BC4D /* Project object */;
 }

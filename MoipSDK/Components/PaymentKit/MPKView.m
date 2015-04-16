@@ -29,8 +29,6 @@ static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable"
 #import "MPKCardNumber.h"
 #import "MPKCardExpiry.h"
 #import "MPKCardCVC.h"
-#import "MPKEnums.h"
-#import "MPKCheckoutViewController.h"
 
 @interface MPKView () <MPKTextFieldDelegate> {
 @private
@@ -355,9 +353,7 @@ static NSString *const kPKOldLocalizedStringsTableName = @"STPaymentLocalizable"
 {
     MPKCreditCard *card = [[MPKCreditCard alloc] init];
     card.number = [self.cardNumber string];
-    card.cvv = [self.cardCVC string];
-    card.expirationMonth = [self.cardExpiry month];
-    card.expirationYear = [self.cardExpiry year];
+    card.cvc = [self.cardCVC string];
 
     return card;
 }

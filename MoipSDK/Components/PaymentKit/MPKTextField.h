@@ -22,7 +22,7 @@
 
 + (NSString*)textByRemovingUselessSpacesFromString:(NSString*)string;
 
-@property (nonatomic, weak) id<MPKTextFieldDelegate> delegate;
+@property id<MPKTextFieldDelegate> delegate;
 
 @end
 

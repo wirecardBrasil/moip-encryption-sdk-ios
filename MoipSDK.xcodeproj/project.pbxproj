@@ -169,9 +169,7 @@
 		67D4B14D1AE05A3C00B0BC4D /* MPKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUtilities.m; sourceTree = "<group>"; };
 		67D4B15A1AE05A9100B0BC4D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		67D4B16C1AE05B0F00B0BC4D /* MoipSDKTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipSDKTests.m; sourceTree = "<group>"; };
-		67D4B17B1AE05FE900B0BC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67D4B19C1AE0615100B0BC4D /* MoipSDKResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoipSDKResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		67D4B19F1AE0615100B0BC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +204,6 @@
 			children = (
 				67D4B0FA1AE059C900B0BC4D /* MoipSDK */,
 				67D4B1071AE059CA00B0BC4D /* MoipSDKTests */,
-				67D4B1791AE05FE900B0BC4D /* MoipSDKResources */,
 				67D4B19D1AE0615100B0BC4D /* MoipSDKResources */,
 				67D4B15C1AE05AB400B0BC4D /* Frameworks */,
 				67D4B0F91AE059C900B0BC4D /* Products */,
@@ -345,22 +342,6 @@
 			path = MoipSDK.xcodeproj;
 			sourceTree = "<group>";
 		};
-		67D4B1791AE05FE900B0BC4D /* MoipSDKResources */ = {
-			isa = PBXGroup;
-			children = (
-				67D4B17A1AE05FE900B0BC4D /* Supporting Files */,
-			);
-			path = MoipSDKResources;
-			sourceTree = "<group>";
-		};
-		67D4B17A1AE05FE900B0BC4D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				67D4B17B1AE05FE900B0BC4D /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		67D4B19D1AE0615100B0BC4D /* MoipSDKResources */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,7 +353,6 @@
 		67D4B19E1AE0615100B0BC4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				67D4B19F1AE0615100B0BC4D /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

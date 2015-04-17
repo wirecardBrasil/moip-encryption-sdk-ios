@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MPKCardType.h"
 
 @interface MPKCreditCard : NSObject
 
@@ -14,5 +15,10 @@
 @property NSString *cvc;
 @property NSString *expirationMonth;
 @property NSString *expirationYear;
+
+- (BOOL) isNumberValid;
+- (BOOL) isSecurityCodeValid;
+- (BOOL) isExpiryDateValid;
+- (MPKCardType) cardType;
 
 @end

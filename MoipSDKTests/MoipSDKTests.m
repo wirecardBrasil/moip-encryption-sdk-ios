@@ -58,5 +58,71 @@
     NSLog(@"testShouldEndcryptDataWithCreditCard:\n%@", cryptData);
     XCTAssertNotNil(cryptData, @"");
 }
- 
+
+- (void) testShouldReturnTrueToCreditCard {
+    MPKCreditCard *creditCard = [MPKCreditCard new];
+    creditCard.number = @"4111111111111111";
+    
+    BOOL isValidCreditCard = creditCard.isNumberValid;
+    
+    XCTAssertTrue(isValidCreditCard);
+}
+
+- (void) testShouldReturnFalseToCreditCard {
+    MPKCreditCard *creditCard = [MPKCreditCard new];
+    creditCard.number = @"1919191919191919";
+    
+    BOOL isValidCreditCard = creditCard.isNumberValid;
+    
+    XCTAssertFalse(isValidCreditCard);
+}
+
+- (void) testShouldReturnTrueToCvc {
+    MPKCreditCard *creditCard = [MPKCreditCard new];
+    creditCard.cvc = @"123";
+    
+    BOOL isValid = creditCard.isSecurityCodeValid;
+    
+    XCTAssertTrue(isValid);
+}
+
+- (void) testShouldReturnFalseToCvc {
+    MPKCreditCard *creditCard = [MPKCreditCard new];
+    creditCard.cvc = @"13";
+    
+    BOOL isValid = creditCard.isSecurityCodeValid;
+    
+    XCTAssertFalse(isValid);
+}
+
+- (void) testShouldReturnTrueToExpiryDate {
+    MPKCreditCard *creditCard = [MPKCreditCard new];
+    creditCard.expirationMonth = @"06";
+    creditCard.expirationYear = @"2018";
+    
+    BOOL isValid = creditCard.isExpiryDateValid;
+    
+    XCTAssertTrue(isValid);
+}
+
+- (void) testShouldReturnFalseToExpiryDateYear {
+    MPKCreditCard *creditCard = [MPKCreditCard new];
+    creditCard.expirationMonth = @"06";
+    creditCard.expirationYear = @"2000";
+    
+    BOOL isValid = creditCard.isExpiryDateValid;
+    
+    XCTAssertFalse(isValid);
+}
+
+- (void) testShouldReturnFalseToExpiryDateMonth {
+    MPKCreditCard *creditCard = [MPKCreditCard new];
+    creditCard.expirationMonth = @"13";
+    creditCard.expirationYear = @"2018";
+    
+    BOOL isValid = creditCard.isExpiryDateValid;
+    
+    XCTAssertFalse(isValid);
+}
+
 @end

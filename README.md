@@ -3,6 +3,11 @@
 Veja abaixo como integrar o seu app com o Moip.
 
 
+### Instalando
+
+O SDK do Moip está no Cocoapods. Para instalar só adicionar ```pod 'MoipEncryptSDK', '~> 1.0'``` no seu ```Podfile```
+
+
 #### 1. Importar o SDK
 
 ```#import <MoipSDK/MoipSDK.h>```

@@ -26,55 +26,16 @@
 		67D4B0FC1AE059CA00B0BC4D /* MoipSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 67D4B0FB1AE059CA00B0BC4D /* MoipSDK.h */; };
 		67D4B0FE1AE059CA00B0BC4D /* MoipSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B0FD1AE059CA00B0BC4D /* MoipSDK.m */; };
 		67D4B1041AE059CA00B0BC4D /* libMoipSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D4B0F81AE059C900B0BC4D /* libMoipSDK.a */; };
-		67D4B14E1AE05A3C00B0BC4D /* MPKAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B11D1AE05A3C00B0BC4D /* MPKAddressZip.m */; };
-		67D4B14F1AE05A3C00B0BC4D /* MPKCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B11F1AE05A3C00B0BC4D /* MPKCard.m */; };
-		67D4B1501AE05A3C00B0BC4D /* MPKCardCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1211AE05A3C00B0BC4D /* MPKCardCVC.m */; };
-		67D4B1511AE05A3C00B0BC4D /* MPKCardExpiry.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1231AE05A3C00B0BC4D /* MPKCardExpiry.m */; };
-		67D4B1521AE05A3C00B0BC4D /* MPKCardNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1251AE05A3C00B0BC4D /* MPKCardNumber.m */; };
-		67D4B1531AE05A3C00B0BC4D /* MPKComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1281AE05A3C00B0BC4D /* MPKComponent.m */; };
-		67D4B1541AE05A3C00B0BC4D /* MPKCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B12A1AE05A3C00B0BC4D /* MPKCreditCard.m */; };
-		67D4B1551AE05A3C00B0BC4D /* MPKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B12C1AE05A3C00B0BC4D /* MPKTextField.m */; };
-		67D4B1561AE05A3C00B0BC4D /* MPKUSAddressZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B12E1AE05A3C00B0BC4D /* MPKUSAddressZip.m */; };
-		67D4B1571AE05A3C00B0BC4D /* MPKView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1301AE05A3C00B0BC4D /* MPKView.m */; };
 		67D4B1581AE05A3C00B0BC4D /* SecUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B1491AE05A3C00B0BC4D /* SecUtils.m */; };
 		67D4B1591AE05A3C00B0BC4D /* MPKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B14D1AE05A3C00B0BC4D /* MPKUtilities.m */; };
 		67D4B15B1AE05A9100B0BC4D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D4B15A1AE05A9100B0BC4D /* UIKit.framework */; };
-		67D4B15E1AE05AEA00B0BC4D /* MPKAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B11C1AE05A3C00B0BC4D /* MPKAddressZip.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D4B15F1AE05AEA00B0BC4D /* MPKCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B11E1AE05A3C00B0BC4D /* MPKCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D4B1601AE05AEA00B0BC4D /* MPKCardCVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1201AE05A3C00B0BC4D /* MPKCardCVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D4B1611AE05AEA00B0BC4D /* MPKCardExpiry.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1221AE05A3C00B0BC4D /* MPKCardExpiry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D4B1621AE05AEA00B0BC4D /* MPKCardNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1241AE05A3C00B0BC4D /* MPKCardNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D4B1631AE05AEA00B0BC4D /* MPKCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1261AE05A3C00B0BC4D /* MPKCardType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D4B1641AE05AEA00B0BC4D /* MPKComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1271AE05A3C00B0BC4D /* MPKComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D4B1651AE05AEA00B0BC4D /* MPKCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B1291AE05A3C00B0BC4D /* MPKCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D4B1661AE05AEA00B0BC4D /* MPKTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B12B1AE05A3C00B0BC4D /* MPKTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D4B1671AE05AEA00B0BC4D /* MPKUSAddressZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B12D1AE05A3C00B0BC4D /* MPKUSAddressZip.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67D4B1681AE05AEA00B0BC4D /* MPKView.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B12F1AE05A3C00B0BC4D /* MPKView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67D4B1691AE05AEA00B0BC4D /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B14B1AE05A3C00B0BC4D /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67D4B16A1AE05AEA00B0BC4D /* MPKUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B14C1AE05A3C00B0BC4D /* MPKUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67D4B16B1AE05AEA00B0BC4D /* MoipSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 67D4B0FB1AE059CA00B0BC4D /* MoipSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67D4B16D1AE05B0F00B0BC4D /* MoipSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D4B16C1AE05B0F00B0BC4D /* MoipSDKTests.m */; };
-		67D4B1A31AE0616300B0BC4D /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1321AE05A3C00B0BC4D /* amex.png */; };
-		67D4B1A41AE0616300B0BC4D /* amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1331AE05A3C00B0BC4D /* amex@2x.png */; };
-		67D4B1A51AE0616300B0BC4D /* cvc-amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1341AE05A3C00B0BC4D /* cvc-amex.png */; };
-		67D4B1A61AE0616300B0BC4D /* cvc-amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1351AE05A3C00B0BC4D /* cvc-amex@2x.png */; };
-		67D4B1A71AE0616300B0BC4D /* cvc.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1361AE05A3C00B0BC4D /* cvc.png */; };
-		67D4B1A81AE0616300B0BC4D /* cvc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1371AE05A3C00B0BC4D /* cvc@2x.png */; };
-		67D4B1A91AE0616300B0BC4D /* diners.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1381AE05A3C00B0BC4D /* diners.png */; };
-		67D4B1AA1AE0616300B0BC4D /* diners@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1391AE05A3C00B0BC4D /* diners@2x.png */; };
-		67D4B1AB1AE0616300B0BC4D /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13A1AE05A3C00B0BC4D /* discover.png */; };
-		67D4B1AC1AE0616300B0BC4D /* discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13B1AE05A3C00B0BC4D /* discover@2x.png */; };
-		67D4B1AD1AE0616300B0BC4D /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13C1AE05A3C00B0BC4D /* gradient@2x.png */; };
-		67D4B1AE1AE0616300B0BC4D /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13D1AE05A3C00B0BC4D /* jcb.png */; };
-		67D4B1AF1AE0616300B0BC4D /* jcb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13E1AE05A3C00B0BC4D /* jcb@2x.png */; };
-		67D4B1B01AE0616300B0BC4D /* mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B13F1AE05A3C00B0BC4D /* mastercard.png */; };
-		67D4B1B11AE0616300B0BC4D /* mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1401AE05A3C00B0BC4D /* mastercard@2x.png */; };
-		67D4B1B21AE0616300B0BC4D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1411AE05A3C00B0BC4D /* placeholder.png */; };
-		67D4B1B31AE0616300B0BC4D /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1421AE05A3C00B0BC4D /* placeholder@2x.png */; };
-		67D4B1B41AE0616300B0BC4D /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1431AE05A3C00B0BC4D /* textfield.png */; };
-		67D4B1B51AE0616300B0BC4D /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1441AE05A3C00B0BC4D /* textfield@2x.png */; };
-		67D4B1B61AE0616300B0BC4D /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1451AE05A3C00B0BC4D /* visa.png */; };
-		67D4B1B71AE0616300B0BC4D /* visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D4B1461AE05A3C00B0BC4D /* visa@2x.png */; };
+		6AB21B841B2B6BCA001BD44C /* MPKCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AB21B821B2B6BCA001BD44C /* MPKCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6AB21B851B2B6BCA001BD44C /* MPKCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB21B831B2B6BCA001BD44C /* MPKCreditCard.m */; };
+		6AB21B871B2B6BED001BD44C /* MPKCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AB21B861B2B6BED001BD44C /* MPKCardType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,48 +81,6 @@
 		67D4B0FD1AE059CA00B0BC4D /* MoipSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoipSDK.m; sourceTree = "<group>"; };
 		67D4B1031AE059CA00B0BC4D /* MoipSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoipSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		67D4B1091AE059CA00B0BC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67D4B11C1AE05A3C00B0BC4D /* MPKAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKAddressZip.h; sourceTree = "<group>"; };
-		67D4B11D1AE05A3C00B0BC4D /* MPKAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKAddressZip.m; sourceTree = "<group>"; };
-		67D4B11E1AE05A3C00B0BC4D /* MPKCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCard.h; sourceTree = "<group>"; };
-		67D4B11F1AE05A3C00B0BC4D /* MPKCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCard.m; sourceTree = "<group>"; };
-		67D4B1201AE05A3C00B0BC4D /* MPKCardCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardCVC.h; sourceTree = "<group>"; };
-		67D4B1211AE05A3C00B0BC4D /* MPKCardCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardCVC.m; sourceTree = "<group>"; };
-		67D4B1221AE05A3C00B0BC4D /* MPKCardExpiry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardExpiry.h; sourceTree = "<group>"; };
-		67D4B1231AE05A3C00B0BC4D /* MPKCardExpiry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardExpiry.m; sourceTree = "<group>"; };
-		67D4B1241AE05A3C00B0BC4D /* MPKCardNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardNumber.h; sourceTree = "<group>"; };
-		67D4B1251AE05A3C00B0BC4D /* MPKCardNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCardNumber.m; sourceTree = "<group>"; };
-		67D4B1261AE05A3C00B0BC4D /* MPKCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardType.h; sourceTree = "<group>"; };
-		67D4B1271AE05A3C00B0BC4D /* MPKComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKComponent.h; sourceTree = "<group>"; };
-		67D4B1281AE05A3C00B0BC4D /* MPKComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKComponent.m; sourceTree = "<group>"; };
-		67D4B1291AE05A3C00B0BC4D /* MPKCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCreditCard.h; sourceTree = "<group>"; };
-		67D4B12A1AE05A3C00B0BC4D /* MPKCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCreditCard.m; sourceTree = "<group>"; };
-		67D4B12B1AE05A3C00B0BC4D /* MPKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKTextField.h; sourceTree = "<group>"; };
-		67D4B12C1AE05A3C00B0BC4D /* MPKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKTextField.m; sourceTree = "<group>"; };
-		67D4B12D1AE05A3C00B0BC4D /* MPKUSAddressZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKUSAddressZip.h; sourceTree = "<group>"; };
-		67D4B12E1AE05A3C00B0BC4D /* MPKUSAddressZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKUSAddressZip.m; sourceTree = "<group>"; };
-		67D4B12F1AE05A3C00B0BC4D /* MPKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKView.h; sourceTree = "<group>"; };
-		67D4B1301AE05A3C00B0BC4D /* MPKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKView.m; sourceTree = "<group>"; };
-		67D4B1321AE05A3C00B0BC4D /* amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex.png; sourceTree = "<group>"; };
-		67D4B1331AE05A3C00B0BC4D /* amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "amex@2x.png"; sourceTree = "<group>"; };
-		67D4B1341AE05A3C00B0BC4D /* cvc-amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc-amex.png"; sourceTree = "<group>"; };
-		67D4B1351AE05A3C00B0BC4D /* cvc-amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc-amex@2x.png"; sourceTree = "<group>"; };
-		67D4B1361AE05A3C00B0BC4D /* cvc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cvc.png; sourceTree = "<group>"; };
-		67D4B1371AE05A3C00B0BC4D /* cvc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cvc@2x.png"; sourceTree = "<group>"; };
-		67D4B1381AE05A3C00B0BC4D /* diners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diners.png; sourceTree = "<group>"; };
-		67D4B1391AE05A3C00B0BC4D /* diners@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diners@2x.png"; sourceTree = "<group>"; };
-		67D4B13A1AE05A3C00B0BC4D /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
-		67D4B13B1AE05A3C00B0BC4D /* discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discover@2x.png"; sourceTree = "<group>"; };
-		67D4B13C1AE05A3C00B0BC4D /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient@2x.png"; sourceTree = "<group>"; };
-		67D4B13D1AE05A3C00B0BC4D /* jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jcb.png; sourceTree = "<group>"; };
-		67D4B13E1AE05A3C00B0BC4D /* jcb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jcb@2x.png"; sourceTree = "<group>"; };
-		67D4B13F1AE05A3C00B0BC4D /* mastercard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mastercard.png; sourceTree = "<group>"; };
-		67D4B1401AE05A3C00B0BC4D /* mastercard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mastercard@2x.png"; sourceTree = "<group>"; };
-		67D4B1411AE05A3C00B0BC4D /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		67D4B1421AE05A3C00B0BC4D /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
-		67D4B1431AE05A3C00B0BC4D /* textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield.png; sourceTree = "<group>"; };
-		67D4B1441AE05A3C00B0BC4D /* textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield@2x.png"; sourceTree = "<group>"; };
-		67D4B1451AE05A3C00B0BC4D /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
-		67D4B1461AE05A3C00B0BC4D /* visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa@2x.png"; sourceTree = "<group>"; };
 		67D4B1481AE05A3C00B0BC4D /* SecUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecUtils.h; sourceTree = "<group>"; };
 		67D4B1491AE05A3C00B0BC4D /* SecUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecUtils.m; sourceTree = "<group>"; };
 		67D4B14B1AE05A3C00B0BC4D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -170,6 +89,9 @@
 		67D4B15A1AE05A9100B0BC4D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		67D4B16C1AE05B0F00B0BC4D /* MoipSDKTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoipSDKTests.m; sourceTree = "<group>"; };
 		67D4B19C1AE0615100B0BC4D /* MoipSDKResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoipSDKResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AB21B821B2B6BCA001BD44C /* MPKCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCreditCard.h; sourceTree = "<group>"; };
+		6AB21B831B2B6BCA001BD44C /* MPKCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPKCreditCard.m; sourceTree = "<group>"; };
+		6AB21B861B2B6BED001BD44C /* MPKCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPKCardType.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,8 +145,7 @@
 		67D4B0FA1AE059C900B0BC4D /* MoipSDK */ = {
 			isa = PBXGroup;
 			children = (
-				67D4B11A1AE05A3C00B0BC4D /* Components */,
-				67D4B1311AE05A3C00B0BC4D /* Resources */,
+				6AB21B811B2B6BCA001BD44C /* Components */,
 				67D4B1471AE05A3C00B0BC4D /* SecurityUtil */,
 				67D4B14A1AE05A3C00B0BC4D /* Utils */,
 				67D4B0FB1AE059CA00B0BC4D /* MoipSDK.h */,
@@ -248,70 +169,6 @@
 				67D4B1091AE059CA00B0BC4D /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		67D4B11A1AE05A3C00B0BC4D /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				67D4B11B1AE05A3C00B0BC4D /* PaymentKit */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		67D4B11B1AE05A3C00B0BC4D /* PaymentKit */ = {
-			isa = PBXGroup;
-			children = (
-				67D4B11C1AE05A3C00B0BC4D /* MPKAddressZip.h */,
-				67D4B11D1AE05A3C00B0BC4D /* MPKAddressZip.m */,
-				67D4B11E1AE05A3C00B0BC4D /* MPKCard.h */,
-				67D4B11F1AE05A3C00B0BC4D /* MPKCard.m */,
-				67D4B1201AE05A3C00B0BC4D /* MPKCardCVC.h */,
-				67D4B1211AE05A3C00B0BC4D /* MPKCardCVC.m */,
-				67D4B1221AE05A3C00B0BC4D /* MPKCardExpiry.h */,
-				67D4B1231AE05A3C00B0BC4D /* MPKCardExpiry.m */,
-				67D4B1241AE05A3C00B0BC4D /* MPKCardNumber.h */,
-				67D4B1251AE05A3C00B0BC4D /* MPKCardNumber.m */,
-				67D4B1261AE05A3C00B0BC4D /* MPKCardType.h */,
-				67D4B1271AE05A3C00B0BC4D /* MPKComponent.h */,
-				67D4B1281AE05A3C00B0BC4D /* MPKComponent.m */,
-				67D4B1291AE05A3C00B0BC4D /* MPKCreditCard.h */,
-				67D4B12A1AE05A3C00B0BC4D /* MPKCreditCard.m */,
-				67D4B12B1AE05A3C00B0BC4D /* MPKTextField.h */,
-				67D4B12C1AE05A3C00B0BC4D /* MPKTextField.m */,
-				67D4B12D1AE05A3C00B0BC4D /* MPKUSAddressZip.h */,
-				67D4B12E1AE05A3C00B0BC4D /* MPKUSAddressZip.m */,
-				67D4B12F1AE05A3C00B0BC4D /* MPKView.h */,
-				67D4B1301AE05A3C00B0BC4D /* MPKView.m */,
-			);
-			path = PaymentKit;
-			sourceTree = "<group>";
-		};
-		67D4B1311AE05A3C00B0BC4D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				67D4B1321AE05A3C00B0BC4D /* amex.png */,
-				67D4B1331AE05A3C00B0BC4D /* amex@2x.png */,
-				67D4B1341AE05A3C00B0BC4D /* cvc-amex.png */,
-				67D4B1351AE05A3C00B0BC4D /* cvc-amex@2x.png */,
-				67D4B1361AE05A3C00B0BC4D /* cvc.png */,
-				67D4B1371AE05A3C00B0BC4D /* cvc@2x.png */,
-				67D4B1381AE05A3C00B0BC4D /* diners.png */,
-				67D4B1391AE05A3C00B0BC4D /* diners@2x.png */,
-				67D4B13A1AE05A3C00B0BC4D /* discover.png */,
-				67D4B13B1AE05A3C00B0BC4D /* discover@2x.png */,
-				67D4B13C1AE05A3C00B0BC4D /* gradient@2x.png */,
-				67D4B13D1AE05A3C00B0BC4D /* jcb.png */,
-				67D4B13E1AE05A3C00B0BC4D /* jcb@2x.png */,
-				67D4B13F1AE05A3C00B0BC4D /* mastercard.png */,
-				67D4B1401AE05A3C00B0BC4D /* mastercard@2x.png */,
-				67D4B1411AE05A3C00B0BC4D /* placeholder.png */,
-				67D4B1421AE05A3C00B0BC4D /* placeholder@2x.png */,
-				67D4B1431AE05A3C00B0BC4D /* textfield.png */,
-				67D4B1441AE05A3C00B0BC4D /* textfield@2x.png */,
-				67D4B1451AE05A3C00B0BC4D /* visa.png */,
-				67D4B1461AE05A3C00B0BC4D /* visa@2x.png */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		67D4B1471AE05A3C00B0BC4D /* SecurityUtil */ = {
@@ -357,6 +214,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6AB21B811B2B6BCA001BD44C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6AB21B861B2B6BED001BD44C /* MPKCardType.h */,
+				6AB21B821B2B6BCA001BD44C /* MPKCreditCard.h */,
+				6AB21B831B2B6BCA001BD44C /* MPKCreditCard.m */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -364,19 +231,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67D4B15E1AE05AEA00B0BC4D /* MPKAddressZip.h in Headers */,
-				67D4B15F1AE05AEA00B0BC4D /* MPKCard.h in Headers */,
-				67D4B1601AE05AEA00B0BC4D /* MPKCardCVC.h in Headers */,
-				67D4B1611AE05AEA00B0BC4D /* MPKCardExpiry.h in Headers */,
-				67D4B1621AE05AEA00B0BC4D /* MPKCardNumber.h in Headers */,
-				67D4B1631AE05AEA00B0BC4D /* MPKCardType.h in Headers */,
-				67D4B1641AE05AEA00B0BC4D /* MPKComponent.h in Headers */,
-				67D4B1651AE05AEA00B0BC4D /* MPKCreditCard.h in Headers */,
-				67D4B1661AE05AEA00B0BC4D /* MPKTextField.h in Headers */,
-				67D4B1671AE05AEA00B0BC4D /* MPKUSAddressZip.h in Headers */,
-				67D4B1681AE05AEA00B0BC4D /* MPKView.h in Headers */,
 				67D4B1691AE05AEA00B0BC4D /* Constants.h in Headers */,
 				67D4B16A1AE05AEA00B0BC4D /* MPKUtilities.h in Headers */,
+				6AB21B871B2B6BED001BD44C /* MPKCardType.h in Headers */,
+				6AB21B841B2B6BCA001BD44C /* MPKCreditCard.h in Headers */,
 				67D4B16B1AE05AEA00B0BC4D /* MoipSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,27 +351,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67D4B1A31AE0616300B0BC4D /* amex.png in Resources */,
-				67D4B1A41AE0616300B0BC4D /* amex@2x.png in Resources */,
-				67D4B1A51AE0616300B0BC4D /* cvc-amex.png in Resources */,
-				67D4B1A61AE0616300B0BC4D /* cvc-amex@2x.png in Resources */,
-				67D4B1A71AE0616300B0BC4D /* cvc.png in Resources */,
-				67D4B1A81AE0616300B0BC4D /* cvc@2x.png in Resources */,
-				67D4B1A91AE0616300B0BC4D /* diners.png in Resources */,
-				67D4B1AA1AE0616300B0BC4D /* diners@2x.png in Resources */,
-				67D4B1AB1AE0616300B0BC4D /* discover.png in Resources */,
-				67D4B1AC1AE0616300B0BC4D /* discover@2x.png in Resources */,
-				67D4B1AD1AE0616300B0BC4D /* gradient@2x.png in Resources */,
-				67D4B1AE1AE0616300B0BC4D /* jcb.png in Resources */,
-				67D4B1AF1AE0616300B0BC4D /* jcb@2x.png in Resources */,
-				67D4B1B01AE0616300B0BC4D /* mastercard.png in Resources */,
-				67D4B1B11AE0616300B0BC4D /* mastercard@2x.png in Resources */,
-				67D4B1B21AE0616300B0BC4D /* placeholder.png in Resources */,
-				67D4B1B31AE0616300B0BC4D /* placeholder@2x.png in Resources */,
-				67D4B1B41AE0616300B0BC4D /* textfield.png in Resources */,
-				67D4B1B51AE0616300B0BC4D /* textfield@2x.png in Resources */,
-				67D4B1B61AE0616300B0BC4D /* visa.png in Resources */,
-				67D4B1B71AE0616300B0BC4D /* visa@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,18 +393,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				67D4B0FE1AE059CA00B0BC4D /* MoipSDK.m in Sources */,
-				67D4B1521AE05A3C00B0BC4D /* MPKCardNumber.m in Sources */,
-				67D4B1501AE05A3C00B0BC4D /* MPKCardCVC.m in Sources */,
-				67D4B1571AE05A3C00B0BC4D /* MPKView.m in Sources */,
 				67D4B1591AE05A3C00B0BC4D /* MPKUtilities.m in Sources */,
-				67D4B14F1AE05A3C00B0BC4D /* MPKCard.m in Sources */,
-				67D4B1511AE05A3C00B0BC4D /* MPKCardExpiry.m in Sources */,
-				67D4B1561AE05A3C00B0BC4D /* MPKUSAddressZip.m in Sources */,
-				67D4B14E1AE05A3C00B0BC4D /* MPKAddressZip.m in Sources */,
-				67D4B1531AE05A3C00B0BC4D /* MPKComponent.m in Sources */,
 				67D4B1581AE05A3C00B0BC4D /* SecUtils.m in Sources */,
-				67D4B1541AE05A3C00B0BC4D /* MPKCreditCard.m in Sources */,
-				67D4B1551AE05A3C00B0BC4D /* MPKTextField.m in Sources */,
+				6AB21B851B2B6BCA001BD44C /* MPKCreditCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

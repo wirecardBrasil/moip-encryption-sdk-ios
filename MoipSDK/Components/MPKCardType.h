@@ -1,5 +1,5 @@
-#ifndef PKCardType_h
-#define PKCardType_h
+#ifndef MPKCardType_h
+#define MPKCardType_h
 
 typedef enum {
     MPKCardTypeVisa,

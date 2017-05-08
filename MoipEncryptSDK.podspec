@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MoipEncryptSDK"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "Cliente iOS para integração com as APIs v2 Moip, possibilita a criptografia de dados sensíveis de cartão de crédito."
   s.description  = <<-DESC
                    Cliente iOS para integração com as APIs v2 Moip, possibilita a criptografia de
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "https://github.com/moip/ios-sdk"
   s.license      = "MIT"
-  s.author             = { "Fernando Nazario" => "fnazarios@gmail.com" }
+  s.author             = { "Moip" => "mobile@moip.com" }
   s.platform     = :ios
   s.ios.deployment_target = "7.0"
   s.source       = { :git => "https://github.com/moip/ios-sdk.git", :tag => s.version }
